@@ -1,0 +1,113 @@
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Season Hsiao
+description: 一个人学会思考，比学会啥都强！
+author: teaper
+language: zh-CN
+timezone: Asia/Shanghai
+favicon: https://avatars2.githubusercontent.com/u/37693348?s=460&v=4
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://www.teaper.dev
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :year:month:day-:title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 0
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: replica
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/teaper/hexoblog.git
+  branch: gh-pages
+
+# Google Analytics
+ga: # GA code UA-XXXXXXXX-X
+
+#marked setting for markdown
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+
+gcs: 014633199185561276043:2e9wxqudpji # GOOGLE CUSTOM SEARCH
+baidutongji:  # BAIDU TONGJI CODE
+disqus: disqus_V0mX4OwxcA  # DISQUS ID
+
+location: 广州
+email: www@teaper.dev
+
+avatar: https://avatars2.githubusercontent.com/u/37693348?s=460&v=4
+social:
+  github: https://github.com/teaper
+  weibo: https://www.weibo.com/5806191772
+  linkedin: https://twitter.com/TEAPERS
+
+# flagcounter
+flagcounter_href: # https://info.flagcounter.com/xxxx
+flagcounter_img_src: # https://s01.flagcounter.com/xxxx
+
+# RSS
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+    hub:
+    content:
+    content_limit:
+    content_limit_delim: ' '

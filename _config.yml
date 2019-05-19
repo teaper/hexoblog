@@ -87,10 +87,7 @@ marked:
 
 gcs: 014633199185561276043:bpv9wnr4qhc # GOOGLE CUSTOM SEARCH
 baidutongji:  # BAIDU TONGJI CODE
-disqus: 
-  enable: true
-  shortname: teaperdev    #your name
-  count: true
+disqus: teaperdev
 
 location: 广州
 email: www@teaper.dev

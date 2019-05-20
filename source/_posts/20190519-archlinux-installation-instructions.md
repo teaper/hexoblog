@@ -682,7 +682,7 @@ sudo chmod +x bbr.sh  #给bbr.sh加权限
 ```
 执行上面的代码，然后耐心等待，安装成功后重启VPS服务器即可(可以在Vultr网站上重启)    
   
-ArchLinux下载ssr客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)<span style="color:#ff0000;">(下载很慢可以使用手机热点)</span>  
+ArchLinux下载ssr客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)<span style="color:#ff0000;">(已被作者删库，邮件联系`erguotou525@gmail.com`作者获取安装包)</span>  
 安卓客户端[shadowsocksr.apk](https://pan.lanzou.com/i0zfv5g)  
 ```bash
 sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包

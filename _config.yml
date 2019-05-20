@@ -99,8 +99,8 @@ social:
   linkedin: https://twitter.com/TEAPERS
 
 # flagcounter
-flagcounter_href: # https://info.flagcounter.com/xxxx
-flagcounter_img_src: # https://s01.flagcounter.com/xxxx
+flagcounter_href: https://info.flagcounter.com/MrmG # https://info.flagcounter.com/xxxx
+flagcounter_img_src: https://s04.flagcounter.com/count2/MrmG/bg_FFFFFF/txt_6A737D/border_FFFFFF/columns_7/maxflags_14/viewers_3/labels_1/pageviews_1/flags_0/percent_0/ # https://s01.flagcounter.com/xxxx
 
 # RSS
 feed:

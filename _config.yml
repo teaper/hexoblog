@@ -111,3 +111,8 @@ feed:
     content:
     content_limit:
     content_limit_delim: ' '
+
+# Nofollow Config
+nofollow:
+     enable: true
+     exclude: https://github.com/teaper # 例外的链接，可将友情链接放置此处，请同时去掉注释

@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Season Hsiao
+title: 零丶幸运 (゜-゜)つロ 干杯~
 description: 一个人学会思考，比学会啥都强！
 author: teaper
 language: zh-CN
@@ -115,4 +115,4 @@ feed:
 # Nofollow Config
 nofollow:
      enable: true
-     exclude: https://github.com/teaper # 例外的链接，可将友情链接放置此处，请同时去掉注释
+     exclude: https://github.com/teaper 

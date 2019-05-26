@@ -1,6 +1,6 @@
 ---
 title: Markdown语法
-date: 2019-05-19 22:45:06
+date: 2019-05-26 09:31:57
 categories: [Markdown]
 tags: [Markdown]
 ---
@@ -102,6 +102,26 @@ public void Markdown(){
 }
 ```
   
+#### 代码收缩  
+一对`<details></details>`标签内加一对`<summary></summary>`标签，在`<summary>`标签内写收缩说明，标签后第二行开始写需要收缩的内容  
+```bash
+<details>
+<summary>CLICK ME</summary>
+
+**<summary>标签与正文间一定要空一行！！！**
+</details>
+```
+<details>
+<summary>Markdown方法</summary>
+
+```java
+public void Markdown(){
+    System.out.println("可以使用三个撇号包围代码,第一行撇号后面指定代码语言(推荐)");
+    System.out.println("或者简单的将代码缩进四个空格");
+}
+```
+</details>
+  
 #### 任务列表  
 在[gitHub](https://github.com/)中,如果你想向某人发表评论,你可以在他们名字前面加`@`符号:hello@TEAPER  
   
@@ -123,4 +143,3 @@ GitHub支持表情符号,语法`:ide:`,可以查看[表情大全](https://www.we
 ![](https://github.blog/wp-content/uploads/2019/01/Enterprise@2x-2.png)
 ![](https://github.blog/wp-content/uploads/2019/01/Community@2x.png)  
 
-  

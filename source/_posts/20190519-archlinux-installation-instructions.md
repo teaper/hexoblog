@@ -690,6 +690,9 @@ sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 > 然后使用`electron-ssr`命令启动小飞机，如果无法启动，并且报`error while loading shared libraries: libgconf-2.so.4: cannot open shared object file: No such file or directory`的error错误，就使用`pacman -S gconf`命令安装gconf  
   
 启动后提示安装SSR，确定安装，然后配置服务器信息，如果没有出现配置界面，使用编辑器编辑`~/.config/electron-ssr/gui-config.json`文件手动设置参数  
+<details>
+<summary>gui-config.json</summary>
+
 ```json
 {
 	"configs": [
@@ -740,6 +743,7 @@ sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 	"subscribeUpdateInterval": 24
 }
 ```
+</details>
 如果你的SSR突然有一天不能用了，可以参考——[【Vultr被墙-Vultr IP 端口被墙的解决办法】](https://www.vultrblog.com/vultr-wall/.html)  
   
 将`electron-ssr`添加到**开机自启**，这样就不用每次开机都要手动启动它  
@@ -1430,7 +1434,10 @@ gedit user.reg  #复制里面的内容
 gedit user_backup.reg #新建user_backup.reg文件，把user.reg中的内容粘贴进去
 ```
 把每个`[]`后的`数字`和重复性的摸块`(以空行为分隔，重复性的小段代码块)`这样的重复代码块全部删除,保存  
-最终效果类似于如下示例：   
+最终效果类似于如下示例：  
+<details>
+<summary>user_backup.reg文件</summary>
+  
 ```bash
 WINE REGISTRY Version 2
 ;; All keys relative to \\User\\S-1-5-21-0-0-0-1000
@@ -1659,6 +1666,7 @@ WINE REGISTRY Version 2
 [Software\\Wine\\MenuFiles] 
 #time=1d4b479b40c2732
 ```
+</details>
   
 创建开机自动替换文件的脚本  
 ```bash
@@ -2202,7 +2210,7 @@ sudo pacman -S chrome-gnome-shell
 <span style="color:#ff0000;">注意：谷歌商店和Gnome Shell Integration需要翻墙，如果下载慢可以用手机热点</span>  
 > [Appfolders管理扩展](https://extensions.gnome.org/extension/1217/appfolders-manager/)开始菜单可以创建文件夹管理快捷方式  
 > [状态栏天气插件](https://extensions.gnome.org/extension/750/openweather/)配置[坐标](https://lbs.qq.com/tool/getpoint/index.html)  
-> [状态栏系统监测插件](https://extensions.gnome.org/extension/120/system-monitor/)(不支持GNOME Shell 3.32.0)  
+> [状态栏系统监测插件](https://extensions.gnome.org/extension/120/system-monitor/)  
 > [系统检测插件Vitals](https://extensions.gnome.org/extension/1460/vitals/)  
 > [Coverflow Alt-Tab](https://extensions.gnome.org/extension/120/system-monitor/)轮播式切换窗口  
 > [Blyr](https://extensions.gnome.org/extension/1251/blyr/)高斯模糊GNOME Shell UI元素  

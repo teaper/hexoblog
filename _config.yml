@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 零丶幸运 (゜-゜)つロ 干杯~
+title: TEAPER
 description: 一个人学会思考，比学会啥都强！
 author: teaper
 language: zh-CN
@@ -117,3 +117,8 @@ nofollow:
      enable: true
      exclude: https://github.com/teaper 
 
+# SiteMap
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml

@@ -290,20 +290,25 @@
 </div>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<div class="container" id="gitalk-container"></div>
+    
+<div class="container disqus-container">
+  <div id="disqus_thread"></div>
+</div>
+
 <script>
-    var gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: 'hexoblog',
-        owner: 'teaper',
-        admin: ['teaper'],
-        distractionFreeMode: true,
-    })
-    gitalk.render('gitalk-container')
+  var disqus_config = function() {
+    this.page.url = "https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/";
+    this.page.identifier = 1558276817;
+  };
+
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://teaperdev.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
 </script>
+
 
 
 

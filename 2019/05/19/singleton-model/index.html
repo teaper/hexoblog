@@ -215,25 +215,20 @@
 </div>
 
 
-    
-<div class="container disqus-container">
-  <div id="disqus_thread"></div>
-</div>
-
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div class="container" id="gitalk-container"></div>
 <script>
-  var disqus_config = function() {
-    this.page.url = "https://www.teaper.dev/2019/05/19/singleton-model/";
-    this.page.identifier = 1558277311;
-  };
-
-  (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://teaperdev.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
+    var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'gitalk',
+        owner: 'teaper',
+        admin: ['teaper'],
+        distractionFreeMode: true,
+    })
+    gitalk.render('gitalk-container')
 </script>
-
 
 
 

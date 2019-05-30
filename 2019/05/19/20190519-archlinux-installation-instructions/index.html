@@ -1115,8 +1115,8 @@
         repo: 'hexoblog',
         owner: 'teaper',
         admin: ['teaper'],
-	id: window.location.hast,
-        distractionFreeMode: false
+	id: md5(window.location.pathname),
+        distractionFreeMode: true
     })
     gitalk.render('gitalk-container')
 </script>

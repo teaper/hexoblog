@@ -300,7 +300,7 @@
         repo: 'hexoblog',
         owner: 'teaper',
         admin: ['teaper'],
-	id: md5(window.location.pathname),
+	id: location.pathname,
         distractionFreeMode: true
     })
     gitalk.render('gitalk-container')

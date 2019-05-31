@@ -1,8 +1,8 @@
 ---
 title: Hexo＋Github搭建静态博客
-date: 2019-05-30 02:30:18
-categories: [Hexo]
-tags: [Hexo,git,gitHub,Markdown,Node.js,npm,Github Page]
+date: 2019-05-31 17:00:40
+categories: [hexo]
+tags: [hexo,github pages,node.js,npm,git,rss,sitemap,google Analytics,Live2D,disqus,gitalk]
 ---
 <span style="color:#B900ff;">什么是Hexo？</span>  
 [Hexo](https://hexo.io/docs/)是一个快速，简单和强大的博客框架。您使用[Markdown](http://daringfireball.net/projects/markdown/)（或其他语言）撰写帖子，Hexo会在几秒钟内生成具有漂亮主题的静态文件  
@@ -263,9 +263,9 @@ tags:
 在创建博客文件的时候就会套用这个模板，给`categories:`和`tags:`两个模块填入参数即可  
   
 #### 新建博文  
-```hexo
+```bash
 hexo new helloHexo      #创建一篇博文
-
+#----------------------------输出提示--------------------------------------
 INFO  Created: ~/Downloads/hexoblog/source/_posts/20190529-helloHexo.md #提示创建的文件在这个路径
 ```
 使用 `gedit` 编辑这个文件，随便写点东西，再加个分类和标签  
@@ -279,6 +279,8 @@ tags: [hexo,markdown,github]
 ## Hexo＋Github搭建静态博客
 ```
 注意，分类(categories) 只能有一个，写在`[]`中，标签 `tags` 可以有多个，中间用英文逗号隔开，保存后运行 `hexo g && hexo s` 重新生成文件即可看到效果  
+  
+注意：修改博客直接编辑`.md`文件，之后一定要先运行 `hexo g` 之后才能运行 `hexo cl` 清除缓存
   
 #### 添加RSS  
 解决菜单栏 `RSS` 不能使用的问题，首先安装 `hexo-generator-feed` 包
@@ -333,7 +335,7 @@ hexo d  #一键部署
   
 | 类型 | 名称 |	值 | TTL |
 | ---- | ---- | -- | --- |
-| CNAME | www |	teaper.github.io | 1小时 |
+| CNAME | www |	teaper.github.io | 1 小时 |
   
 名称 `www`会称为子域名`www.teaper.dev`，值填写你 `Github Page` 最后提示的网址前部分，`teaper.github.io`中的`teaper`是我github用户名，你对应的就是你自己的用户名  
   
@@ -385,7 +387,7 @@ ga: UA-140493383-1
 <%- partial('_widget/google-analytics') %>
 ```
   
-#### Live2d 血小板  
+#### Live2D 血小板  
 进入`hexoblog/themes/replica/source`主题文件夹，克隆[血小板](https://github.com/JIAOBANTANG/live2d-xuexiaoban)项目源码  
 ```
 git clone git@github.com:JIAOBANTANG/live2d-xuexiaoban.git
@@ -564,7 +566,107 @@ function bgChange(){
 window.onload = bgChange;
 </script>
 ```
-好了，启动服务后应该就可以预览效果了，如果要添加歌曲，直接在配置文件加就行，缺点就是国外用户无法听歌，因为有墙，他们访问不到酷狗    
+好了，启动服务后应该就可以预览效果了，如果要添加歌曲，直接在配置文件加就行，缺点就是国外用户无法听歌，因为有墙，他们访问不到酷狗  
+  
+#### 评论插件  
+在`themes/replica/layout/_widget` 文件夹中可以看到，该主题提供了两个评论插件[disqus](https://disqus.com/)和[gitalk](https://github.com/gitalk/gitalk#install)，默认使用`gitalk`，否则使用`disqus`  
+  
+<span style="color:#ff0000">注意：默认使用 gitalk ,只有翻墙的用户不能使用 gitalk 时才能使用 disqus，稍后在源码中可以看到逻辑，所以我这里就用`gitalk`示范</span>  
+  
+根据github上的[说明文档](https://github.com/gitalk/gitalk/blob/master/readme-cn.md)，有两种安装方式：  
+  
+**方式一**：直接在模板文件中引入
+```bash
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+  <!-- or -->
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+```
+**方式二**：使用npm进行安装  
+```bash
+npm i --save gitalk
+```
+```bash
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
+```
+然后，需要在页面模板文件引入相关`<div>`标签，通过以下`javascript`进行调用  
+```xml
+<div id="gitalk-container"></div>
+```
+```js
+var gitalk = new Gitalk({
+  clientID: 'GitHub Application Client ID',
+  clientSecret: 'GitHub Application Client Secret',
+  repo: 'GitHub repo',
+  owner: 'GitHub repo owner',
+  admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+  id: location.pathname,      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+
+gitalk.render('gitalk-container')
+```
+好在`replica`主题下的`layout/_widget/gitalk.ejs`文件中已经帮助我们配置好了，不需要我们操作上面两步，不过还需要进一步改进一下，由于 `github issue` 的 `label` 长度被限制在了50个字，所以我们采用 `Md5` 对 `id` 进行加密 
+<details>
+<summary>gitalk.ejs文件内容</summary>
+
+```xml
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<!-- 引入MD5的js -->
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<div class='container' id="gitalk-container"></div>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '<%= config.gitalk.client_id %>',
+        clientSecret: '<%= config.gitalk.client_secret %>',
+        repo: '<%= config.gitalk.repo %>',
+        owner: '<%= config.gitalk.owner %>',
+        admin: ['<%= config.gitalk.owner %>'],
+        /*添加id属性，使用MD5加密，注意后面的逗号*/
+	    id: md5(location.pathname),
+        distractionFreeMode: true
+    })
+    gitalk.render('gitalk-container')
+</script>
+</script>
+```
+</details>
+  
+并且在`replica`主题下的`layout/_partial/article.ejs`中已经引入`div标签`  
+```xml
+<!-- if-else逻辑，如果gitalk不能使用才使用disqus，但是disqus只有翻墙之后的用户才能使用，并且满足前一条if-else逻辑 -->
+<% if (config.gitalk ) { %>
+    <%- partial('_widget/gitalk') %>
+<% }else{ %>
+    <%- partial('_widget/disqus') %>
+<% } %>
+```
+从上面可以看到一个判断，如果使用`config.gitalk`有值就引入`gitalk`的`div`以及相关样式，否则使用`disqus`  
+> Disqus使用方法：去[Disqus](https://disqus.com/)创建一个网站，将名字配置到`_config.yml`即可  
+  
+```bash
+disqus: teaperdev   #配置disqus
+```
+不多说，继续`gitalk`配置，在`hexoblog/_config.yml`中配置如下参数  
+```bash
+# gitalk
+gitalk:
+  enable: true      
+  client_id: 79a82d93fcd761032f45        
+  client_secret: b784392d66d81a991565a56598f2d369e71e21ad    
+  repo: hexoblog	#你要新建一个仓库来保存这些comments，这里repo就使用当前博客的
+  owner: teaper    #管理员用户和仓库所有者(gitalk.ejs中admin和owner都是owner的值，所以这里只写owner)
+```
+其中`Client Id`需要去[github创建应用程序](https://github.com/settings/applications/new)获取，`Authorization callback URL` 主页地址和回调地址填写你的网站地址<span style="color:#ff0000">(注意：两个地址后面都要加上/，https或http无所谓，例如我的：https://www.teaper.dev/)</span>  
+  
+![](https://i.loli.net/2019/05/31/5cf0e6394867196342.png)  
+  
+配置好，使用`hexo g && hexo s`重新运行服务后应该可以看到效果了，不过还需要使用`hexo d`命令进一步将其提交到服务器，才能知道回调地址是否有效  
   
 #### 日常维护  
 使用 `hexo d`命令只是将 `public` 文件夹中的静态资源文件提交到 `github page`，并没有把原始的整个博客存起来，所以我们要把 `hexoblog` 中的内容提交到 `master` 分支，相信大家都会  
@@ -596,7 +698,7 @@ hexo g && hexo s        #生成静态资源并且启动服务
 剩下的事，不用我说了吧？日常使用～～emmmmmmm  
   
 ##### hexo博客样式问题多怎么办？
-有时候启动服务就乱了，我的办法是重复执行`hexo cl`和`hexo g && hexo s`，知道正常位置  
+有时候启动服务就乱了，我的办法是重复执行`hexo cl`和`hexo g && hexo s`，直到正常为止  
 还有第二种可能性就是，主题自带的插件包太老了，例如：`hexo-renderer-marked`，渲染`markdown`乱七八糟，解决方法如下：  
 ```bash
 npm un hexo-renderer-marked --save      #卸载它

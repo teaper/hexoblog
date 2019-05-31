@@ -835,11 +835,11 @@ pre {
 }
 .blog-intro .social-media-item {
   float: left;
-  margin-right: 5px;
+  margin: 0px 2px 2px 0px;
   font-size: 25px;
   width: 35px;
   height: 35px;
-  background: #f0f0f0;
+  background: rgba(240,240,240,0);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;

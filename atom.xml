@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-05-31T16:11:09.520Z</updated>
+  <updated>2019-05-31T16:32:22.250Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图床工具PicGo+Github</title>
+    <link href="https://www.teaper.dev/2019/06/01/picgoimgs/"/>
+    <id>https://www.teaper.dev/2019/06/01/picgoimgs/</id>
+    <published>2019-05-31T16:31:00.000Z</published>
+    <updated>2019-05-31T16:32:22.250Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="PicGo" scheme="https://www.teaper.dev/categories/PicGo/"/>
+    
+    
+      <category term="PicGo" scheme="https://www.teaper.dev/tags/PicGo/"/>
+    
+      <category term="Github" scheme="https://www.teaper.dev/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo＋Github搭建静态博客</title>
@@ -111,34 +139,6 @@
     
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图床工具PicGo+Github</title>
-    <link href="https://www.teaper.dev/2019/05/24/picgoimgs/"/>
-    <id>https://www.teaper.dev/2019/05/24/picgoimgs/</id>
-    <published>2019-05-24T08:33:29.000Z</published>
-    <updated>2019-05-29T18:27:53.557Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="GitHub" scheme="https://www.teaper.dev/categories/GitHub/"/>
-    
-    
-      <category term="PicGo" scheme="https://www.teaper.dev/tags/PicGo/"/>
-    
-      <category term="Github" scheme="https://www.teaper.dev/tags/Github/"/>
     
   </entry>
   

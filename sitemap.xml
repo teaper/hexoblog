@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/30/hexogithub/</loc>
+    <loc>https://www.teaper.dev/2019/05/31/hexogithub/</loc>
     
-    <lastmod>2019-05-29T18:38:28.827Z</lastmod>
+    <lastmod>2019-05-31T09:06:06.913Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
+    <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
+    
+    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/05/24/picgoimgs/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
@@ -30,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
-    
-    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.teaper.dev/2019/05/19/factory-mode/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
@@ -44,14 +44,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/24/picgoimgs/</loc>
-    
-    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</loc>
+    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
@@ -59,6 +52,13 @@
   
   <url>
     <loc>https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/</loc>
+    
+    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     

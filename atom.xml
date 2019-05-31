@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-05-29T18:38:28.827Z</updated>
+  <updated>2019-05-31T09:06:06.913Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Hexo＋Github搭建静态博客</title>
-    <link href="https://www.teaper.dev/2019/05/30/hexogithub/"/>
-    <id>https://www.teaper.dev/2019/05/30/hexogithub/</id>
-    <published>2019-05-29T18:30:18.000Z</published>
-    <updated>2019-05-29T18:38:28.827Z</updated>
+    <link href="https://www.teaper.dev/2019/05/31/hexogithub/"/>
+    <id>https://www.teaper.dev/2019/05/31/hexogithub/</id>
+    <published>2019-05-31T09:00:40.000Z</published>
+    <updated>2019-05-31T09:06:06.913Z</updated>
     
     <summary type="html">
     
@@ -35,22 +35,30 @@
     
     </summary>
     
-      <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
+      <category term="hexo" scheme="https://www.teaper.dev/categories/hexo/"/>
     
     
-      <category term="Markdown" scheme="https://www.teaper.dev/tags/Markdown/"/>
+      <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
-      <category term="Hexo" scheme="https://www.teaper.dev/tags/Hexo/"/>
+      <category term="github pages" scheme="https://www.teaper.dev/tags/github-pages/"/>
     
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
-    
-      <category term="gitHub" scheme="https://www.teaper.dev/tags/gitHub/"/>
-    
-      <category term="Node.js" scheme="https://www.teaper.dev/tags/Node-js/"/>
+      <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
     
-      <category term="Github Page" scheme="https://www.teaper.dev/tags/Github-Page/"/>
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
+    
+      <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
+    
+      <category term="sitemap" scheme="https://www.teaper.dev/tags/sitemap/"/>
+    
+      <category term="google Analytics" scheme="https://www.teaper.dev/tags/google-Analytics/"/>
+    
+      <category term="Live2D" scheme="https://www.teaper.dev/tags/Live2D/"/>
+    
+      <category term="disqus" scheme="https://www.teaper.dev/tags/disqus/"/>
+    
+      <category term="gitalk" scheme="https://www.teaper.dev/tags/gitalk/"/>
     
   </entry>
   

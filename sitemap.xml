@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.teaper.dev/links/index.html</loc>
+    
+    <lastmod>2019-05-31T17:44:19.707Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.teaper.dev/2019/06/01/picgoimgs/</loc>
     
     <lastmod>2019-05-31T16:32:22.250Z</lastmod>
@@ -16,14 +23,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/singleton-model/</loc>
-    
-    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.teaper.dev/2019/05/26/markdown-format/</loc>
+    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
@@ -37,14 +37,14 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/factory-mode/</loc>
+    <loc>https://www.teaper.dev/2019/05/19/singleton-model/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
+    <loc>https://www.teaper.dev/2019/05/19/factory-mode/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
@@ -66,6 +66,13 @@
   
   <url>
     <loc>https://www.teaper.dev/categories/index.html</loc>
+    
+    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/05/26/markdown-format/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     

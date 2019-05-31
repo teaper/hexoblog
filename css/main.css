@@ -1122,6 +1122,29 @@ pre {
   padding-left: 5px;
   font-weight: bold;
 }
+.link-list {
+  padding: 4px 0;
+  list-style: none;
+  margin: 0;
+}
+.link-list-item {
+  float: left;
+  margin: 0 0.5em 0.5em 0;
+  padding: 0.3em 0.9em;
+  background: #f1f8ff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #0366d6;
+  font-size: 12px;
+}
+.link-list-item:hover {
+  background: #def;
+}
+.link-list-count {
+  padding-left: 5px;
+  font-weight: bold;
+}
 #google-search {
   display: table-cell;
   width: 100%;

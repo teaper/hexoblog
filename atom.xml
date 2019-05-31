@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo＋Github搭建静态博客</title>
-    <link href="https://www.teaper.dev/2019/05/30/20190530-hexogithub/"/>
-    <id>https://www.teaper.dev/2019/05/30/20190530-hexogithub/</id>
+    <link href="https://www.teaper.dev/2019/05/30/hexogithub/"/>
+    <id>https://www.teaper.dev/2019/05/30/hexogithub/</id>
     <published>2019-05-29T18:30:18.000Z</published>
     <updated>2019-05-29T18:38:28.827Z</updated>
     
@@ -56,8 +56,8 @@
   
   <entry>
     <title>Markdown语法</title>
-    <link href="https://www.teaper.dev/2019/05/26/20190526-markdown-format/"/>
-    <id>https://www.teaper.dev/2019/05/26/20190526-markdown-format/</id>
+    <link href="https://www.teaper.dev/2019/05/26/markdown-format/"/>
+    <id>https://www.teaper.dev/2019/05/26/markdown-format/</id>
     <published>2019-05-26T01:31:57.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     
@@ -82,8 +82,8 @@
   
   <entry>
     <title>建造者模式</title>
-    <link href="https://www.teaper.dev/2019/05/24/20190524-buildermodel/"/>
-    <id>https://www.teaper.dev/2019/05/24/20190524-buildermodel/</id>
+    <link href="https://www.teaper.dev/2019/05/24/buildermodel/"/>
+    <id>https://www.teaper.dev/2019/05/24/buildermodel/</id>
     <published>2019-05-24T09:21:00.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     
@@ -108,8 +108,8 @@
   
   <entry>
     <title>图床工具PicGo+Github</title>
-    <link href="https://www.teaper.dev/2019/05/24/20190524-picgoimgs/"/>
-    <id>https://www.teaper.dev/2019/05/24/20190524-picgoimgs/</id>
+    <link href="https://www.teaper.dev/2019/05/24/picgoimgs/"/>
+    <id>https://www.teaper.dev/2019/05/24/picgoimgs/</id>
     <published>2019-05-24T08:33:29.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     
@@ -136,8 +136,8 @@
   
   <entry>
     <title>工厂模式</title>
-    <link href="https://www.teaper.dev/2019/05/19/20190519-factory-mode/"/>
-    <id>https://www.teaper.dev/2019/05/19/20190519-factory-mode/</id>
+    <link href="https://www.teaper.dev/2019/05/19/factory-mode/"/>
+    <id>https://www.teaper.dev/2019/05/19/factory-mode/</id>
     <published>2019-05-19T14:51:49.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     
@@ -162,8 +162,8 @@
   
   <entry>
     <title>单例模式</title>
-    <link href="https://www.teaper.dev/2019/05/19/20190519-singleton-model/"/>
-    <id>https://www.teaper.dev/2019/05/19/20190519-singleton-model/</id>
+    <link href="https://www.teaper.dev/2019/05/19/singleton-model/"/>
+    <id>https://www.teaper.dev/2019/05/19/singleton-model/</id>
     <published>2019-05-19T14:48:31.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     
@@ -188,8 +188,8 @@
   
   <entry>
     <title>阿里云ubuntu 16.04.5 server建站日志</title>
-    <link href="https://www.teaper.dev/2019/05/19/20190519-ubuntu1604-server-gitea/"/>
-    <id>https://www.teaper.dev/2019/05/19/20190519-ubuntu1604-server-gitea/</id>
+    <link href="https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/"/>
+    <id>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</id>
     <published>2019-05-19T14:40:17.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     
@@ -224,8 +224,8 @@
   
   <entry>
     <title>Maven+Spring+SpringMVC+MyBatis整合</title>
-    <link href="https://www.teaper.dev/2019/05/19/20190519-maven-spring-springmvc-mybatis/"/>
-    <id>https://www.teaper.dev/2019/05/19/20190519-maven-spring-springmvc-mybatis/</id>
+    <link href="https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/"/>
+    <id>https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/</id>
     <published>2019-05-19T14:27:19.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     
@@ -260,8 +260,8 @@
   
   <entry>
     <title>ArchLinux搭建Java开发环境</title>
-    <link href="https://www.teaper.dev/2019/05/19/20190519-archlinux-installation-instructions/"/>
-    <id>https://www.teaper.dev/2019/05/19/20190519-archlinux-installation-instructions/</id>
+    <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
+    <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
     <published>2019-05-19T13:50:34.000Z</published>
     <updated>2019-05-29T18:27:53.557Z</updated>
     

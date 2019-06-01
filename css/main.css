@@ -1198,3 +1198,44 @@ pre {
     padding: 0 15px;
   }
 }
+.link-list-item {
+  padding: 10px;
+  margin: 5px;
+  background: rgba(249,249,249,0);
+  border: 1px #dcdcdc solid;
+}
+.link-list-item:hover {
+  background: #eee;
+}
+.link-list-item img {
+  width: 110px;
+  height: 110px;
+}
+.link-list-item div {
+  padding: 0px;
+  margin: 0px;
+}
+.link-list-item div a h3 {
+  text-align: center;
+  color: #000;
+  margin: 5px;
+}
+.link-list-item div a {
+  text-decoration: none;
+  background: rgba(255,255,255,0);
+}
+.link-list-item div a center {
+  background: rgba(255,255,255,0);
+  padding: 3px;
+  margin: 0px 20px;
+  border: 1px solid #fff;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  color: #b3b3b3;
+  -moz-border-radius: 25px;
+/* Old Firefox */
+}
+.link-list-item div a center:hover {
+  background: rgba(255,255,255,0);
+}

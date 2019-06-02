@@ -70,7 +70,16 @@
   border-bottom: $border-grey-light;
 }
 .post-content h3 {
-  font-size: 1.25em;
+  font-size: 1.4em;
+}
+.post-content h4 {
+  font-size: 1.3em;
+}
+.post-content h5 {
+  font-size: 1.2em;
+}
+.post-content h6 {
+  font-size: 1.1em;
 }
 .post-content p {
   margin-top: 0;

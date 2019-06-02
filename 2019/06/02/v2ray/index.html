@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    学习利器V2ray了解一下 | TEAPER
+  </title>
+  <meta name="description" content="一个人学会思考，比学会啥都强！">
+  
+  <meta name="keywords" content="
+  V2ray
+  ">
+  
+  <meta name="author" content="teaper">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/37693348?s=460&amp;v=4">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/live2d/css/live2d.css">
+  <link rel="stylesheet" href="/css/player.css">
+  <link rel="stylesheet" href="/iconfont/iconfont.css">
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-140493383-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/links">Links</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/37693348?s=460&amp;v=4"> <i class="fa fa-caret-down"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 10 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 29 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 6 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">TEAPER</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    teaper
+
+    <span class="post-date float-right" title="{{moment(1559474139000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1559474139000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1 style="text-align:center">学习利器V2ray了解一下</h1>
+    <p>之前我一直在Arch Linux下使用 <code>shadowsocksr</code>，随着最近墙的升级，服务器一批一批的封，好多人的 <code>22</code> 端口都封了，SSH登录不了服务器，还有各种TCP回程阻断，网络超时问题，恰好发现了<a href="https://www.v2ray.com/" rel="external nofollow noopener noreferrer" target="_blank">V2ray</a>这款通信工具，现在就来安利一波～  </p>
+<h4 id="Project-V"><a href="#Project-V" class="headerlink" title="Project V"></a>Project V</h4><p>要了解 <code>V2ray</code> 就必须要知道 <a href="https://github.com/v2ray" rel="external nofollow noopener noreferrer" target="_blank">Project V</a>，根据官方说法：<code>Project V</code> 是一个工具集合，它可以帮助你打造专属的基础<strong>通信网络</strong>，<strong>Project V 的核心工具称为 V2Ray</strong>，其主要负责网络协议和功能的实现，与其它 <code>Project V</code> 通信，<code>V2Ray</code> 可以单独运行，也可以和其它工具配合，以提供简便的操作流程  </p>
+<p>相对于<code>shadowsocksr</code>来说，它有以下几个优势：  </p>
+<blockquote>
+<p><strong>多入口多出口</strong>: 一个 <code>V2Ray</code> 进程可并发支持多个入站和出站协议，每个协议可独立工作<br><strong>可定制化路由</strong>: 入站流量可按配置由不同的出口发出。轻松实现按区域或按域名分流，以达到最优的网络性能<br><strong>多协议支持</strong>: V2Ray 可同时支持多个协议，包括 <code>Socks</code>、<code>HTTP</code>、<code>Shadowsocks</code>、<code>VMess</code> 等<br><strong>隐蔽性</strong>: V2Ray 的节点可以伪装成正常的网站（HTTPS），将其流量与正常的网页流量混淆，以避开第三方干扰<br><strong>反向代理</strong>: 通用的反向代理支持，可实现内网穿透功能<br><strong>多平台支持</strong>: 原生支持所有常见平台，如 Windows、Mac OS、Linux，并已有第三方支持移动平台  </p>
+</blockquote>
+<h4 id="安装V2ray服务器脚本"><a href="#安装V2ray服务器脚本" class="headerlink" title="安装V2ray服务器脚本"></a>安装V2ray服务器脚本</h4><p>废话不多说，这里我直接参考<a href="https://www.v2ray.com/" rel="external nofollow noopener noreferrer" target="_blank">官方文档</a>，在我的<a href="https://my.vultr.com/billing/" rel="external nofollow noopener noreferrer" target="_blank">Vultr</a>的<code>Ubuntu16.04 Server</code>主机上安装网络代理，然后在<code>Arch Linux</code>本机上连接，Windows用户请参照官方文档自行安装客户端软件，配置部分是一样的 </p>
+<p>首先使用SSH登录VPS主机  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@139.180.196.23       <span class="comment">#使用ssh连接</span></span><br></pre></td></tr></table></figure>
+
+<p>然后使用 bash 命令官方提供的一键安装脚本  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">root@VentUB:~<span class="comment"># bash &lt;(curl -L -s https://install.direct/go.sh)  #安装一键脚本</span></span><br><span class="line"><span class="comment">#---------------------------输出日志-----------------------------------</span></span><br><span class="line">Installing V2Ray v4.18.2 on x86_64</span><br><span class="line">Downloading V2Ray: https://github.com/v2ray/v2ray-core/releases/download/v4.18.2/v2ray-linux-64.zip</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100   608    0   608    0     0   1458      0 --:--:-- --:--:-- --:--:--  1458</span><br><span class="line">100 11.2M  100 11.2M    0     0  2988k      0  0:00:03  0:00:03 --:--:-- 4391k</span><br><span class="line">Extracting V2Ray package to /tmp/v2ray.</span><br><span class="line">Archive:  /tmp/v2ray/v2ray.zip</span><br><span class="line">  inflating: /tmp/v2ray/config.json  </span><br><span class="line">   creating: /tmp/v2ray/doc/</span><br><span class="line">  inflating: /tmp/v2ray/doc/readme.md  </span><br><span class="line">  inflating: /tmp/v2ray/geoip.dat    </span><br><span class="line">  inflating: /tmp/v2ray/geosite.dat  </span><br><span class="line">   creating: /tmp/v2ray/systemd/</span><br><span class="line">  inflating: /tmp/v2ray/systemd/v2ray.service  </span><br><span class="line">   creating: /tmp/v2ray/systemv/</span><br><span class="line">  inflating: /tmp/v2ray/systemv/v2ray  </span><br><span class="line">  inflating: /tmp/v2ray/v2ctl        </span><br><span class="line"> extracting: /tmp/v2ray/v2ctl.sig    </span><br><span class="line">  inflating: /tmp/v2ray/v2ray        </span><br><span class="line"> extracting: /tmp/v2ray/v2ray.sig    </span><br><span class="line">  inflating: /tmp/v2ray/vpoint_socks_vmess.json  </span><br><span class="line">  inflating: /tmp/v2ray/vpoint_vmess_freedom.json  </span><br><span class="line">PORT:33857      <span class="comment">#记下PORT</span></span><br><span class="line">UUID:5182c7a0-0279-4221-9294-b16d9d047c6e   <span class="comment">#记下UUID</span></span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/v2ray.service to /etc/systemd/system/v2ray.service.</span><br><span class="line">V2Ray v4.18.2 is installed.     <span class="comment">#V2Ray版本</span></span><br></pre></td></tr></table></figure>
+
+<p>记录下日志中提示的 <strong>PORT</strong>  和  <strong>UUID</strong> 的值，安装成功之后会在<code>/etc/v2ray</code><br>下生成一个服务器端模板文件<code>config.json</code>文件，使用vim打开它，具体关注我注释的几个参数  </p>
+<details>
+<summary>服务器端config.json文件</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"inbounds"</span>: [&#123;</span><br><span class="line">    <span class="string">"port"</span>: 33857,      <span class="comment">#V2Ray 监听的端口号，客户端连接会用到</span></span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"vmess"</span>,    <span class="comment">#入站协议，与客户端保持一致</span></span><br><span class="line">    <span class="string">"settings"</span>: &#123;</span><br><span class="line">      <span class="string">"clients"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"id"</span>: <span class="string">"5182c7a0-0279-4221-9294-b16d9d047c6e"</span>,     <span class="comment">#UUID值</span></span><br><span class="line">          <span class="string">"level"</span>: 1,</span><br><span class="line">          <span class="string">"alterId"</span>: 64 <span class="comment">#用于认证的动态id</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="string">"outbounds"</span>: [&#123;</span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">    <span class="string">"settings"</span>: &#123;&#125;</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"blackhole"</span>,</span><br><span class="line">    <span class="string">"settings"</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">"tag"</span>: <span class="string">"blocked"</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="string">"routing"</span>: &#123;</span><br><span class="line">    <span class="string">"rules"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"type"</span>: <span class="string">"field"</span>,</span><br><span class="line">        <span class="string">"ip"</span>: [<span class="string">"geoip:private"</span>],</span><br><span class="line">        <span class="string">"outboundTag"</span>: <span class="string">"blocked"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<p><code>config.json</code>中的数据不需要更改，后面客户端连接的时候就参照上面的值就行  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service v2ray start <span class="comment">#服务器启动v2ray</span></span><br><span class="line">service v2ray status        <span class="comment">#查看运行状态</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="安装V2ray客户端"><a href="#安装V2ray客户端" class="headerlink" title="安装V2ray客户端"></a>安装V2ray客户端</h4><p>客户端软件在<a href="https://github.com/v2ray/v2ray-core/releases" rel="external nofollow noopener noreferrer" target="_blank">发布页</a>，根据你需要的系统下载匹配型号的安装包，我这里以我系统<code>Arch Linux</code>为例子，其他系统请自行参照<a href>官方文档</a>配置  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S v2ray    <span class="comment">#ArchLinux/Manjaro安装v2ray</span></span><br></pre></td></tr></table></figure>
+
+<p>使用gedit编辑<code>/etc/v2ray/config.json</code>文件，替换为我这个模板，修改一下参数即可，注意修改我注释的地方，其他地方不变  </p>
+<details>
+<summary>ArchLinux下的v2ray/config.json</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"log"</span>: &#123;</span><br><span class="line">    <span class="string">"loglevel"</span>: <span class="string">"warning"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"inbound"</span>: &#123;</span><br><span class="line">    <span class="string">"port"</span>: 1088, <span class="comment">#本地端口，没办法，我1080被占用了</span></span><br><span class="line">    <span class="string">"listen"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"socks"</span>, <span class="comment"># 入站协议</span></span><br><span class="line">    <span class="string">"settings"</span>: &#123;</span><br><span class="line">      <span class="string">"auth"</span>: <span class="string">"noauth"</span>,</span><br><span class="line">      <span class="string">"udp"</span>: <span class="literal">true</span>    <span class="comment">#开启udp</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"outbound"</span>: &#123;</span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"vmess"</span>, <span class="comment">#将出战协议修改为vmess，与服务端保持相同</span></span><br><span class="line">    <span class="string">"settings"</span>: &#123;</span><br><span class="line">      <span class="string">"vnext"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"address"</span>: <span class="string">"139.180.196.23"</span>,<span class="comment"># 服务器地址，请修改为你自己的服务器 ip 或域名</span></span><br><span class="line">          <span class="string">"port"</span>: 33857,  <span class="comment"># 服务器端口，与服务端保持相同</span></span><br><span class="line">          <span class="string">"users"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="string">"id"</span>: <span class="string">"5182c7a0-0279-4221-9294-b16d9d047c6e"</span>,  <span class="comment"># uuid，与服务端保持相同</span></span><br><span class="line">              <span class="string">"alterId"</span>: 64 <span class="comment"># 此处的值也应当与服务器相同</span></span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;,</span><br><span class="line">    <span class="string">"tag"</span>: <span class="string">"direct"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"policy"</span>: &#123;</span><br><span class="line">    <span class="string">"levels"</span>: &#123;</span><br><span class="line">      <span class="string">"0"</span>: &#123;<span class="string">"uplinkOnly"</span>: 0&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<p>使用<code>v2ray</code>自带了一个检查工具<code>v2ray -test</code>检查<code>json</code>文件  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v2ray -<span class="built_in">test</span> -config /etc/v2ray/config.json  <span class="comment">#检查json</span></span><br><span class="line">V2Ray 4.18.0 (Po) 20190228</span><br><span class="line">A unified platform <span class="keyword">for</span> anti-censorship.</span><br><span class="line">Configuration OK.</span><br></pre></td></tr></table></figure>
+
+<p>显示<code>OK</code>就表示没问题了，可以开启本机的开机自启服务  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> v2ray  <span class="comment">#开机自启v2ray</span></span><br><span class="line">systemctl start v2ray   <span class="comment">#启动v2ray</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="设置PAC代理"><a href="#设置PAC代理" class="headerlink" title="设置PAC代理"></a>设置PAC代理</h4><p><code>PAC</code>代理需要生成一个<code>.pac</code>的文件，首先本机安装<code>pip</code>工具 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S python-pip       <span class="comment">#安装pip</span></span><br><span class="line">pip -V      <span class="comment">#查看pip版本</span></span><br><span class="line"><span class="comment">#-------------------------输出-----------------------------</span></span><br><span class="line">pip 19.0.3 from /usr/lib/python3.7/site-packages/pip (python 3.7)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install genpac     <span class="comment">#使用pip安装genpac，需要root权限</span></span><br><span class="line"><span class="comment">#---------------------------输出-----------------------</span></span><br><span class="line">Collecting genpac</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/48/fb/b8f9cce57c4ea856e7dd1f9fb917df2896d7e62d43c50ed1af2e50a4e57d/genpac-2.1.0.tar.gz (102kB)</span><br><span class="line">     |████████████████████████████████| 112kB 111kB/s </span><br><span class="line">Installing collected packages: genpac</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> genpac ... <span class="keyword">done</span></span><br><span class="line">Successfully installed genpac-2.1.0</span><br></pre></td></tr></table></figure>
+
+<p>最后执行以下命令，会生成一个auto.pac文件，无输出结果表示执行成功  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac --format=pac -o auto.pac --pac-proxy=<span class="string">"SOCKS5 127.0.0.1:1088"</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在系统中配置代理，以我本机的<code>gnome</code>桌面为例，图1、3是PAC代理，引导pac文件的绝对路径<code>file:///etc/v2ray/auto.pac</code>；图2是全局代理    </p>
+<p><img src="https://i.loli.net/2019/06/02/5cf3ad11830e456416.png" alt>  </p>
+<p><img src="https://i.loli.net/2019/06/02/5cf3ad19058b190157.png" alt></p>
+<p><img src="https://i.loli.net/2019/06/02/5cf3ad1f944f214959.png" alt></p>
+
+  </article>
+</div>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<div class="container" id="gitalk-container"></div>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '79a82d93fcd761032f45',
+        clientSecret: 'b784392d66d81a991565a56598f2d369e71e21ad',
+        repo: 'hexoblog',
+        owner: 'teaper',
+        admin: ['teaper'],
+	id: md5(location.pathname),
+        distractionFreeMode: true
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://www.teaper.dev" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 teaper</li>
+      <li><a href="https://www.teaper.dev">Home</a></li>
+      
+      <li><a href="https://github.com/teaper" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+      
+      <li><a href="https://www.weibo.com/5806191772" rel="external nofollow noopener noreferrer" target="_blank">Weibo</a></li>
+      
+      <li><a href="https://twitter.com/TEAPERS" rel="external nofollow noopener noreferrer" target="_blank">Twitter</a></li>
+      
+    </ul>
+    <div class="footer-theme-info" id="hitokoto">
+       行是知之始 ❤ 知是行之成
+    </div>
+    </div>
+    
+    <div class="footer-pageview">
+        <a href="https://info.flagcounter.com/MrmG" rel="external nofollow noopener noreferrer" target="_blank">
+          <img src="https://s04.flagcounter.com/count2/MrmG/bg_FFFFFF/txt_6A737D/border_FFFFFF/columns_7/maxflags_14/viewers_3/labels_1/pageviews_1/flags_0/percent_0/">
+        </a>
+    </div>
+    
+  </footer>
+</div>
+<!-- QPlayer音乐播放器 -->
+<div id="QPlayer">
+<div id="pContent">
+	<div id="player">
+		<span class="cover"></span>
+		<div class="ctrl">
+			<div class="musicTag marquee">
+				<strong>Title</strong>
+				 <span> - </span>
+				<span class="artist">Artist</span>
+			</div>
+			<div class="progress">
+				<div class="timer left">0:00</div>
+				<div class="contr">
+					<div class="rewind icon"></div>
+					<div class="playback icon"></div>
+					<div class="fastforward icon"></div>
+				</div>
+				<div class="right">
+					<div class="liebiao icon"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ssBtn">
+	        <div class="adf"></div>
+    </div>
+</div>
+<ol id="playlist"></ol>
+</div>
+<!-- <script src="js/jquery.min.js"></script> -->
+<!-- <script src="js/jquery.marquee.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js"></script>
+
+<script src="/js/playlist.js"></script>
+<script src="/js/player.js"></script>
+<script>
+function bgChange(){
+	var lis= $('.lib');
+	for(var i=0; i<lis.length; i+=2)
+	lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+}
+window.onload = bgChange;
+</script>
+
+<!-- Live2D血小板 -->
+<div id="landlord">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="560" height="500" class="live2d"></canvas>
+    <!-- 省略隐藏按钮 -->
+</div>
+
+<!-- 鼠标单击爆炸区域 -->
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:1031;pointer-events:none;"></canvas>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = 'https://www.teaper.dev/'
+</script>
+<script type="text/javascript" src="/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/model/xiaoban/model.json");
+</script>
+
+<!-- 打字泡沫 -->
+<script type="text/javascript" src="/js/activate-power-mode.js"></script>
+<script>
+    POWERMODE.colorful = true;  
+    POWERMODE.shake = false;    
+    document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 引入一言 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- <script src="/js/hitokoto.js"></script> -->
+
+<!-- 粒子特效 -->
+<!-- <script src="/js/canvas-nest.min.js"></script> -->
+
+<!-- 鼠标单击爱心特效 -->
+<script src="/js/mouse.js"></script>
+<!-- 鼠标单击爆炸特效 -->
+<script src="/js/anime.min.js"></script>
+<script src="/js/fireworks.js"></script>
+
+
+
+
+<script>
+  (function() {
+    var cx = '014633199185561276043:bpv9wnr4qhc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+      '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

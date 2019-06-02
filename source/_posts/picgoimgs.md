@@ -1,7 +1,7 @@
 ---
 title: 图床工具PicGo+Github
-date: 2019-05-24 16:33:29
-categories: [GitHub]
+date: 2019-06-01 00:31:00
+categories: [PicGo]
 tags: [PicGo,Github]
 ---
 > 所谓图床工具，就是自动把本地图片上传到服务器，并获取其http/https链接的一款工具，让其可以在互联网上得到访问  
@@ -30,19 +30,19 @@ yay -S picgo-appimage       #一般不是最新版本
   
 点击最下方绿色 `Generate token` 的按钮生成`token`  
   
-![](https://i.loli.net/2019/05/24/5ce7a500bab2690927.png)
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g3kyp69v3wj30rq0cgmz6.jpg)  
   
 复制绿色背景的那条编码，将其存储起来，因为它只显示一次  
 ```bash
-8c473a9580043c2d33a8b70f3610c7f39646b662
+8c473a9580043gd33a8b45f3610c7f59646b662     #示范
 ```
   
 #### 配置PicGo  
 设定仓库名：teaper/picgoimgs  
 设定分支名字：master  
-设定Token：8c473a9580043c2d33a8b70f3610c7f39646b662  
+设定Token：8c473a9580043gd33a8b45f3610c7f59646b662  
   
-![](https://i.loli.net/2019/05/24/5ce7a7b05ef1559963.png)
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g3kyo9373rj30j40a6q3k.jpg)
   
 存储路径和自定义域名可以不写，设定自定义域名需要在域名DNS下解析你的github服务器  
   

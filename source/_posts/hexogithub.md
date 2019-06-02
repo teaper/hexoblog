@@ -664,7 +664,7 @@ gitalk:
 ```
 其中`Client Id`需要去[github创建应用程序](https://github.com/settings/applications/new)获取，`Authorization callback URL` 主页地址和回调地址填写你的网站地址<span style="color:#ff0000">(注意：两个地址后面都要加上/，https或http无所谓，例如我的：https://www.teaper.dev/)</span>  
   
-![](https://i.loli.net/2019/05/31/5cf0e6394867196342.png)  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g3ky8py2asj31hc156jvr.jpg)  
   
 配置好，使用`hexo g && hexo s`重新运行服务后应该可以看到效果了，不过还需要使用`hexo d`命令进一步将其提交到服务器，才能知道回调地址是否有效  
   

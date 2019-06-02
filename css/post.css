@@ -34,7 +34,7 @@
   padding: 45px;
   word-wrap: break-word;
   font-family: $font-family-main;
-  font-size: 16px;
+  font-size: 14px;
 }
 @media (max-width: $screen-sm) {
   .post-content {
@@ -54,7 +54,7 @@
   font-weight: 600;
   line-height: 1.25;
   margin-top: 24px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .post-content img {
   max-width: 100%;
@@ -74,7 +74,7 @@
 }
 .post-content p {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .post-content code {
   border-radius: 3px;

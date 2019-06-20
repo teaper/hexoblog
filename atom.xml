@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-06-02T11:38:25.287Z</updated>
+  <updated>2019-06-20T22:40:06.807Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原型模式</title>
+    <link href="https://www.teaper.dev/2019/06/21/prototype/"/>
+    <id>https://www.teaper.dev/2019/06/21/prototype/</id>
+    <published>2019-06-20T22:38:20.000Z</published>
+    <updated>2019-06-20T22:40:06.807Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://www.teaper.dev/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>学习利器V2ray了解一下</title>

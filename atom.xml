@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-06-20T22:40:06.807Z</updated>
+  <updated>2019-06-24T03:11:40.060Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ArchLinux安装最新百度网盘客户端</title>
+    <link href="https://www.teaper.dev/2019/06/24/baidunetdiskarchlinux/"/>
+    <id>https://www.teaper.dev/2019/06/24/baidunetdiskarchlinux/</id>
+    <published>2019-06-24T03:08:49.000Z</published>
+    <updated>2019-06-24T03:11:40.060Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
+    
+    
+      <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
+    
+      <category term="pacman" scheme="https://www.teaper.dev/tags/pacman/"/>
+    
+      <category term="debtap" scheme="https://www.teaper.dev/tags/debtap/"/>
+    
+      <category term="Electron" scheme="https://www.teaper.dev/tags/Electron/"/>
+    
+  </entry>
   
   <entry>
     <title>原型模式</title>
@@ -225,7 +257,7 @@
     <link href="https://www.teaper.dev/2019/05/19/singleton-model/"/>
     <id>https://www.teaper.dev/2019/05/19/singleton-model/</id>
     <published>2019-05-19T14:48:31.000Z</published>
-    <updated>2019-05-29T18:27:53.557Z</updated>
+    <updated>2019-06-22T04:21:15.577Z</updated>
     
     <summary type="html">
     
@@ -340,9 +372,9 @@
       <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
     
     
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
       <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
   </entry>
   

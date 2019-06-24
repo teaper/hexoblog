@@ -101,11 +101,11 @@
     <ul class="header-toolbar">
       <li class="clearfix">
         <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
-        <a href="/archives" class="header-toolbar-right"> 11 </a>
+        <a href="/archives" class="header-toolbar-right"> 12 </a>
       </li>
       <li>
         <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
-        <a href="/tags" class="header-toolbar-right"> 29 </a>
+        <a href="/tags" class="header-toolbar-right"> 32 </a>
       </li>
       <li>
         <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
@@ -207,7 +207,35 @@
 <p>那么如何<strong>防止被反序列化破解</strong>呢？<br>只需要添加一个私有方法<code>reaObject()</code>返回instance对象即可  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 【单例模式】测试懒汉式（如何防止反射和反序列化漏洞）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> teaper</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo06</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//1、创建一个静态私有对象，但是不初始化</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SingletonDemo06 instance;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//2、私有化构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingletonDemo06</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//抛出异常破解反射</span></span><br><span class="line">		<span class="keyword">if</span>(instance!=<span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//3、提供静态私有方法，判断是否初始化，如果未初始化就给对象进行初始化</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> SingletonDemo06 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">			instance = <span class="keyword">new</span> SingletonDemo06();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//防止反序列化破解</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> Object <span class="title">reaObject</span><span class="params">()</span> <span class="keyword">throws</span> ObjectStreamException</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;<span class="comment">//在反序列化时会直接调用reaObject()方法返回instance对象，而不会把反序列化的新对象返回</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="五种单例模式的执行效率"><a href="#五种单例模式的执行效率" class="headerlink" title="五种单例模式的执行效率"></a>五种单例模式的执行效率</h4><p>这里我们采用的是多线程下进行的测试，不同环境下的值有所不同<br>| 单例模式 | 执行时间 |<br>| ——– | ——– |<br>| 饿汉式 | 22ms |<br>| 懒汉式 | 636ms |<br>| 静态内部类式 | 28ms |<br>| 枚举式 | 32ms |<br>| 双重检测锁式 | 65ms |</p>
+<h4 id="五种单例模式的执行效率"><a href="#五种单例模式的执行效率" class="headerlink" title="五种单例模式的执行效率"></a>五种单例模式的执行效率</h4><p>这里我们采用的是多线程下进行的测试，不同环境下的值有所不同  </p>
+<table>
+<thead>
+<tr>
+<th>单例模式</th>
+<th>执行时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>饿汉式</td>
+<td>22ms</td>
+</tr>
+<tr>
+<td>懒汉式</td>
+<td>636ms</td>
+</tr>
+<tr>
+<td>静态内部类式</td>
+<td>28ms</td>
+</tr>
+<tr>
+<td>枚举式</td>
+<td>32ms</td>
+</tr>
+<tr>
+<td>双重检测锁式</td>
+<td>65ms</td>
+</tr>
+</tbody></table>
 <p>要测试多线程下单例模式的执行效率，需要借助一个<code>CountDownLatch</code>类  </p>
 <blockquote>
 <p>同步辅助类，在完成一组正在其他线程中执行的操作之前，它允许一个或多个线程一直等待<br><code>countDown()</code>当前线程调用此方法，则计数减一（建议放在finally里执行）<br><code>await()</code>调用此方法会一直阻塞当前线程，直到倒计时为零  </p>

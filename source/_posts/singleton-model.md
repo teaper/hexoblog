@@ -362,6 +362,7 @@ public class SingletonDemo06 implements Serializable {
 ```
 #### 五种单例模式的执行效率  
 这里我们采用的是多线程下进行的测试，不同环境下的值有所不同  
+  
 | 单例模式 | 执行时间 |
 | -------- | -------- |
 | 饿汉式 | 22ms |

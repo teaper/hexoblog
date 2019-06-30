@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-06-24T03:11:40.060Z</updated>
+  <updated>2019-06-30T04:46:40.903Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 语言概述</title>
+    <link href="https://www.teaper.dev/2019/06/30/javalanguage/"/>
+    <id>https://www.teaper.dev/2019/06/30/javalanguage/</id>
+    <published>2019-06-30T04:45:04.000Z</published>
+    <updated>2019-06-30T04:46:40.903Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="java基础" scheme="https://www.teaper.dev/categories/java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>ArchLinux安装最新百度网盘客户端</title>
@@ -105,7 +131,7 @@
     <link href="https://www.teaper.dev/2019/06/01/picgoimgs/"/>
     <id>https://www.teaper.dev/2019/06/01/picgoimgs/</id>
     <published>2019-05-31T16:31:00.000Z</published>
-    <updated>2019-05-31T16:32:22.250Z</updated>
+    <updated>2019-06-30T04:37:49.163Z</updated>
     
     <summary type="html">
     
@@ -119,7 +145,7 @@
     
     </summary>
     
-      <category term="PicGo" scheme="https://www.teaper.dev/categories/PicGo/"/>
+      <category term="软件" scheme="https://www.teaper.dev/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
       <category term="PicGo" scheme="https://www.teaper.dev/tags/PicGo/"/>
@@ -227,6 +253,32 @@
   </entry>
   
   <entry>
+    <title>计算机入门概述</title>
+    <link href="https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/"/>
+    <id>https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/</id>
+    <published>2019-05-24T09:21:00.000Z</published>
+    <updated>2019-06-30T04:44:28.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="java基础" scheme="https://www.teaper.dev/categories/java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>工厂模式</title>
     <link href="https://www.teaper.dev/2019/05/19/factory-mode/"/>
     <id>https://www.teaper.dev/2019/05/19/factory-mode/</id>
@@ -319,7 +371,7 @@
     <link href="https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/"/>
     <id>https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/</id>
     <published>2019-05-19T14:27:19.000Z</published>
-    <updated>2019-05-29T18:27:53.557Z</updated>
+    <updated>2019-06-30T04:36:50.770Z</updated>
     
     <summary type="html">
     
@@ -333,8 +385,10 @@
     
     </summary>
     
-      <category term="java" scheme="https://www.teaper.dev/categories/java/"/>
+      <category term="框架整合" scheme="https://www.teaper.dev/categories/%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/"/>
     
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
       <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
     
@@ -355,7 +409,7 @@
     <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
     <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
     <published>2019-05-19T13:50:34.000Z</published>
-    <updated>2019-05-29T18:27:53.557Z</updated>
+    <updated>2019-06-25T07:32:29.763Z</updated>
     
     <summary type="html">
     

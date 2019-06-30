@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Java 语言概述 | TEAPER
+  </title>
+  <meta name="description" content="一个人学会思考，比学会啥都强！">
+  
+  <meta name="keywords" content="
+  java
+  ">
+  
+  <meta name="author" content="teaper">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/live2d/css/live2d.css">
+  <link rel="stylesheet" href="/css/player.css">
+  <link rel="stylesheet" href="/iconfont/iconfont.css">
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-140493383-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/links">Links</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg"> <i class="fa fa-caret-down"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 14 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 32 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 7 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">TEAPER</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    teaper
+
+    <span class="post-date float-right" title="{{moment(1561869904000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1561869904000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1 style="text-align:center">Java 语言概述</h1>
+    <p><a href="#软件开发介绍"><span style="color:#66327C;">软件开发介绍</span></a><br><a href="#计算机编程语言介绍"><span style="color:#66327C;">计算机编程语言介绍</span></a><br><a href="#java语言概述"><span style="color:#66327C;">Java语言概述</span></a><br><a href="#运行机制及运行过程"><span style="color:#66327C;">运行机制及运行过程</span></a><br><a href="#java的环境搭建"><span style="color:#66327C;">Java的环境搭建</span></a><br><a href="#开发体验helloworld"><span style="color:#66327C;">开发体验——HelloWorld</span></a><br><a href="#注释"><span style="color:#66327C;">注释</span></a><br><a href="#java-api的文档"><span style="color:#66327C;">Java API的文档</span></a><br><a href="#良好的编程风格"><span style="color:#66327C;">良好的编程风格</span></a><br><a href="#"><span style="color:#66327C;"></span></a>  </p>
+<h4 id="软件开发介绍"><a href="#软件开发介绍" class="headerlink" title="软件开发介绍"></a>软件开发介绍</h4><p><strong>软件开发</strong>：即一系列按照特定组织顺序的计算机数据指令的集合。有系统软件和应用软件分。  </p>
+<p><strong>人机交互方式</strong>：</p>
+<blockquote>
+<p>图形化界面(Graphical User Interface <strong>GUI</strong>)：这种方式简单直观，使用者易于接受，容易上手操作。  </p>
+</blockquote>
+<blockquote>
+<p>命令行方式(Commend Line Interface <strong>CLI</strong>)：需要一个控制台，输入特定指令，让计算机完成一些操作。较为麻烦，需要记录一些命令。</p>
+</blockquote>
+<p>Windows下常用的DOS命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dir <span class="comment">#列出当前目录下的文件及文件夹</span></span><br><span class="line">md  <span class="comment">#创建目录</span></span><br><span class="line">rd  <span class="comment">#删除目录</span></span><br><span class="line"><span class="built_in">cd</span>  <span class="comment">#进入指定目录</span></span><br><span class="line"><span class="built_in">cd</span>..    <span class="comment">#退回到上一级目录</span></span><br><span class="line"><span class="built_in">cd</span>\     <span class="comment">#退回根目录</span></span><br><span class="line">del     <span class="comment">#删除文件</span></span><br><span class="line"><span class="built_in">exit</span>    <span class="comment">#退出dos命令行</span></span><br><span class="line"><span class="built_in">echo</span> 1.doc  <span class="comment">#创建1.doc文件</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="计算机编程语言介绍"><a href="#计算机编程语言介绍" class="headerlink" title="计算机编程语言介绍"></a>计算机编程语言介绍</h4><blockquote>
+<p>什么是计算机语言？  </p>
+</blockquote>
+<p>语言：是人与人之间用于沟通的一种方式<br>计算机语言：人与计算机交流的方式，计算机语言有很多种。如：C、C++、Java、PHP、Kotlin、Python、Scala等  </p>
+<p>第一代语言：机器语言，指令二进制代码形式存在<br>第二代语言：汇编语言，使用助记符表示一条机器指令<br>第三代语言：高级语言  </p>
+<ul>
+<li>C、Pascal、Fortran面向过程的语言  </li>
+<li>C++面向过程/面向对  </li>
+<li>Java跨平台的纯面向对象的语言  </li>
+<li>.NET跨语言的平台  </li>
+<li>Python、Scala大数据语言  </li>
+</ul>
+<p><a href="https://www.tiobe.com/tiobe-index/" rel="external nofollow noopener noreferrer" target="_blank">TIOBE</a>是一个流行编程语言排行，每月更新，排名权重基于世界范围内工程师的数量，课程数量，和第三方供应商数量</p>
+<h4 id="Java语言概述"><a href="#Java语言概述" class="headerlink" title="Java语言概述"></a>Java语言概述</h4><p>Java语言是SUM(Stanford University Network，斯坦福大学网络公司)1995年退出的一门高级编程语言。  </p>
+<p>是一种面向Internet的编程语言。Java一开始富有吸引力是因为Java程序可以在Web浏览器中运行。这些Java程序被称为Java小程序(applet)。applet使用现代的图形用户界面与web用户进行交互。applet内嵌在HTML代码中。</p>
+<p>随着Java技术在web方面不断的成熟，已经成为web应用程序的首选开发语言  </p>
+<blockquote>
+<p>Java语言简史  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1991年  Green项目，开发语言最初命名为Oak(橡树)  </span><br><span class="line">1994年  开发组意识到Oak非常适合于互联网  </span><br><span class="line">1996年  发布jdk1.0，约8.3万个网页应用Java技术来制作</span><br><span class="line">1997年  发布jdk1.1，JavaOne会议召开，创当时全球同类会议规模之最</span><br><span class="line">1998年  发布jdk1.2，同年发布企业平台J2EE</span><br><span class="line">1999年  Java分成J2SE、J2EE和J2ME，JSP/Servlet技术诞生</span><br><span class="line">2004年  发布里程碑式版本jdk1.5，为突出此版本重要性，更名为jdk5.0</span><br><span class="line">2005年  J2SE -&gt; JavaSE,J2EE -&gt; JavaEE,J2ME -&gt; JavaME</span><br><span class="line">2009年  Oracle公司收购SUN，交易价格74亿美元</span><br><span class="line">2011年  发布jdk7.0</span><br><span class="line">2014年  发布jdk8.0，是继jdk5.0以来变化最大的版本(目前使用最多)</span><br><span class="line">2017年  发布jdk9.0，最大限度实现模块化</span><br><span class="line">2018年3月   发布jdk10.0，版本号也称18.3</span><br><span class="line">2018年9月   发布jdk11.0，版本号也成18.9</span><br><span class="line">2019年3月   发布jdk12.0</span><br></pre></td></tr></table></figure>
+
+<p><strong>Java技术体系</strong><br>Java SE(Java Standard Edition)标准版：支持面向桌面级应用(如Windows下的应用程序)的Java平台，提供完整的Java核心API，此版本以前成为J2SE  </p>
+<p>Java EE(Java Enterprise Edition)企业版：是为开发企业环境下的应用程序提供一套解决方案。该技术体系中包含的技术如servle、jsp等，主要针对于web应用程序开发。版本以前称为J2EE  </p>
+<p>Java ME(java Micro Edition)小型版：支持Java程序运行在移动终端(手机、PDA)上的平台，对Java API有所精简，并加入了针对移动终端的支持，此版本以前称为J2ME  </p>
+<p>Java Card：支持一些Java小程序(Appplets)运行在小内存设备(如智能卡)上的平台  </p>
+<h4 id="运行机制及运行过程"><a href="#运行机制及运行过程" class="headerlink" title="运行机制及运行过程"></a>运行机制及运行过程</h4><p><strong>Java语言的特点</strong></p>
+<ul>
+<li>特点一：面向对象<ul>
+<li>两个基本概念：类、对象  </li>
+<li>三大特性：封装、继承、多态  </li>
+</ul>
+</li>
+<li>特点二：健壮性  <ul>
+<li>吸收了C/C++语言的优点，但去掉了其影响程序健壮性的部分(如指针、内存的申请与释放等)，提供了一个相对安全的内存管理和访问机制  </li>
+</ul>
+</li>
+<li>特点三：跨平台性  <ul>
+<li>跨平台性：通过Java语言编写的应用程序在不同的系统平台上都可以运行，本质上是通过不同系统的JVM实现跨平台的。<strong>Write once，Run Anywhere</strong>   </li>
+<li>原理：只要在需要运行Java应用程序的操作系统上，先安装一个Java虚拟机(JVM java Virtual Machine)即可。由JVM来负责Java程序在该系统中的运行。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Java两种核心机制</strong>  </p>
+<ul>
+<li>Java虚拟机(java virtal machine)  </li>
+<li>垃圾收集机制(Garbag Collection)  <ul>
+<li>在C/C++等语言中，由程序员负责回收无用内存  </li>
+<li>Java 语言消除了程序员回收无用内存空间的责任：它提供一种系统级线程跟踪存储空间的分配情况。并在JVM空闲时，检查并释放那些可被释放的存储空间。</li>
+<li>垃圾回收在java程序运行过程中自动进行，程序员无法精确控制和干预。</li>
+<li><span style="color:#ff0000;">注意：Java程序还会出现内存泄漏和内存溢出问题吗？Yes</span>  </li>
+</ul>
+</li>
+</ul>
+<h4 id="Java的环境搭建"><a href="#Java的环境搭建" class="headerlink" title="Java的环境搭建"></a>Java的环境搭建</h4><p><span style="color:#66327C;">注意：目前市场上用的最多的还是java8，虽然出到了java12，但是企业里求稳定，所以基本不会使用最新版</span>  </p>
+<blockquote>
+<p>什么是jdk、jre  </p>
+</blockquote>
+<p><strong>jdk(java Development kit Java开发工具包)</strong>：jdk是提供给Java开发人员使用的，其中包含了Java的开发工具，也包括了jre运行环境。所以安装了jdk，就不需要单独安装jre了。其中的开发工具：编译工具(javac.exe)打包工具(jar.exe)等  </p>
+<p><strong>jre(java Runtime Environment java运行环境)</strong>：包括Java虚拟机(JVM java virtual machine)和Java程序所需要的核心类库等，如果想要运行一个开发好的Java程序，计算机中只需要安装jre即可  </p>
+<p><span style="color:#ff0000;">简单来说，使用jdk开发完成的程序交给jre运行</span>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jdk = jre + 开发工具集(例如javac编译工具等)  </span><br><span class="line">jre = jvm + java SE标准类库</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g2qidegpevj30on0eun17.jpg" alt>  </p>
+<p><strong>下载并安装JDK</strong><br>官方下载地址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.oracle.com</a>、<a href="https://www.oracle.com/technetwork/java/index.html" rel="external nofollow noopener noreferrer" target="_blank">https://java.sun.com</a>  </p>
+<blockquote>
+<p>windows安装jdk  </p>
+</blockquote>
+<p>详细的安装步骤参考————<a href="https://segmentfault.com/a/1190000018132781" rel="external nofollow noopener noreferrer" target="_blank">【在Windows环境下安装JDK】</a>   </p>
+<blockquote>
+<p>debian系Linux安装jdk  </p>
+</blockquote>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" rel="external nofollow noopener noreferrer" target="_blank">下载地址</a>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/jvm  <span class="comment">#创建jvm文件夹</span></span><br><span class="line">sudo tar -xzvf jdk-8u172-linux-x64.tar.gz -C /usr/jvm  <span class="comment">#解压jdk1.8到jvm文件夹</span></span><br><span class="line">sudo tar -xzvf jdk-11.0.1_linux-x64_bin.tar.gz -C /usr/jvm/  <span class="comment">#解压jdk11到jvm文件夹(可选)</span></span><br><span class="line"></span><br><span class="line">sudo gedit /etc/profile     <span class="comment">#配置环境变量(配置默认jdk)</span></span><br><span class="line">-------------------------------末尾追加---------------------------------</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/jvm/jdk1.8.0_172</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=&#123;JAVA_HOME&#125;/jre</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:&#123;JAVA_HOME&#125;/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="comment">#jdk1.8</span></span><br><span class="line">sudo update-alternatives  --install /usr/bin/java java /usr/jvm/jdk1.8.0_172/bin/java 300</span><br><span class="line">sudo update-alternatives  --install /usr/bin/javac javac /usr/jvm/jdk1.8.0_172/bin/javac 300  </span><br><span class="line"><span class="comment">#jdk11(可选)</span></span><br><span class="line">sudo update-alternatives  --install /usr/bin/java java /usr/jvm/jdk-11.0.1/bin/java 300</span><br><span class="line">sudo update-alternatives  --install /usr/bin/javac javac /usr/jvm/jdk-11.0.1/bin/javac 300</span><br><span class="line"></span><br><span class="line">sudo update-alternatives --config java  <span class="comment">#输入数字切换多个jdk版本</span></span><br><span class="line">java -version  <span class="comment">#查看jdk版本</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>archlinux系Linux安装jdk  </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -S jdk8</span><br></pre></td></tr></table></figure>
+
+<h4 id="开发体验——HelloWorld"><a href="#开发体验——HelloWorld" class="headerlink" title="开发体验——HelloWorld"></a>开发体验——HelloWorld</h4><p>步骤：  </p>
+<ol>
+<li>将 Java 代码编写到扩展名为 <code>.java</code> 的文件中  </li>
+<li>通过 javac 命令对该 java 文件进行编译  </li>
+<li>通过 java 命令对生成的 class 文件进行运行  </li>
+</ol>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g2qj6aa36zj312y0gfn4h.jpg" alt>  </p>
+<p>用记事本创建<code>HelloWorld.java</code>文件，内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>javac HelloWorld.java</code>命令编译该文件，会在<code>HelloWorld.java</code>文件同级目录下生成<code>HelloWorld.class</code>文件，然后使用<code>java HelloWorld</code>运行编译后<code>HelloWorld.class</code>文件，最后会在控制台输出<code>HelloWorld</code>  </p>
+<p><span style="color:#ff0000;">注意：Windows系统使用<code>javac</code>编译<code>HelloWorld.java</code>文件是不区分大小写的，也就是说命令写成<code>javac helloworld.java</code>也是可以成功编译成字节码文件的；但是<code>Java</code>是区分大小写的，而且要求类名和<code>.java</code>文件名要保持一致，那么我们使用<code>java</code>命令运行字节码文件的时候，就严格要求大小写，否则找不到要运行的字节码文件</span>  </p>
+<blockquote>
+<p>除了记事本，这里推荐两个Windows下的编辑工具，<a href="https://www.editplus.com/download.html" rel="external nofollow noopener noreferrer" target="_blank">EditPlus</a>、<a href="https://notepad-plus-plus.org/" rel="external nofollow noopener noreferrer" target="_blank">Notepad++</a>；Linux下使用gedit和vim就好了  </p>
+</blockquote>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p><strong>注释</strong>用于解释说明一段代码用途，阐述程序逻辑，方便别人或自己快速了解代码功能，你可以理解为代码中的笔记；也可以用于调试代码，用于排除错误代码段  </p>
+<p>Java中的注释类型有三种：<strong>单行注释</strong>、<strong>多行注释</strong>、<strong>文档注释</strong><span style="color:#ff0000;">(Java特有)</span>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 【文档注释】</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> teaper	</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * 使用<span class="doctag">@author</span>注解指定程序作者</span></span><br><span class="line"><span class="comment"> * 使用<span class="doctag">@version</span>指定源文件版本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">	<span class="comment">/*【多行注释】：对所写程序进行解释说明，增加可读性</span></span><br><span class="line"><span class="comment">	 * static void main(String[] args)方法是Java程序的入口，且格式是固定的</span></span><br><span class="line"><span class="comment">	 * args数组存储的是bash中的值，args是arguments(参数)的缩写</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//【单行注释】：对所写程序进行解释说明，增加可读性</span></span><br><span class="line">		System.out.println(<span class="string">"Hello World"</span>);  <span class="comment">//有ln的会自动换行</span></span><br><span class="line">		System.out.print(<span class="string">"Hello World"</span>);    <span class="comment">//没有ln的不换行</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//一个.java源文件可以声明多个class类，但是只能有一个public类，且该public类名必须和.java文件名一致</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><span style="color:#ff0000;"><strong>注意：</strong>  </span></p>
+<ol>
+<li>单行注释和多行注释不参与编译，也就是说编译<code>.java</code>文件时，不会将注释内容写进字节码文件中用于运行  </li>
+<li>多行注释不可嵌套使用  </li>
+</ol>
+<p>文档注释可以被JDK所提供的javadoc所解析，生成一套以网页文件形式体现的该程序的说明文档，操作命令如下：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">javadoc -d nydoc -author -version HelloWorld.java   <span class="comment">#执行此命令</span></span><br><span class="line"><span class="comment">#----------------------------输出信息---------------------------</span></span><br><span class="line">Loading <span class="built_in">source</span> file HelloWorld.java...</span><br><span class="line">Constructing Javadoc information...</span><br><span class="line">Creating destination directory: <span class="string">"nydoc/"</span></span><br><span class="line">Standard Doclet version 1.8.0_202</span><br><span class="line">Building tree <span class="keyword">for</span> all the packages and classes...</span><br><span class="line">Generating nydoc/<span class="built_in">test</span>/HelloWorld.html...</span><br><span class="line">Generating nydoc/<span class="built_in">test</span>/package-frame.html...</span><br><span class="line">Generating nydoc/<span class="built_in">test</span>/package-summary.html...</span><br><span class="line">Generating nydoc/<span class="built_in">test</span>/package-tree.html...</span><br><span class="line">Generating nydoc/constant-values.html...</span><br><span class="line">Building index <span class="keyword">for</span> all the packages and classes...</span><br><span class="line">Generating nydoc/overview-tree.html...</span><br><span class="line">Generating nydoc/index-all.html...</span><br><span class="line">Generating nydoc/deprecated-list.html...</span><br><span class="line">Building index <span class="keyword">for</span> all classes...</span><br><span class="line">Generating nydoc/allclasses-frame.html...</span><br><span class="line">Generating nydoc/allclasses-noframe.html...</span><br><span class="line">Generating nydoc/index.html...</span><br><span class="line">Generating nydoc/<span class="built_in">help</span>-doc.html...</span><br></pre></td></tr></table></figure>
+
+<p>会在该<code>HelloWorld.java</code>同级目录生成一个叫做<code>nydoc</code>的文件夹，用浏览器打开其中的<code>index.html</code>，如图所示 </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g30tyqypugj31ha0qdjs6.jpg" alt></p>
+<p>可以看到相关包名，类名，版本等信息～  </p>
+<h4 id="Java-API的文档"><a href="#Java-API的文档" class="headerlink" title="Java API的文档"></a>Java API的文档</h4><p>API(Application Programming Interface，应用程序编程接口)是Java提供的基本编程接口  </p>
+<p>Java语言提供了大量的基础类，因此Oracle也为这些基础类提供了相应的API文档，用于告诉开发者如何使用这些类，以及类里包含的方法  </p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/" rel="external nofollow noopener noreferrer" target="_blank">Java8API在线英文版</a><br><a href="http://www.matools.com/api/java8" rel="external nofollow noopener noreferrer" target="_blank">Java8API在线中文版</a>  </p>
+<h4 id="良好的编程风格"><a href="#良好的编程风格" class="headerlink" title="良好的编程风格"></a>良好的编程风格</h4><p>正确的注释和注释风格  </p>
+<ul>
+<li>使用文档注释来注释整个类或整个方法  </li>
+<li>如果注释方法中的某一个步骤，使用单行或多行注释</li>
+</ul>
+<p>正确的缩进和空白  </p>
+<ul>
+<li>使用tab操作，实现缩进</li>
+<li>运算符两边习惯性加一个空格，比如：<code>2 + 4 * 5</code></li>
+</ul>
+<p>块的风格  </p>
+<ul>
+<li>Java API 源代码选择了行尾风格，C#是独行风格  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.print(<span class="string">"行尾风格"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//----------------------------分隔符----------------------------</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.print(<span class="string">"独行风格"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+  </article>
+</div>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<div class="container" id="gitalk-container"></div>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '79a82d93fcd761032f45',
+        clientSecret: 'b784392d66d81a991565a56598f2d369e71e21ad',
+        repo: 'hexoblog',
+        owner: 'teaper',
+        admin: ['teaper'],
+	id: md5(location.pathname),
+        distractionFreeMode: true
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://www.teaper.dev" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 teaper</li>
+      <li><a href="https://www.teaper.dev">Home</a></li>
+      
+      <li><a href="https://github.com/teaper" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+      
+      <li><a href="https://www.weibo.com/5806191772" rel="external nofollow noopener noreferrer" target="_blank">Weibo</a></li>
+      
+      <li><a href="https://twitter.com/TEAPERS" rel="external nofollow noopener noreferrer" target="_blank">Twitter</a></li>
+      
+    </ul>
+    <div class="footer-theme-info" id="hitokoto">
+       行是知之始 ❤ 知是行之成
+    </div>
+    </div>
+    
+    <div class="footer-pageview">
+        <a href="https://info.flagcounter.com/MrmG" rel="external nofollow noopener noreferrer" target="_blank">
+          <img src="https://s04.flagcounter.com/count2/MrmG/bg_FFFFFF/txt_6A737D/border_FFFFFF/columns_7/maxflags_14/viewers_3/labels_1/pageviews_1/flags_0/percent_0/">
+        </a>
+    </div>
+    
+  </footer>
+</div>
+<!-- QPlayer音乐播放器 -->
+<div id="QPlayer">
+<div id="pContent">
+	<div id="player">
+		<span class="cover"></span>
+		<div class="ctrl">
+			<div class="musicTag marquee">
+				<strong>Title</strong>
+				 <span> - </span>
+				<span class="artist">Artist</span>
+			</div>
+			<div class="progress">
+				<div class="timer left">0:00</div>
+				<div class="contr">
+					<div class="rewind icon"></div>
+					<div class="playback icon"></div>
+					<div class="fastforward icon"></div>
+				</div>
+				<div class="right">
+					<div class="liebiao icon"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ssBtn">
+	        <div class="adf"></div>
+    </div>
+</div>
+<ol id="playlist"></ol>
+</div>
+<!-- <script src="js/jquery.min.js"></script> -->
+<!-- <script src="js/jquery.marquee.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js"></script>
+
+<script src="/js/playlist.js"></script>
+<script src="/js/player.js"></script>
+<script>
+function bgChange(){
+	var lis= $('.lib');
+	for(var i=0; i<lis.length; i+=2)
+	lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+}
+window.onload = bgChange;
+</script>
+
+<!-- Live2D血小板 -->
+<div id="landlord">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="560" height="500" class="live2d"></canvas>
+    <!-- 省略隐藏按钮 -->
+</div>
+
+<!-- 鼠标单击爆炸区域 -->
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:1031;pointer-events:none;"></canvas>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = 'https://www.teaper.dev/'
+</script>
+<script type="text/javascript" src="/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/model/xiaoban/model.json");
+</script>
+
+<!-- 打字泡沫 -->
+<script type="text/javascript" src="/js/activate-power-mode.js"></script>
+<script>
+    POWERMODE.colorful = true;  
+    POWERMODE.shake = false;    
+    document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 引入一言 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- <script src="/js/hitokoto.js"></script> -->
+
+<!-- 粒子特效 -->
+<!-- <script src="/js/canvas-nest.min.js"></script> -->
+
+<!-- 鼠标单击爱心特效 -->
+<script src="/js/mouse.js"></script>
+<!-- 鼠标单击爆炸特效 -->
+<script src="/js/anime.min.js"></script>
+<script src="/js/fireworks.js"></script>
+
+
+
+
+<script>
+  (function() {
+    var cx = '014633199185561276043:bpv9wnr4qhc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+      '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

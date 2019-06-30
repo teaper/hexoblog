@@ -623,8 +623,6 @@ sudo pacman -S fcitx-sogoupinyin
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
-# fcitx &后请替换为你的桌面环境的启动命令
-fcitx & gnome-session
 ```
 若你使用的桌面环境比较特殊，可能需要在`/etc/environmenet`后方也加入<span style="color:#ff0000;">(保险起见也加上)</span>  
 ```bash

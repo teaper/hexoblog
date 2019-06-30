@@ -1,7 +1,7 @@
 ---
 title: 图床工具PicGo+Github
 date: 2019-06-01 00:31:00
-categories: [PicGo]
+categories: [软件]
 tags: [PicGo,Github]
 ---
 > 所谓图床工具，就是自动把本地图片上传到服务器，并获取其http/https链接的一款工具，让其可以在互联网上得到访问  

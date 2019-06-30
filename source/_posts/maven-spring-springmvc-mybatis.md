@@ -1,8 +1,8 @@
 ---
 title: Maven+Spring+SpringMVC+MyBatis整合
 date: 2019-05-19 22:27:19
-categories: [java]
-tags: [Maven,Tomcat,Spring,SpringMVC,MyBatis,MySQL]
+categories: [框架整合]
+tags: [Maven,Tomcat,Spring,SpringMVC,MyBatis,MySQL,java]
 ---
 ### 项目简介	  
 #### 开发环境:  

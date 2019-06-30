@@ -1,7 +1,7 @@
 ---
 title: 计算机入门概述
 date: 2019-05-24 17:21:00
-categories: [java基础]
+categories: [Java]
 tags: [java]
 ---
 [<span style="color:#66327C;">准备工作</span>](#准备工作)  

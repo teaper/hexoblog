@@ -1,6 +1,6 @@
 ---
 title: Java 语言概述
-categories: [java基础]
+categories: [Java]
 tags: [java]
 date: 2019-06-30 12:45:04
 ---

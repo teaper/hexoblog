@@ -1,7 +1,7 @@
 ---
 title: Hexo＋Github搭建静态博客
 date: 2019-05-31 17:00:40
-categories: [hexo]
+categories: [Hexo]
 tags: [hexo,github pages,node.js,npm,git,rss,sitemap,google Analytics,Live2D,disqus,gitalk]
 ---
 <span style="color:#B900ff;">什么是Hexo？</span>  

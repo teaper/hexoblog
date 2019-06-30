@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-06-30T04:46:40.903Z</updated>
+  <updated>2019-06-30T05:17:35.443Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java 语言概述</title>
-    <link href="https://www.teaper.dev/2019/06/30/javalanguage/"/>
-    <id>https://www.teaper.dev/2019/06/30/javalanguage/</id>
-    <published>2019-06-30T04:45:04.000Z</published>
-    <updated>2019-06-30T04:46:40.903Z</updated>
+    <title>搭建Git服务器</title>
+    <link href="https://www.teaper.dev/2019/06/30/gitserver/"/>
+    <id>https://www.teaper.dev/2019/06/30/gitserver/</id>
+    <published>2019-06-30T05:16:21.000Z</published>
+    <updated>2019-06-30T05:17:35.443Z</updated>
     
     <summary type="html">
     
@@ -35,7 +35,65 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://www.teaper.dev/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="Git" scheme="https://www.teaper.dev/categories/Git/"/>
+    
+    
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>版本控制工具Git</title>
+    <link href="https://www.teaper.dev/2019/06/30/git/"/>
+    <id>https://www.teaper.dev/2019/06/30/git/</id>
+    <published>2019-06-30T05:07:11.000Z</published>
+    <updated>2019-06-30T05:18:10.007Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://www.teaper.dev/categories/Git/"/>
+    
+    
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
+    
+      <category term="ssh" scheme="https://www.teaper.dev/tags/ssh/"/>
+    
+      <category term="github" scheme="https://www.teaper.dev/tags/github/"/>
+    
+      <category term="git flow" scheme="https://www.teaper.dev/tags/git-flow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 语言概述</title>
+    <link href="https://www.teaper.dev/2019/06/30/javalanguage/"/>
+    <id>https://www.teaper.dev/2019/06/30/javalanguage/</id>
+    <published>2019-06-30T04:45:04.000Z</published>
+    <updated>2019-06-30T05:08:33.177Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://www.teaper.dev/categories/Java/"/>
     
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
@@ -159,7 +217,7 @@
     <link href="https://www.teaper.dev/2019/05/31/hexogithub/"/>
     <id>https://www.teaper.dev/2019/05/31/hexogithub/</id>
     <published>2019-05-31T09:00:40.000Z</published>
-    <updated>2019-05-31T16:11:09.520Z</updated>
+    <updated>2019-06-30T05:08:50.817Z</updated>
     
     <summary type="html">
     
@@ -173,8 +231,10 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://www.teaper.dev/categories/hexo/"/>
+      <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
     
+    
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
@@ -183,8 +243,6 @@
       <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
-    
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
     
@@ -257,7 +315,7 @@
     <link href="https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/"/>
     <id>https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/</id>
     <published>2019-05-24T09:21:00.000Z</published>
-    <updated>2019-06-30T04:44:28.323Z</updated>
+    <updated>2019-06-30T05:08:20.487Z</updated>
     
     <summary type="html">
     
@@ -271,7 +329,7 @@
     
     </summary>
     
-      <category term="java基础" scheme="https://www.teaper.dev/categories/java%E5%9F%BA%E7%A1%80/"/>
+      <category term="Java" scheme="https://www.teaper.dev/categories/Java/"/>
     
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>

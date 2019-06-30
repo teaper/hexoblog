@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    图床工具PicGo+Github | TEAPER
+    搭建Git服务器 | TEAPER
   </title>
   <meta name="description" content="一个人学会思考，比学会啥都强！">
   
   <meta name="keywords" content="
-  PicGo,Github
+  git
   ">
   
   <meta name="author" content="teaper">
@@ -137,39 +137,41 @@
     <i class="fa fa-user-o"></i>
     teaper
 
-    <span class="post-date float-right" title="{{moment(1559320260000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1561871781000).format('MMM DD, YYYY, h:mm:ss A')}}">
       <i class="fa fa-pencil-square-o"></i>
-      {{moment(1559320260000).fromNow()}}
+      {{moment(1561871781000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1 style="text-align:center">图床工具PicGo+Github</h1>
-    <blockquote>
-<p>所谓图床工具，就是自动把本地图片上传到服务器，并获取其http/https链接的一款工具，让其可以在互联网上得到访问<br>网络上有很多图床工具，就目前使用种类而言，<a href="https://molunerfinn.com/PicGo/" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a> 算得上一款比较优秀的图床工具  </p>
-</blockquote>
-<p><a href="https://github.com/Molunerfinn/PicGo" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a>基于 <a href="https://github.com/SimulatedGREG/electron-vue" rel="external nofollow noopener noreferrer" target="_blank">Electron-vue</a> 开发的软件，可以支持<a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf" rel="external nofollow noopener noreferrer" target="_blank">微博</a>、七牛云、腾讯云COS、又拍云、GitHub、阿里云OSS、<a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a>、imgur 等8种常用图床，功能强大，简单易用!  </p>
-<h4 id="下载和安装PicGo"><a href="#下载和安装PicGo" class="headerlink" title="下载和安装PicGo"></a>下载和安装PicGo</h4><p>下载地址参见<a href="https://github.com/Molunerfinn/PicGo/releases" rel="external nofollow noopener noreferrer" target="_blank">github发布页</a>  </p>
-<blockquote>
-<p>macOS用户请下载最新版本的dmg文件<br>windows用户请下载最新版本的exe文件<br>linux用户请下载AppImage文件  </p>
-</blockquote>
-<p>Arch Linux用户使用 <code>aurman -S picgo-appimage</code> 安装，或者使用 <a href>yay</a> 安装  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S picgo-appimage       <span class="comment">#一般不是最新版本</span></span><br></pre></td></tr></table></figure>
-
-<p>安装成功，你就可以使用其中的 <a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a> 图床，其他图床需要自行配置<span style="color:#ff0000;">(本教程搭建Github图床)</span>  </p>
-<h4 id="Github-token"><a href="#Github-token" class="headerlink" title="Github token"></a>Github token</h4><p>登录你的 <a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">Github</a> 账号，新建一个公有仓库 <code>picgoimgs</code> ，或者使用已有仓库<br>进入 <a href="https://github.com/settings/tokens" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/settings/tokens</a>，点击 <code>Generate new token</code> 创建一个新的 <code>token</code><br>勾选 <code>repo</code> 复选框，Note说明随便写，我这里是 <code>For PicGo</code> ，表示用于 PicGo图床  </p>
-<p><img src="https://i.loli.net/2019/05/24/5ce7a447a047350146.png" alt>  </p>
-<p>点击最下方绿色 <code>Generate token</code> 的按钮生成<code>token</code>  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3kyp69v3wj30rq0cgmz6.jpg" alt>  </p>
-<p>复制绿色背景的那条编码，将其存储起来，因为它只显示一次  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8c473a9580043gd33a8b45f3610c7f59646b662     <span class="comment">#示范</span></span><br></pre></td></tr></table></figure>
+    <h1 style="text-align:center">搭建Git服务器</h1>
+    <p><a href="#修改系统源"><span style="color:#B900ff;">修改系统源</span></a><br><a href="#安装git"><span style="color:#B900ff;">安装git</span></a><br><a href="#创建git用户"><span style="color:#B900ff;">创建git用户</span></a><br><a href="#创建证书登录"><span style="color:#B900ff;">创建证书登录</span></a><br><a href="#初始化git仓库"><span style="color:#B900ff;">初始化Git仓库</span></a><br><a href="#禁用shell登录"><span style="color:#B900ff;">禁用shell登录</span></a><br><a href="#测试远程仓库"><span style="color:#B900ff;">测试远程仓库</span></a><br><a href="#后续功能"><span style="color:#B900ff;">后续功能</span></a>  </p>
+<h4 id="修改系统源"><a href="#修改系统源" class="headerlink" title="修改系统源"></a>修改系统源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list   <span class="comment">#输入i进入install模式</span></span><br><span class="line">-------------------------------粘贴源---------------------------------</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="comment">#输入:wq(保存退出) :q(不保存退出)</span></span><br><span class="line"> </span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h4><p>设定仓库名：teaper/picgoimgs<br>设定分支名字：master<br>设定Token：8c473a9580043gd33a8b45f3610c7f59646b662  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3kyo9373rj30j40a6q3k.jpg" alt></p>
-<p>存储路径和自定义域名可以不写，设定自定义域名需要在域名DNS下解析你的github服务器  </p>
-<p>点击“设为默认图床”，当图片上传成功之后，可以看到仓库中多了一个文件  </p>
-<p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/Screenshot%20from%202019-05-24%2016-19-25.png" alt></p>
+<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git   <span class="comment">#输入y回车</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="创建git用户"><a href="#创建git用户" class="headerlink" title="创建git用户"></a>创建git用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser git</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h4><p>收集所有需要登录的用户的公钥，就是他们自己本机的id_rsa.pub文件，把所有公钥粘贴到购买的主机/home/git/.ssh/authorized_keys文件里，一行一个  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">sudo vim authorized_keys  <span class="comment">#把key粘贴进去,Esc+:wq+回车</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h4><p>先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /srv</span><br><span class="line">sudo git init --bare twtity.git    <span class="comment">#git就会创建一个裸仓库twtity.git,仓库名twtity可自定义</span></span><br><span class="line">sudo chown -R git:git twtity.git   <span class="comment">#将仓库的拥有者改为git</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/passwd</span><br><span class="line">-----------------------修改-------------------------</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</span><br><span class="line">                    改为</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br><span class="line">---------------------------------------------------</span><br><span class="line">sudo vim /etc/ssh/sshd_config    <span class="comment">#把PasswordAuthentication no改为yes</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="测试远程仓库"><a href="#测试远程仓库" class="headerlink" title="测试远程仓库"></a>测试远程仓库</h4><p>在本机上执行  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@主机名或主机IP:/srv/twtity.git</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="后续功能"><a href="#后续功能" class="headerlink" title="后续功能"></a>后续功能</h4><p><strong>管理公钥</strong><br>如果团队很小，把每个人的公钥收集起来放到服务器的.ssh/authorized_keys文件里就是可行的。如果团队有几百人，就没法这么玩了，这时，可以用<a href="https://github.com/res0nat0r/gitosis" rel="external nofollow noopener noreferrer" target="_blank">Gitosis</a>来管理公钥  </p>
+<p><strong>管理权限</strong><br>因为Git是为Linux源代码托管而开发的，所以Git也继承了开源社区的精神，不支持权限控制,不过，因为Git支持hook,所以，可以在服务器端编写脚本来控制提交等操作,从而达到权限控制的目的! <a href="https://github.com/sitaramc/gitolite" rel="external nofollow noopener noreferrer" target="_blank">Gitolite</a>允许您在中央服务器上设置git托管，具有非常细粒度的访问控制和许多更强大的功能  </p>
 
   </article>
 </div>

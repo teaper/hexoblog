@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.teaper.dev/2019/06/30/git/</loc>
+    
+    <lastmod>2019-06-30T05:18:10.007Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/06/30/gitserver/</loc>
+    
+    <lastmod>2019-06-30T05:17:35.443Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/05/31/hexogithub/</loc>
+    
+    <lastmod>2019-06-30T05:08:50.817Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.teaper.dev/2019/06/30/javalanguage/</loc>
     
-    <lastmod>2019-06-30T04:46:40.903Z</lastmod>
+    <lastmod>2019-06-30T05:08:33.177Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/</loc>
     
-    <lastmod>2019-06-30T04:44:28.323Z</lastmod>
+    <lastmod>2019-06-30T05:08:20.487Z</lastmod>
     
   </url>
   
@@ -68,13 +89,6 @@
     <loc>https://www.teaper.dev/links/index.html</loc>
     
     <lastmod>2019-05-31T17:44:19.707Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.teaper.dev/2019/05/31/hexogithub/</loc>
-    
-    <lastmod>2019-05-31T16:11:09.520Z</lastmod>
     
   </url>
   

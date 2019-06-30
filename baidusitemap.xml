@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.teaper.dev/2019/06/30/git/</loc>
+    <lastmod>2019-06-30</lastmod>
+  </url>  <url>
+    <loc>https://www.teaper.dev/2019/06/30/gitserver/</loc>
+    <lastmod>2019-06-30</lastmod>
+  </url>  <url>
+    <loc>https://www.teaper.dev/2019/05/31/hexogithub/</loc>
+    <lastmod>2019-06-30</lastmod>
+  </url>  <url>
     <loc>https://www.teaper.dev/2019/06/30/javalanguage/</loc>
     <lastmod>2019-06-30</lastmod>
   </url>  <url>
@@ -27,9 +36,6 @@
   </url>  <url>
     <loc>https://www.teaper.dev/2019/06/02/v2ray/</loc>
     <lastmod>2019-06-02</lastmod>
-  </url>  <url>
-    <loc>https://www.teaper.dev/2019/05/31/hexogithub/</loc>
-    <lastmod>2019-05-31</lastmod>
   </url>  <url>
     <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
     <lastmod>2019-05-29</lastmod>

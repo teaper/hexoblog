@@ -221,7 +221,7 @@
 <p>可以看到，在<code>public</code>文件夹中多了一个<code>atom.xml</code>文件；然后在<code>_config.yml</code>文件中配置该插件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># RSS</span></span><br><span class="line">feed:</span><br><span class="line">    <span class="built_in">type</span>: atom</span><br><span class="line">    path: atom.xml</span><br><span class="line">    <span class="built_in">limit</span>: 20</span><br><span class="line">    hub:</span><br><span class="line">    content:</span><br><span class="line">    content_limit:</span><br><span class="line">    content_limit_delim: <span class="string">' '</span></span><br></pre></td></tr></table></figure>
 
-<p>重新运行 <code>hexo g &amp;&amp; hexo s</code> 命令就可以看到效果了  </p>
+<p>重新运行 <code>hexo g &amp;&amp; hexo s</code> 命令就可以看到效果了，单击会在浏览器中打开 <code>atom.xml</code> 文件，如果想订阅别人的 RSS ，可以参考——<a href="https://juejin.im/post/5c382a326fb9a049f15469eb" rel="external nofollow noopener noreferrer" target="_blank">【如何用RSS订阅？】</a>  </p>
 <h4 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h4><p>安装 <code>hexo-deployer-git</code> 包 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git  #git部署插件</span><br></pre></td></tr></table></figure>
 

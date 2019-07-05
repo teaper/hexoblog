@@ -618,7 +618,7 @@ sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
  
 sudo pacman -S fcitx-sogoupinyin
 ```
-用文本编辑器创建或编辑~/.xprofile文件;在其末尾添加以下几行:  
+用文本编辑器创建或编辑 `~/.xprofile` 文件;在其末尾添加以下几行:  
 ```bash
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -680,8 +680,13 @@ sudo chmod +x bbr.sh  #给bbr.sh加权限
 ```
 执行上面的代码，然后耐心等待，安装成功后重启VPS服务器即可(可以在Vultr网站上重启)    
   
-ArchLinux下载ssr客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)<span style="color:#ff0000;">(已被作者删库，邮件联系`erguotou525@gmail.com`作者获取安装包)</span>  
-安卓客户端[shadowsocksr.apk](https://pan.lanzou.com/i0zfv5g)  
+下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的老版本客户端可以用，需要请联系我邮箱  
+* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)  
+* Debian系Linux客户端[electron-ssr-0.2.5.deb](#)  
+* 安卓客户端[shadowsocksr.apk](https://pan.lanzou.com/i0zfv5g)  
+* IOS 客户端[shadowrocket.ipa](#)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  
+* Windows客户端[electron-ssr-0.2.6.exe](#)  
+  
 ```bash
 sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 ```
@@ -742,12 +747,12 @@ sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 }
 ```
 </details>
-如果你的SSR突然有一天不能用了，可以参考——[【Vultr被墙-Vultr IP 端口被墙的解决办法】](https://www.vultrblog.com/vultr-wall/.html)  
   
 将`electron-ssr`添加到**开机自启**，这样就不用每次开机都要手动启动它  
 ```bash
 sudo cp electron-ssr.desktop ~/.config/autostart    #将快捷方式复制到自启程序目录
 ```
+最后，分享一个免费获取小飞机节点<span style="color:#ff0000;">(服务器配置信息)</span>的[电报群](https://t.me/aleikeji2)，没有配置信息可以来找我，我先给你找个免费的先用着，然后你们自己去这个电报群找延迟低的服务器
   
 #### 网易云音乐  
 ```bash
@@ -916,6 +921,13 @@ d   [文件或目录1]  [文件或目录2]  #下载
 exit        #退出BaiduPCS-Go
 
 sudo ln -s /opt/BaiduPCS-Go-v3.5.6-linux-amd64/BaiduPCS-Go /usr/bin/BaiduPCS    #添加到终端命令,输入BaiduPCS即可打开
+```
+<span style="color:#ff0000;">注意：如果下载提示服务器超时，下载失败，请充值百度网盘超级会员，最近的一个bug，同样下面的百度网盘客户端也不行，下载才几十 KB 每秒
+  
+#### 百度网盘客户端  
+建议还是使用上面的[BaiduPCS](#baidupcs)，感觉更快，毕竟多线程  
+```bash
+yay -S baidunetdisk #客户端版
 ```
   
 #### 录像/直播 
@@ -2058,12 +2070,16 @@ tar
     tar -xf source.tar --wildcards "*.html"
 ```
   
-#### 安装kchmviewer  
-做开发的经常看一些类似于`Java+API文档中文版.chm`的`.chm`文件，就需要这个软件
+#### 安装kchmviewer / xchm  
+做开发的经常看一些类似于[Java+API文档中文版.chm](http://doc.d8jd.com/)的`.chm`文件，就需要这个软件
 ```bash
 yay -S kchmviewer
 ```
-注意：如果打开的文档乱码，可能是文件路径存在中文的原因  
+<span style="color:#ff0000">注意：如果打开的文档乱码，可能是文件路径存在中文的原因</span>  
+```bash
+-------------------------其他类似软件-----------------
+sudo pacman -S xchm 
+```
   
 #### 安装krita绘图软件  
 [Krita](https://krita.org) 是一款自由、免费、开源的数字绘画软件，针对概念美术、插图、布景、材质和电影特效行业的需求而设计，我主要是作为Linux下Photo Shop的替代品来使用  

@@ -300,7 +300,7 @@ feed:
     content_limit:
     content_limit_delim: ' '
 ```
-重新运行 `hexo g && hexo s` 命令就可以看到效果了  
+重新运行 `hexo g && hexo s` 命令就可以看到效果了，单击会在浏览器中打开 `atom.xml` 文件，如果想订阅别人的 RSS ，可以参考——[【如何用RSS订阅？】](https://juejin.im/post/5c382a326fb9a049f15469eb)  
 
     
 #### 部署博客  

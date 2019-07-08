@@ -547,13 +547,24 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S baidunetdisk <span class="comment">#客户端版</span></span><br></pre></td></tr></table></figure>
 
 
-<h4 id="录像-直播"><a href="#录像-直播" class="headerlink" title="录像/直播"></a>录像/直播</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S obs-studio    <span class="comment">#OBS</span></span><br></pre></td></tr></table></figure>
+<h4 id="录像-直播"><a href="#录像-直播" class="headerlink" title="录像/直播"></a>录像/直播</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S obs-studio    <span class="comment">#OBS</span></span><br><span class="line">yay -S obs-linuxbrowser-bin <span class="comment">#哔哩哔哩弹幕需要这个插件</span></span><br></pre></td></tr></table></figure>
 
 <p>启动后，obs 会根据你电脑性能自动配置出一套默认设置，但是默认设置下的视频清晰度达不到我们的要求，所以需要在此基础上修改一下  </p>
 <blockquote>
-<p>进入 file &gt; settings 打开设置面板，点击左边列表的 Output 选项卡<br>设置 Video Bitrate 比特率为 <code>5000</code><br>Encoder选择带 <code>NVENC</code> 的N卡驱动<br>勾选 <code>Enable Advanced Encoder Settings</code> 复选框<br>点击左边列表的 Video 选项卡,设置<code>Output(Scaled)Resolution</code>输出像素为<code>1920×1080</code>  </p>
+<p>进入 file &gt; settings 打开设置面板，点击左边列表的 Output 选项卡<br>设置 Video Bitrate 比特率为 <code>5000</code> <span style="color:#ff0000;">(直播比特率 = (上行KB × 8) &lt; 用户下行 &lt; 平台带宽)</span><br>Encoder选择带 <code>NVENC</code> 的N卡驱动<br>勾选 <code>Enable Advanced Encoder Settings</code> 复选框<br>点击左边列表的 Video 选项卡,设置<code>Output(Scaled)Resolution</code>输出像素为<code>1920×1080</code>  </p>
 </blockquote>
 <p><span style="color:#ff0000;">注意：如果OBS无法录制电脑桌面，请在终端使用<code>sudo obs</code>命令启动一次</span></p>
+<h4 id="哔哩哔哩弹幕库"><a href="#哔哩哔哩弹幕库" class="headerlink" title="哔哩哔哩弹幕库"></a>哔哩哔哩弹幕库</h4><p><a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>直接下载，解压之后运行其中名叫<code>弹幕库</code>的<code>run</code>脚本即可，唯一差的就一个快捷方式，下载下方图片，重命名为<code>danmuku.png</code>，将其移动到解压的文件夹中，并且将文件夹中的<code>弹幕库.run</code>重命名为<code>danmuku</code>，将整个解压文件夹移动到<code>/opt</code>目录  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4ss20u7yvj30340340sl.jpg" alt>  </p>
+<p>创建快捷方式  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit danmuku.desktop  <span class="comment">#创建快捷方式，内容如下</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=Bilibili Danmuku</span><br><span class="line">Comment=BiliBili live assistant</span><br><span class="line">Exec=/opt/bilibilidanmuku-linux-x64/danmuku</span><br><span class="line">Icon=/opt/bilibilidanmuku-linux-x64/danmuku.png</span><br><span class="line">Categories=Application;</span><br><span class="line">Version=2.1.1</span><br><span class="line">Type=Application</span><br><span class="line">Terminal=0</span><br></pre></td></tr></table></figure>
+
+<p>添加权限  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x danmuku.desktop  <span class="comment">#添加运行权限</span></span><br><span class="line">sudo cp danmuku.desktop /usr/share/applications/  <span class="comment">#复制到快捷方式文件夹</span></span><br></pre></td></tr></table></figure>
+
+
 <h4 id="Teamviewer远程工具"><a href="#Teamviewer远程工具" class="headerlink" title="Teamviewer远程工具"></a>Teamviewer远程工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S teamviewer</span><br></pre></td></tr></table></figure>
 
 <p>启动后如果出现，未就绪，请检查网络连接，没问题的话运行  </p>

@@ -935,15 +935,43 @@ yay -S baidunetdisk #客户端版
 #### 录像/直播 
 ```bash
 sudo pacman -S obs-studio    #OBS
+yay -S obs-linuxbrowser-bin #哔哩哔哩弹幕需要这个插件
 ```
 启动后，obs 会根据你电脑性能自动配置出一套默认设置，但是默认设置下的视频清晰度达不到我们的要求，所以需要在此基础上修改一下  
 > 进入 file > settings 打开设置面板，点击左边列表的 Output 选项卡  
-> 设置 Video Bitrate 比特率为 `5000`   
+> 设置 Video Bitrate 比特率为 `5000` <span style="color:#ff0000;">(直播比特率 = (上行KB × 8) < 用户下行 < 平台带宽)</span>  
 > Encoder选择带 `NVENC` 的N卡驱动  
 > 勾选 `Enable Advanced Encoder Settings` 复选框  
 > 点击左边列表的 Video 选项卡,设置`Output(Scaled)Resolution`输出像素为`1920×1080`  
   
 <span style="color:#ff0000;">注意：如果OBS无法录制电脑桌面，请在终端使用`sudo obs`命令启动一次</span>
+  
+#### 哔哩哔哩弹幕库  
+[官网](http://bilibili.danmaku.live/#/)直接下载，解压之后运行其中名叫`弹幕库`的`run`脚本即可，唯一差的就一个快捷方式，下载下方图片，重命名为`danmuku.png`，将其移动到解压的文件夹中，并且将文件夹中的`弹幕库.run`重命名为`danmuku`，将整个解压文件夹移动到`/opt`目录  
+  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g4ss20u7yvj30340340sl.jpg)  
+  
+创建快捷方式  
+```bash
+sudo gedit danmuku.desktop  #创建快捷方式，内容如下
+```
+```bash
+[Desktop Entry]
+Encoding=UTF-8
+Name=Bilibili Danmuku
+Comment=BiliBili live assistant
+Exec=/opt/bilibilidanmuku-linux-x64/danmuku
+Icon=/opt/bilibilidanmuku-linux-x64/danmuku.png
+Categories=Application;
+Version=2.1.1
+Type=Application
+Terminal=0
+```
+添加权限  
+```bash
+sudo chmod a+x danmuku.desktop  #添加运行权限
+sudo cp danmuku.desktop /usr/share/applications/  #复制到快捷方式文件夹
+```
   
 #### Teamviewer远程工具
 ```bash

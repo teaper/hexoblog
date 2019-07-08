@@ -630,6 +630,8 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 ```
+<span style="color:#ff0000;">常见问题：使用`pacman -Syu`更新之后，`TIM`、`gedit`里无法输入中文</span>  
+> 解决方法：首先检查上面的 `~/.xprofile` 和 `/etc/environmenet` 中的配置有没有被修改或删除，如果一切正常，使用 `source /etc/environmenet` 和 `source ~/.xprofile` 使配置文件生效，然后重启电脑
   
 #### 互联网小飞机
 富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善  

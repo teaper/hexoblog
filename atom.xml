@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-06-30T05:57:20.430Z</updated>
+  <updated>2019-07-08T21:58:21.007Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ArchLinux系统如何直播哔哩哔哩</title>
+    <link href="https://www.teaper.dev/2019/07/09/bilibilizhibo/"/>
+    <id>https://www.teaper.dev/2019/07/09/bilibilizhibo/</id>
+    <published>2019-07-08T21:56:34.000Z</published>
+    <updated>2019-07-08T21:58:21.007Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
+    
+    
+      <category term="ArchLinux" scheme="https://www.teaper.dev/tags/ArchLinux/"/>
+    
+      <category term="哔哩哔哩" scheme="https://www.teaper.dev/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
+    
+      <category term="obs" scheme="https://www.teaper.dev/tags/obs/"/>
+    
+  </entry>
   
   <entry>
     <title>MyBatis框架</title>

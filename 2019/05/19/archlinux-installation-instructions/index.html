@@ -436,7 +436,10 @@
 <p>若你使用的桌面环境比较特殊，可能需要在<code>/etc/environmenet</code>后方也加入<span style="color:#ff0000;">(保险起见也加上)</span>  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">"@im=fcitx"</span></span><br></pre></td></tr></table></figure>
 
-
+<p><span style="color:#ff0000;">常见问题：使用<code>pacman -Syu</code>更新之后，<code>TIM</code>、<code>gedit</code>里无法输入中文</span>  </p>
+<blockquote>
+<p>解决方法：首先检查上面的 <code>~/.xprofile</code> 和 <code>/etc/environmenet</code> 中的配置有没有被修改或删除，如果一切正常，使用 <code>source /etc/environmenet</code> 和 <code>source ~/.xprofile</code> 使配置文件生效，然后重启电脑</p>
+</blockquote>
 <h4 id="互联网小飞机"><a href="#互联网小飞机" class="headerlink" title="互联网小飞机"></a>互联网小飞机</h4><p>富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善  </p>
 <p>先去国外网站买个VCS服务器,这里推荐<a href="https://www.vultr.com/?ref=7539377" rel="external nofollow noopener noreferrer" target="_blank">Vultr</a><br>新用户注册成功是在计费页面,说下Vultr的计费规则,它不像阿里云,一买就是年或月,而是按小时计算金额,金额从Vultr账户中扣除,所以我们需要先给账户充值金额,充值方式可以是paypal/支付宝/网银,我们先冲10美元<br>我们选择一个Vultr云计算(VC2)中的服务器(推荐洛杉矶/日本/新加坡)<br>系统选择CentOS/Ubuntu<br>服务器大小选个便宜的$5/mo $0.007/h1 CPU 1024MB内存1000GB带宽<br><span style="color:#ff0000;">注意:1000GB带宽表示流量,用完我们可以把原来主机销毁,重新换个主机,再搭建一遍,不用加钱</span><br>成功之后.会显示系统正在安装,安装成功,点击进入管理界面,里面有基本IP地址,用户名,密码之类的  </p>
 <p>我们先<a href="http://ping.chinaz.com/" rel="external nofollow noopener noreferrer" target="_blank">ping</a>一下ip(例如：167.179.77.127)能不能通，再检测端口<a href="http://coolaf.com/tool/port" rel="external nofollow noopener noreferrer" target="_blank">国内</a>开放没有，<a href="https://www.yougetsignal.com/tools/open-ports/" rel="external nofollow noopener noreferrer" target="_blank">国外</a>开放没有  </p>

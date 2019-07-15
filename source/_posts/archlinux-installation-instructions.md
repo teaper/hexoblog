@@ -685,9 +685,10 @@ sudo chmod +x bbr.sh  #给bbr.sh加权限
 下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的老版本客户端可以用，需要请联系我邮箱  
 * ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)  
 * Debian系Linux客户端[electron-ssr-0.2.5.deb](#)  
-* 安卓客户端[shadowsocksr.apk](https://pan.lanzou.com/i0zfv5g)  
+* 安卓客户端[shadowsocksr.apk](https://github.com/shadowsocksr-backup/shadowsocksr-android/releases)  
 * IOS 客户端[shadowrocket.ipa](#)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  
-* Windows客户端[electron-ssr-0.2.6.exe](#)  
+* MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
+* Windows客户端[electron-ssr-0.2.6.exe](https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases)  
   
 ```bash
 sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
@@ -754,7 +755,7 @@ sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 ```bash
 sudo cp electron-ssr.desktop ~/.config/autostart    #将快捷方式复制到自启程序目录
 ```
-最后，分享一个免费获取小飞机节点<span style="color:#ff0000;">(服务器配置信息)</span>的[电报群](https://t.me/aleikeji2)，没有配置信息可以来找我，我先给你找个免费的先用着，然后你们自己去这个电报群找延迟低的服务器
+最后，分享一个免费获取小飞机节点的网站[SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号](https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr)<span style="color:#ff0000;">(打开网站需要全局代理)</span>  
   
 #### 网易云音乐  
 ```bash
@@ -1913,7 +1914,7 @@ yay -S intellij-idea-ultimate-edition
 > 配置IDEA，戳[这里](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html)  
   
 **配置编辑器主题**  
-> 进入[Color Themes](http://http://color-themes.com)下载你喜欢的编辑器主题的`.jar`文件，将其存放到一个单独的文件夹里  
+> 进入[Color Themes](http://color-themes.com)下载你喜欢的编辑器主题的`.jar`文件，将其存放到一个单独的文件夹里  
 > 在菜单File -> Import Settings 中导入`.jar`文件选择黑色主题(Tangid)/白色主题(Relax Your Eyes)  
 > 
 > Appearance&Behavior -> Appearance：字体(Open sans)，字号15  

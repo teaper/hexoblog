@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    搭建Git服务器 | TEAPER
+    VPS主机搭建Telegram机器人 | TEAPER
   </title>
   <meta name="description" content="一个人学会思考，比学会啥都强！">
   
   <meta name="keywords" content="
-  git
+  VPS,Telegram,RSS
   ">
   
   <meta name="author" content="teaper">
@@ -137,41 +137,60 @@
     <i class="fa fa-user-o"></i>
     teaper
 
-    <span class="post-date float-right" title="{{moment(1561871781000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1563228072000).format('MMM DD, YYYY, h:mm:ss A')}}">
       <i class="fa fa-pencil-square-o"></i>
-      {{moment(1561871781000).fromNow()}}
+      {{moment(1563228072000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1 style="text-align:center">搭建Git服务器</h1>
-    <p><a href="#修改系统源"><span style="color:#B900ff;">修改系统源</span></a><br><a href="#安装git"><span style="color:#B900ff;">安装git</span></a><br><a href="#创建git用户"><span style="color:#B900ff;">创建git用户</span></a><br><a href="#创建证书登录"><span style="color:#B900ff;">创建证书登录</span></a><br><a href="#初始化git仓库"><span style="color:#B900ff;">初始化Git仓库</span></a><br><a href="#禁用shell登录"><span style="color:#B900ff;">禁用shell登录</span></a><br><a href="#测试远程仓库"><span style="color:#B900ff;">测试远程仓库</span></a><br><a href="#后续功能"><span style="color:#B900ff;">后续功能</span></a>  </p>
-<h4 id="修改系统源"><a href="#修改系统源" class="headerlink" title="修改系统源"></a>修改系统源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list   <span class="comment">#输入i进入install模式</span></span><br><span class="line">-------------------------------粘贴源---------------------------------</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="comment">#输入:wq(保存退出) :q(不保存退出)</span></span><br><span class="line"> </span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+    <h1 style="text-align:center">VPS主机搭建Telegram机器人</h1>
+    <p>之前我搭建过 SSR / V2ray ，在 <a href="https://my.vultr.com/" rel="external nofollow noopener noreferrer" target="_blank">vultr</a> 还有一个VPS主机闲置着，刚好最近想搞个 <a href="https://telegram.org/" rel="external nofollow noopener noreferrer" target="_blank">Telegram</a> 机器人，思来想去，还是决创建个 <a href="https://zh.wikipedia.org/zh/RSS" rel="external nofollow noopener noreferrer" target="_blank">RSS</a> 订阅的机器人，帮助订阅网络专栏，顺便同步到电报群里!  </p>
+<blockquote>
+<p>如果还不了解RSS，推荐——<a href="http://www.ruanyifeng.com/blog/2006/01/rss.html" rel="external nofollow noopener noreferrer" target="_blank">【如何使用RSS - 阮一峰的网络日志】</a>  </p>
+</blockquote>
+<h4 id="BotFather"><a href="#BotFather" class="headerlink" title="BotFather"></a>BotFather</h4><p>Telegram 中管理所有机器人的用户叫 <code>BotFather</code> ，它本质也是一个机器人，我们通过它创建子机器人，以及配置机器人信息和 API 接口等，所以首先需要找到它  </p>
+<p>在 Telegram 搜索框搜 <code>@BotFather</code> 会查询出相关的用户，选择第一个带官方星号的  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517i12g03j30ai0azmy3.jpg" alt>  </p>
+<p>在聊天窗口，输入 <code>/newbot</code> 按回车发送消息，会提示输入机器人名称<span style="color:#ff0000">（名称可以中文）</span>，我这里是 <code>rssBot</code> ，之后会提示输入机器人用户名<span style="color:#ff0000">（用户名只能英文，并且没有被人使用，必须以 Bot结尾）</span>，我这里是 <code>teaperRssBot</code> ，本来想用 <code>rssBot</code> ，被人使用了，之后会出现一段机器人相关信息，点击蓝色的 <a href="http://t.me/teaperRssBot" rel="external nofollow noopener noreferrer" target="_blank">t.me/teaperRssBot</a> 可以打开机器人聊天界面  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517tim9mtj30y70h9jvi.jpg" alt>  </p>
+<p>其中的 <code>809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs</code> 是 <code>token</code> 信息，记得保存好，不要透露给别人<span style="color:#ff0000">（像博主这样不打码是要打屁股的）</span>，之后会用到  </p>
+<h4 id="配置机器人"><a href="#配置机器人" class="headerlink" title="配置机器人"></a>配置机器人</h4><p>输入 <code>/mybots</code> 会列出你所有的机器人，我只有一个，所以直接跳过，进入 <code>teaperRssBot</code> 设置  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517zgdittj30y708p75h.jpg" alt>  </p>
+<p>出现六个按钮，我简单说明一下  </p>
+<blockquote>
+<p>Edit Name：设置机器人名称，例如修改为 <code>白素贞</code> ，直接点击按钮，输入名称回车即可<br>Edit Description：设置机器人说明<br>Edit About：设置关于机器人，会显示在机器账号简介中<br>Edit Botpic：设置机器人头像，图片最好是正方形的，需要通过截图/复制图片的方式复制到剪贴板，然后粘贴到输入框中发送才可以<br>Edit Commands：设置机器人命令，可以显示在输入框里，如下图所示  </p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g518casj8yj30xm069gm7.jpg" alt>  </p>
+<p>除了最后一个 <code>Edit Commands</code> 之外，前面四个都可以现在设置  </p>
+<h4 id="搭建RssBot"><a href="#搭建RssBot" class="headerlink" title="搭建RssBot"></a>搭建RssBot</h4><p>使用 <code>ssh</code> 登录 VPS 服务器  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@139.180.166.23     <span class="comment">#登录服务器</span></span><br></pre></td></tr></table></figure>
+
+<p>登录成功创建一个 RSS 文件夹，用于存放相关脚本  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir rss &amp;&amp; <span class="built_in">cd</span> rss     <span class="comment">#创建并进入rss文件夹</span></span><br></pre></td></tr></table></figure>
+
+<p>浏览器进入 <a href="https://github.com/iovxw/rssbot/releases" rel="external nofollow noopener noreferrer" target="_blank">RssBot 发布页</a>查看最新版本的 ZIP 压缩包，使用 <code>wget</code> 下载  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/iovxw/rssbot/releases/download/v1.4.4/rssbot-v1.4.4-linux.zip   <span class="comment">#下载压缩包</span></span><br><span class="line">unzip rssbot-v1.4.4-linux.zip   <span class="comment">#解压缩到当前文件夹</span></span><br><span class="line">./rssbot DATAFILE TELEGRAM-BOT-TOKEN  <span class="comment">#测试运行</span></span><br></pre></td></tr></table></figure>
+
+<p>最后一条测试运行命令的 <code>TELEGRAM-BOT-TOKEN</code> 替换成电报机器人的 <strong>token</strong> ，也就是上面的 <code>809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs</code> ，完整命令如下：  </p>
+<blockquote>
+<p> ./rssbot DATAFILE 809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs  </p>
+</blockquote>
+<p>测试运行看不到日志输出的，不用担心，回到电报用户 <code>@BotFather</code> 聊天框，设置 <code>@teapeRssBot</code> 的命令，点击 <code>Edit Commands</code> 按钮，将下方命令粘贴到输入框回车即可  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rss       - 显示当前订阅的 RSS 列表，加 raw 参数显示链接</span><br><span class="line">sub       - 订阅一个 RSS: /sub http://example.com/feed.xml</span><br><span class="line">unsub     - 退订一个 RSS: /unsub http://example.com/feed.xml</span><br><span class="line">unsubthis - 使用此命令回复想要退订的 RSS 消息即可退订, 不支持 Channel</span><br><span class="line"><span class="built_in">export</span>    - 导出为 OPML</span><br></pre></td></tr></table></figure>
+
+<p>这时候，你再进入 <a href="http://t.me/teaperRssBot" rel="external nofollow noopener noreferrer" target="_blank">t.me/teaperRssBot</a> 的聊天框，就可以看到输入框有快捷命令了，我们可以发送命令进行订阅  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sub https://rsshub.app/bilibili/live/room/15053080     #链接地址是RSS地址，不是普通网址</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git   <span class="comment">#输入y回车</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g518zc0x0sj30xs08hgn5.jpg" alt>  </p>
+<p>确定没有问题之后，我们在服务器中将脚本挂到后台去运行  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./rssbot DATAFILE TELEGRAM-BOT-TOKEN &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="创建git用户"><a href="#创建git用户" class="headerlink" title="创建git用户"></a>创建git用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser git</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h4><p>收集所有需要登录的用户的公钥，就是他们自己本机的id_rsa.pub文件，把所有公钥粘贴到购买的主机/home/git/.ssh/authorized_keys文件里，一行一个  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">sudo vim authorized_keys  <span class="comment">#把key粘贴进去,Esc+:wq+回车</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h4><p>先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /srv</span><br><span class="line">sudo git init --bare twtity.git    <span class="comment">#git就会创建一个裸仓库twtity.git,仓库名twtity可自定义</span></span><br><span class="line">sudo chown -R git:git twtity.git   <span class="comment">#将仓库的拥有者改为git</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/passwd</span><br><span class="line">-----------------------修改-------------------------</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</span><br><span class="line">                    改为</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br><span class="line">---------------------------------------------------</span><br><span class="line">sudo vim /etc/ssh/sshd_config    <span class="comment">#把PasswordAuthentication no改为yes</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="测试远程仓库"><a href="#测试远程仓库" class="headerlink" title="测试远程仓库"></a>测试远程仓库</h4><p>在本机上执行  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@主机名或主机IP:/srv/twtity.git</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="后续功能"><a href="#后续功能" class="headerlink" title="后续功能"></a>后续功能</h4><p><strong>管理公钥</strong><br>如果团队很小，把每个人的公钥收集起来放到服务器的.ssh/authorized_keys文件里就是可行的。如果团队有几百人，就没法这么玩了，这时，可以用<a href="https://github.com/res0nat0r/gitosis" rel="external nofollow noopener noreferrer" target="_blank">Gitosis</a>来管理公钥  </p>
-<p><strong>管理权限</strong><br>因为Git是为Linux源代码托管而开发的，所以Git也继承了开源社区的精神，不支持权限控制,不过，因为Git支持hook,所以，可以在服务器端编写脚本来控制提交等操作,从而达到权限控制的目的! <a href="https://github.com/sitaramc/gitolite" rel="external nofollow noopener noreferrer" target="_blank">Gitolite</a>允许您在中央服务器上设置git托管，具有非常细粒度的访问控制和许多更强大的功能  </p>
+<h4 id="添加到群组"><a href="#添加到群组" class="headerlink" title="添加到群组"></a>添加到群组</h4><p>这个很简单，直接在电报机器人主页中，点击 <code>添加到群组</code> 按钮，选择一个群组即可  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g5196h6f4lj31hc0sen8q.jpg" alt>  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g51987bblvj31hc0sfgxw.jpg" alt>  </p>
 
   </article>
 </div>

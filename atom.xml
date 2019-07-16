@@ -371,32 +371,6 @@
   </entry>
   
   <entry>
-    <title>建造者模式</title>
-    <link href="https://www.teaper.dev/2019/05/24/buildermodel/"/>
-    <id>https://www.teaper.dev/2019/05/24/buildermodel/</id>
-    <published>2019-05-24T09:21:00.000Z</published>
-    <updated>2019-05-29T18:27:53.557Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://www.teaper.dev/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>计算机入门概述</title>
     <link href="https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/"/>
     <id>https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/</id>
@@ -416,6 +390,32 @@
     </summary>
     
       <category term="Java" scheme="https://www.teaper.dev/categories/Java/"/>
+    
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>建造者模式</title>
+    <link href="https://www.teaper.dev/2019/05/24/buildermodel/"/>
+    <id>https://www.teaper.dev/2019/05/24/buildermodel/</id>
+    <published>2019-05-24T09:21:00.000Z</published>
+    <updated>2019-05-29T18:27:53.557Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://www.teaper.dev/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>

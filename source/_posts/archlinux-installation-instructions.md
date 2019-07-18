@@ -187,7 +187,7 @@ arch-chroot /mnt    #进入/mnt下的系统
 #### 设置时间  
 配置ArchLinux时间  
 ```bash
-ln -sf /usr/share/zoninfo/Asia/Shanghai /etc/localtime  #设为上海时间
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  #设为上海时间
 hwclock --systohc --utc     #设置硬件时间
 ```
   

@@ -12,7 +12,7 @@
   <meta name="description" content="一个人学会思考，比学会啥都强！">
   
   <meta name="keywords" content="
-  Arch Linux,java
+  java,Arch Linux
   ">
   
   <meta name="author" content="teaper">
@@ -101,7 +101,7 @@
     <ul class="header-toolbar">
       <li class="clearfix">
         <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
-        <a href="/archives" class="header-toolbar-right"> 19 </a>
+        <a href="/archives" class="header-toolbar-right"> 20 </a>
       </li>
       <li>
         <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
@@ -109,7 +109,7 @@
       </li>
       <li>
         <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
-        <a href="/categories" class="header-toolbar-right"> 10 </a>
+        <a href="/categories" class="header-toolbar-right"> 11 </a>
       </li>
     </ul>
     <h2 class="header-title">
@@ -230,7 +230,7 @@
 
 <p>这时候，我们就要离开启动盘系统，进入/mnt下安装的新系统ArchLinux进行必要的配置了，后面操作的都是硬盘上ArchLinux上的文件了  </p>
 <h4 id="设置时间"><a href="#设置时间" class="headerlink" title="设置时间"></a>设置时间</h4><p>配置ArchLinux时间  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoninfo/Asia/Shanghai /etc/localtime  <span class="comment">#设为上海时间</span></span><br><span class="line">hwclock --systohc --utc     <span class="comment">#设置硬件时间</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  <span class="comment">#设为上海时间</span></span><br><span class="line">hwclock --systohc --utc     <span class="comment">#设置硬件时间</span></span><br></pre></td></tr></table></figure>
 
 
 <h4 id="修改编码格式"><a href="#修改编码格式" class="headerlink" title="修改编码格式"></a>修改编码格式</h4><p>由于新系统没有vim，所以要安装一下  </p>

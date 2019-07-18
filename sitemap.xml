@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.teaper.dev/2019/07/16/telegrambots/</loc>
+    <loc>https://www.teaper.dev/2019/07/19/gangjingsiwei/</loc>
     
-    <lastmod>2019-07-15T22:02:36.823Z</lastmod>
+    <lastmod>2019-07-18T21:49:39.603Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</loc>
     
-    <lastmod>2019-07-15T13:00:30.410Z</lastmod>
+    <lastmod>2019-07-18T21:39:38.713Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/07/16/telegrambots/</loc>
+    
+    <lastmod>2019-07-15T22:02:36.823Z</lastmod>
     
   </url>
   
@@ -121,13 +128,6 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/26/markdown-format/</loc>
-    
-    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.teaper.dev/2019/05/19/factory-mode/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
@@ -136,6 +136,13 @@
   
   <url>
     <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
+    
+    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/05/26/markdown-format/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     

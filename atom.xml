@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-07-18T21:49:39.603Z</updated>
+  <updated>2019-08-01T11:19:32.220Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>风之大陆料理食谱</title>
+    <link href="https://www.teaper.dev/2019/08/01/fengzhidalushipu/"/>
+    <id>https://www.teaper.dev/2019/08/01/fengzhidalushipu/</id>
+    <published>2019-08-01T11:18:09.000Z</published>
+    <updated>2019-08-01T11:19:32.220Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="游戏" scheme="https://www.teaper.dev/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+      <category term="游戏" scheme="https://www.teaper.dev/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>人人都该知道的『杠精思维』?</title>
@@ -395,32 +421,6 @@
   </entry>
   
   <entry>
-    <title>计算机入门概述</title>
-    <link href="https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/"/>
-    <id>https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/</id>
-    <published>2019-05-24T09:21:00.000Z</published>
-    <updated>2019-06-30T05:08:20.487Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="https://www.teaper.dev/categories/Java/"/>
-    
-    
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>建造者模式</title>
     <link href="https://www.teaper.dev/2019/05/24/buildermodel/"/>
     <id>https://www.teaper.dev/2019/05/24/buildermodel/</id>
@@ -440,6 +440,32 @@
     </summary>
     
       <category term="设计模式" scheme="https://www.teaper.dev/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机入门概述</title>
+    <link href="https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/"/>
+    <id>https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/</id>
+    <published>2019-05-24T09:21:00.000Z</published>
+    <updated>2019-06-30T05:08:20.487Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://www.teaper.dev/categories/Java/"/>
     
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
@@ -569,34 +595,6 @@
       <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
     
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ArchLinux搭建Java开发环境</title>
-    <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
-    <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
-    <published>2019-05-19T13:50:34.000Z</published>
-    <updated>2019-07-18T21:39:38.713Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
-    
-    
-      <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
-    
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
   </entry>
   

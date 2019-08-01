@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    搭建Git服务器 | TEAPER
+    风之大陆料理食谱 | TEAPER
   </title>
   <meta name="description" content="一个人学会思考，比学会啥都强！">
   
   <meta name="keywords" content="
-  git
+  游戏
   ">
   
   <meta name="author" content="teaper">
@@ -137,41 +137,211 @@
     <i class="fa fa-user-o"></i>
     teaper
 
-    <span class="post-date float-right" title="{{moment(1561871781000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1564658289000).format('MMM DD, YYYY, h:mm:ss A')}}">
       <i class="fa fa-pencil-square-o"></i>
-      {{moment(1561871781000).fromNow()}}
+      {{moment(1564658289000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1 style="text-align:center">搭建Git服务器</h1>
-    <p><a href="#修改系统源"><span style="color:#B900ff;">修改系统源</span></a><br><a href="#安装git"><span style="color:#B900ff;">安装git</span></a><br><a href="#创建git用户"><span style="color:#B900ff;">创建git用户</span></a><br><a href="#创建证书登录"><span style="color:#B900ff;">创建证书登录</span></a><br><a href="#初始化git仓库"><span style="color:#B900ff;">初始化Git仓库</span></a><br><a href="#禁用shell登录"><span style="color:#B900ff;">禁用shell登录</span></a><br><a href="#测试远程仓库"><span style="color:#B900ff;">测试远程仓库</span></a><br><a href="#后续功能"><span style="color:#B900ff;">后续功能</span></a>  </p>
-<h4 id="修改系统源"><a href="#修改系统源" class="headerlink" title="修改系统源"></a>修改系统源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list   <span class="comment">#输入i进入install模式</span></span><br><span class="line">-------------------------------粘贴源---------------------------------</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line"> </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="comment">#输入:wq(保存退出) :q(不保存退出)</span></span><br><span class="line"> </span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git   <span class="comment">#输入y回车</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="创建git用户"><a href="#创建git用户" class="headerlink" title="创建git用户"></a>创建git用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser git</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h4><p>收集所有需要登录的用户的公钥，就是他们自己本机的id_rsa.pub文件，把所有公钥粘贴到购买的主机/home/git/.ssh/authorized_keys文件里，一行一个  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">sudo vim authorized_keys  <span class="comment">#把key粘贴进去,Esc+:wq+回车</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h4><p>先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /srv</span><br><span class="line">sudo git init --bare twtity.git    <span class="comment">#git就会创建一个裸仓库twtity.git,仓库名twtity可自定义</span></span><br><span class="line">sudo chown -R git:git twtity.git   <span class="comment">#将仓库的拥有者改为git</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/passwd</span><br><span class="line">-----------------------修改-------------------------</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</span><br><span class="line">                    改为</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br><span class="line">---------------------------------------------------</span><br><span class="line">sudo vim /etc/ssh/sshd_config    <span class="comment">#把PasswordAuthentication no改为yes</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="测试远程仓库"><a href="#测试远程仓库" class="headerlink" title="测试远程仓库"></a>测试远程仓库</h4><p>在本机上执行  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@主机名或主机IP:/srv/twtity.git</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="后续功能"><a href="#后续功能" class="headerlink" title="后续功能"></a>后续功能</h4><p><strong>管理公钥</strong><br>如果团队很小，把每个人的公钥收集起来放到服务器的.ssh/authorized_keys文件里就是可行的。如果团队有几百人，就没法这么玩了，这时，可以用<a href="https://github.com/res0nat0r/gitosis" rel="external nofollow noopener noreferrer" target="_blank">Gitosis</a>来管理公钥  </p>
-<p><strong>管理权限</strong><br>因为Git是为Linux源代码托管而开发的，所以Git也继承了开源社区的精神，不支持权限控制,不过，因为Git支持hook,所以，可以在服务器端编写脚本来控制提交等操作,从而达到权限控制的目的! <a href="https://github.com/sitaramc/gitolite" rel="external nofollow noopener noreferrer" target="_blank">Gitolite</a>允许您在中央服务器上设置git托管，具有非常细粒度的访问控制和许多更强大的功能  </p>
+    <h1 style="text-align:center">风之大陆料理食谱</h1>
+    <p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g5ke0irxntj30vk0hsgnv.jpg" alt></p>
+<p>以下是我搜集的手游<a href="https://fzdl.zlongame.com/" rel="external nofollow noopener noreferrer" target="_blank">《风之大陆》</a>的食谱，开启烹饪需要家园等级 15 级，所以，还没开启烹饪的玩家姥爷们，加油种菜吧！<br>游戏支持电脑和手机，欢迎来挂机，这种休闲养成游戏，耐玩不无聊！拯救少女心～emmmm</p>
+<h4 id="1-级料理"><a href="#1-级料理" class="headerlink" title="1 级料理"></a>1 级料理</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>配方</th>
+<th>属性加成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>鸡蛋面</td>
+<td>小麦+小麦+鸡蛋</td>
+<td>攻防+110、生命+3300（生命恢复+3000）评分+2400</td>
+</tr>
+<tr>
+<td>土豆泥</td>
+<td>土豆+土豆+土豆</td>
+<td>攻防+120、生命+3600（最终伤害+1500）评分+ 2520</td>
+</tr>
+<tr>
+<td>金粟冷汤</td>
+<td>玉米+玉米+小麦</td>
+<td>攻防+130、生命+3900（反震+1500）评分+2640</td>
+</tr>
+<tr>
+<td>鱼肉丸子</td>
+<td>草鱼+小麦+鸡蛋</td>
+<td>攻防+140、生命+4200（体力+1.0%）评分+2760</td>
+</tr>
+<tr>
+<td>百花鱼排</td>
+<td>草鱼+玉米+土豆（需要食谱，积分兑换）</td>
+<td>攻防+150、生命+4500（伤害强度+1.0%）评分+2880</td>
+</tr>
+</tbody></table>
+<h4 id="５级料理"><a href="#５级料理" class="headerlink" title="５级料理"></a>５级料理</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>配方</th>
+<th>属性加成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>煎恩利蛋</td>
+<td>鸡蛋+鸡蛋+芝士+黄油</td>
+<td>攻防+160、生命+4800（生命偷取+2000）评分+3000</td>
+</tr>
+<tr>
+<td>笨猪三明治</td>
+<td>猪肉+芝士+小麦+鸡蛋</td>
+<td>攻防+170、生命+5100（治疗效果+5.0%，体力+2.0%）评分+3120</td>
+</tr>
+<tr>
+<td>田园鳕鱼披萨</td>
+<td>鳕鱼+胡萝卜+小麦+玉米</td>
+<td>攻防+180、生命+5400（格挡率+1.0%）评分+3240</td>
+</tr>
+<tr>
+<td>脆薯猪柳堡</td>
+<td>猪肉+猪肉+小麦+土豆</td>
+<td>攻防+190、生命+5700（暴击伤害+2.0%）评分+3360</td>
+</tr>
+<tr>
+<td>勇敢者浓汤</td>
+<td>河豚+黄油+胡萝卜+玉米（需要食谱，积分兑换）</td>
+<td>攻防+200、生命+6000（对首领伤害+2.0%）评分+3480</td>
+</tr>
+</tbody></table>
+<h4 id="10-级料理"><a href="#10-级料理" class="headerlink" title="10 级料理"></a>10 级料理</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>配方</th>
+<th>属性加成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>香烤鸡肉芝士卷</td>
+<td>鸡肉+鸡肉+胡萝卜+芝士+黄油</td>
+<td>攻防+220、生命+6600（抗暴率+1.0%~2.0%）评分+3720</td>
+</tr>
+<tr>
+<td>意式肉酱面</td>
+<td>番茄+猪肉+胡萝卜+小麦+小麦</td>
+<td>攻防+240、生命+7200（命中率+1.0%，伤害强度+0.0%~1.0%）评分+3960</td>
+</tr>
+<tr>
+<td>阿拉斯加鳕鱼排</td>
+<td>鳕鱼+鳕鱼+小麦+鸡蛋+黑胡椒</td>
+<td>攻防+260、生命+7800（忽视防御+2.0%~4.0%）评分+4200</td>
+</tr>
+<tr>
+<td>老北京鸡肉卷</td>
+<td>鸡肉+鸡蛋+胡萝卜+小麦+番茄</td>
+<td>攻防+280、生命+8400（治疗效果+5.0%，暴伤减免+2.0%，抗暴率+0.0% ~2.0%）评分+4440</td>
+</tr>
+<tr>
+<td>迷魂猪排</td>
+<td>猪肉+猪肉+黄油+黑胡椒+番茄（需要食谱，积分兑换）</td>
+<td>攻防+300、生命+9000（强化负面状态+2.0%<del>5.0%，伤害强度+0.0 %</del>1.0%）评分+4680</td>
+</tr>
+</tbody></table>
+<h4 id="15-级料理"><a href="#15-级料理" class="headerlink" title="15 级料理"></a>15 级料理</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>配方</th>
+<th>属性加成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>咖喱土豆牛肉</td>
+<td>牛肉+牛肉+土豆+土豆+胡萝卜</td>
+<td>攻防+320、生命+9600（治疗效果+5.0%，伤害强度+1.0%，生命+1.0%）评分+4920</td>
+</tr>
+<tr>
+<td>芝士焗番茄</td>
+<td>洋葱+鸡肉+玉米+芝士+番茄</td>
+<td>攻防+340、生命+10200（吸血率+1.0%）评分+5160</td>
+</tr>
+<tr>
+<td>鱿味橡皮圈</td>
+<td>鱿鱼+鱿鱼+小麦+鸡蛋+黄油</td>
+<td>攻防+360、生命+10800（斩杀伤害+2.0%~4.0%）评分+ 5400</td>
+</tr>
+<tr>
+<td>黑椒小牛排</td>
+<td>牛肉+黄油+黑胡椒+番茄+洋葱</td>
+<td>攻防+380、生命+11400（异常目标增伤+2.0%~4.0%）评分+5640</td>
+</tr>
+<tr>
+<td>七色鱿鱼卷</td>
+<td>鱿鱼+番茄+黑胡椒+洋葱+胡萝卜</td>
+<td>攻防+400、生命+12000（忽视防御+2.0%，异常目标增伤+1.0%）评分+5880</td>
+</tr>
+<tr>
+<td>西班牙海鲜面</td>
+<td>鱿鱼+洋葱+小麦+番茄+鳕鱼（需要食谱，积分兑换）</td>
+<td>攻防+400 、生命+12000（暴击伤害+4.0%，暴击率+0.0%~2.0%）评分+5880</td>
+</tr>
+<tr>
+<td>青杆牛肉</td>
+<td>牛肉+牛肉+黑胡椒+玉米+黄油（需要食谱，积分兑换，厨神口袋）</td>
+<td>攻防+400、生命+12000（全职业伤害+2.0% ，生命+0.0%~1.0%）评分+5880</td>
+</tr>
+<tr>
+<td>腊八艇仔粥</td>
+<td>鱿鱼+鸡肉+小麦+草鱼+鸡蛋（需要食谱，腊八节活动）</td>
+<td>攻防+ 400、生命+12000（对首领伤害+3.0%<del>5.0% ，首领伤害减免+3.0%</del>5.0%）评 分+5880</td>
+</tr>
+<tr>
+<td>真嗣牛丼</td>
+<td>待补（需要食谱，积分兑换，厨神口袋）</td>
+<td>攻防+400、生命+12000（吸血率+1.0%<del>2.0% ，伤害强度+1.0%</del>2.0%）评分+5880</td>
+</tr>
+</tbody></table>
+<h4 id="20-级料理"><a href="#20-级料理" class="headerlink" title="20 级料理"></a>20 级料理</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>配方</th>
+<th>属性加成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>纯情鲜蔬沙拉</td>
+<td>生菜+玉米+胡萝卜+番茄+洋葱</td>
+<td>攻防+420、生命+12600（格挡率+2.0%，生命+0.0%<del>2.0%，格挡减伤+0.0%</del>2.0%）评分+6120</td>
+</tr>
+<tr>
+<td>鸡肉沙拉潜艇堡</td>
+<td>鸡肉+鸡蛋+小麦+番茄+生菜</td>
+<td>攻防+440、生命+13200（生命+2.0%，伤害强度+0.0%<del>2.0%，抗暴率+0.0%</del>2.0%）评分+6360</td>
+</tr>
+<tr>
+<td>香煎口蘑牛里脊</td>
+<td>蘑菇+牛肉+洋葱+黑胡椒+黄油</td>
+<td>攻防+460、生命+13800（对战士伤害+2.0%<del>3.0%，对牧师伤害+0.0%</del>3.0%，全职业伤害+0.0%~3.0%）评分+6600</td>
+</tr>
+<tr>
+<td>海鲜蘑菇派</td>
+<td>蘑菇+鱿鱼+鳕鱼+小麦+芝士</td>
+<td>攻防+480、生命+14400（治疗效果+3.0%<del>8.0%，移动速度+2.0%</del>8.0%）评分+6840</td>
+</tr>
+<tr>
+<td>芝士焗龙虾</td>
+<td>龙虾+龙虾+芝士+黄油+黑胡椒（需要食谱，积分兑换）</td>
+<td>攻防+500、生命+15000（攻击+1.0%<del>2.0%，暴击率+1.0%</del>2.0%，忽视防御+0.0%~5.0%）评分+7080</td>
+</tr>
+<tr>
+<td>海陆空胡炖</td>
+<td>猪肉+玉米+胡萝卜+龙虾+鸡肉（需要食谱，积分兑换，厨神口袋）</td>
+<td>攻防+500、生命+15000（物伤减免+1.0%<del>2.0%，生命+1.0%</del>3.0%，法伤减免+0.0%~2.0%）评分+7080</td>
+</tr>
+</tbody></table>
 
   </article>
 </div>

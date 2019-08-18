@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    人人都该知道的『杠精思维』? | TEAPER
+    IntelliJ IDEA 完美配置 | TEAPER
   </title>
   <meta name="description" content="一个人学会思考，比学会啥都强！">
   
   <meta name="keywords" content="
-  
+  jetbrains
   ">
   
   <meta name="author" content="teaper">
@@ -137,33 +137,71 @@
     <i class="fa fa-user-o"></i>
     teaper
 
-    <span class="post-date float-right" title="{{moment(1563486228000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1566095090000).format('MMM DD, YYYY, h:mm:ss A')}}">
       <i class="fa fa-pencil-square-o"></i>
-      {{moment(1563486228000).fromNow()}}
+      {{moment(1566095090000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1 style="text-align:center">人人都该知道的『杠精思维』?</h1>
-    <p>网络杠精为何这么多，恐怕和一句话脱不了关系。那就是“你行你上，不行别bb！”，当别人发布观点的时候，总能“对人不对事”，为了怼而怼！思路“清奇”，找到你语句中的做不到的点就直接怼人！</p>
+    <h1 style="text-align:center">IntelliJ IDEA 完美配置</h1>
+    <p>IntelliJ IDEA 官网提供了两个版本，完整版（Ultimate）和社区版（Community）；其中完整版需要付费，社区版免费，但是功能被阉割，我这里就以<span style="color:#B900ff;"> ArchLinux 完整版 </span>为例，对其进行<a href="https://www.jetbrains.com/help/idea/installation-guide.html" rel="external nofollow noopener noreferrer" target="_blank">配置</a>  </p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>Windows/Mac 用户直接进入<a href="https://www.jetbrains.com/idea/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>下载安装包进行安装<br>ArchLinux/Manjaro 用户使用<a href="https://aur.archlinux.org/packages/intellij-idea-ultimate-edition/" rel="external nofollow noopener noreferrer" target="_blank">AUR</a>源安装  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -S intellij-idea-ultimate-edition    <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
+
+<p><span style="color:#ff0000;">注意：安装之前，Java 运行环境是预先配置好的，这个我就不累赘了，重点将放在 IntelliJ IDEA 的配置上</span>  </p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>下载成功之后执行运行程序，会进入安装页面<br>点击 <code>next</code> 下一步，选择 <code>Do not import settings</code> 单选按钮，点击 <code>ok</code><br>阅读条款，将滑块拉到最下面，点击 <code>Accept</code> 接受<br>选择你喜欢的 UI 主题，点击 <code>Next:Desktop Entry</code><br>选择启动方式，点击 <code>Next:Launcher Script</code><br>自定义一个路径，一般默认即可，点击 <code>Next:Default plugins</code><br>然后会进入一个功能选择界面，去勾选你需要的功能模块  </p>
+<ul>
+<li><strong>Java Frameworks</strong>：Hibernate、Spring、Struts、JavaEE、Velocity</li>
+<li><strong>Build Tools</strong>：Maven</li>
+<li><strong>Web Developent</strong>：HTML、JavaScript、CSS</li>
+<li><strong>Version Controls</strong>：Git、GitHub</li>
+<li><strong>Test Tools</strong>：JUnit</li>
+<li><strong>Application Servers</strong>：Tomcat and TomEE</li>
+<li><strong>Clouds</strong>：DisableAll (一个都不勾)</li>
+<li><strong>Swing</strong>：Disable</li>
+<li><strong>Android</strong>：Disable</li>
+<li><strong>Other Tools</strong>：UML</li>
+</ul>
+<p>选择完记得重新点开确认一遍，有时候它会自己改回去，确认之后点击 <code>Next:Featured plugins</code><br>等待安装完成就可以点击 <code>Start using IntelliJ IDEA</code> 启动啦！  </p>
+<h4 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h4><p>启动之后，如果是完整版，会提示需要许可协议，我的建议是去淘宝买一个号，一年才 15 元<span style="color:#ff0099;">（+微信：wobupeilianai）</span>，而且软件更新不用担心破解失效，大学生的话可以通过校园邮箱去申请，有点麻烦！  </p>
+<p>不舍得花钱的，就只能通过 <a href="http://idea.lanyus.com/" rel="external nofollow noopener noreferrer" target="_blank">idea.lanyus.com</a> 去获取一个破解码  </p>
 <blockquote>
-<p>示例：王者荣耀不好玩！</p>
+<p>注意：激活前清除hosts中屏蔽域名, 激活后请将“0.0.0.0 account.jetbrains.com”及“0.0.0.0 <a href="http://www.jetbrains.com”添加到hosts文件中" rel="external nofollow noopener noreferrer" target="_blank">www.jetbrains.com”添加到hosts文件中</a></p>
 </blockquote>
-<p>正常人：怎么了，我感觉还可以啊！<br>杠精A：不好玩别玩，在这瞎bb什么！<br>杠精B：等你上王者了，再来说这句话吧！  </p>
-<p>示例明明只是想表达一下不好玩的观点，也没有说不玩，更扯不到段位上去，怎么就直接被怼？我们来分析下杠精是如何思考问题的！</p>
-<p>“王者荣耀不好玩！”这句话里，主语“王者荣耀”，那就从王者荣耀开始联想，有“角色”、“铭文”、“充值”、“段位”、“技术”等等。<br>示例要表达的意思是“不好玩”，那就反过来“怎么好玩？”，然后对人不对事，匹配上面联想的名词之后，成立怼文：</p>
+<h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p>安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢白色的 UI 主题，看着精神一点   </p>
+<p>进入 <a href="http://color-themes.com/" rel="external nofollow noopener noreferrer" target="_blank">Color Themes</a> 下载你喜欢的编辑器代码高亮主题的 <code>.jar</code> 文件，将其存放到一个单独的文件夹里<br>在菜单 File -&gt; Import Settings 中导入 <code>.jar</code> 文件选择黑色主题（Tangid）或白色主题（Relax Your Eyes）  </p>
+<ul>
+<li>Appearance&amp;Behavior -&gt; Appearance：字体（<strong>Open sans</strong>），字号<strong>15</strong>  </li>
+<li>Editor -&gt; Font：字体（<strong>MonoSpaced</strong>），字号<strong>15</strong>，行高<strong>1.1</strong></li>
+<li>Editor -&gt; Color Scheme -&gt; Color Scheme Font：字体（<strong>MonoSpaced</strong>），字号<strong>18</strong>，行高<strong>1.1</strong></li>
+<li>Editor -&gt; Color Scheme -&gt; Console Font：字体（<strong>MonoSpaced</strong>），字号<strong>12</strong>，行高<strong>1.1</strong></li>
+<li>Editor -&gt; Code Style -&gt; Java 中，选中 Wrapping and Braces 选项卡，在 Keep when reformatting 中勾选 <strong>Ensure rigth margin is not exceeded</strong> 实现代码自动换行</li>
+<li>Editor -&gt; General -&gt; Code Completion 中，取消勾选 <strong>Match case</strong> 实现代码提示不区分大小写</li>
+<li>Editor -&gt; General -&gt; Appearance 中勾选 <strong>Show line numbers</strong> 复选框显示行号</li>
+<li>Editor –&gt; General –&gt; Editor Tabs 中勾选 <strong>Mark modified(×)</strong>  复选框，可以将修改过的文件标星</li>
+</ul>
+<p>UI 主题选择 File -&gt; Settings -&gt; Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用<a href="https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/" rel="external nofollow noopener noreferrer" target="_blank">自定义 UI 主题 Gray</a> <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -&gt; Install plugin from disk -&gt; 你下载的 jar 包文件）</span></p>
+<p><span style="color:#ff0000;">注意：上面的 MonoSpaced 字体是个人安装的，Windows 用户没有可以想办法去下载，或者换成别的字体也可以，这里就仁者见仁智者见智了</span>  </p>
+<h4 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h4><p>电脑安装好 Maven 后，在 File -&gt; Settings -&gt; Build,Execution,Deployment -&gt; Build Tools -&gt; Maven 下设置 Maven 配置文件位置和本地仓库地址，由于我是使用默认地址，所以 User settings file 是 <code>/home/teaper/.m2/settings.xml</code>；Local repository 地址是 <code>/home/teaper/.m2/repository</code>   </p>
+<p><span style="color:#ff0000;">注意：这里的 <code>teaper</code> 是我的系统用户名，<code>/home/teaper</code> 就是我的主页目录，也就是 Linux中的 <code>~/</code> 目录，<code>.m2</code> 是 Maven 的隐藏目录</span>  </p>
 <blockquote>
-<p>角色都没满，玩蛇皮！<br>铭文都没有，活该被吊打！<br>钱都不充，还想好玩！<br>没有上王者，别他妈说话！  </p>
+<p><span style="color:#0089A7;">常见问题：在使用 Maven 的部署项目的过程中，当我们修改 pom.xml 文件，导致没有自动导入 jar 包，或 jar 包出现错误</span>  </p>
 </blockquote>
-<p>他们往往就是看你做不到什么，就怼你什么。你没有钱，就怼你充值问题，你段位不高，就怼你段位，至于你接下来要说的“不好玩”的观点是什么，根本不重要，我只要跟你唱反调就行了！</p>
-<p>“子非鱼，安之鱼之乐”，就是直接联想到你不是鱼，抓住这个点直接怼“安之鱼之乐”，至于“鯈鱼出游从容，是鱼之乐也”这句话，直接忽略原有逻辑，跳过事情，直怼真人！</p>
-<p>防不胜防啊！再说回开头的那句话“you can you up，no can no bb！”，简直是狗皮膏药，哪痛贴哪！从此别想再说一句好话，就算你证明了，杠精也会怼你“怎么就认真了，认真你就输了”，简直把“为了怼你而怼你”表现的淋漓精致，你永远叫不醒一个装睡的人，你也永远说服不了一个故意怼你的人！只要怼赢了，他们就很开心！</p>
-<p>why？世上怎么会有这种的人？平白无故，见人就怼？这就要从心理上分析了，为什么怼你？因为怼你开心啊，怼你有优越感啊！人生三苦“求不得，愿憎恨，爱别离”，求不得的快乐，求不得的优越感，导致他们言语带刺，句句诛心，为什么会求不得？长期不被重视，长期不被关注，抑郁暴躁！反正是病，得治。除了心里的病，还有知识的病。不会好好说话的人本就“不会说话”。我们经常看到某个人蛮横不讲理：</p>
-<p>“这摊位我昨天就预定下了”<br>“我不管，我先来的，有本事你打我啊”  </p>
-<p>跟一个没文化的人，永远别想好好说话，“杠精们，是时候该好好读点书了！”</p>
-<p>顺便，在这里安插一条广告——<a href="https://weread.qq.com/" rel="external nofollow noopener noreferrer" target="_blank">《微信读书》</a>让阅读不再孤独！</p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g54pr2ybcpj31hc0qatt7.jpg" alt>  </p>
-<p>“腾讯给了你多少钱，我字节跳动双倍！”这句话就不用说了，他们都已经给了！</p>
+<p>解决方案如下：</p>
+<ul>
+<li>手动删除 File -&gt; Project Structure… -&gt; Project Settings -&gt; Libraries 中的内容  </li>
+<li>在右侧的 Maven Project 的试图里 clean 一下，删除之前编译过的文件  </li>
+<li>项目右键 -&gt; Maven -&gt; Reimport，不出意外，此时发现依赖已经建立  </li>
+</ul>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p>对于从 Eclipse 转 IDEA 的用户，第一不适应的就是原来使用的 Eclipse 快捷键都不能正常使用，所以可以在 File -&gt; Settings -&gt; Keymap 选项卡中，在 Keymap 下拉列表中选择 <code>Eclipse</code> ，然后会有一些快捷键冲突，需要在 Keymap 选项卡里的列表中设置一下  </p>
+<ul>
+<li>Keymap -&gt; Main menu -&gt; Code -&gt; Completion -&gt; Basic 修改为 <strong>Ctrl+Alt+Enter</strong>  </li>
+<li>Keymap -&gt; Main menu -&gt; Edit -&gt; Find 修改 Find… 和 Replace… 分别改为 <strong>Ctrl+F</strong> 和 <strong>Ctrl+R</strong></li>
+<li>Keymap -&gt; Editor Actions -&gt; Complete Current Statement 修改为 <strong>Ctrl+</strong></li>
+</ul>
+<p>保存时把冲突的快捷键 Remove 掉即可。当然，最好还是使用原汁原味的，多使用，多看看，总会熟悉的   </p>
+<p><span style="color:#;"></span><br><span style="color:#;"></span><br><span style="color:#;"></span></p>
 
   </article>
 </div>

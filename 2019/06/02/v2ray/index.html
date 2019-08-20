@@ -188,6 +188,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> v2ray  <span class="comment">#开机自启v2ray</span></span><br><span class="line">systemctl start v2ray   <span class="comment">#启动v2ray</span></span><br></pre></td></tr></table></figure>
 
 
+<h4 id="配置shell代理"><a href="#配置shell代理" class="headerlink" title="配置shell代理"></a>配置shell代理</h4><p>为了解决终端下载被墙服务器的安装包失败的问题，所以需要让终端也可以翻墙，顺便提升下载速度  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~/.bashrc    <span class="comment">#编辑.bashrc文件</span></span><br></pre></td></tr></table></figure>
+
+<p>在最后追加以下配置  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"socks5://127.0.0.1:1088"</span>     <span class="comment">#本地端口1088</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"socks5://127.0.0.1:1088"</span></span><br></pre></td></tr></table></figure>
+
+<p>保存之后运行 <code>source ~/.bashrc</code> 命令让它生效</p>
 <h4 id="设置PAC代理"><a href="#设置PAC代理" class="headerlink" title="设置PAC代理"></a>设置PAC代理</h4><p><code>PAC</code>代理需要生成一个<code>.pac</code>的文件，首先本机安装<code>pip</code>工具 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S python-pip       <span class="comment">#安装pip</span></span><br><span class="line">pip -V      <span class="comment">#查看pip版本</span></span><br><span class="line"><span class="comment">#-------------------------输出-----------------------------</span></span><br><span class="line">pip 19.0.3 from /usr/lib/python3.7/site-packages/pip (python 3.7)</span><br></pre></td></tr></table></figure>
 

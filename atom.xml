@@ -43,30 +43,6 @@
   </entry>
   
   <entry>
-    <title>人人都该知道的『杠精思维』?</title>
-    <link href="https://www.teaper.dev/2019/07/19/gangjingsiwei/"/>
-    <id>https://www.teaper.dev/2019/07/19/gangjingsiwei/</id>
-    <published>2019-07-18T21:43:48.000Z</published>
-    <updated>2019-07-18T21:49:39.603Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="物有所思" scheme="https://www.teaper.dev/categories/%E7%89%A9%E6%9C%89%E6%89%80%E6%80%9D/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>VPS主机搭建Telegram机器人</title>
     <link href="https://www.teaper.dev/2019/07/16/telegrambots/"/>
     <id>https://www.teaper.dev/2019/07/16/telegrambots/</id>
@@ -153,32 +129,6 @@
   </entry>
   
   <entry>
-    <title>搭建Git服务器</title>
-    <link href="https://www.teaper.dev/2019/06/30/gitserver/"/>
-    <id>https://www.teaper.dev/2019/06/30/gitserver/</id>
-    <published>2019-06-30T05:16:21.000Z</published>
-    <updated>2019-06-30T05:17:35.443Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Git" scheme="https://www.teaper.dev/categories/Git/"/>
-    
-    
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>版本控制工具Git</title>
     <link href="https://www.teaper.dev/2019/06/30/git/"/>
     <id>https://www.teaper.dev/2019/06/30/git/</id>
@@ -207,32 +157,6 @@
       <category term="github" scheme="https://www.teaper.dev/tags/github/"/>
     
       <category term="git flow" scheme="https://www.teaper.dev/tags/git-flow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 语言概述</title>
-    <link href="https://www.teaper.dev/2019/06/30/javalanguage/"/>
-    <id>https://www.teaper.dev/2019/06/30/javalanguage/</id>
-    <published>2019-06-30T04:45:04.000Z</published>
-    <updated>2019-06-30T05:08:33.177Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="https://www.teaper.dev/categories/Java/"/>
-    
-    
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
   </entry>
   
@@ -421,32 +345,6 @@
   </entry>
   
   <entry>
-    <title>计算机入门概述</title>
-    <link href="https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/"/>
-    <id>https://www.teaper.dev/2019/05/24/getting-started-with-your-computer/</id>
-    <published>2019-05-24T09:21:00.000Z</published>
-    <updated>2019-06-30T05:08:20.487Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="https://www.teaper.dev/categories/Java/"/>
-    
-    
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>建造者模式</title>
     <link href="https://www.teaper.dev/2019/05/24/buildermodel/"/>
     <id>https://www.teaper.dev/2019/05/24/buildermodel/</id>
@@ -595,6 +493,34 @@
       <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
     
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ArchLinux搭建Java开发环境</title>
+    <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
+    <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
+    <published>2019-05-19T13:50:34.000Z</published>
+    <updated>2019-08-20T20:57:25.837Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
+    
+    
+      <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
   </entry>
   

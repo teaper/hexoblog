@@ -618,6 +618,8 @@ sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
  
 sudo pacman -S fcitx-sogoupinyin
 ```
+<span style="color:#ff0000;">注意：上面这些命令是原来的安装方法，现在已经作废，你执行上面命令的时候会提示没有安装包，因为在2019年6月份的时候 AUR 删库了，至今没有补充（2019/8/21），不过我是老用户，我把需要的包都存起来了，需要的可以邮箱联系我，或者加QQ群:787979167，在群文件里自己取，解压后使用文件夹中 README.md 文件提供的命令将所有包安装即可</span>  
+  
 用文本编辑器创建或编辑 `~/.xprofile` 文件;在其末尾添加以下几行:  
 ```bash
 export GTK_IM_MODULE=fcitx

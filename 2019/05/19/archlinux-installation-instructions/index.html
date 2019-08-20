@@ -430,6 +430,7 @@
 <h4 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h4><p>由于搜狗拼音输入法依赖于Fcitx，在安装搜狗拼音输入法之前，需要先行安装Fcitx  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx</span><br><span class="line">sudo pacman -S fcitx-configtool</span><br><span class="line">sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5</span><br><span class="line"> </span><br><span class="line">sudo pacman -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
 
+<p><span style="color:#ff0000;">注意：上面这些命令是原来的安装方法，现在已经作废，你执行上面命令的时候会提示没有安装包，因为在2019年6月份的时候 AUR 删库了，至今没有补充（2019/8/21），不过我是老用户，我把需要的包都存起来了，需要的可以邮箱联系我，或者加QQ群:787979167，在群文件里自己取，解压后使用文件夹中 README.md 文件提供的命令将所有包安装即可</span>  </p>
 <p>用文本编辑器创建或编辑 <code>~/.xprofile</code> 文件;在其末尾添加以下几行:  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">"@im=fcitx"</span></span><br></pre></td></tr></table></figure>
 

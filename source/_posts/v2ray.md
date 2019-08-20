@@ -165,6 +165,18 @@ systemctl enable v2ray  #开机自启v2ray
 systemctl start v2ray   #启动v2ray
 ```
   
+#### 配置shell代理  
+为了解决终端下载被墙服务器的安装包失败的问题，所以需要让终端也可以翻墙，顺便提升下载速度  
+```bash
+sudo gedit ~/.bashrc    #编辑.bashrc文件
+```
+在最后追加以下配置  
+```bash
+export http_proxy="socks5://127.0.0.1:1088"     #本地端口1088
+export https_proxy="socks5://127.0.0.1:1088"
+```
+保存之后运行 `source ~/.bashrc` 命令让它生效
+  
 #### 设置PAC代理  
 `PAC`代理需要生成一个`.pac`的文件，首先本机安装`pip`工具 
 ```bash

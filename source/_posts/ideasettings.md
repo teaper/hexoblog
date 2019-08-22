@@ -47,12 +47,12 @@ yaourt -S intellij-idea-ultimate-edition    #安装
 安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢白色的 UI 主题，看着精神一点   
   
 进入 [Color Themes](http://color-themes.com/) 下载你喜欢的编辑器代码高亮主题的 `.jar` 文件，将其存放到一个单独的文件夹里  
-在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（Tangid）或白色主题（Relax Your Eyes）  
+在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Xcode inspired**）  
   
 * Appearance&Behavior -> Appearance：字体（**Open sans**），字号**15**  
 * Editor -> Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
-* Editor -> Color Scheme -> Color Scheme Font：字体（**MonoSpaced**），字号**18**，行高**1.1**
-* Editor -> Color Scheme -> Console Font：字体（**MonoSpaced**），字号**12**，行高**1.1**
+* Editor -> Color Scheme -> Color Scheme Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
+* Editor -> Color Scheme -> Console Font：字体（**MonoSpaced**），字号**13**，行高**1.1**
 * Editor -> Code Style -> Java 中，选中 Wrapping and Braces 选项卡，在 Keep when reformatting 中勾选 **Ensure rigth margin is not exceeded** 实现代码自动换行
 * Editor -> General -> Code Completion 中，取消勾选 **Match case** 实现代码提示不区分大小写
 * Editor -> General -> Appearance 中勾选 **Show line numbers** 复选框显示行号
@@ -83,7 +83,7 @@ UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Materi
   
 保存时把冲突的快捷键 Remove 掉即可。当然，最好还是使用原汁原味的，多使用，多看看，总会熟悉的   
   
-
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg)
   
 
 

@@ -761,7 +761,11 @@ sudo cp electron-ssr.desktop ~/.config/autostart    #将快捷方式复制到自
   
 #### 网易云音乐  
 ```bash
-sudo pacman -S netease-cloud-music
+sudo pacman -S netease-cloud-music      #安装
+```
+安装之后，会发现它无法输入中文
+```bash
+sudo pacman -S qcef
 ```
   
 #### 蓝牙配置  
@@ -1885,50 +1889,53 @@ docker exec -it MSSQL_1433 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Zx
 ```bash
 yay -S intellij-idea-ultimate-edition
 ```
-> ---------------------------------安装配置-------------------------------------  
-> Do not import settings　　　ok  
-> 拉到最下面　　　Accept  
-> Send Usage Statististics  
-> 　　　　　　Next:Desktop Entry  
-> 　　　　　　Next:Launcher Script  
-> 自定义路径　　　Next:Default plugins  
-> 
-> ---------------------------------功能选择--------------------------------------  
-> Java Frameworks: Hibernate Spring Struts JavaEE Velocity  
-> Build Tools: Maven  
-> Web Developent: HTML JavaScript CSS  
-> Version Controls: Git GitHub  
-> Test Tools: JUnit  
-> Application Servers: Tomcat and TomEE  
-> Clouds : DisableAll (一个都不要)  
-> Swing: Disable  
-> Android: Disable  
-> Other Tools: UML  
-> 
-> 　　　　　　Next:Featured plugins  
-> 　　　　　　Start using IntelliJ IDEA  
+下载成功之后执行运行程序，会进入安装页面  
+点击 `next` 下一步，选择 `Do not import settings` 单选按钮，点击 `ok`  
+阅读条款，将滑块拉到最下面，点击 `Accept` 接受  
+选择你喜欢的 UI 主题，点击 `Next:Desktop Entry`  
+选择启动方式，点击 `Next:Launcher Script`  
+自定义一个路径，一般默认即可，点击 `Next:Default plugins`  
+然后会进入一个功能选择界面，去勾选你需要的功能模块  
+* **Java Frameworks**：Hibernate、Spring、Struts、JavaEE、Velocity
+* **Build Tools**：Maven
+* **Web Developent**：HTML、JavaScript、CSS
+* **Version Controls**：Git、GitHub
+* **Test Tools**：JUnit
+* **Application Servers**：Tomcat and TomEE
+* **Clouds**：DisableAll (一个都不勾)
+* **Swing**：Disable
+* **Android**：Disable
+* **Other Tools**：UML
   
-破解方法，在`/etc/hosts`文件中加入`0.0.0.0 account.jetbrains.com`和`0.0.0.0 www.jetbrains.com`，在idea中加入下方激活码  
-```
-56ZS5PQ1RF-eyJsaWNlbnNlSWQiOiI1NlpTNVBRMVJGIiwibGljZW5zZWVOYW1lIjoi5q2j54mI5o6I5p2DIC4iLCJhc3NpZ25lZU5hbWUiOiIiLCJhc3NpZ25lZUVtYWlsIjoiIiwibGljZW5zZVJlc3RyaWN0aW9uIjoiRm9yIGVkdWNhdGlvbmFsIHVzZSBvbmx5IiwiY2hlY2tDb25jdXJyZW50VXNlIjpmYWxzZSwicHJvZHVjdHMiOlt7ImNvZGUiOiJJSSIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IkFDIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiRFBOIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiUFMiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJHTyIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IkRNIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiQ0wiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJSUzAiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJSQyIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IlJEIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJSTSIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IldTIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiREIiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IlJTVSIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9XSwiaGFzaCI6IjEyMjkxNDk4LzAiLCJncmFjZVBlcmlvZERheXMiOjAsImF1dG9Qcm9sb25nYXRlZCI6ZmFsc2UsImlzQXV0b1Byb2xvbmdhdGVkIjpmYWxzZX0=-SYSsDcgL1WJmHnsiGaHUWbaZLPIe2oI3QiIneDtaIbh/SZOqu63G7RGudSjf3ssPb1zxroMti/bK9II1ugHz/nTjw31Uah7D0HqeaCO7Zc0q9BeHysiWmBZ+8bABs5vr25GgIa5pO7CJhL7RitXQbWpAajrMBAeZ2En3wCgNwT6D6hNmiMlhXsWgwkw2OKnyHZ2dl8yEL+oV5SW14t7bdjYGKQrYjSd4+2zc4FnaX88yLnGNO9B3U6G+BuM37pxS5MjHrkHqMTK8W3I66mIj6IB6dYXD5nvKKO1OZREBAr6LV0BqRYSbuJKFhZ8nd6YDG20GvW6leimv0rHVBFmA0w==-MIIElTCCAn2gAwIBAgIBCTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE4MTEwMTEyMjk0NloXDTIwMTEwMjEyMjk0NlowaDELMAkGA1UEBhMCQ1oxDjAMBgNVBAgMBU51c2xlMQ8wDQYDVQQHDAZQcmFndWUxGTAXBgNVBAoMEEpldEJyYWlucyBzLnIuby4xHTAbBgNVBAMMFHByb2QzeS1mcm9tLTIwMTgxMTAxMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQAF8uc+YJOHHwOFcPzmbjcxNDuGoOUIP+2h1R75Lecswb7ru2LWWSUMtXVKQzChLNPn/72W0k+oI056tgiwuG7M49LXp4zQVlQnFmWU1wwGvVhq5R63Rpjx1zjGUhcXgayu7+9zMUW596Lbomsg8qVve6euqsrFicYkIIuUu4zYPndJwfe0YkS5nY72SHnNdbPhEnN8wcB2Kz+OIG0lih3yz5EqFhld03bGp222ZQCIghCTVL6QBNadGsiN/lWLl4JdR3lJkZzlpFdiHijoVRdWeSWqM4y0t23c92HXKrgppoSV18XMxrWVdoSM3nuMHwxGhFyde05OdDtLpCv+jlWf5REAHHA201pAU6bJSZINyHDUTB+Beo28rRXSwSh3OUIvYwKNVeoBY+KwOJ7WnuTCUq1meE6GkKc4D/cXmgpOyW/1SmBz3XjVIi/zprZ0zf3qH5mkphtg6ksjKgKjmx1cXfZAAX6wcDBNaCL+Ortep1Dh8xDUbqbBVNBL4jbiL3i3xsfNiyJgaZ5sX7i8tmStEpLbPwvHcByuf59qJhV/bZOl8KqJBETCDJcY6O2aqhTUy+9x93ThKs1GKrRPePrWPluud7ttlgtRveit/pcBrnQcXOl1rHq7ByB8CFAxNotRUYL9IF5n3wJOgkPojMy6jetQA5Ogc8Sm7RG6vg1yow==
-```
-> 激活码失效，戳[这里](http://idea.lanyus.com/)，10￥购买正版（+微信：wobupeilianai）  
-> 配置IDEA，戳[这里](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html)  
+选择完记得重新点开确认一遍，有时候它会自己改回去，确认之后点击 `Next:Featured plugins`  
+等待安装完成就可以点击 `　Start using IntelliJ IDEA` 启动啦！  
   
-**配置编辑器主题**  
-> 进入[Color Themes](http://color-themes.com)下载你喜欢的编辑器主题的`.jar`文件，将其存放到一个单独的文件夹里  
-> 在菜单File -> Import Settings 中导入`.jar`文件选择黑色主题(Tangid)/白色主题(Relax Your Eyes)  
-> 
-> Appearance&Behavior -> Appearance：字体(Open sans)，字号15  
-> Editor -> Font：字体(MonoSpaced)，字号15，行高1.1  
-> Editor -> Color Scheme -> Color Scheme Font：字体(MonoSpaced)，字号18，行高1.1  
-> Editor -> Color Scheme -> Console Font：字体(MonoSpaced)，字号12，行高1.1  
-> 
-> UI主题选择File -> Settings -> Plugins，MarketPlace选项卡，搜Material Theme UI安装即可或者使用[自定义UI主题Gray](https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/)(也在Plugins选项卡点击右边设置 -> Install plugin from disk -> 你下载的jar包文件) 
+##### 破解  
+启动之后，如果是完整版，会提示需要许可协议，我的建议是去淘宝买一个号，一年才 15 元<span style="color:#ff0099;">（+微信：wobupeilianai）</span>，而且软件更新不用担心破解失效，大学生的话可以通过校园邮箱去申请，有点麻烦！  
   
-**IDEA插件**  
-[热部署插件JRebel](https://www.jianshu.com/p/8a62db5c982a)  
-[开发测试必备部署神器Cloud Toolkit](https://help.aliyun.com/product/29966.html)
+不舍得花钱的，就只能通过 [idea.lanyus.com](http://idea.lanyus.com/) 去获取一个破解码  
+> 注意：激活前清除hosts中屏蔽域名, 激活后请将“0.0.0.0 account.jetbrains.com”及“0.0.0.0 www.jetbrains.com”添加到hosts文件中
+  
+##### 配置编辑器主题  
+安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢白色的 UI 主题，看着精神一点   
+  
+进入 [Color Themes](http://color-themes.com/) 下载你喜欢的编辑器代码高亮主题的 `.jar` 文件，将其存放到一个单独的文件夹里  
+在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Xcode inspired**）  
+  
+* Appearance&Behavior -> Appearance：字体（**Open sans**），字号**15**  
+* Editor -> Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
+* Editor -> Color Scheme -> Color Scheme Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
+* Editor -> Color Scheme -> Console Font：字体（**MonoSpaced**），字号**13**，行高**1.1**
+* Editor -> Code Style -> Java 中，选中 Wrapping and Braces 选项卡，在 Keep when reformatting 中勾选 **Ensure rigth margin is not exceeded** 实现代码自动换行
+* Editor -> General -> Code Completion 中，取消勾选 **Match case** 实现代码提示不区分大小写
+* Editor -> General -> Appearance 中勾选 **Show line numbers** 复选框显示行号
+* Editor –> General –> Editor Tabs 中勾选 **Mark modified(×)**  复选框，可以将修改过的文件标星
+  
+UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用[自定义 UI 主题 Gray](https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/) <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -> Install plugin from disk -> 你下载的 jar 包文件）
+
+<span style="color:#ff0000;">注意：上面的 MonoSpaced 字体是个人安装的，Windows 用户没有可以想办法去下载，或者换成别的字体也可以，这里就仁者见仁智者见智了</span>  
+  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg)  
   
 #### 安装Android Studio  
 ```bash

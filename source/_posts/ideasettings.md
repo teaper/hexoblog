@@ -43,11 +43,11 @@ yaourt -S intellij-idea-ultimate-edition    #安装
 不舍得花钱的，就只能通过 [idea.lanyus.com](http://idea.lanyus.com/) 去获取一个破解码  
 > 注意：激活前清除hosts中屏蔽域名, 激活后请将“0.0.0.0 account.jetbrains.com”及“0.0.0.0 www.jetbrains.com”添加到hosts文件中
   
-#### 编辑器  
+#### 配置编辑器  
 安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢白色的 UI 主题，看着精神一点   
   
 进入 [Color Themes](http://color-themes.com/) 下载你喜欢的编辑器代码高亮主题的 `.jar` 文件，将其存放到一个单独的文件夹里  
-在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Xcode inspired**）  
+在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Notepad++ Like**）  
   
 * Appearance&Behavior -> Appearance：字体（**Open sans**），字号**15**  
 * Editor -> Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
@@ -61,6 +61,43 @@ yaourt -S intellij-idea-ultimate-edition    #安装
 UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用[自定义 UI 主题 Gray](https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/) <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -> Install plugin from disk -> 你下载的 jar 包文件）
 
 <span style="color:#ff0000;">注意：上面的 MonoSpaced 字体是个人安装的，Windows 用户没有可以想办法去下载，或者换成别的字体也可以，这里就仁者见仁智者见智了</span>  
+  
+#### 注释模板  
+IDEA 自带的注释模板不是太好用，所以需要我们自己配置一下  
+打开 File -> settings -> Editor -> File and Code Templates -> File 选项卡，可以看到所有常用的文件模板，先介绍几个配置参数  
+* <span style="color:#2EA9DF;">${NAME}</span>：获取类名
+* <span style="color:#2EA9DF;">${USER}</span>：获取系统用户名
+* <span style="color:#2EA9DF;">${DATE}</span>：获取创建日期
+* <span style="color:#2EA9DF;">${TIME}</span>：获取创建时间
+* <span style="color:#2EA9DF;">${PROJECT_NAME}</span>：获取项目名
+* <span style="color:#2EA9DF;">${}</span>：
+* <span style="color:#2EA9DF;">${}</span>：
+* <span style="color:#2EA9DF;">TODO</span>：代办事项的标记，一般生成类或方法都需要添加描述
+  
+将 Class 文件和 Interface 文件，替换以下模板  
+```
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+/**
+  * Copyright(C) ${DATE} ${TIME} 广州××网络科技有限公司 Inc.ALL Rights Reserved.
+  *
+  * @ClassName ${NAME}
+  * @Description TODO
+  * @Author ${USER}
+  * @Date ${DATE} ${TIME}
+  * @Version v1.0
+  */
+public class ${NAME} {
+}
+```
+  
+#### jdk 版本  
+点击 File -> Other Settings -> Structure for New Projects 菜单，在弹出的窗口中的 <span style="color:#ff0000;"><No SDK></span> 中选择你要用的 jdk 版本  
+  
+如果没有可选项，可以在下面一个 `SDKs` 选项卡点击 `+` 手动添加  
+  
+#### Tomcat  
+这个是刚需，也就是说，只有你打开 java Web 项目的时候需要去单独给某个项目配置服务器。点击右上角工具栏的 `Edit Configurations...` 下拉菜单，在弹出的窗口中点击左上角 `+` 号，选择 Tomcat Server -> Local 即可，然后配置基本信息，一般用默认的即可  
   
 #### Maven
 电脑安装好 Maven 后，在 File -> Settings -> Build,Execution,Deployment -> Build Tools -> Maven 下设置 Maven 配置文件位置和本地仓库地址，由于我是使用默认地址，所以 User settings file 是 `/home/teaper/.m2/settings.xml`；Local repository 地址是 `/home/teaper/.m2/repository`   
@@ -83,13 +120,42 @@ UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Materi
   
 保存时把冲突的快捷键 Remove 掉即可。当然，最好还是使用原汁原味的，多使用，多看看，总会熟悉的   
   
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg)
+#### 配置浏览器  
+**谷歌浏览器**  
+* 在 chrome 地址栏输入 `chrome://version/` 回车，找到页面中的 `Command Line	：` 对应的启动脚本地址 `/opt/google/chrome/google-chrome` ，将其复制
+* 点击 IDEA 菜单 File -> Settings -> Tools -> Web Browsers 选项卡中，将上面的地址粘到 path 栏中  
+  
+**火狐浏览器**
+* 使用 `gedit /usr/share/applications/firefox.desktop` 命令编辑火狐浏览器快捷方式，找到里面的 Exec 对应的启动地址 ` /usr/lib/firefox/firefox` ，将其复制
+* 同上，粘贴到 火狐浏览器的 path 栏中即可
+  
+**欧朋浏览器**  
+* 欧朋浏览器至于要安装了即可，path 栏默认 `opera` 即可
   
 
+#### 配置 git & github  
+在 File -> settings -> Version Control -> git 选项卡中点击 `Test` 按钮确定git可用，然后在下面一个 github 选项卡中登录你自己的账号  
+  
+<span style="color:#F94465;">如何从github导入工程项目到 IDEA中？</span>  
+点击 File -> New -> Project from version control -> git 菜单，在弹出的询问框中输入 github 项目的 URL 地址，选择 `New Windows` 新窗口打开项目  
 
+#### 配置 DTD 文件  
+用过 MyBatis 的用户都知道，创建 xml 太麻烦，所以需要一个好用的模板来帮助我们快速开发，那么 IDEA 中如何配置 MyBatis 的 DTD 呢？  
+  
+在 File -> settings -> Languages & Frameworks -> Schemas and DTDs 选项卡中，点击右上角的 `+` 添加以下两个 DTD 文件，File 地址可以通过双击 Project Schemas 中的对应 `.dtd` 文件自动设置  
+```bash
+# config.xml 文件
+URI：http://mybatis.org/dtd/mybatis-3-config.dtd
 
-
-
-<span style="color:#;"></span>
-<span style="color:#;"></span>
-<span style="color:#;"></span>
+# mapper.xml 文件
+URI：http://mybatis.org/dtd/mybatis-3-mapper.dtd
+```
+  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g689op8piej31hc0u0dln.jpg)  
+  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g689opes0hj31hc0u0n3u.jpg)  
+  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g689oq6cczj31hc0u00yv.jpg)  
+  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g689opv0twj31hc0u0wk3.jpg)  
+  

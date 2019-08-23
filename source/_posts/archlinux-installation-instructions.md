@@ -1920,7 +1920,7 @@ yay -S intellij-idea-ultimate-edition
 安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢白色的 UI 主题，看着精神一点   
   
 进入 [Color Themes](http://color-themes.com/) 下载你喜欢的编辑器代码高亮主题的 `.jar` 文件，将其存放到一个单独的文件夹里  
-在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Xcode inspired**）  
+在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Notepad++ Like**）  
   
 * Appearance&Behavior -> Appearance：字体（**Open sans**），字号**15**  
 * Editor -> Font：字体（**MonoSpaced**），字号**15**，行高**1.1**

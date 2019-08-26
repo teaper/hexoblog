@@ -12,7 +12,7 @@
   <meta name="description" content="一个人学会思考，比学会啥都强！">
   
   <meta name="keywords" content="
-  Arch Linux,java
+  java,Arch Linux
   ">
   
   <meta name="author" content="teaper">
@@ -413,7 +413,9 @@
 <p>此外,alien 提供了多种不同的配色方案<span style="color:#ff0000;">(默认为蓝色)</span>  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"blue"</span>  <span class="comment">#蓝色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"green"</span> <span class="comment">#绿色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"red"</span>    <span class="comment">#红色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"soft"</span>   <span class="comment">#淡蓝色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"gruvbox"</span>    <span class="comment">#灰褐色</span></span><br></pre></td></tr></table></figure>
 
-<p>只需要在<code>~/.zshrc</code>中的<code>ZSH_THEME=&quot;mortalscumbag&quot;</code>后一行添加上面提供的任意一行<code>export ALIEN_THEME=&quot;color&quot;</code>即可<br>为了让你的终端支持彩色输出，把<code>/etc/pacman.conf</code>中的<code>#color</code>的<code>#</code>删除  </p>
+<p>只需要在<code>~/.zshrc</code>中的<code>ZSH_THEME=&quot;mortalscumbag&quot;</code>后一行添加上面提供的任意一行<code>export ALIEN_THEME=&quot;color&quot;</code>即可  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g69jlg63s6j30gz017dfr.jpg" alt></p>
+<p>为了让你的终端支持彩色输出，把<code>/etc/pacman.conf</code>中的<code>#color</code>的<code>#</code>删除 </p>
 <h4 id="终端透明"><a href="#终端透明" class="headerlink" title="终端透明"></a>终端透明</h4><p>原版的gnome-terminal是不能调透明的，这是因为在早些版本的时候去掉了这个功能，后来Fedora的开发者有把这个透明特性给patch回去了，Arch Linux AUR包里有这个加了patch的版本  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -S gnome-terminal-transparency   <span class="comment">#一路按y回车</span></span><br></pre></td></tr></table></figure>
 
@@ -425,6 +427,9 @@
 
 
 <h4 id="火狐浏览器"><a href="#火狐浏览器" class="headerlink" title="火狐浏览器"></a>火狐浏览器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S firefox   <span class="comment">#安装火狐浏览器</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="欧朋浏览器"><a href="#欧朋浏览器" class="headerlink" title="欧朋浏览器"></a>欧朋浏览器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S opera   <span class="comment">#安装欧朋浏览器</span></span><br></pre></td></tr></table></figure>
 
 
 <h4 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h4><p>由于搜狗拼音输入法依赖于Fcitx，在安装搜狗拼音输入法之前，需要先行安装Fcitx  </p>
@@ -529,6 +534,8 @@
 
 <h4 id="安装微信"><a href="#安装微信" class="headerlink" title="安装微信"></a>安装微信</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S deepin-wine-wechat  <span class="comment">#一路回车</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="安装微信小程序开发工具"><a href="#安装微信小程序开发工具" class="headerlink" title="安装微信小程序开发工具"></a>安装微信小程序开发工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wechat-devtools      <span class="comment">#需要wine</span></span><br></pre></td></tr></table></figure>
+
 
 <h4 id="安装钉钉"><a href="#安装钉钉" class="headerlink" title="安装钉钉"></a>安装钉钉</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S dingtalk-electron</span><br></pre></td></tr></table></figure>
 
@@ -600,13 +607,14 @@
 <h4 id="安装Visual-Paradigm社区版"><a href="#安装Visual-Paradigm社区版" class="headerlink" title="安装Visual Paradigm社区版"></a>安装Visual Paradigm社区版</h4><p>代替Windows下的Visio，我一般拿来画<a href="http://www.umlchina.com/Tools/Newindex1.htm" rel="external nofollow noopener noreferrer" target="_blank">UML</a>图，开发人员常用  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S visual-paradigm-community</span><br></pre></td></tr></table></figure>
 
-<p>如果无法安装，可以进<a href="https://aur.archlinux.org/packages/visual-paradigm-community/" rel="external nofollow noopener noreferrer" target="_blank">ArchLinux Wiki</a>查看它的相关问题，发现它已经修改了新地址<a href="https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz" rel="external nofollow noopener noreferrer" target="_blank">https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz</a>，点击链接下载<code>tar.gz</code>压缩包<br>下载成功解压到本地，出现一个<code>Visual_Paradigm_CE_15_2_20190501_Linux64_InstallFree</code>文件夹，将它里面的<code>Visual_Paradigm_CE_15.2</code>文件夹移动到<code>/opt</code>目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mv Visual_Paradigm_CE_15.2 /opt        <span class="comment">#移动到/opt</span></span><br><span class="line"><span class="built_in">cd</span> /opt/Visual_Paradigm_CE_15.2     <span class="comment">#进入文件夹</span></span><br><span class="line">./Visual_Paradigm   <span class="comment">#运行启动脚本</span></span><br></pre></td></tr></table></figure>
+<p>如果无法安装，可以进<a href="https://aur.archlinux.org/packages/visual-paradigm-community/" rel="external nofollow noopener noreferrer" target="_blank">ArchLinux Wiki</a>查看它的相关问题，发现它已经修改了新地址<a href="https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz" rel="external nofollow noopener noreferrer" target="_blank">https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz</a>，点击链接下载<code>tar.gz</code>压缩包<br>下载成功解压到本地，出现一个<code>Visual_Paradigm_CE_16.0</code>文件夹，将它移动到<code>/opt</code>目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mv Visual_Paradigm_CE_16.0 /opt        <span class="comment">#移动到/opt</span></span><br><span class="line"><span class="built_in">cd</span> /opt/Visual_Paradigm_CE_16.0     <span class="comment">#进入文件夹</span></span><br><span class="line">./Visual_Paradigm   <span class="comment">#运行启动脚本</span></span><br></pre></td></tr></table></figure>
 
-<p>不出意外是启动了(出意外是Java问题)，会提示激活，不管它，直接跳过<br>打开界面之后发现它的语言是英语，修改语言在Window -&gt; Application Options -&gt; Appearance -&gt; User language -&gt; Simplified Chinese，然后Apply，OK即可，重启软件后可以看到效果<br>由于我们是手动移动文件方式安装的，所以没有快捷方式，需要手动创建一个  </p>
+<p>不出意外是启动了(出意外是Java问题)，会提示激活，激活码会发送到你邮箱，没收到请看垃圾箱  </p>
+<p>打开界面之后发现它的语言是英语，修改语言在Window -&gt; Application Options -&gt; Appearance -&gt; User language -&gt; Simplified Chinese，然后Apply，OK即可，重启软件后可以看到效果<br>由于我们是手动移动文件方式安装的，所以没有快捷方式，需要手动创建一个  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit visual_paradigm.desktop  <span class="comment">#创建快捷方式，内容如下</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=Visual Paradigm Community</span><br><span class="line">GenericName=UML design application</span><br><span class="line">Comment=Launch Visual Paradigm Community</span><br><span class="line">Icon=/opt/Visual_Paradigm_CE_15.2/Application/resources/vpuml.ico   <span class="comment">#图标</span></span><br><span class="line">Exec=/opt/Visual_Paradigm_CE_15.2/Visual_Paradigm   <span class="comment">#启动脚本</span></span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Categories=Office;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=Visual Paradigm Community</span><br><span class="line">GenericName=UML design application</span><br><span class="line">Comment=Launch Visual Paradigm Community</span><br><span class="line">Icon=/opt/Visual_Paradigm_CE_16.0/Application/resources/vpuml.ico   <span class="comment">#图标</span></span><br><span class="line">Exec=/opt/Visual_Paradigm_CE_16.0/Visual_Paradigm   <span class="comment">#启动脚本</span></span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Categories=Office;</span><br></pre></td></tr></table></figure>
 
 <p>附加权限  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x visual_paradigm.desktop  <span class="comment">#添加运行权限</span></span><br><span class="line">sudo cp visual_paradigm.desktop /usr/share/applications/  <span class="comment">#复制到快捷方式文件夹</span></span><br></pre></td></tr></table></figure>
@@ -905,7 +913,7 @@
 </ul>
 <p>UI 主题选择 File -&gt; Settings -&gt; Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用<a href="https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/" rel="external nofollow noopener noreferrer" target="_blank">自定义 UI 主题 Gray</a> <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -&gt; Install plugin from disk -&gt; 你下载的 jar 包文件）</span></p>
 <p><span style="color:#ff0000;">注意：上面的 MonoSpaced 字体是个人安装的，Windows 用户没有可以想办法去下载，或者换成别的字体也可以，这里就仁者见仁智者见智了</span>  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg" alt>  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg" alt></p>
 <h4 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S android-studio</span><br></pre></td></tr></table></figure>
 
 

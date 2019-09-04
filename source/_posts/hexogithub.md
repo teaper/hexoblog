@@ -162,7 +162,7 @@ theme: replica      #要使用的主题
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:     #部署部分的设置
   type: git
-  repo: https://github.com/teaper/hexoblog.git
+  repo: git@github.com:teaper/hexoblog.git
   branch: gh-pages
 
 # Google Analytics

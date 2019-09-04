@@ -585,7 +585,10 @@ export ALIEN_THEME="soft"   #淡蓝色
 export ALIEN_THEME="gruvbox"    #灰褐色
 ```
 只需要在`~/.zshrc`中的`ZSH_THEME="mortalscumbag"`后一行添加上面提供的任意一行`export ALIEN_THEME="color"`即可  
-为了让你的终端支持彩色输出，把`/etc/pacman.conf`中的`#color`的`#`删除  
+  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g69jlg63s6j30gz017dfr.jpg)
+
+为了让你的终端支持彩色输出，把`/etc/pacman.conf`中的`#color`的`#`删除 
   
 #### 终端透明  
 原版的gnome-terminal是不能调透明的，这是因为在早些版本的时候去掉了这个功能，后来Fedora的开发者有把这个透明特性给patch回去了，Arch Linux AUR包里有这个加了patch的版本  
@@ -607,6 +610,11 @@ sudo pacman -S flashplugin   #flash插件
 #### 火狐浏览器  
 ```bash
 sudo pacman -S firefox   #安装火狐浏览器
+```
+  
+#### 欧朋浏览器  
+```bash
+sudo pacman -S opera   #安装欧朋浏览器
 ```
   
 #### 安装搜狗输入法  
@@ -892,6 +900,10 @@ sudo pacman -S deepin.com.qq.im  #QQ
 ```bash
 yay -S deepin-wine-wechat  #一路回车
 ```
+#### 安装微信小程序开发工具
+```bash
+sudo pacman -S wechat-devtools      #需要wine
+```
   
 #### 安装钉钉  
 ```bash
@@ -1034,13 +1046,14 @@ AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO
 yay -S visual-paradigm-community
 ```
 如果无法安装，可以进[ArchLinux Wiki](https://aur.archlinux.org/packages/visual-paradigm-community/)查看它的相关问题，发现它已经修改了新地址[https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz](https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz)，点击链接下载`tar.gz`压缩包  
-下载成功解压到本地，出现一个`Visual_Paradigm_CE_15_2_20190501_Linux64_InstallFree`文件夹，将它里面的`Visual_Paradigm_CE_15.2`文件夹移动到`/opt`目录
+下载成功解压到本地，出现一个`Visual_Paradigm_CE_16.0`文件夹，将它移动到`/opt`目录
 ```bash
-sudo mv Visual_Paradigm_CE_15.2 /opt        #移动到/opt
-cd /opt/Visual_Paradigm_CE_15.2     #进入文件夹
+sudo mv Visual_Paradigm_CE_16.0 /opt        #移动到/opt
+cd /opt/Visual_Paradigm_CE_16.0     #进入文件夹
 ./Visual_Paradigm   #运行启动脚本
 ```
-不出意外是启动了(出意外是Java问题)，会提示激活，不管它，直接跳过  
+不出意外是启动了(出意外是Java问题)，会提示激活，激活码会发送到你邮箱，没收到请看垃圾箱  
+
 打开界面之后发现它的语言是英语，修改语言在Window -> Application Options -> Appearance -> User language -> Simplified Chinese，然后Apply，OK即可，重启软件后可以看到效果  
 由于我们是手动移动文件方式安装的，所以没有快捷方式，需要手动创建一个  
 ```bash
@@ -1052,8 +1065,8 @@ Type=Application
 Name=Visual Paradigm Community
 GenericName=UML design application
 Comment=Launch Visual Paradigm Community
-Icon=/opt/Visual_Paradigm_CE_15.2/Application/resources/vpuml.ico   #图标
-Exec=/opt/Visual_Paradigm_CE_15.2/Visual_Paradigm   #启动脚本
+Icon=/opt/Visual_Paradigm_CE_16.0/Application/resources/vpuml.ico   #图标
+Exec=/opt/Visual_Paradigm_CE_16.0/Visual_Paradigm   #启动脚本
 Terminal=false
 Categories=Office;
 ```
@@ -1935,7 +1948,7 @@ UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Materi
 
 <span style="color:#ff0000;">注意：上面的 MonoSpaced 字体是个人安装的，Windows 用户没有可以想办法去下载，或者换成别的字体也可以，这里就仁者见仁智者见智了</span>  
   
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg)  
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg)
   
 #### 安装Android Studio  
 ```bash

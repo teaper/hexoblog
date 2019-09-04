@@ -70,8 +70,6 @@ IDEA 自带的注释模板不是太好用，所以需要我们自己配置一下
 * <span style="color:#2EA9DF;">${DATE}</span>：获取创建日期
 * <span style="color:#2EA9DF;">${TIME}</span>：获取创建时间
 * <span style="color:#2EA9DF;">${PROJECT_NAME}</span>：获取项目名
-* <span style="color:#2EA9DF;">${}</span>：
-* <span style="color:#2EA9DF;">${}</span>：
 * <span style="color:#2EA9DF;">TODO</span>：代办事项的标记，一般生成类或方法都需要添加描述
   
 将 Class 文件和 Interface 文件，替换以下模板  

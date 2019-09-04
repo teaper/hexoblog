@@ -71,7 +71,7 @@ theme: replica
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/teaper/hexoblog.git
+  repo: git@github.com:teaper/hexoblog.git
   branch: gh-pages
 
 # Google Analytics

@@ -57,6 +57,7 @@ yaourt -S intellij-idea-ultimate-edition    #安装
 * Editor -> General -> Code Completion 中，取消勾选 **Match case** 实现代码提示不区分大小写
 * Editor -> General -> Appearance 中勾选 **Show line numbers** 复选框显示行号
 * Editor –> General –> Editor Tabs 中勾选 **Mark modified(×)**  复选框，可以将修改过的文件标星
+* File -> Settings -> Build,Execution,Deployment -> Compiler 中勾选 `Builder project automatically` 复选框，组合键 `Shift+Ctrl+Alt+/`，选择 `Registry` ，勾选 `compiler.automake.allow.when.app.running` 。可以解决静态资源更新需要重启项目的问题
   
 UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用[自定义 UI 主题 Gray](https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/) <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -> Install plugin from disk -> 你下载的 jar 包文件）
 
@@ -148,6 +149,45 @@ URI：http://mybatis.org/dtd/mybatis-3-config.dtd
 # mapper.xml 文件
 URI：http://mybatis.org/dtd/mybatis-3-mapper.dtd
 ```
+  
+#### Lombok 插件
+这个[插件](https://github.com/mplushnikov/lombok-intellij-plugin)是用注解来简化我们频繁的 get、set 操作的，在 File -> Settings -> Plugins 窗口中直接搜 `lombok`，点击 `install` 安装即可  
+  
+首先引入 jar 包 `lombok-plugin-xxxx.jar`  
+```xml
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<version>1.18.8</version>
+	<scope>provided</scope>
+</dependency>
+```
+然后使用以下注解：
+* **@Data**：注解在类上，将类提供的所有属性都添加 `get`、`set` 方法，并添加 `equals`、`canEquals`、`hashCode`、`toString` 方法
+* **@Setter**：注解在类上，为所有属性添加 `set` 方法、注解在属性上为该属性提供 `set` 方法
+* **@Getter**：注解在类上，为所有的属性添加 `get` 方法、注解在属性上为该属性提供 `get` 方法
+* **@NotNull**：在参数中使用时，如果调用时传了 `null` 值，就会抛出空指针异常
+* **@Synchronized**：用于方法，可以锁定指定的对象，如果不指定，则默认创建一个对象锁定
+* **@Log**：作用于类，创建一个 `log` 属性
+* **@Builder**：使用builder模式创建对象
+* **@NoArgsConstructor**：创建一个无参构造函数
+* **@AllArgsConstructor**：创建一个全参构造函数,替代 `@Autowired` 构造注入,多个 `bean` 注入时更加清晰
+* **@ToString**：创建一个toString方法
+* **@Accessors(chain = true)**：使用链式设置属性，set方法返回的是this对象
+* **@RequiredArgsConstructor**：创建对象。例：在class上添加 `@RequiredArgsConstructor(staticName = "of")` 会创建生成一个静态方法
+* **@UtilityClass**:工具类再也不用定义static的方法了，直接就可以Class.Method 使用
+* **@ExtensionMethod**:设置父类
+* **@FieldDefaults**：设置属性的使用范围，如private、public等，也可以设置属性是否被final修饰
+* **@SneakyThrows**
+* **@EqualsAndHashCode**：重写equals和hashcode方法
+* **@Cleanup**: 清理流对象,不用手动去关闭流
+  
+
+#### 阿里巴巴代码规范插件
+这个插件是用来规范我们的代码格式的，格式不符合规范会出现中文提示，在 File -> Settings -> Plugins 窗口中直接搜 `Alibaba Java Coding Guidelines`，点击 install 安装即可  
+<span style="color:#ff0000">注意：如果无法搜索到插件，建议在 Plugins 窗口右上角齿轮图标上配置 HTTP Proxy ,至于如何翻墙，请参照我另一篇博客[学习利器V2ray了解一下](https://www.teaper.dev/2019/06/02/v2ray/)</span>  
+
+
   
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g689op8piej31hc0u0dln.jpg)  
   

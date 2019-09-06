@@ -294,8 +294,6 @@
       <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
     
     
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
-    
       <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
       <category term="github pages" scheme="https://www.teaper.dev/tags/github-pages/"/>
@@ -303,6 +301,8 @@
       <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
+    
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
     
@@ -482,8 +482,6 @@
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
-      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
-    
       <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
     
       <category term="Tomcat" scheme="https://www.teaper.dev/tags/Tomcat/"/>
@@ -491,6 +489,8 @@
       <category term="Spring" scheme="https://www.teaper.dev/tags/Spring/"/>
     
       <category term="SpringMVC" scheme="https://www.teaper.dev/tags/SpringMVC/"/>
+    
+      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
     
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
     
@@ -518,9 +518,9 @@
       <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
     
     
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
       <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
   </entry>
   

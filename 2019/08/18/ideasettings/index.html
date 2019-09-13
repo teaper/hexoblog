@@ -172,14 +172,15 @@
 <h4 id="配置编辑器"><a href="#配置编辑器" class="headerlink" title="配置编辑器"></a>配置编辑器</h4><p>安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢白色的 UI 主题，看着精神一点   </p>
 <p>进入 <a href="http://color-themes.com/" rel="external nofollow noopener noreferrer" target="_blank">Color Themes</a> 下载你喜欢的编辑器代码高亮主题的 <code>.jar</code> 文件，将其存放到一个单独的文件夹里<br>在菜单 File -&gt; Import Settings 中导入 <code>.jar</code> 文件选择黑色主题（<strong>Tangid</strong>）或白色主题（<strong>Notepad++ Like</strong>）  </p>
 <ul>
-<li>Appearance&amp;Behavior -&gt; Appearance：字体（<strong>Open sans</strong>），字号<strong>15</strong>  </li>
+<li>Appearance&amp;Behavior -&gt; Appearance：字体（<strong>Open sans</strong>），字号<strong>15</strong>，勾选 <strong>show memory indicator</strong> 显示内存使用情况</li>
 <li>Editor -&gt; Font：字体（<strong>MonoSpaced</strong>），字号<strong>15</strong>，行高<strong>1.1</strong></li>
 <li>Editor -&gt; Color Scheme -&gt; Color Scheme Font：字体（<strong>MonoSpaced</strong>），字号<strong>15</strong>，行高<strong>1.1</strong></li>
 <li>Editor -&gt; Color Scheme -&gt; Console Font：字体（<strong>MonoSpaced</strong>），字号<strong>13</strong>，行高<strong>1.1</strong></li>
 <li>Editor -&gt; Code Style -&gt; Java 中，选中 Wrapping and Braces 选项卡，在 Keep when reformatting 中勾选 <strong>Ensure rigth margin is not exceeded</strong> 实现代码自动换行</li>
+<li>Editor -&gt; General -&gt; Auto Import 勾选 <strong>Add unambiguous imports on the fly</strong> 和 <strong>Optimize imports on the fly</strong> 实现自动导包和组织包结构</li>
 <li>Editor -&gt; General -&gt; Code Completion 中，取消勾选 <strong>Match case</strong> 实现代码提示不区分大小写</li>
 <li>Editor -&gt; General -&gt; Appearance 中勾选 <strong>Show line numbers</strong> 复选框显示行号</li>
-<li>Editor –&gt; General –&gt; Editor Tabs 中勾选 <strong>Mark modified(×)</strong>  复选框，可以将修改过的文件标星</li>
+<li>Editor –&gt; General –&gt; Editor Tabs 中勾选 <strong>Mark modified(×)</strong>  复选框，可以将修改过的文件标星，取消勾选 <strong>Show tabs in one row</strong> 实现多行 Tab</li>
 <li>File -&gt; Settings -&gt; Build,Execution,Deployment -&gt; Compiler 中勾选 <code>Builder project automatically</code> 复选框，组合键 <code>Shift+Ctrl+Alt+/</code>，选择 <code>Registry</code> ，勾选 <code>compiler.automake.allow.when.app.running</code> 。可以解决静态资源更新需要重启项目的问题</li>
 </ul>
 <p>UI 主题选择 File -&gt; Settings -&gt; Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用<a href="https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/" rel="external nofollow noopener noreferrer" target="_blank">自定义 UI 主题 Gray</a> <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -&gt; Install plugin from disk -&gt; 你下载的 jar 包文件）</span></p>

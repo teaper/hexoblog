@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-09-05T15:09:15.363Z</updated>
+  <updated>2019-09-13T01:33:51.983Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.teaper.dev/2019/08/18/ideasettings/"/>
     <id>https://www.teaper.dev/2019/08/18/ideasettings/</id>
     <published>2019-08-18T02:24:50.000Z</published>
-    <updated>2019-09-05T15:09:15.363Z</updated>
+    <updated>2019-09-13T01:33:51.983Z</updated>
     
     <summary type="html">
     
@@ -482,8 +482,6 @@
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
-      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
-    
       <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
     
       <category term="Tomcat" scheme="https://www.teaper.dev/tags/Tomcat/"/>
@@ -491,6 +489,8 @@
       <category term="Spring" scheme="https://www.teaper.dev/tags/Spring/"/>
     
       <category term="SpringMVC" scheme="https://www.teaper.dev/tags/SpringMVC/"/>
+    
+      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
     
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
     

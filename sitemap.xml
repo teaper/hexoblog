@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.teaper.dev/2019/08/18/ideasettings/</loc>
+    <loc>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</loc>
     
-    <lastmod>2019-09-13T01:33:51.983Z</lastmod>
+    <lastmod>2019-09-14T01:41:23.807Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</loc>
+    <loc>https://www.teaper.dev/2019/08/18/ideasettings/</loc>
     
-    <lastmod>2019-09-09T15:45:39.943Z</lastmod>
+    <lastmod>2019-09-13T01:33:51.983Z</lastmod>
     
   </url>
   
@@ -100,14 +100,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
-    
-    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.teaper.dev/tags/index.html</loc>
+    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
@@ -121,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/categories/index.html</loc>
+    <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
@@ -135,7 +128,14 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
+    <loc>https://www.teaper.dev/categories/index.html</loc>
+    
+    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/tags/index.html</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     

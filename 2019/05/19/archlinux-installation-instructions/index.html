@@ -9,10 +9,10 @@
   <title>
     ArchLinux搭建Java开发环境 | TEAPER
   </title>
-  <meta name="description" content="一个人学会思考，比学会啥都强！">
+  <meta name="description" content="如果编程很容易，那我要你来干嘛？">
   
   <meta name="keywords" content="
-  java,Arch Linux
+  Arch Linux,java
   ">
   
   <meta name="author" content="teaper">
@@ -413,8 +413,9 @@
 <p>此外,alien 提供了多种不同的配色方案<span style="color:#ff0000;">(默认为蓝色)</span>  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"blue"</span>  <span class="comment">#蓝色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"green"</span> <span class="comment">#绿色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"red"</span>    <span class="comment">#红色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"soft"</span>   <span class="comment">#淡蓝色</span></span><br><span class="line"><span class="built_in">export</span> ALIEN_THEME=<span class="string">"gruvbox"</span>    <span class="comment">#灰褐色</span></span><br></pre></td></tr></table></figure>
 
-<p>只需要在<code>~/.zshrc</code>中的<code>ZSH_THEME=&quot;mortalscumbag&quot;</code>后一行添加上面提供的任意一行<code>export ALIEN_THEME=&quot;color&quot;</code>即可  </p>
+<p>只需要在<code>~/.zshrc</code>中的<code>ZSH_THEME=&quot;mortalscumbag&quot;</code>后一行添加上面提供的任意一行<code>export ALIEN_THEME=&quot;red&quot;</code>即可  </p>
 <p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g69jlg63s6j30gz017dfr.jpg" alt></p>
+<p>还需要使用修补字体<a href="https://github.com/ryanoasis/nerd-fonts" rel="external nofollow noopener noreferrer" target="_blank">Nerd Fonts</a>，所以需要在 <code>export ALIEN_THEME=&quot;red&quot;</code> 下面添加一条 <code>export ALIEN_USE_NERD_FONT=1</code> 使字体生效<br> Nerd 字体在<a href="https://www.nerdfonts.com/font-downloads" rel="external nofollow noopener noreferrer" target="_blank">这里</a>下载<a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Ubuntu.zip" rel="external nofollow noopener noreferrer" target="_blank">Ubuntu Nerd Font</a>，将压缩包解压到新建的 <code>Nerd</code> 文件夹中<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv Nerd /usr/share/fonts  <span class="comment">#将文件夹移动到字体目录</span></span><br></pre></td></tr></table></figure></p>
 <p>为了让你的终端支持彩色输出，把<code>/etc/pacman.conf</code>中的<code>#color</code>的<code>#</code>删除 </p>
 <h4 id="终端透明"><a href="#终端透明" class="headerlink" title="终端透明"></a>终端透明</h4><p>原版的gnome-terminal是不能调透明的，这是因为在早些版本的时候去掉了这个功能，后来Fedora的开发者有把这个透明特性给patch回去了，Arch Linux AUR包里有这个加了patch的版本  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -S gnome-terminal-transparency   <span class="comment">#一路按y回车</span></span><br></pre></td></tr></table></figure>
@@ -467,7 +468,7 @@
 <li>ArchLinux系Linux客户端<a href="https://github.com/erguotou520/electron-ssr/releases" rel="external nofollow noopener noreferrer" target="_blank">electron-ssr-0.2.4.pacman </a>  </li>
 <li>Debian系Linux客户端<a href="#">electron-ssr-0.2.5.deb</a>  </li>
 <li>安卓客户端<a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" rel="external nofollow noopener noreferrer" target="_blank">shadowsocksr.apk</a>  </li>
-<li>IOS 客户端<a href="#">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  </li>
+<li>IOS 客户端<a href="https://shadowsocks-help.github.io/" rel="external nofollow noopener noreferrer" target="_blank">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  </li>
 <li>MAC 客户端<a href="https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksX-NG-R8.dmg</a>  </li>
 <li>Windows客户端<a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksR-win-4.9.2.zip</a>  </li>
 </ul>

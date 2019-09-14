@@ -501,7 +501,7 @@
     <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
     <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
     <published>2019-05-19T13:50:34.000Z</published>
-    <updated>2019-09-09T15:45:39.943Z</updated>
+    <updated>2019-09-14T01:41:23.807Z</updated>
     
     <summary type="html">
     
@@ -518,9 +518,9 @@
       <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
     
     
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
       <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
+    
+      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
   </entry>
   

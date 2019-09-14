@@ -49,14 +49,15 @@ yaourt -S intellij-idea-ultimate-edition    #安装
 进入 [Color Themes](http://color-themes.com/) 下载你喜欢的编辑器代码高亮主题的 `.jar` 文件，将其存放到一个单独的文件夹里  
 在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Notepad++ Like**）  
   
-* Appearance&Behavior -> Appearance：字体（**Open sans**），字号**15**  
+* Appearance&Behavior -> Appearance：字体（**Open sans**），字号**15**，勾选 **show memory indicator** 显示内存使用情况
 * Editor -> Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
 * Editor -> Color Scheme -> Color Scheme Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
 * Editor -> Color Scheme -> Console Font：字体（**MonoSpaced**），字号**13**，行高**1.1**
 * Editor -> Code Style -> Java 中，选中 Wrapping and Braces 选项卡，在 Keep when reformatting 中勾选 **Ensure rigth margin is not exceeded** 实现代码自动换行
+* Editor -> General -> Auto Import 勾选 **Add unambiguous imports on the fly** 和 **Optimize imports on the fly** 实现自动导包和组织包结构
 * Editor -> General -> Code Completion 中，取消勾选 **Match case** 实现代码提示不区分大小写
 * Editor -> General -> Appearance 中勾选 **Show line numbers** 复选框显示行号
-* Editor –> General –> Editor Tabs 中勾选 **Mark modified(×)**  复选框，可以将修改过的文件标星
+* Editor –> General –> Editor Tabs 中勾选 **Mark modified(×)**  复选框，可以将修改过的文件标星，取消勾选 **Show tabs in one row** 实现多行 Tab
 * File -> Settings -> Build,Execution,Deployment -> Compiler 中勾选 `Builder project automatically` 复选框，组合键 `Shift+Ctrl+Alt+/`，选择 `Registry` ，勾选 `compiler.automake.allow.when.app.running` 。可以解决静态资源更新需要重启项目的问题
   
 UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用[自定义 UI 主题 Gray](https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/) <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -> Install plugin from disk -> 你下载的 jar 包文件）

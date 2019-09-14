@@ -584,10 +584,15 @@ export ALIEN_THEME="red"    #红色
 export ALIEN_THEME="soft"   #淡蓝色
 export ALIEN_THEME="gruvbox"    #灰褐色
 ```
-只需要在`~/.zshrc`中的`ZSH_THEME="mortalscumbag"`后一行添加上面提供的任意一行`export ALIEN_THEME="color"`即可  
+只需要在`~/.zshrc`中的`ZSH_THEME="mortalscumbag"`后一行添加上面提供的任意一行`export ALIEN_THEME="red"`即可  
   
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g69jlg63s6j30gz017dfr.jpg)
 
+还需要使用修补字体[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)，所以需要在 `export ALIEN_THEME="red"` 下面添加一条 `export ALIEN_USE_NERD_FONT=1` 使字体生效  
+ Nerd 字体在[这里](https://www.nerdfonts.com/font-downloads)下载[Ubuntu Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Ubuntu.zip)，将压缩包解压到新建的 `Nerd` 文件夹中 
+ ```bash
+ sudo mv Nerd /usr/share/fonts  #将文件夹移动到字体目录
+ ```
 为了让你的终端支持彩色输出，把`/etc/pacman.conf`中的`#color`的`#`删除 
   
 #### 终端透明  
@@ -696,9 +701,9 @@ sudo chmod +x bbr.sh  #给bbr.sh加权限
 * ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)  
 * Debian系Linux客户端[electron-ssr-0.2.5.deb](#)  
 * 安卓客户端[shadowsocksr.apk](https://github.com/shadowsocksr-backup/shadowsocksr-android/releases)  
-* IOS 客户端[shadowrocket.ipa](#)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  
+* IOS 客户端[shadowrocket.ipa](https://shadowsocks-help.github.io/)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  
 * MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
-* Windows客户端[electron-ssr-0.2.6.exe](https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases)  
+* Windows客户端[ShadowsocksR-win-4.9.2.zip](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)  
   
 ```bash
 sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包

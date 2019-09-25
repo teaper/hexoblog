@@ -468,7 +468,7 @@
 <li>ArchLinux系Linux客户端<a href="https://github.com/erguotou520/electron-ssr/releases" rel="external nofollow noopener noreferrer" target="_blank">electron-ssr-0.2.4.pacman </a>  </li>
 <li>Debian系Linux客户端<a href="#">electron-ssr-0.2.5.deb</a>  </li>
 <li>安卓客户端<a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" rel="external nofollow noopener noreferrer" target="_blank">shadowsocksr.apk</a>  </li>
-<li>IOS 客户端<a href="https://shadowsocks-help.github.io/" rel="external nofollow noopener noreferrer" target="_blank">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  </li>
+<li>IOS 客户端<a href="https://shadowsocks-help.github.io/" rel="external nofollow noopener noreferrer" target="_blank">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用美区 App Store 账号更新成最新版)</span>  </li>
 <li>MAC 客户端<a href="https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksX-NG-R8.dmg</a>  </li>
 <li>Windows客户端<a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksR-win-4.9.2.zip</a>  </li>
 </ul>
@@ -494,6 +494,15 @@
 <p>安装之后，会发现它无法输入中文</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qcef</span><br></pre></td></tr></table></figure>
 
+<details>
+<summary><span style="color:#ff0000">注意：2019-05-24 08:22 最新版 netease-cloud-music 1.2.1-1 无法输入中文，建议回退旧版本 netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span></summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axel -n 10 https://mirrors.nju.edu.cn/archlinuxcn/x86_64/netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span><br><span class="line">sudo pacman -U netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>/etc/pacman.conf</code> 中忽略它的更新  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IgnorePkg = netease-cloud-music</span><br></pre></td></tr></table></figure>
+
+</details>
 
 <h4 id="蓝牙配置"><a href="#蓝牙配置" class="headerlink" title="蓝牙配置"></a>蓝牙配置</h4><p>之前我们只安装了网络工具，没有配蓝牙驱动，现在安装一下  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S bluez bluez-utils bluez-firmware pulseaudio-bluetooth pavucontrol pulseaudio-alsa <span class="comment">#全装</span></span><br></pre></td></tr></table></figure>
@@ -1098,7 +1107,7 @@
 
 <p>然后在谷歌商店直接搜<code>Gnome Shell Integration</code>进行安装，需要更多美化插件，可以通过<a href="https://extensions.gnome.org" rel="external nofollow noopener noreferrer" target="_blank">Gnome Shell Integration</a>下载和安装<br><span style="color:#ff0000;">注意：谷歌商店和Gnome Shell Integration需要翻墙，如果下载慢可以用手机热点</span>  </p>
 <blockquote>
-<p><a href="https://extensions.gnome.org/extension/1217/appfolders-manager/" rel="external nofollow noopener noreferrer" target="_blank">Appfolders管理扩展</a>开始菜单可以创建文件夹管理快捷方式<br><a href="https://extensions.gnome.org/extension/750/openweather/" rel="external nofollow noopener noreferrer" target="_blank">状态栏天气插件</a>配置<a href="https://lbs.qq.com/tool/getpoint/index.html" rel="external nofollow noopener noreferrer" target="_blank">坐标</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">状态栏系统监测插件</a><br><a href="https://extensions.gnome.org/extension/1460/vitals/" rel="external nofollow noopener noreferrer" target="_blank">系统检测插件Vitals</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">Coverflow Alt-Tab</a>轮播式切换窗口<br><a href="https://extensions.gnome.org/extension/1251/blyr/" rel="external nofollow noopener noreferrer" target="_blank">Blyr</a>高斯模糊GNOME Shell UI元素<br><a href="https://extensions.gnome.org/extension/1031/topicons/" rel="external nofollow noopener noreferrer" target="_blank">TopIcons Plus</a>类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)<br><a href="https://extensions.gnome.org/extension/1357/notes" rel="external nofollow noopener noreferrer" target="_blank">Notes</a>GNOME Shell桌面的粘滞便笺(番茄工作法利器)  </p>
+<p><a href="https://extensions.gnome.org/extension/1217/appfolders-manager/" rel="external nofollow noopener noreferrer" target="_blank">Appfolders管理扩展</a>开始菜单可以创建文件夹管理快捷方式<br><a href="https://extensions.gnome.org/extension/750/openweather/" rel="external nofollow noopener noreferrer" target="_blank">状态栏天气插件</a>配置<a href="https://lbs.qq.com/tool/getpoint/index.html" rel="external nofollow noopener noreferrer" target="_blank">坐标</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">状态栏系统监测插件</a><br><a href="https://extensions.gnome.org/extension/1460/vitals/" rel="external nofollow noopener noreferrer" target="_blank">系统检测插件Vitals</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">Coverflow Alt-Tab</a>轮播式切换窗口<br><a href="https://extensions.gnome.org/extension/1251/blyr/" rel="external nofollow noopener noreferrer" target="_blank">Blyr</a>高斯模糊GNOME Shell UI元素<br><a href="https://extensions.gnome.org/extension/1031/topicons/" rel="external nofollow noopener noreferrer" target="_blank">TopIcons Plus</a>类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)<br><a href="https://extensions.gnome.org/extension/1357/notes" rel="external nofollow noopener noreferrer" target="_blank">Notes</a>GNOME Shell桌面的粘滞便笺(番茄工作法利器)<br><a href="https://extensions.gnome.org/extension/1937/window-corner-preview-332/" rel="external nofollow noopener noreferrer" target="_blank">Window Corner Preview</a>在工作时观看您喜欢的视频或电影（视频学习神器）</p>
 </blockquote>
 <h4 id="GRUB主题"><a href="#GRUB主题" class="headerlink" title="GRUB主题"></a>GRUB主题</h4><p>GRUB 是什么？GRUB 是引导程序，负责引导操作系统，开机时那个选择系统的画面<br><span style="color:#ff0000;">注意：下载主题需要翻墙，如果下载慢可以用手机热点</span>  </p>
 <p><strong>主题一：</strong><a href="https://www.opendesktop.org/p/1000140/" rel="external nofollow noopener noreferrer" target="_blank">Breeze GRUB2主题</a><br>下载主题包并解压  </p>

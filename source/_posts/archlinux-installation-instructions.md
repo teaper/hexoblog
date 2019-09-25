@@ -631,7 +631,7 @@ sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
  
 sudo pacman -S fcitx-sogoupinyin
 ```
-<span style="color:#ff0000;">注意：上面这些命令是原来的安装方法，现在已经作废，你执行上面命令的时候会提示没有安装包，因为在2019年6月份的时候 AUR 删库了，至今没有补充（2019/8/21），不过我是老用户，我把需要的包都存起来了，需要的可以邮箱联系我，或者加QQ群:787979167，在群文件里自己取，解压后使用文件夹中 README.md 文件提供的命令将所有包安装即可</span>  
+<span style="color:#ff0000;">注意：上面这些命令是原来的安装方法，现在已经作废，你执行上面命令的时候会提示源里找不到对应安装包，因为在2019年6月份的时候 AUR 删库了，至今没有补充（2019/8/21），不过我是老用户，我把需要的包都存起来了，需要的可以点[这里](https://mega.nz/#F!xmYySApb!igsLZNuuOJ651m7qCQhwPg)下载</span>  
   
 用文本编辑器创建或编辑 `~/.xprofile` 文件;在其末尾添加以下几行:  
 ```bash
@@ -697,11 +697,11 @@ sudo chmod +x bbr.sh  #给bbr.sh加权限
 ```
 执行上面的代码，然后耐心等待，安装成功后重启VPS服务器即可(可以在Vultr网站上重启)    
   
-下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的老版本客户端可以用，需要请联系我邮箱  
+下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](https://mega.nz/#F!N6ZSxSxJ!CS7L8cbd-rBhJF8wBBrthw)下载
 * ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)  
 * Debian系Linux客户端[electron-ssr-0.2.5.deb](#)  
 * 安卓客户端[shadowsocksr.apk](https://github.com/shadowsocksr-backup/shadowsocksr-android/releases)  
-* IOS 客户端[shadowrocket.ipa](https://shadowsocks-help.github.io/)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机)</span>  
+* IOS 客户端[shadowrocket.ipa](https://shadowsocks-help.github.io/)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用美区 App Store 账号更新成最新版)</span>  
 * MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
 * Windows客户端[ShadowsocksR-win-4.9.2.zip](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)  
   
@@ -780,6 +780,18 @@ sudo pacman -S netease-cloud-music      #安装
 ```bash
 sudo pacman -S qcef
 ```
+<details>
+<summary><span style="color:#ff0000">注意：2019-05-24 08:22 最新版 netease-cloud-music 1.2.1-1 无法输入中文，建议回退旧版本 netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span></summary>
+
+```bash
+axel -n 10 https://mirrors.nju.edu.cn/archlinuxcn/x86_64/netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz
+sudo pacman -U netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz
+```
+然后在 `/etc/pacman.conf` 中忽略它的更新  
+```bash
+IgnorePkg = netease-cloud-music
+```
+</details>
   
 #### 蓝牙配置  
 之前我们只安装了网络工具，没有配蓝牙驱动，现在安装一下  
@@ -955,6 +967,35 @@ sudo ln -s /opt/BaiduPCS-Go-v3.5.6-linux-amd64/BaiduPCS-Go /usr/bin/BaiduPCS    
 ```bash
 yay -S baidunetdisk #客户端版
 ```
+
+#### MEGAsync
+[MEGAsync](https://mega.nz) 也是一个网盘，我使用百度网盘的时候，无非就是三个需求：存储、分享、同步，百度网盘下载限速成狗，分享链接三分钟失效，还会被监管扫描存储的文件，数据安全性不敢恭维啊！其他的 [Google Drive](https://drive.google.com/drive/my-drive) 能用是能用，但是你分享东西出来需要放共享文件夹  
+
+这个网盘我就要吹爆了，支持有所有 [Linux](https://mega.nz/sync) 系统下的客户端，安卓、MAC、IOS、[谷歌插件](https://chrome.google.com/webstore/detail/mega/bigefpfhnfcobdlfbedofhhaibnlghod)全齐活，新人注册安装下 APP 就有 70G 存储空间，邀请好友上不封顶，关键是服务器<span style="color:#ff0000;">不限速</span>啊！  
+  
+![Screenshot from 2019-09-21 07-03-39.png](http://ww1.sinaimg.cn/large/006kWbIoly1g76rmbg88rj30kp0g0gq6.jpg)
+  
+直接下载 ArchLinux 的安装包，本地安装  
+```bash
+sudo pacman -U megasync-x86_64.pkg.tar.xz
+```
+登录客户端可以选择同步的文件夹，我个人习惯这样配置  
+  
+| 本机文件夹 | MEGA文件夹 | 上传 | 下载 |
+| ---------- | ---------- | ---- | ---- |
+| /home/teaper/Public | / | / | /home/teaper/Downloads |
+  
+虽然访问不需要梯子，但是你也可以配置代理，高级设置还可以制定忽略规则  
+```bash
+*.iso
+*~.*
+.*
+desktop.ini
+Thumbs.db
+/home/teaper/Public/iso     #这是我要忽略的系统镜像文件夹，同步的时候就不会上传到云端
+```
+在看看它的分享功能，支持[加密](https://mega.nz/#!ZyQjiQoa)和[不加密](https://mega.nz/#!ZyQjiQoa!UzxmcFVbyVUqPJqu8cbg7id_3sud4bYoJZFFlKLuUn0)，撤销分享，好用的一匹  
+![Screenshot from 2019-09-21 07-16-34.png](http://ww1.sinaimg.cn/large/006kWbIoly1g76s0ck899j30j509u0te.jpg)
   
 #### 录像/直播 
 ```bash
@@ -2288,6 +2329,7 @@ sudo pacman -S chrome-gnome-shell
 > [Blyr](https://extensions.gnome.org/extension/1251/blyr/)高斯模糊GNOME Shell UI元素  
 > [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)   
 > [Notes](https://extensions.gnome.org/extension/1357/notes)GNOME Shell桌面的粘滞便笺(番茄工作法利器)  
+> [Window Corner Preview](https://extensions.gnome.org/extension/1937/window-corner-preview-332/)在工作时观看您喜欢的视频或电影（视频学习神器）
   
 #### GRUB主题  
 GRUB 是什么？GRUB 是引导程序，负责引导操作系统，开机时那个选择系统的画面  
@@ -2474,6 +2516,14 @@ sudo chmod a+w /opt/steam   #加权限
 > [Northgard](https://store.steampowered.com/app/466560/Northgard/)（北境之地）  
 > [Dota 2](https://store.steampowered.com/app/570/Dota_2/)  
 > [文明 VI](https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/)  
+  
+#### 大灾变  
+[大灾变](https://cataclysmdda.org)：Dark Days Ahead是一部基于回合制的生存游戏，设置在后世界末日。努力在一个严酷，持久，程序化的世界中生存。为了食物，设备，或者如果你运气好的话，清除一个死亡文明的残余物，一辆装满油箱的车辆让你彻底逃离道奇。打败或逃脱各种各样强大的怪物，从僵尸到巨型昆虫，到杀手机器人和更加陌生和更致命的东西，以及像你一样的其他人，想要你拥有的......
+```
+sudo pacman -S cataclysm-dda    #直接安装
+cataclysm   #启动
+```
+![](http://ww1.sinaimg.cn/large/006kWbIoly1g74ac8bss0j31gn0rtmxx.jpg)
 
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g25l4i5aupj31hc0u0e83.jpg)  
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g25l59vjxnj31hc0u04qp.jpg)  

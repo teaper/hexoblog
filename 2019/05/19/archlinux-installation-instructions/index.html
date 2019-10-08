@@ -12,7 +12,7 @@
   <meta name="description" content="与人为善是修养，独来独往是性格！">
   
   <meta name="keywords" content="
-  java,Arch Linux
+  Arch Linux,java
   ">
   
   <meta name="author" content="teaper">
@@ -364,6 +364,13 @@
 
 <p><code>Running &#39;pacman -Syu&#39;</code>：表示下面的紧接着的日志信息是运行<code>pacman -Syu</code>命令之后的日志输出<br><code>[2018-08-08 04:14]</code>：是你滚动更新的时间，确保这条日志和你滚挂时间匹配<br><code>upgraded</code>：表示更新软件包，如果是安装，则会显示<code>installed</code><br><code>google-chrome</code>：这个不用说都知道是软件名字<br><code>(72.0.3626.121-1 -&gt; 73.0.3683.103-1)</code>：表示版本从<code>72.0.3626.121-1</code>更新为<code>73.0.3683.103-1</code>  </p>
 <p>根据日志信息中的软件和旧版本号，进入<code>/var/cache/pacman/pkg</code>目录下使用上面的<code>sudo pacman -U page1 page2 page3</code>方式，安装回旧版本的软件包即可  </p>
+<details>
+<summary style="color:#ff0000">gnome桌面不更新需要忽略的所有包如下</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IgnorePkg   = gnome* gdm* cheese eog libgweather evolution-data-server evolution libgdm libnautilus-extension mutter nautilus sushi totem</span><br></pre></td></tr></table></figure>
+
+</details>
+
 <h4 id="安装缺省的常用网络命令"><a href="#安装缺省的常用网络命令" class="headerlink" title="安装缺省的常用网络命令"></a>安装缺省的常用网络命令</h4><p>以前net-tools属于base组，装base时自动就装上了，现在哪个组都不属于了，这些工具需要单独安装<br>其中ifconfig、route在net-tools包中；nslookup、dig在dnsutils包中；ftp、telnet等在inetutils包中；ip命令在iproute2包中  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S net-tools dnsutils inetutils iproute2</span><br><span class="line">``` </span><br><span class="line">  </span><br><span class="line"><span class="comment">#### 安装AUR软件包    </span></span><br><span class="line">```bash</span><br><span class="line">sudo pacman -S yaourt    <span class="comment">#可以使用aur中的软件，使用方法同pacman一样</span></span><br><span class="line">sudo pacman -S archlinuxcn-keyring  <span class="comment">#安装archlinuxcn-keyring 包以导入 GPG key</span></span><br></pre></td></tr></table></figure>
 
@@ -465,10 +472,10 @@
 <p>执行上面的代码，然后耐心等待，安装成功后重启VPS服务器即可(可以在Vultr网站上重启)    </p>
 <p>下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件<code>erguotou525@gmail.com</code>联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点<a href="https://mega.nz/#F!N6ZSxSxJ!CS7L8cbd-rBhJF8wBBrthw" rel="external nofollow noopener noreferrer" target="_blank">这里</a>下载</p>
 <ul>
-<li>ArchLinux系Linux客户端<a href="https://github.com/erguotou520/electron-ssr/releases" rel="external nofollow noopener noreferrer" target="_blank">electron-ssr-0.2.4.pacman </a>  </li>
-<li>Debian系Linux客户端<a href="#">electron-ssr-0.2.5.deb</a>  </li>
-<li>安卓客户端<a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" rel="external nofollow noopener noreferrer" target="_blank">shadowsocksr.apk</a>  </li>
-<li>IOS 客户端<a href="https://shadowsocks-help.github.io/" rel="external nofollow noopener noreferrer" target="_blank">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用美区 App Store 账号更新成最新版)</span>  </li>
+<li>ArchLinux系Linux客户端<a href="https://teaper.slack.com/files/UHQGQV2RG/FNM47TURH/electron-ssr-0.2.6.pacman" rel="external nofollow noopener noreferrer" target="_blank">electron-ssr-0.2.4.pacman </a>  </li>
+<li>Debian系Linux客户端<a href="https://teaper.slack.com/files/UHQGQV2RG/FNYJ5SYHE/electron-ssr-0.2.5.deb" rel="external nofollow noopener noreferrer" target="_blank">electron-ssr-0.2.5.deb</a>  </li>
+<li>安卓客户端<a href="https://teaper.slack.com/files/UHQGQV2RG/FNS5A1CF3/shadowsocksr.apk" rel="external nofollow noopener noreferrer" target="_blank">shadowsocksr.apk</a>  </li>
+<li>IOS 客户端<a href="https://teaper.slack.com/files/UHQGQV2RG/FP0EB0YCF/shadowrocket-2.1.10.ipa" rel="external nofollow noopener noreferrer" target="_blank">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用<a href="https://shadowsocks-help.github.io/" rel="external nofollow noopener noreferrer" target="_blank">美区 App Store 账号</a>更新成最新版)</span>  </li>
 <li>MAC 客户端<a href="https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksX-NG-R8.dmg</a>  </li>
 <li>Windows客户端<a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksR-win-4.9.2.zip</a>  </li>
 </ul>
@@ -553,6 +560,16 @@
 <h4 id="安装电报Telegram"><a href="#安装电报Telegram" class="headerlink" title="安装电报Telegram"></a>安装电报Telegram</h4><p><a href="https://telegram.org/" rel="external nofollow noopener noreferrer" target="_blank">Telegram</a>是一个高度安全无监控的软件，消息支持自毁  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S telegram-desktop-bin</span><br></pre></td></tr></table></figure>
 
+<details>
+<summary style="color:#ff0000">问题：无法在 telegram 输入框中输入中文，浏览器中却可以正常输入</summary> 
+
+<p>解决方法：在快捷方式中指定启动程序时使用的输入法框架 <code>fcitx</code> 或 <code>ibus</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/share/applications/telegramdesktop.desktop</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>Exec =</code> 中添加 <code>env QT_IM_MODULE=fcitx</code>，如果是使用<code>ibus</code> 的话就替换为<code>ibus</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u</span><br></pre></td></tr></table></figure>
+
+</details>
 
 <h4 id="安装多线程下载工具"><a href="#安装多线程下载工具" class="headerlink" title="安装多线程下载工具"></a>安装多线程下载工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wget</span><br><span class="line">sudo pacman -S axel</span><br></pre></td></tr></table></figure>
 
@@ -1107,7 +1124,7 @@
 
 <p>然后在谷歌商店直接搜<code>Gnome Shell Integration</code>进行安装，需要更多美化插件，可以通过<a href="https://extensions.gnome.org" rel="external nofollow noopener noreferrer" target="_blank">Gnome Shell Integration</a>下载和安装<br><span style="color:#ff0000;">注意：谷歌商店和Gnome Shell Integration需要翻墙，如果下载慢可以用手机热点</span>  </p>
 <blockquote>
-<p><a href="https://extensions.gnome.org/extension/1217/appfolders-manager/" rel="external nofollow noopener noreferrer" target="_blank">Appfolders管理扩展</a>开始菜单可以创建文件夹管理快捷方式<br><a href="https://extensions.gnome.org/extension/750/openweather/" rel="external nofollow noopener noreferrer" target="_blank">状态栏天气插件</a>配置<a href="https://lbs.qq.com/tool/getpoint/index.html" rel="external nofollow noopener noreferrer" target="_blank">坐标</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">状态栏系统监测插件</a><br><a href="https://extensions.gnome.org/extension/1460/vitals/" rel="external nofollow noopener noreferrer" target="_blank">系统检测插件Vitals</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">Coverflow Alt-Tab</a>轮播式切换窗口<br><a href="https://extensions.gnome.org/extension/1251/blyr/" rel="external nofollow noopener noreferrer" target="_blank">Blyr</a>高斯模糊GNOME Shell UI元素<br><a href="https://extensions.gnome.org/extension/1031/topicons/" rel="external nofollow noopener noreferrer" target="_blank">TopIcons Plus</a>类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)<br><a href="https://extensions.gnome.org/extension/1357/notes" rel="external nofollow noopener noreferrer" target="_blank">Notes</a>GNOME Shell桌面的粘滞便笺(番茄工作法利器)<br><a href="https://extensions.gnome.org/extension/1937/window-corner-preview-332/" rel="external nofollow noopener noreferrer" target="_blank">Window Corner Preview</a>在工作时观看您喜欢的视频或电影（视频学习神器）</p>
+<p><a href="https://extensions.gnome.org/extension/1217/appfolders-manager/" rel="external nofollow noopener noreferrer" target="_blank">Appfolders管理扩展</a>开始菜单可以创建文件夹管理快捷方式<span style="color:#ff0000;">（gnome3.34已包含此功能）</span><br><a href="https://extensions.gnome.org/extension/750/openweather/" rel="external nofollow noopener noreferrer" target="_blank">状态栏天气插件</a>配置<a href="https://lbs.qq.com/tool/getpoint/index.html" rel="external nofollow noopener noreferrer" target="_blank">坐标</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">状态栏系统监测插件</a><br><a href="https://extensions.gnome.org/extension/1460/vitals/" rel="external nofollow noopener noreferrer" target="_blank">系统检测插件Vitals</a><br><a href="https://extensions.gnome.org/extension/120/system-monitor/" rel="external nofollow noopener noreferrer" target="_blank">Coverflow Alt-Tab</a>轮播式切换窗口<br><a href="https://extensions.gnome.org/extension/1251/blyr/" rel="external nofollow noopener noreferrer" target="_blank">Blyr</a>高斯模糊GNOME Shell UI元素<br><a href="https://extensions.gnome.org/extension/1031/topicons/" rel="external nofollow noopener noreferrer" target="_blank">TopIcons Plus</a>类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)<br><a href="https://extensions.gnome.org/extension/1357/notes" rel="external nofollow noopener noreferrer" target="_blank">Notes</a>GNOME Shell桌面的粘滞便笺(番茄工作法利器)<br><a href="https://extensions.gnome.org/extension/1937/window-corner-preview-332/" rel="external nofollow noopener noreferrer" target="_blank">Window Corner Preview</a>在工作时观看您喜欢的视频或电影（视频学习神器）</p>
 </blockquote>
 <h4 id="GRUB主题"><a href="#GRUB主题" class="headerlink" title="GRUB主题"></a>GRUB主题</h4><p>GRUB 是什么？GRUB 是引导程序，负责引导操作系统，开机时那个选择系统的画面<br><span style="color:#ff0000;">注意：下载主题需要翻墙，如果下载慢可以用手机热点</span>  </p>
 <p><strong>主题一：</strong><a href="https://www.opendesktop.org/p/1000140/" rel="external nofollow noopener noreferrer" target="_blank">Breeze GRUB2主题</a><br>下载主题包并解压  </p>

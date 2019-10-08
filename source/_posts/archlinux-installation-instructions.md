@@ -458,6 +458,13 @@ IgnoreGroup = 软件组名字     #软件组名字(例如：gnome linux)
 `(72.0.3626.121-1 -> 73.0.3683.103-1)`：表示版本从`72.0.3626.121-1`更新为`73.0.3683.103-1`  
   
 根据日志信息中的软件和旧版本号，进入`/var/cache/pacman/pkg`目录下使用上面的`sudo pacman -U page1 page2 page3`方式，安装回旧版本的软件包即可  
+<details>
+<summary style="color:#ff0000">gnome桌面不更新需要忽略的所有包如下</summary>
+
+```bash
+IgnorePkg   = gnome* gdm* cheese eog libgweather evolution-data-server evolution libgdm libnautilus-extension mutter nautilus sushi totem
+```
+</details>
   
 #### 安装缺省的常用网络命令
 以前net-tools属于base组，装base时自动就装上了，现在哪个组都不属于了，这些工具需要单独安装  
@@ -698,10 +705,10 @@ sudo chmod +x bbr.sh  #给bbr.sh加权限
 执行上面的代码，然后耐心等待，安装成功后重启VPS服务器即可(可以在Vultr网站上重启)    
   
 下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](https://mega.nz/#F!N6ZSxSxJ!CS7L8cbd-rBhJF8wBBrthw)下载
-* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://github.com/erguotou520/electron-ssr/releases)  
-* Debian系Linux客户端[electron-ssr-0.2.5.deb](#)  
-* 安卓客户端[shadowsocksr.apk](https://github.com/shadowsocksr-backup/shadowsocksr-android/releases)  
-* IOS 客户端[shadowrocket.ipa](https://shadowsocks-help.github.io/)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用美区 App Store 账号更新成最新版)</span>  
+* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://teaper.slack.com/files/UHQGQV2RG/FNM47TURH/electron-ssr-0.2.6.pacman)  
+* Debian系Linux客户端[electron-ssr-0.2.5.deb](https://teaper.slack.com/files/UHQGQV2RG/FNYJ5SYHE/electron-ssr-0.2.5.deb)  
+* 安卓客户端[shadowsocksr.apk](https://teaper.slack.com/files/UHQGQV2RG/FNS5A1CF3/shadowsocksr.apk)  
+* IOS 客户端[shadowrocket.ipa](https://teaper.slack.com/files/UHQGQV2RG/FP0EB0YCF/shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
 * MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
 * Windows客户端[ShadowsocksR-win-4.9.2.zip](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)  
   
@@ -932,6 +939,18 @@ yay -S dingtalk-electron
 ```bash
 yay -S telegram-desktop-bin
 ```
+<details>
+<summary  style="color:#ff0000">问题：无法在 telegram 输入框中输入中文，浏览器中却可以正常输入</summary> 
+
+解决方法：在快捷方式中指定启动程序时使用的输入法框架 `fcitx` 或 `ibus`
+```
+sudo vim /usr/share/applications/telegramdesktop.desktop
+```
+然后在 `Exec = ` 中添加 `env QT_IM_MODULE=fcitx `，如果是使用`ibus` 的话就替换为`ibus`
+```
+Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u
+```
+</details>
   
 #### 安装多线程下载工具
 ```bash
@@ -2321,7 +2340,7 @@ sudo pacman -S chrome-gnome-shell
 ```
 然后在谷歌商店直接搜`Gnome Shell Integration`进行安装，需要更多美化插件，可以通过[Gnome Shell Integration](https://extensions.gnome.org)下载和安装  
 <span style="color:#ff0000;">注意：谷歌商店和Gnome Shell Integration需要翻墙，如果下载慢可以用手机热点</span>  
-> [Appfolders管理扩展](https://extensions.gnome.org/extension/1217/appfolders-manager/)开始菜单可以创建文件夹管理快捷方式  
+> [Appfolders管理扩展](https://extensions.gnome.org/extension/1217/appfolders-manager/)开始菜单可以创建文件夹管理快捷方式<span style="color:#ff0000;">（gnome3.34已包含此功能）</span>  
 > [状态栏天气插件](https://extensions.gnome.org/extension/750/openweather/)配置[坐标](https://lbs.qq.com/tool/getpoint/index.html)  
 > [状态栏系统监测插件](https://extensions.gnome.org/extension/120/system-monitor/)  
 > [系统检测插件Vitals](https://extensions.gnome.org/extension/1460/vitals/)  

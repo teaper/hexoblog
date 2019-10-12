@@ -471,15 +471,15 @@ IgnorePkg   = gnome* gdm* cheese eog libgweather evolution-data-server evolution
 其中ifconfig、route在net-tools包中；nslookup、dig在dnsutils包中；ftp、telnet等在inetutils包中；ip命令在iproute2包中  
 ```bash
 sudo pacman -S net-tools dnsutils inetutils iproute2
-``` 
+```
   
-#### 安装AUR软件包    
+#### 安装AUR软件包
 ```bash
 sudo pacman -S yaourt    #可以使用aur中的软件，使用方法同pacman一样
 sudo pacman -S archlinuxcn-keyring  #安装archlinuxcn-keyring 包以导入 GPG key
 ```
   
-#### 安装Git及SSH  
+#### 安装Git及SSH
 ```bash
 sudo pacman -S git #安装git
 git config --global user.name "Your Name"   #配置你的git用户名
@@ -506,6 +506,10 @@ git config --global alias.psm 'push origin master'
 git config --global alias.plm 'pull origin master'
 
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+#----------------------ssr socks5 代理------------------------
+git config --global http.proxy 'socks5://127.0.0.1:1080'    #端口号1080
+git config --global https.proxy 'socks5://127.0.0.1:1080'
 ```
 还有一个好用的git工具[gitflow](https://github.com/nvie/gitflow)  
 ```bash
@@ -652,8 +656,50 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 ```
-<span style="color:#ff0000;">常见问题：使用`pacman -Syu`更新之后，`TIM`、`gedit`里无法输入中文</span>  
-> 解决方法：首先检查上面的 `~/.xprofile` 和 `/etc/environmenet` 中的配置有没有被修改或删除，如果一切正常，使用 `source /etc/environmenet` 和 `source ~/.xprofile` 使配置文件生效，然后重启电脑
+<details>
+<summary style="color:#ff0000;">常见问题：滚动更新后，搜狗输入法无法启动，也没报错</summary>
+
+解决方法：首先检查上面的 `~/.xprofile` 和 `/etc/environmenet` 中的配置有没有被修改或删除，如果一切正常，使用 `source /etc/environmenet` 和 `source ~/.xprofile` 使配置文件生效，然后重启电脑
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：提示搜狗输入法异常：删除 ~/.config/SogouPY 并重新启动</summary>
+
+一般按照提示把 ~/.config/SogouPY 删除重启即可，如果按照提示无法解决，则问题出在输入法依赖包不匹配，建议使用我上面提供的所有依赖包，一键全装
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是 Telegram、Slack、Electron-ssr、youdao-note 等 Electron 软件无法切换中文输入法</summary>
+
+解决方法：在快捷方式中指定启动程序时使用的输入法框架 `fcitx` 或 `ibus`
+```
+sudo vim /usr/share/applications/telegramdesktop.desktop
+```
+然后在 `Exec = ` 中添加 `env QT_IM_MODULE=fcitx `，如果是使用`ibus` 的话就替换为`ibus`
+```
+Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u
+```
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、idea、VScode 等无法切换中文输入法</summary>
+
+编辑 `/etc/xdg/autostart/fcitx-autostart.desktop` 文件，将里面这几个参数设置为 `true`，保存退出
+```bash
+Exec=fcitx-autostart
+Icon=fcitx
+Terminal=false
+Type=Application
+Categories=System;Utility;
+StartupNotify=true      #这里
+NoDisplay=true          #这里
+X-GNOME-Autostart-Phase=Applications
+X-GNOME-AutoRestart=true        #这里
+X-GNOME-Autostart-Notify=true       #这里
+X-KDE-autostart-after=panel
+X-KDE-StartupNotify=false
+```
+复制 `/etc/xdg/autostart/fcitx-autostart.desktop` 到 `~/.config/autostart/`，重启
+
+</details>
+
   
 #### 互联网小飞机
 富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善  
@@ -939,18 +985,6 @@ yay -S dingtalk-electron
 ```bash
 yay -S telegram-desktop-bin
 ```
-<details>
-<summary  style="color:#ff0000">问题：无法在 telegram 输入框中输入中文，浏览器中却可以正常输入</summary> 
-
-解决方法：在快捷方式中指定启动程序时使用的输入法框架 `fcitx` 或 `ibus`
-```
-sudo vim /usr/share/applications/telegramdesktop.desktop
-```
-然后在 `Exec = ` 中添加 `env QT_IM_MODULE=fcitx `，如果是使用`ibus` 的话就替换为`ibus`
-```
-Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u
-```
-</details>
   
 #### 安装多线程下载工具
 ```bash

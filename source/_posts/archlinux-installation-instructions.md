@@ -466,13 +466,14 @@ IgnorePkg   = gnome* gdm* cheese eog libgweather evolution-data-server evolution
 ```
 </details>
   
+  
 #### 安装缺省的常用网络命令
 以前net-tools属于base组，装base时自动就装上了，现在哪个组都不属于了，这些工具需要单独安装  
 其中ifconfig、route在net-tools包中；nslookup、dig在dnsutils包中；ftp、telnet等在inetutils包中；ip命令在iproute2包中  
 ```bash
 sudo pacman -S net-tools dnsutils inetutils iproute2
 ```
-  
+
 #### 安装AUR软件包
 ```bash
 sudo pacman -S yaourt    #可以使用aur中的软件，使用方法同pacman一样
@@ -679,7 +680,7 @@ Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u
 ```
 </details>
 <details>
-<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、idea、VScode 等无法切换中文输入法</summary>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、VScode 等无法切换中文输入法</summary>
 
 编辑 `/etc/xdg/autostart/fcitx-autostart.desktop` 文件，将里面这几个参数设置为 `true`，保存退出
 ```bash
@@ -697,7 +698,20 @@ X-KDE-autostart-after=panel
 X-KDE-StartupNotify=false
 ```
 复制 `/etc/xdg/autostart/fcitx-autostart.desktop` 到 `~/.config/autostart/`，重启
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是 JetBrains 系列软件无法切换中文输入法</summary>
 
+解决方法：`/opt` 目录找到对应软件的安装目录下的 `bin/软件名.sh`（示例：IDEA）
+```
+sudo vim /opt/intellij-idea-ultimate-edition/bin/idea.sh
+```
+然后在文件**开头**添加以下内容
+```
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+```
 </details>
 
   

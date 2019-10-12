@@ -294,6 +294,8 @@
       <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
     
     
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
+    
       <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
       <category term="github pages" scheme="https://www.teaper.dev/tags/github-pages/"/>
@@ -301,8 +303,6 @@
       <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
-    
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
     
@@ -501,7 +501,7 @@
     <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
     <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
     <published>2019-05-19T13:50:34.000Z</published>
-    <updated>2019-10-12T02:51:38.880Z</updated>
+    <updated>2019-10-12T16:55:12.261Z</updated>
     
     <summary type="html">
     

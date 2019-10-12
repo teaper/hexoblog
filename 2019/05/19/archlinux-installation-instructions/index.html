@@ -371,9 +371,9 @@
 
 </details>
 
+
 <h4 id="安装缺省的常用网络命令"><a href="#安装缺省的常用网络命令" class="headerlink" title="安装缺省的常用网络命令"></a>安装缺省的常用网络命令</h4><p>以前net-tools属于base组，装base时自动就装上了，现在哪个组都不属于了，这些工具需要单独安装<br>其中ifconfig、route在net-tools包中；nslookup、dig在dnsutils包中；ftp、telnet等在inetutils包中；ip命令在iproute2包中  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S net-tools dnsutils inetutils iproute2</span><br></pre></td></tr></table></figure>
-
 
 <h4 id="安装AUR软件包"><a href="#安装AUR软件包" class="headerlink" title="安装AUR软件包"></a>安装AUR软件包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S yaourt    <span class="comment">#可以使用aur中的软件，使用方法同pacman一样</span></span><br><span class="line">sudo pacman -S archlinuxcn-keyring  <span class="comment">#安装archlinuxcn-keyring 包以导入 GPG key</span></span><br></pre></td></tr></table></figure>
 
@@ -474,12 +474,22 @@
 
 </details>
 <details>
-<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、idea、VScode 等无法切换中文输入法</summary>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、VScode 等无法切换中文输入法</summary>
 
 <p>编辑 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 文件，将里面这几个参数设置为 <code>true</code>，保存退出</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Exec=fcitx-autostart</span><br><span class="line">Icon=fcitx</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Type=Application</span><br><span class="line">Categories=System;Utility;</span><br><span class="line">StartupNotify=<span class="literal">true</span>      <span class="comment">#这里</span></span><br><span class="line">NoDisplay=<span class="literal">true</span>          <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Phase=Applications</span><br><span class="line">X-GNOME-AutoRestart=<span class="literal">true</span>        <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Notify=<span class="literal">true</span>       <span class="comment">#这里</span></span><br><span class="line">X-KDE-autostart-after=panel</span><br><span class="line">X-KDE-StartupNotify=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 <p>复制 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 到 <code>~/.config/autostart/</code>，重启</p>
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是 JetBrains 系列软件无法切换中文输入法</summary>
+
+<p>解决方法：<code>/opt</code> 目录找到对应软件的安装目录下的 <code>bin/软件名.sh</code>（示例：IDEA）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /opt/intellij-idea-ultimate-edition/bin/idea.sh</span><br></pre></td></tr></table></figure>
+
+<p>然后在文件<strong>开头</strong>添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure>
+
 </details>
 
 

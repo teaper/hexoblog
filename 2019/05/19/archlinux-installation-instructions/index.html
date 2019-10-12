@@ -372,14 +372,17 @@
 </details>
 
 <h4 id="安装缺省的常用网络命令"><a href="#安装缺省的常用网络命令" class="headerlink" title="安装缺省的常用网络命令"></a>安装缺省的常用网络命令</h4><p>以前net-tools属于base组，装base时自动就装上了，现在哪个组都不属于了，这些工具需要单独安装<br>其中ifconfig、route在net-tools包中；nslookup、dig在dnsutils包中；ftp、telnet等在inetutils包中；ip命令在iproute2包中  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S net-tools dnsutils inetutils iproute2</span><br><span class="line">``` </span><br><span class="line">  </span><br><span class="line"><span class="comment">#### 安装AUR软件包    </span></span><br><span class="line">```bash</span><br><span class="line">sudo pacman -S yaourt    <span class="comment">#可以使用aur中的软件，使用方法同pacman一样</span></span><br><span class="line">sudo pacman -S archlinuxcn-keyring  <span class="comment">#安装archlinuxcn-keyring 包以导入 GPG key</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S net-tools dnsutils inetutils iproute2</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="安装AUR软件包"><a href="#安装AUR软件包" class="headerlink" title="安装AUR软件包"></a>安装AUR软件包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S yaourt    <span class="comment">#可以使用aur中的软件，使用方法同pacman一样</span></span><br><span class="line">sudo pacman -S archlinuxcn-keyring  <span class="comment">#安装archlinuxcn-keyring 包以导入 GPG key</span></span><br></pre></td></tr></table></figure>
 
 
 <h4 id="安装Git及SSH"><a href="#安装Git及SSH" class="headerlink" title="安装Git及SSH"></a>安装Git及SSH</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S git <span class="comment">#安装git</span></span><br><span class="line">git config --global user.name <span class="string">"Your Name"</span>   <span class="comment">#配置你的git用户名</span></span><br><span class="line">git config --global user.email <span class="string">"youremail@example.com"</span>      <span class="comment">#配置你的git邮箱</span></span><br><span class="line">git config --list   <span class="comment">#查看</span></span><br><span class="line"></span><br><span class="line">sudo pacman -S openssh   <span class="comment">#安装ssh服务</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span>    <span class="comment">#邮箱同上，一路按Enter</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh   <span class="comment">#进入.ssh隐藏文件夹</span></span><br><span class="line">gedit id_rsa.pub       <span class="comment">#打开公钥并复制id_rsa.pub文件中的内容</span></span><br></pre></td></tr></table></figure>
 
 <p>进入你自己的<a href="https://github.com" rel="external nofollow noopener noreferrer" target="_blank">github</a><br>进入<code>Settings</code> -&gt; <code>SSH and GPG keys</code> -&gt; <code>New SSH key</code><br>新建一个key，名字随便，把复制的内容粘贴上去  </p>
 <p>配置一些git命令别名  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.br branch</span><br><span class="line"></span><br><span class="line">git config --global alias.psm <span class="string">'push origin master'</span></span><br><span class="line">git config --global alias.plm <span class="string">'pull origin master'</span></span><br><span class="line"></span><br><span class="line">git config --global alias.lg <span class="string">"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.br branch</span><br><span class="line"></span><br><span class="line">git config --global alias.psm <span class="string">'push origin master'</span></span><br><span class="line">git config --global alias.plm <span class="string">'pull origin master'</span></span><br><span class="line"></span><br><span class="line">git config --global alias.lg <span class="string">"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#----------------------ssr socks5 代理------------------------</span></span><br><span class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span>    <span class="comment">#端口号1080</span></span><br><span class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br></pre></td></tr></table></figure>
 
 <p>还有一个好用的git工具<a href="https://github.com/nvie/gitflow" rel="external nofollow noopener noreferrer" target="_blank">gitflow</a>  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S gitflow-avh   <span class="comment">#安装gitflow</span></span><br></pre></td></tr></table></figure>
@@ -450,10 +453,36 @@
 <p>若你使用的桌面环境比较特殊，可能需要在<code>/etc/environmenet</code>后方也加入<span style="color:#ff0000;">(保险起见也加上)</span>  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">"@im=fcitx"</span></span><br></pre></td></tr></table></figure>
 
-<p><span style="color:#ff0000;">常见问题：使用<code>pacman -Syu</code>更新之后，<code>TIM</code>、<code>gedit</code>里无法输入中文</span>  </p>
-<blockquote>
+<details>
+<summary style="color:#ff0000;">常见问题：滚动更新后，搜狗输入法无法启动，也没报错</summary>
+
 <p>解决方法：首先检查上面的 <code>~/.xprofile</code> 和 <code>/etc/environmenet</code> 中的配置有没有被修改或删除，如果一切正常，使用 <code>source /etc/environmenet</code> 和 <code>source ~/.xprofile</code> 使配置文件生效，然后重启电脑</p>
-</blockquote>
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：提示搜狗输入法异常：删除 ~/.config/SogouPY 并重新启动</summary>
+
+<p>一般按照提示把 ~/.config/SogouPY 删除重启即可，如果按照提示无法解决，则问题出在输入法依赖包不匹配，建议使用我上面提供的所有依赖包，一键全装</p>
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是 Telegram、Slack、Electron-ssr、youdao-note 等 Electron 软件无法切换中文输入法</summary>
+
+<p>解决方法：在快捷方式中指定启动程序时使用的输入法框架 <code>fcitx</code> 或 <code>ibus</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/share/applications/telegramdesktop.desktop</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>Exec =</code> 中添加 <code>env QT_IM_MODULE=fcitx</code>，如果是使用<code>ibus</code> 的话就替换为<code>ibus</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u</span><br></pre></td></tr></table></figure>
+
+</details>
+<details>
+<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、idea、VScode 等无法切换中文输入法</summary>
+
+<p>编辑 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 文件，将里面这几个参数设置为 <code>true</code>，保存退出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Exec=fcitx-autostart</span><br><span class="line">Icon=fcitx</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Type=Application</span><br><span class="line">Categories=System;Utility;</span><br><span class="line">StartupNotify=<span class="literal">true</span>      <span class="comment">#这里</span></span><br><span class="line">NoDisplay=<span class="literal">true</span>          <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Phase=Applications</span><br><span class="line">X-GNOME-AutoRestart=<span class="literal">true</span>        <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Notify=<span class="literal">true</span>       <span class="comment">#这里</span></span><br><span class="line">X-KDE-autostart-after=panel</span><br><span class="line">X-KDE-StartupNotify=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>复制 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 到 <code>~/.config/autostart/</code>，重启</p>
+</details>
+
+
 <h4 id="互联网小飞机"><a href="#互联网小飞机" class="headerlink" title="互联网小飞机"></a>互联网小飞机</h4><p>富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善  </p>
 <p>先去国外网站买个VCS服务器,这里推荐<a href="https://www.vultr.com/?ref=7539377" rel="external nofollow noopener noreferrer" target="_blank">Vultr</a><br>新用户注册成功是在计费页面,说下Vultr的计费规则,它不像阿里云,一买就是年或月,而是按小时计算金额,金额从Vultr账户中扣除,所以我们需要先给账户充值金额,充值方式可以是paypal/支付宝/网银,我们先冲10美元<br>我们选择一个Vultr云计算(VC2)中的服务器(推荐洛杉矶/日本/新加坡)<br>系统选择CentOS/Ubuntu<br>服务器大小选个便宜的$5/mo $0.007/h1 CPU 1024MB内存1000GB带宽<br><span style="color:#ff0000;">注意:1000GB带宽表示流量,用完我们可以把原来主机销毁,重新换个主机,再搭建一遍,不用加钱</span><br>成功之后.会显示系统正在安装,安装成功,点击进入管理界面,里面有基本IP地址,用户名,密码之类的  </p>
 <p>我们先<a href="http://ping.chinaz.com/" rel="external nofollow noopener noreferrer" target="_blank">ping</a>一下ip(例如：167.179.77.127)能不能通，再检测端口<a href="http://coolaf.com/tool/port" rel="external nofollow noopener noreferrer" target="_blank">国内</a>开放没有，<a href="https://www.yougetsignal.com/tools/open-ports/" rel="external nofollow noopener noreferrer" target="_blank">国外</a>开放没有  </p>
@@ -560,16 +589,6 @@
 <h4 id="安装电报Telegram"><a href="#安装电报Telegram" class="headerlink" title="安装电报Telegram"></a>安装电报Telegram</h4><p><a href="https://telegram.org/" rel="external nofollow noopener noreferrer" target="_blank">Telegram</a>是一个高度安全无监控的软件，消息支持自毁  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S telegram-desktop-bin</span><br></pre></td></tr></table></figure>
 
-<details>
-<summary style="color:#ff0000">问题：无法在 telegram 输入框中输入中文，浏览器中却可以正常输入</summary> 
-
-<p>解决方法：在快捷方式中指定启动程序时使用的输入法框架 <code>fcitx</code> 或 <code>ibus</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/share/applications/telegramdesktop.desktop</span><br></pre></td></tr></table></figure>
-
-<p>然后在 <code>Exec =</code> 中添加 <code>env QT_IM_MODULE=fcitx</code>，如果是使用<code>ibus</code> 的话就替换为<code>ibus</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u</span><br></pre></td></tr></table></figure>
-
-</details>
 
 <h4 id="安装多线程下载工具"><a href="#安装多线程下载工具" class="headerlink" title="安装多线程下载工具"></a>安装多线程下载工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wget</span><br><span class="line">sudo pacman -S axel</span><br></pre></td></tr></table></figure>
 

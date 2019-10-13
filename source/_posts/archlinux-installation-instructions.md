@@ -657,6 +657,22 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 ```
+编辑 `/etc/xdg/autostart/fcitx-autostart.desktop` 文件，将里面这几个参数设置为 `true`，保存退出
+```bash
+Exec=fcitx-autostart
+Icon=fcitx
+Terminal=false
+Type=Application
+Categories=System;Utility;
+StartupNotify=true      #这里
+NoDisplay=true          #这里
+X-GNOME-Autostart-Phase=Applications
+X-GNOME-AutoRestart=true        #这里
+X-GNOME-Autostart-Notify=true       #这里
+X-KDE-autostart-after=panel
+X-KDE-StartupNotify=false
+```
+复制 `/etc/xdg/autostart/fcitx-autostart.desktop` 到 `~/.config/autostart/`，在开始菜单打开 `Fcitx Configuration` 将 `SogouPinyin` 添加到美式英语键盘下面，也就是第二个位置，美式键盘置顶，重启
 <details>
 <summary style="color:#ff0000;">常见问题：滚动更新后，搜狗输入法无法启动，也没报错</summary>
 
@@ -678,26 +694,12 @@ sudo vim /usr/share/applications/telegramdesktop.desktop
 ```
 Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u
 ```
-</details>
-<details>
-<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、VScode 等无法切换中文输入法</summary>
+同理：`QT_IM_MODULE=fcitx` 也可以换成 `GTK_IM_MODULE=fcitx` 和 `XMODIFIERS="@im=fcitx"` 对应不同技术的软件，已知可使用此方法的软件如下
+* __QT_IM_MODULE__：telegram、VScode、megasync、OBS
+* __GTK_IM_MODULE__：eclipse、MyEclipse、dbeaver、gedit、xmind
+* __XMODIFIERS__：wps、jstock、Tim
+  
 
-编辑 `/etc/xdg/autostart/fcitx-autostart.desktop` 文件，将里面这几个参数设置为 `true`，保存退出
-```bash
-Exec=fcitx-autostart
-Icon=fcitx
-Terminal=false
-Type=Application
-Categories=System;Utility;
-StartupNotify=true      #这里
-NoDisplay=true          #这里
-X-GNOME-Autostart-Phase=Applications
-X-GNOME-AutoRestart=true        #这里
-X-GNOME-Autostart-Notify=true       #这里
-X-KDE-autostart-after=panel
-X-KDE-StartupNotify=false
-```
-复制 `/etc/xdg/autostart/fcitx-autostart.desktop` 到 `~/.config/autostart/`，重启
 </details>
 <details>
 <summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是 JetBrains 系列软件无法切换中文输入法</summary>

@@ -453,6 +453,10 @@
 <p>若你使用的桌面环境比较特殊，可能需要在<code>/etc/environmenet</code>后方也加入<span style="color:#ff0000;">(保险起见也加上)</span>  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=fcitx</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">"@im=fcitx"</span></span><br></pre></td></tr></table></figure>
 
+<p>编辑 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 文件，将里面这几个参数设置为 <code>true</code>，保存退出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Exec=fcitx-autostart</span><br><span class="line">Icon=fcitx</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Type=Application</span><br><span class="line">Categories=System;Utility;</span><br><span class="line">StartupNotify=<span class="literal">true</span>      <span class="comment">#这里</span></span><br><span class="line">NoDisplay=<span class="literal">true</span>          <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Phase=Applications</span><br><span class="line">X-GNOME-AutoRestart=<span class="literal">true</span>        <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Notify=<span class="literal">true</span>       <span class="comment">#这里</span></span><br><span class="line">X-KDE-autostart-after=panel</span><br><span class="line">X-KDE-StartupNotify=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>复制 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 到 <code>~/.config/autostart/</code>，在开始菜单打开 <code>Fcitx Configuration</code> 将 <code>SogouPinyin</code> 添加到美式英语键盘下面，也就是第二个位置，美式键盘置顶，重启</p>
 <details>
 <summary style="color:#ff0000;">常见问题：滚动更新后，搜狗输入法无法启动，也没报错</summary>
 
@@ -472,14 +476,12 @@
 <p>然后在 <code>Exec =</code> 中添加 <code>env QT_IM_MODULE=fcitx</code>，如果是使用<code>ibus</code> 的话就替换为<code>ibus</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=env QT_IM_MODULE=fcitx telegram-desktop -- %u</span><br></pre></td></tr></table></figure>
 
-</details>
-<details>
-<summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是终端、TIM、WeChat、wps、VScode 等无法切换中文输入法</summary>
-
-<p>编辑 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 文件，将里面这几个参数设置为 <code>true</code>，保存退出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Exec=fcitx-autostart</span><br><span class="line">Icon=fcitx</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Type=Application</span><br><span class="line">Categories=System;Utility;</span><br><span class="line">StartupNotify=<span class="literal">true</span>      <span class="comment">#这里</span></span><br><span class="line">NoDisplay=<span class="literal">true</span>          <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Phase=Applications</span><br><span class="line">X-GNOME-AutoRestart=<span class="literal">true</span>        <span class="comment">#这里</span></span><br><span class="line">X-GNOME-Autostart-Notify=<span class="literal">true</span>       <span class="comment">#这里</span></span><br><span class="line">X-KDE-autostart-after=panel</span><br><span class="line">X-KDE-StartupNotify=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>复制 <code>/etc/xdg/autostart/fcitx-autostart.desktop</code> 到 <code>~/.config/autostart/</code>，重启</p>
+<p>同理：<code>QT_IM_MODULE=fcitx</code> 也可以换成 <code>GTK_IM_MODULE=fcitx</code> 和 <code>XMODIFIERS=&quot;@im=fcitx&quot;</code> 对应不同技术的软件，已知可使用此方法的软件如下</p>
+<ul>
+<li><strong>QT_IM_MODULE</strong>：telegram、VScode、megasync、OBS</li>
+<li><strong>GTK_IM_MODULE</strong>：eclipse、MyEclipse、dbeaver、gedit、xmind</li>
+<li><strong>XMODIFIERS</strong>：wps、jstock、Tim</li>
+</ul>
 </details>
 <details>
 <summary style="color:#ff0000;">常见问题：Chrome 浏览器中文切换正常，但是 JetBrains 系列软件无法切换中文输入法</summary>

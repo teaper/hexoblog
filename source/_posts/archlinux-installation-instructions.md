@@ -672,7 +672,15 @@ X-GNOME-Autostart-Notify=true       #这里
 X-KDE-autostart-after=panel
 X-KDE-StartupNotify=false
 ```
-复制 `/etc/xdg/autostart/fcitx-autostart.desktop` 到 `~/.config/autostart/`，在开始菜单打开 `Fcitx Configuration` 将 `SogouPinyin` 添加到美式英语键盘下面，也就是第二个位置，美式键盘置顶，重启
+复制 `/etc/xdg/autostart/fcitx-autostart.desktop` 到 `~/.config/autostart/`，在开始菜单打开 `Fcitx Configuration` 将 `SogouPinyin` 添加到美式英语键盘下面，也就是第二个位置，美式键盘置顶
+  
+创建 `~/.pam_environment`文件，并且复制到 `~/.config/autostart/` 文件夹中
+```bash
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+```
+终端输入 `qtconfig-qt4` 会打开一个窗口，找到 `interface` 选项卡，将最下面 `Defult Input Method` 的值改为 `fcitx` 保存
 <details>
 <summary style="color:#ff0000;">常见问题：滚动更新后，搜狗输入法无法启动，也没报错</summary>
 
@@ -1078,7 +1086,19 @@ yay -S obs-linuxbrowser-bin #哔哩哔哩弹幕需要这个插件
 > 勾选 `Enable Advanced Encoder Settings` 复选框  
 > 点击左边列表的 Video 选项卡,设置`Output(Scaled)Resolution`输出像素为`1920×1080`  
   
-<span style="color:#ff0000;">注意：如果OBS无法录制电脑桌面，请在终端使用`sudo obs`命令启动一次</span>
+<details>
+<summary style="color:#ff0000;">常见问题：OBS 录制屏幕黑屏，但是可以看见鼠标</summary>
+
+首先使用终端，输入 `obs` 命令进行启动，如果第一行日志显示
+```bash
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+```
+那么输入以下命令，检查你目前使用的是 `x11` 还是 `wayland`
+```bash
+echo $XDG_SESSION_TYPE
+```
+如果是 `wayland` 的话，那么我们的问题是一致的，编辑 `/etc/gdm/custom.conf` 文件，取消 `WaylandEnable=false` 的注释，将强制启动使用 `xorg` 作为窗口显示
+</details>
   
 #### 哔哩哔哩弹幕库  
 [官网](http://bilibili.danmaku.live/#/)直接下载，解压之后运行其中名叫`弹幕库`的`run`脚本即可，唯一差的就一个快捷方式，下载下方图片，重命名为`danmuku.png`，将其移动到解压的文件夹中，并且将文件夹中的`弹幕库.run`重命名为`danmuku`，将整个解压文件夹移动到`/opt`目录  
@@ -2394,7 +2414,7 @@ sudo pacman -S chrome-gnome-shell
 > [状态栏天气插件](https://extensions.gnome.org/extension/750/openweather/)配置[坐标](https://lbs.qq.com/tool/getpoint/index.html)  
 > [状态栏系统监测插件](https://extensions.gnome.org/extension/120/system-monitor/)  
 > [系统检测插件Vitals](https://extensions.gnome.org/extension/1460/vitals/)  
-> [Coverflow Alt-Tab](https://extensions.gnome.org/extension/120/system-monitor/)轮播式切换窗口  
+> [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)轮播式切换窗口  
 > [Blyr](https://extensions.gnome.org/extension/1251/blyr/)高斯模糊GNOME Shell UI元素  
 > [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)   
 > [Notes](https://extensions.gnome.org/extension/1357/notes)GNOME Shell桌面的粘滞便笺(番茄工作法利器)  

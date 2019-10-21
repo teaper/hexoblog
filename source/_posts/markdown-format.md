@@ -36,6 +36,7 @@ tags: [Markdown]
 * 2  
 * 3  
   
+
 ##### 有序列表  
 ```
 1. Item1
@@ -47,6 +48,22 @@ tags: [Markdown]
 2. Item2  
 3. Item3  
   
+
+#### 待办事项
+待办事项使用 `- [ ]` 加事项内容，勾选复选框在 `[ ]` 使用 `x` 
+```markdown
+- [x] 已勾选的待办事项
+- [ ] 未勾选的待办事项
+    - [x] 子集已勾选待办事项
+    - [ ] 子集未勾选待事项
+- [x] 回到一级待办事项
+```
+- [x] 已勾选的待办事项
+- [ ] 未勾选的待办事项
+    - [x] 子集已勾选待办事项
+    - [ ] 子集未勾选待事项
+- [x] 回到一级待办事项
+
 #### 引用  
 如果你需要引用一小段别处的句子,就要用引用的格式 `>` 例如这样  
 `> 这里是引用`  
@@ -65,8 +82,8 @@ tags: [Markdown]
 > 注意：锚链接起始位置中的`(#标题)`，不论目标位置是几号标题，这里都只写一个`#`，并且后面不留空格，紧接着标题名字；并且`()`内标题名字中的大写字母需要转换成小写字母，有空格或`、`需要把空格或`、`替换成`-`，有`.`的需要删除`.`，并且标题名字中不能包含`&￥$【】？*%@!{}/\,:;"'<>~`等特殊符号；`[]`中的标题文本保持和目标位置一致即可
   
 ##### 插入图片  
-`![icon](https://teaper.github.io/media/img/per/teaper.jpeg)`  
-![icon](http://ww1.sinaimg.cn/large/006kWbIogy1g18uaas5syj30gf0gfn1b.jpg)  
+`![](https://github.blog/wp-content/uploads/2019/01/Company@2x-2.png)`  
+![](https://github.blog/wp-content/uploads/2019/01/Company@2x-2.png)
   
 #### 粗体和斜体  
 Markdown的粗体和斜体也非常简单,用`**粗体**`或者两个`__粗体__`包含一段文字就是**粗体**,用一个`*斜体*`或者一个`_斜体_`包含一段文字就是_斜体_  
@@ -76,25 +93,25 @@ Markdown的粗体和斜体也非常简单,用`**粗体**`或者两个`__粗体__
 ~~删除线~~
   
 #### 表格  
-表格可能是Markdown比较累人的地方,注意表格上下两行留白  
+表格可能是Markdown比较累人的地方,注意表格上行空行不打空格，下行空行打两个空格，右边直接换行，`:` 打在哪边就表示对应方向的对齐，不写 `:` 默认左对齐  
 ```
 | Java | C# | Python |
-| ---- | -- | ------ |
+| :------ | :-------: | ------: |
 | 支持 | 支持 | 不支持 |
 | 不支持 | 支持 | 支持 |
 ```
-  
-| Java | C# | Python |  
-| ------ | ------- | ------ |  
-| 支持 | 支持 | 不支持 |  
-| 不支持 | 支持 | 支持 |  
+
+| Java | C# | Python |
+| :------ | :-------: | ------: |
+| 支持 | 支持 | 不支持 |
+| 不支持 | 支持 | 支持 |
   
 #### 内联代码  
-只需要用一个撇号(数字1左边那个键)包裹中间的代码,用Tap键缩进  
+只需要用一个撇号 <span style="color:#ff0000">(数字1左边那个键)</span> 包裹中间的代码,用 **Tap** 键缩进  
 `Markdown`给了你多少钱,我双倍!  
   
 #### 语法突出  
-首行由三个撇号加代码检索标准(例如:java bash C++)开头;尾行三个撇号;代码在中间
+首行由三个撇号加代码检索标准（例如:java bash C++）开头；尾行三个撇号；代码在中间
 ```java
 public void Markdown(){
     System.out.println("可以使用三个撇号包围代码,第一行撇号后面指定代码语言(推荐)");
@@ -139,7 +156,7 @@ GitHub支持表情符号,语法`:ide:`,可以查看[表情大全](https://www.we
 ![难点](https://img.shields.io/badge/-%E9%9A%BE%E7%82%B9-blueviolet.svg) ![重点](https://img.shields.io/badge/-%E9%87%8D%E7%82%B9-red.svg) ![基础](https://img.shields.io/badge/-%E5%9F%BA%E7%A1%80-important.svg) ![简单](https://img.shields.io/badge/-%E7%AE%80%E5%8D%95-sccess.svg) ![冷门](https://img.shields.io/badge/-%E5%86%B7%E9%97%A8-9cf.svg)  
 ![要求精通](https://img.shields.io/badge/%E8%A6%81%E6%B1%82-%E7%B2%BE%E9%80%9A-blueviolet.svg) ![要求熟悉](https://img.shields.io/badge/%E8%A6%81%E6%B1%82-%E7%86%9F%E6%82%89-red.svg) ![要求了解](https://img.shields.io/badge/%E8%A6%81%E6%B1%82-%E4%BA%86%E8%A7%A3-important.svg)
 ```
-![](https://github.blog/wp-content/uploads/2019/01/Company@2x-2.png)
-![](https://github.blog/wp-content/uploads/2019/01/Enterprise@2x-2.png)
-![](https://github.blog/wp-content/uploads/2019/01/Community@2x.png)  
+
+
+  
 

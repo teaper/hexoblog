@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    图床工具PicGo+Github | TEAPER
+    为 Slack 工作区添加自动邀请 | TEAPER
   </title>
   <meta name="description" content="与人为善是修养，独来独往是性格！">
   
   <meta name="keywords" content="
-  PicGo,Github
+  Slack,Slackipy
   ">
   
   <meta name="author" content="teaper">
@@ -137,39 +137,51 @@
     <i class="fa fa-user-o"></i>
     teaper
 
-    <span class="post-date float-right" title="{{moment(1559320260000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1573292242000).format('MMM DD, YYYY, h:mm:ss A')}}">
       <i class="fa fa-pencil-square-o"></i>
-      {{moment(1559320260000).fromNow()}}
+      {{moment(1573292242000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1 style="text-align:center">图床工具PicGo+Github</h1>
-    <blockquote>
-<p>所谓图床工具，就是自动把本地图片上传到服务器，并获取其http/https链接的一款工具，让其可以在互联网上得到访问<br>网络上有很多图床工具，就目前使用种类而言，<a href="https://molunerfinn.com/PicGo/" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a> 算得上一款比较优秀的图床工具  </p>
-</blockquote>
-<p><a href="https://github.com/Molunerfinn/PicGo" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a>基于 <a href="https://github.com/SimulatedGREG/electron-vue" rel="external nofollow noopener noreferrer" target="_blank">Electron-vue</a> 开发的软件，可以支持<a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf" rel="external nofollow noopener noreferrer" target="_blank">微博</a>、七牛云、腾讯云COS、又拍云、GitHub、阿里云OSS、<a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a>、imgur 等8种常用图床，功能强大，简单易用!  </p>
-<h4 id="下载和安装PicGo"><a href="#下载和安装PicGo" class="headerlink" title="下载和安装PicGo"></a>下载和安装PicGo</h4><p>下载地址参见<a href="https://github.com/Molunerfinn/PicGo/releases" rel="external nofollow noopener noreferrer" target="_blank">github发布页</a>  </p>
+    <h1 style="text-align:center">为 Slack 工作区添加自动邀请</h1>
+    <p><a href="https://slack.com/intl/en-cn/" rel="external nofollow noopener noreferrer" target="_blank">Slack</a> 是国外一个非常有名的团队协作神器，国内的钉钉，企业微信都或多或少受其启发。有不少开发朋友都知道 <a href="https://telegram.org/" rel="external nofollow noopener noreferrer" target="_blank">Telegram</a>，我也加入了不少优秀的电报群，由于电报群没有人数限制，不像 QQ 群最高两千人，而且匿名聊天，随来随走，世界通用，不少电报群少则千人，多则万人；技术氛围比某些培育机构 QQ 群好太多，很容易见到技术大佬！</p>
+<p>但是电报群不适合团队协作，顶多作为一个极致的交流工具，而不能作为协作工具</p>
+<ul>
+<li>Telegram 需要翻墙才能访问，这就阻止了大部分初级开发人员</li>
+<li>Telegram 需要搭建很多机器人才能实现诸如打卡、订阅、监控、投票等功能</li>
+<li>Telegram 没有群空间，不能存放文件、素材等</li>
+<li>Telegram 无法让开发人员、运维人员、产品经理等各不同职位的人协作</li>
+</ul>
+<p>但是这些 Slack 都可以做到，有很多大学的社团是建立在 QQ 群、微信群上的，一个活动一个群，几十个群下去看不到头，群成员不知道其他群的存在，每次都需要管理员去拉人，效率之低，令人乍舌！  </p>
+<p>那么有了 Slack，QQ、微信就可以丢了，安全性和 Telegram 一样高、也不用担心聊天记录像 QQ、微信一样被监管，没有群成员上限、而且拥有比 Telegram 更优秀的机器人集成，基本国外大部分工具都可以使用，还能监控 github 的团队项目、甚至持续集成服务器状态！</p>
+<p>Slack 作为国外的软件，我个人觉得有两个问题不太友好</p>
+<ul>
+<li>界面是英文的，英文不好的朋友比较抵触，但是多看几遍就熟悉了</li>
+<li>团队工具，想加入需要通过邮箱联系工作区所有者，然后管理者发送邀请链接，这就限制了只能在交友圈使用</li>
+</ul>
+<h4 id="那么我们要解决的就是第二个问题"><a href="#那么我们要解决的就是第二个问题" class="headerlink" title="那么我们要解决的就是第二个问题"></a>那么我们要解决的就是第二个问题</h4><p><a href="https://github.com/avinassh/slackipy" rel="external nofollow noopener noreferrer" target="_blank">Slackipy</a> 是一个小型 Web 服务器，可帮助您自动执行对 Slack 团队的用户邀请，让其可以像电报群一样自愿加入，不需要每次向管理员提供邮箱，然后管理员去邀请</p>
+<p><strong>第一步：</strong> 注册并且登录 <a href="https://dashboard.heroku.com/apps" rel="external nofollow noopener noreferrer" target="_blank">Heroku</a> 平台，新用户会显示 <code>Create new app</code>，在这里创建 <code>Slackipy</code> App 是免费的  </p>
+<p><strong>第二步：</strong> 打开 <code>github</code> 上的 <a href="https://github.com/avinassh/slackipy" rel="external nofollow noopener noreferrer" target="_blank">Slackipy</a> 项目，在它的 <code>README.md</code> 文件中有搭建方法，我么就使用最简单的 <code>Heroku</code> 方式，点击 <code>README.md</code> 中的这个图标  </p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/avinassh/slackipy/tree/master" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt></a></p>
+<p>会自动跳转到已经登录的 <code>Heroku</code> 用户页面，并且打开一个创建 <code>app</code> 页面，需要填写以下信息：</p>
+<ul>
+<li><strong>App name：</strong> 搭建的项目名称，一般用工作区的名字，搭建成功会作为 <code>herokuapp.com</code> 的二级域名前缀（示例：<code>nut-edu</code>）</li>
+<li><strong>FLASK_SECRET_KEY：</strong> 任意长度字符串，随便输入几十个26字母配合数字即可</li>
+<li><strong>SLACK_API_TOKEN：</strong> Slack 工作区的令牌，在 <a href="https://api.slack.com/custom-integrations/legacy-tokens" rel="external nofollow noopener noreferrer" target="_blank">https://api.slack.com/custom-integrations/legacy-tokens</a> 中创建一个 <code>Token</code>，复制过来</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g7mk6m8jvhj30hw05xt93.jpg" alt="Screenshot from 2019-10-04 22-55-21.png"><br><span style="color:#ff0000">注意：创建 Token 成功之后，会在工作区的 App Manage 中出现一个名字为 <code>Slack API Tester</code> 的 App，注意删除 App 的时候不要把它删除了，否则 Token 也会自动被删除</span></p>
+<ul>
+<li><strong>SLACK_TEAM_ID：</strong> 你的 Slack 工作区名称（示例：<code>nut-edu</code>）</li>
+</ul>
+<p>输入完成单击 <code>Deploy app</code> 开始安装，安装完成点击 <code>view</code> 按钮打开页面 <a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">https://nut-edu.herokuapp.com/</a> 观察效果  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g8rx3n4j12j30ok0bf3z0.jpg" alt="Screenshot from 2019-11-09 17-30-36.png"></p>
+<p>出现页面之后就可以把<a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">链接</a>分享给其他人，想进入工作区的，只需要在 <a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">https://nut-edu.herokuapp.com/</a> 填入邮箱，然后填入的邮箱会收到验证信息，点击验证信息中的链接，新建密码、确认密码，就可以一并注册 Slack 账号并加入工作区！  </p>
 <blockquote>
-<p>macOS用户请下载最新版本的dmg文件<br>windows用户请下载最新版本的exe文件<br>linux用户请下载AppImage文件  </p>
+<p>如果想加入我们打卡学习编程的朋友，欢迎点击下图加入我们的 Slack 工作区</p>
 </blockquote>
-<p>Arch Linux用户使用 <code>aurman -S picgo-appimage</code> 安装，或者使用 <a href>yay</a> 安装  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S picgo-appimage       <span class="comment">#一般不是最新版本</span></span><br></pre></td></tr></table></figure>
-
-<p>安装成功，你就可以使用其中的 <a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a> 图床，其他图床需要自行配置<span style="color:#ff0000;">(本教程搭建Github图床)</span>  </p>
-<h4 id="Github-token"><a href="#Github-token" class="headerlink" title="Github token"></a>Github token</h4><p>登录你的 <a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">Github</a> 账号，新建一个公有仓库 <code>picgoimgs</code> ，或者使用已有仓库<br>进入 <a href="https://github.com/settings/tokens" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/settings/tokens</a>，点击 <code>Generate new token</code> 创建一个新的 <code>token</code><br>勾选 <code>repo</code> 复选框，Note说明随便写，我这里是 <code>For PicGo</code> ，表示用于 PicGo图床  </p>
-<p><img src="https://i.loli.net/2019/05/24/5ce7a447a047350146.png" alt>  </p>
-<p>点击最下方绿色 <code>Generate token</code> 的按钮生成<code>token</code>  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3kyp69v3wj30rq0cgmz6.jpg" alt>  </p>
-<p>复制绿色背景的那条编码，将其存储起来，因为它只显示一次  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8c473a9580043gd33a8b45f3610c7f59646b662     <span class="comment">#示范</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h4><p>设定仓库名：teaper/picgoimgs<br>设定分支名字：master<br>设定Token：8c473a9580043gd33a8b45f3610c7f59646b662  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3kyo9373rj30j40a6q3k.jpg" alt></p>
-<p>存储路径和自定义域名可以不写，设定自定义域名需要在域名DNS下解析你的github服务器  </p>
-<p>点击“设为默认图床”，当图片上传成功之后，可以看到仓库中多了一个文件  </p>
-<p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/Screenshot%20from%202019-05-24%2016-19-25.png" alt></p>
+<p><a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank"><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g8rx6cd76cj31hc0u0ajf.jpg" alt="Screenshot from 2019-11-09 16-50-26.png"></a></p>
+<p>建议 Slack 移动端 APP 和<a href>电脑版客户端</a>一起食用，更爽！</p>
 
   </article>
 </div>

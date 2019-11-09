@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-09-13T01:33:51.983Z</updated>
+  <updated>2019-11-09T09:39:28.473Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为 Slack 工作区添加自动邀请</title>
+    <link href="https://www.teaper.dev/2019/11/09/slack-Slackipy/"/>
+    <id>https://www.teaper.dev/2019/11/09/slack-Slackipy/</id>
+    <published>2019-11-09T09:37:22.000Z</published>
+    <updated>2019-11-09T09:39:28.473Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Slack" scheme="https://www.teaper.dev/categories/Slack/"/>
+    
+    
+      <category term="Slack" scheme="https://www.teaper.dev/tags/Slack/"/>
+    
+      <category term="Slackipy" scheme="https://www.teaper.dev/tags/Slackipy/"/>
+    
+  </entry>
   
   <entry>
     <title>IntelliJ IDEA 完美配置</title>
@@ -482,8 +510,6 @@
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
-      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
-    
       <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
     
       <category term="Tomcat" scheme="https://www.teaper.dev/tags/Tomcat/"/>
@@ -491,6 +517,8 @@
       <category term="Spring" scheme="https://www.teaper.dev/tags/Spring/"/>
     
       <category term="SpringMVC" scheme="https://www.teaper.dev/tags/SpringMVC/"/>
+    
+      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
     
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
     

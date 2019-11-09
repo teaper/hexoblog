@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    清理 Slack 空间 | TEAPER
+  </title>
+  <meta name="description" content="与人为善是修养，独来独往是性格！">
+  
+  <meta name="keywords" content="
+  Slack,Python3
+  ">
+  
+  <meta name="author" content="teaper">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/live2d/css/live2d.css">
+  <link rel="stylesheet" href="/css/player.css">
+  <link rel="stylesheet" href="/iconfont/iconfont.css">
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-140493383-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/links">Links</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg"> <i class="fa fa-caret-down"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 19 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 45 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 10 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">TEAPER</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    teaper
+
+    <span class="post-date float-right" title="{{moment(1573306307000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1573306307000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1 style="text-align:center">清理 Slack 空间</h1>
+    <p><a href="https://nut-edu.slack.com/plans?ui_step=27&ui_element=11" rel="external nofollow noopener noreferrer" target="_blank">Slack</a> 免费版工作区存储只有 5GB，一不小心就满了，特别是有大量图文信息发送之后！<br>那么我们通过一个 Python3 脚本来实现批量文件清理，创建一个 <code>slack_delete.py</code> 文件，内容如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlencode</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line"></span><br><span class="line">reader = codecs.getreader(<span class="string">"utf-8"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这里获取 Token 信息: https://api.slack.com/custom-integrations/legacy-tokens</span></span><br><span class="line">token = <span class="string">''</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置它仅删除该用户的文件。 如果您不是管理员，则非常方便。</span></span><br><span class="line">member_id= <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件列表的参数。 此处提供更多信息： https://api.slack.com/methods/files.list</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除早于此的文件：</span></span><br><span class="line">days = <span class="number">30</span></span><br><span class="line">ts_to = int(time.time()) - days * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 多少？（最大值为1000，否则默认为100）</span></span><br><span class="line">count = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要删除的文件类型，all 是全部</span></span><br><span class="line">types = <span class="string">'all'</span></span><br><span class="line"><span class="comment"># types = 'spaces,snippets,images,gdocs,zips,pdfs'</span></span><br><span class="line"><span class="comment"># types = 'zips'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">list_files</span><span class="params">(user= <span class="string">''</span>)</span>:</span></span><br><span class="line">    params = &#123;</span><br><span class="line">        <span class="string">'token'</span>: token,</span><br><span class="line">        <span class="string">'ts_to'</span>: ts_to,</span><br><span class="line">        <span class="string">'count'</span>: count,</span><br><span class="line">        <span class="string">'types'</span>: types,</span><br><span class="line">        <span class="string">'user'</span>: user,</span><br><span class="line">    &#125;</span><br><span class="line">    uri = <span class="string">'https://slack.com/api/files.list'</span></span><br><span class="line">    response = reader(urlopen(uri + <span class="string">'?'</span> + urlencode(params)))</span><br><span class="line">    <span class="keyword">return</span> json.load(response)[<span class="string">'files'</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greater_mb</span><span class="params">(file, mb)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> file[<span class="string">'size'</span>] / <span class="number">1000000</span> &gt;= mb</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">smaller_mb</span><span class="params">(file, mb)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> file[<span class="string">'size'</span>] / <span class="number">1000000</span> &lt; mb</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_by_size</span><span class="params">(files, greater_or_smaller, mb)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [file <span class="keyword">for</span> file <span class="keyword">in</span> files <span class="keyword">if</span> greater_or_smaller(file, mb)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">(file)</span>:</span></span><br><span class="line">    order = [<span class="string">'Title'</span>, <span class="string">'Name'</span>, <span class="string">'Created'</span>, <span class="string">'Size'</span>, <span class="string">'Filetype'</span>,</span><br><span class="line">             <span class="string">'Comment'</span>, <span class="string">'Permalink'</span>, <span class="string">'Download'</span>, <span class="string">'User'</span>, <span class="string">'Channels'</span>]</span><br><span class="line">    info = &#123;</span><br><span class="line">        <span class="string">'Title'</span>: file[<span class="string">'title'</span>],</span><br><span class="line">        <span class="string">'Name'</span>: file[<span class="string">'name'</span>],</span><br><span class="line">        <span class="string">'Created'</span>: datetime.datetime.utcfromtimestamp(file[<span class="string">'created'</span>]).strftime(<span class="string">'%B %d, %Y %H:%M:%S'</span>),</span><br><span class="line">        <span class="string">'Size'</span>: str(file[<span class="string">'size'</span>] / <span class="number">1000000</span>) + <span class="string">' MB'</span>,</span><br><span class="line">        <span class="string">'Filetype'</span>: file[<span class="string">'filetype'</span>],</span><br><span class="line">        <span class="string">'Comment'</span>: file[<span class="string">'initial_comment'</span>] <span class="keyword">if</span> <span class="string">'initial_comment'</span> <span class="keyword">in</span> file <span class="keyword">else</span> <span class="string">''</span>,</span><br><span class="line">        <span class="string">'Permalink'</span>: file[<span class="string">'permalink'</span>],</span><br><span class="line">        <span class="string">'Download'</span>: file[<span class="string">'url_private'</span>],</span><br><span class="line">        <span class="string">'User'</span>: file[<span class="string">'user'</span>],</span><br><span class="line">        <span class="string">'Channels'</span>: file[<span class="string">'channels'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OrderedDict((key, info[key]) <span class="keyword">for</span> key <span class="keyword">in</span> order)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_files</span><span class="params">(files)</span>:</span></span><br><span class="line">    num_files = len(files)</span><br><span class="line">    file_ids = map(<span class="keyword">lambda</span> f: f[<span class="string">'id'</span>], files)</span><br><span class="line">    print(<span class="string">'Deleting %i files'</span>%num_files)</span><br><span class="line">    <span class="keyword">for</span> index, file_id <span class="keyword">in</span> enumerate(file_ids):</span><br><span class="line">        params = &#123;</span><br><span class="line">            <span class="string">'token'</span>: token,</span><br><span class="line">            <span class="string">'file'</span>: file_id</span><br><span class="line">        &#125;</span><br><span class="line">        uri = <span class="string">'https://slack.com/api/files.delete'</span></span><br><span class="line">        response = reader(urlopen(uri + <span class="string">'?'</span> + urlencode(params)))</span><br><span class="line">        print((index + <span class="number">1</span>, <span class="string">"of"</span>, num_files, <span class="string">"-"</span>,</span><br><span class="line">               file_id, json.load(response)[<span class="string">'ok'</span>]))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Retrieving files older than %s days'</span>%(days))			   </span><br><span class="line">			   </span><br><span class="line">files = list_files(member_id)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Total %i files'</span>%len(files))</span><br><span class="line"></span><br><span class="line">files = filter_by_size(files, greater_mb, <span class="number">50</span>)   <span class="comment">#匹配 50 M的文件</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Match size %i files'</span>%len(files))</span><br><span class="line"></span><br><span class="line"><span class="comment">#delete_files(files)  # 已注释掉，因此您不会意外运行它</span></span><br></pre></td></tr></table></figure>
+
+<p>这个脚本直接是不能的，需要修改一些参数，首先是 Slack 工作区的令牌，在 <a href="https://api.slack.com/custom-integrations/legacy-tokens" rel="external nofollow noopener noreferrer" target="_blank">https://api.slack.com/custom-integrations/legacy-tokens</a> 中创建一个 <code>Token</code>，复制过来，粘贴到脚本里</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g7mk6m8jvhj30hw05xt93.jpg" alt>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">token = <span class="string">'xoxp-613920254549-603568988866-784157202429-b1cc470bc0a1d54248687a87dbb6a7ac'</span></span><br></pre></td></tr></table></figure>
+
+<p>设置删除多少天之前的文件，默认 30 天之前  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">days = 30</span><br></pre></td></tr></table></figure>
+
+<p>选择要删除的类型，一般就是 <code>All</code> 全部，当然还有 <code>spaces</code>、<code>snippets</code>、<code>images</code>、<code>gdocs</code>、<code>zips</code>、<code>pdfs</code> 这些类型，我主要是清理图文信息，所以基本是清理图片，那就选择 <code>images</code>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">types = <span class="string">'images'</span></span><br></pre></td></tr></table></figure>
+
+<p>匹配的要删除的文件大小是多大，默认 50 M 以上  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">files = filter_by_size(files, greater_mb, 0)       <span class="comment">#建议改成 0</span></span><br></pre></td></tr></table></figure>
+
+<p>然后就是运行此脚本了，由于我是工作区所有者，所以我可以删除我和其他人的图片，如果你不是管理员，那就只能删除自己文件<br>我是 Linux 系统，默认 Python 3 的版本，所以直接用命令运行脚本即可，Windows 用户请看<a href="http://stackoverflow.com/a/1527012/662761" rel="external nofollow noopener noreferrer" target="_blank">【运行python代码的指南】</a>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">python3 slack_delete.py     <span class="comment">#运行命令</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------输出日志------------------</span></span><br><span class="line">Retrieving files older than 30 days  <span class="comment">#检索超过30天的文件</span></span><br><span class="line">Total 73 files      <span class="comment">#共4个文件</span></span><br><span class="line">Match size 73 files     <span class="comment">#匹配大73个文件</span></span><br><span class="line">Deleting 73 files       <span class="comment">#删除73个文件</span></span><br><span class="line">(1, <span class="string">'of'</span>, 73, <span class="string">'-'</span>, <span class="string">'FQ77N7YHK'</span>, True)</span><br><span class="line">(2, <span class="string">'of'</span>, 73, <span class="string">'-'</span>, <span class="string">'FQ8RCPV8V'</span>, True)</span><br><span class="line">(3, <span class="string">'of'</span>, 73, <span class="string">'-'</span>, <span class="string">'FQ94SHE3H'</span>, True)</span><br><span class="line">(4, <span class="string">'of'</span>, 73, <span class="string">'-'</span>, <span class="string">'FPQBV1G93'</span>, True)</span><br><span class="line">(5, <span class="string">'of'</span>, 73, <span class="string">'-'</span>, <span class="string">'FQ5PXFMP1'</span>, True)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>确认无误之后，取消最后一行的注释，再运行一下脚本</p>
+
+  </article>
+</div>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<div class="container" id="gitalk-container"></div>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '79a82d93fcd761032f45',
+        clientSecret: 'b784392d66d81a991565a56598f2d369e71e21ad',
+        repo: 'hexoblog',
+        owner: 'teaper',
+        admin: ['teaper'],
+	id: md5(location.pathname),
+        distractionFreeMode: true
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://www.teaper.dev" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 teaper</li>
+      <li><a href="https://www.teaper.dev">Home</a></li>
+      
+      <li><a href="https://github.com/teaper" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+      
+      <li><a href="https://www.weibo.com/5806191772" rel="external nofollow noopener noreferrer" target="_blank">Weibo</a></li>
+      
+      <li><a href="https://twitter.com/TEAPERS" rel="external nofollow noopener noreferrer" target="_blank">Twitter</a></li>
+      
+    </ul>
+    <div class="footer-theme-info" id="hitokoto">
+       行是知之始 ❤ 知是行之成
+    </div>
+    </div>
+    
+    <div class="footer-pageview">
+        <a href="https://info.flagcounter.com/MrmG" rel="external nofollow noopener noreferrer" target="_blank">
+          <img src="https://s04.flagcounter.com/count2/MrmG/bg_FFFFFF/txt_6A737D/border_FFFFFF/columns_7/maxflags_14/viewers_3/labels_1/pageviews_1/flags_0/percent_0/">
+        </a>
+    </div>
+    
+  </footer>
+</div>
+<!-- QPlayer音乐播放器 -->
+<div id="QPlayer">
+<div id="pContent">
+	<div id="player">
+		<span class="cover"></span>
+		<div class="ctrl">
+			<div class="musicTag marquee">
+				<strong>Title</strong>
+				 <span> - </span>
+				<span class="artist">Artist</span>
+			</div>
+			<div class="progress">
+				<div class="timer left">0:00</div>
+				<div class="contr">
+					<div class="rewind icon"></div>
+					<div class="playback icon"></div>
+					<div class="fastforward icon"></div>
+				</div>
+				<div class="right">
+					<div class="liebiao icon"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ssBtn">
+	        <div class="adf"></div>
+    </div>
+</div>
+<ol id="playlist"></ol>
+</div>
+<!-- <script src="js/jquery.min.js"></script> -->
+<!-- <script src="js/jquery.marquee.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js"></script>
+
+<script src="/js/playlist.js"></script>
+<script src="/js/player.js"></script>
+<script>
+function bgChange(){
+	var lis= $('.lib');
+	for(var i=0; i<lis.length; i+=2)
+	lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+	
+	$(".avatar").hover(function(){
+		$(".avatar").attr({
+		"src" : "http://ww1.sinaimg.cn/large/006kWbIoly1g763f4h9w5j30np0np40j.jpg"
+		});
+	},function(){
+		$(".avatar").attr({
+		"src" : "https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg"
+		});
+	});
+}
+window.onload = bgChange;
+</script>
+
+<!-- Live2D血小板 -->
+<div id="landlord">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="560" height="500" class="live2d"></canvas>
+    <!-- 省略隐藏按钮 -->
+</div>
+
+<!-- 鼠标单击爆炸区域 -->
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:1031;pointer-events:none;"></canvas>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = 'https://www.teaper.dev/'
+</script>
+<script type="text/javascript" src="/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/model/xiaoban/model.json");
+</script>
+
+<!-- 打字泡沫 -->
+<script type="text/javascript" src="/js/activate-power-mode.js"></script>
+<script>
+    POWERMODE.colorful = true;  
+    POWERMODE.shake = false;    
+    document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 引入一言 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- <script src="/js/hitokoto.js"></script> -->
+
+<!-- 粒子特效 -->
+<!-- <script src="/js/canvas-nest.min.js"></script> -->
+
+<!-- 鼠标单击爱心特效 -->
+<script src="/js/mouse.js"></script>
+<!-- 鼠标单击爆炸特效 -->
+<script src="/js/anime.min.js"></script>
+<script src="/js/fireworks.js"></script>
+
+
+
+
+<script>
+  (function() {
+    var cx = '014633199185561276043:bpv9wnr4qhc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+      '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

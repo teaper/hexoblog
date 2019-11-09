@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-11-09T09:39:28.473Z</updated>
+  <updated>2019-11-09T13:35:57.340Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>清理 Slack 空间</title>
+    <link href="https://www.teaper.dev/2019/11/09/slack-delete/"/>
+    <id>https://www.teaper.dev/2019/11/09/slack-delete/</id>
+    <published>2019-11-09T13:31:47.000Z</published>
+    <updated>2019-11-09T13:35:57.340Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Slack" scheme="https://www.teaper.dev/categories/Slack/"/>
+    
+    
+      <category term="Slack" scheme="https://www.teaper.dev/tags/Slack/"/>
+    
+      <category term="Python3" scheme="https://www.teaper.dev/tags/Python3/"/>
+    
+  </entry>
   
   <entry>
     <title>为 Slack 工作区添加自动邀请</title>

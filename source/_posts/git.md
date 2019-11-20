@@ -388,11 +388,34 @@ git config --global alias.psm 'push origin master'
 git config --global alias.plm 'pull origin master'
 ```
 之后经常用到的git push origin master和git pull origin master直接就用git psm和git plm代替了,是不是很方便?  
-告诉大家一个比较屌的日志输出命令  
+
+#### 冷门操作
 ```bash
-git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"        #查看日志，以后直接输入 git lg 即可
+
+git log --author="teaper" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }'       #统计 teaper 代码量
+
+git log --pretty='%aN' | sort -u | wc -l    #贡献值统计
+
+git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 5    #查看排名前 5 的贡献者
 ```
-这样以后直接输入git lg就行了  
+  
+#### 终端代理
+主要是 `clone` 项目失败，需要终端进行翻墙，如果是普通 `http / https` 协议作代理则运行以下命令，端口号要匹配
+```bash
+git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+```
+如果是使用 `ss` 或 `ssr` 的 `socks5` 协议进行翻墙，则运行
+```bash
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+```
+取消代理则运行
+```bash
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
   
 #### 其他配置  
 当然还有一些其他有用的配置,默认情况下 git 用的编辑器是vi,如果不喜欢可以改成其他编辑器,比如我习惯vim  

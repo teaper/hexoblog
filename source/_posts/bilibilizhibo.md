@@ -32,7 +32,20 @@ sudo pacman -S obs-studio    #OBS
 * 勾选 Enable Advanced Encoder Settings 复选框  
 * 点击左边列表的 Video 选项卡,设置Output(Scaled)Resolution输出像素为1920×1080  
   
-<span style="color:#ff0000;">注意：如果OBS无法录制电脑桌面，请在终端使用sudo obs命令启动一次</span>  
+
+<details>
+<summary style="color:#ff0000;">常见问题：OBS 录制屏幕黑屏，但是可以看见鼠标</summary>
+
+首先使用终端，输入 `obs` 命令进行启动，如果第一行日志显示
+```bash
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+```
+那么输入以下命令，检查你目前使用的是 `x11` 还是 `wayland`
+```bash
+echo $XDG_SESSION_TYPE
+```
+如果是 `wayland` 的话，那么我们的问题是一致的，编辑 `/etc/gdm/custom.conf` 文件，取消 `WaylandEnable=false` 的注释，将强制启动使用 `xorg` 作为窗口显示
+</details>  
   
 接下来就是安装哔哩哔哩官方的[弹幕库](http://bilibili.danmaku.live/#/)  
   
@@ -124,7 +137,7 @@ sudo pacman -S obs-studio    #OBS
 sudo mv bilibilidanmuku-linux-x64 /opt
 cd /opt/bilibilidanmuku-linux-x64  
 ```
-由于没有快捷方式，我们手动创建一个  
+由于没有快捷方式，我们手动创建一个，图标[danmuku.png](https://i.loli.net/2019/11/21/MZA3mrQsW8OwNYo.png)点击链接下载到文件夹中  
 ```bash
 sudo gedit danmuku.desktop  #创建快捷方式，内容如下
 ```
@@ -167,6 +180,7 @@ Enter a number (default=1): 2
 最后就可以开播测试了，我的效果如下  
   
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g4t5s99uu1j31hc0u04qp.jpg) 
+
 
 
 

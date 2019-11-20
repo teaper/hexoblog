@@ -637,13 +637,10 @@ sudo pacman -S opera   #安装欧朋浏览器
 #### 安装搜狗输入法  
 由于搜狗拼音输入法依赖于Fcitx，在安装搜狗拼音输入法之前，需要先行安装Fcitx  
 ```bash
-sudo pacman -S fcitx
-sudo pacman -S fcitx-configtool
-sudo pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
- 
-sudo pacman -S fcitx-sogoupinyin
+sudo pacman -S fcitx fcitx-configtool fcitx-gtk2  fcitx-gtk3  fcitx-lilydjwg-git  fcitx-qt4  fcitx-qt5  #安装 fcitx 依赖包
+sudo pacman -S fcitx-sogoupinyin #安装 fcitx 搜狗输入法
 ```
-<span style="color:#ff0000;">注意：上面这些命令是原来的安装方法，现在已经作废，你执行上面命令的时候会提示源里找不到对应安装包，因为在2019年6月份的时候 AUR 删库了，至今没有补充（2019/8/21），不过我是老用户，我把需要的包都存起来了，需要的可以点[这里](https://mega.nz/#F!xmYySApb!igsLZNuuOJ651m7qCQhwPg)下载</span>  
+<span style="color:#ff0000;">注意：上面的 `fcitx-qt4` 包已经删库找不到了，官方用了 `fcitx-lilydjwg-git` 代替 `fcitx-qt4` 的部分支持，需要的可以点[这里](https://mega.nz/#F!xmYySApb!igsLZNuuOJ651m7qCQhwPg)下载</span>  
   
 用文本编辑器创建或编辑 `~/.xprofile` 文件;在其末尾添加以下几行:  
 ```bash
@@ -756,6 +753,30 @@ ssh root@167.179.77.127   #会弹出输入密码,在把管理界面的密码输�
 顺利进入系统之后,就可以进行ssr安装了  
 ```bash
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh    #安装ssh,会显示红色未安装
+#------------------------------------------------输出日志-------------------------------------------
+ShadowsocksR 一键管理脚本 [v2.0.38]
+  ---- Toyo | doub.io/ss-jc42 ----
+
+  1. 安装 ShadowsocksR
+  2. 更新 ShadowsocksR
+  3. 卸载 ShadowsocksR
+  4. 安装 libsodium(chacha20)
+————————————
+  5. 查看 账号信息
+  6. 显示 连接信息
+  7. 设置 用户配置
+  8. 手动 修改配置
+  9. 切换 端口模式
+————————————
+ 10. 启动 ShadowsocksR
+ 11. 停止 ShadowsocksR
+ 12. 重启 ShadowsocksR
+ 13. 查看 ShadowsocksR 日志
+————————————
+ 14. 其他功能
+ 15. 升级脚本
+ 
+ 当前状态: 已安装 并 已启动
 ```
 输入数字1继续安装  
 要求输入端口号:不填默认2333  
@@ -766,13 +787,39 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 选择混淆插件:1  
 进行混淆插件的设置后，会依次提示你对设备数、单线程限速和端口总限速进行设置，默认值是不进行限制，个人使用的话，选择默认即可，一路敲回车键,安装完成会出现配置信息,稍后使用(也可以通过运行./ssr.sh,输入5查看)  
   
-安装谷歌BBR加速  
+安装 bbr 原版 / 魔改 / plus 锐速 四合一脚本  
 ```bash
-wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
-sudo chmod +x bbr.sh  #给bbr.sh加权限
-./bbr.sh
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && bash tcp.sh    #运行脚本
 ```
-执行上面的代码，然后耐心等待，安装成功后重启VPS服务器即可(可以在Vultr网站上重启)    
+执行成功之后会有这样一个选择界面  
+```bash
+TCP加速 一键安装管理脚本 [v1.3.2]
+  -- 就是爱生活 | 94ish.me --
+  
+ 0. 升级脚本
+————————————内核管理————————————
+ 1. 安装 BBR/BBR魔改版内核
+ 2. 安装 BBRplus版内核 
+ 3. 安装 Lotserver(锐速)内核
+————————————加速管理————————————
+ 4. 使用BBR加速
+ 5. 使用BBR魔改版加速
+ 6. 使用暴力BBR魔改版加速(不支持部分系统)
+ 7. 使用BBRplus版加速
+ 8. 使用Lotserver(锐速)加速
+————————————杂项管理————————————
+ 9. 卸载全部加速
+ 10. 系统配置优化
+ 11. 退出脚本
+————————————————————————————————
+
+ 当前状态: 已安装 BBRplus 加速内核 , BBRplus启动成功
+```
+查看**当前状态**，是否安装加速内核，一般是没有，输入上面**内核管理**模块中的数字<span style="color:#ff0000;">（1～3）</span>  
+例如我是安装 `BBRplus` 版内核，安装过程会询问是否卸载当前内核某某版本，记住<span style="color:#ff0000;">一定要选 No </span>  
+然后主机会重启，重启之后重新 `ssh` 登录，运行 `tcp.sh` 脚本，如果当前状态没有启动加速，但是内核安装成功  
+那么输入**加速管理**模块中的数字<span style="color:#ff0000;">（4~8）</span>，那么我是对应内核模块，选的使用BBRplus版加速  
+回车之后就会生效，再查看状态就是：`当前状态: 已安装 BBRplus 加速内核 , BBRplus启动成功`
   
 下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](https://mega.nz/#F!N6ZSxSxJ!CS7L8cbd-rBhJF8wBBrthw)下载
 * ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://teaper.slack.com/files/UHQGQV2RG/FNM47TURH/electron-ssr-0.2.6.pacman)  
@@ -848,6 +895,24 @@ sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 sudo cp electron-ssr.desktop ~/.config/autostart    #将快捷方式复制到自启程序目录
 ```
 最后，分享一个免费获取小飞机节点的网站[SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号](https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr)<span style="color:#ff0000;">(打开网站需要全局代理)</span>  
+  
+<details>
+<summary style="color:#ff0000">添加一些国外 DNS 提升速度</summary>
+
+编辑 `/etc/resolv.conf` 文件，**追加**以下 `DNS` 即可，效果立竿见影
+```bash
+# Cloudflare
+nameserver 1.1.1.1
+
+# 诺顿
+nameserver 199.85.126.10
+nameserver 199.85.127.10
+
+# google
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+</details>
   
 #### 网易云音乐  
 ```bash
@@ -1103,7 +1168,7 @@ echo $XDG_SESSION_TYPE
 #### 哔哩哔哩弹幕库  
 [官网](http://bilibili.danmaku.live/#/)直接下载，解压之后运行其中名叫`弹幕库`的`run`脚本即可，唯一差的就一个快捷方式，下载下方图片，重命名为`danmuku.png`，将其移动到解压的文件夹中，并且将文件夹中的`弹幕库.run`重命名为`danmuku`，将整个解压文件夹移动到`/opt`目录  
   
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g4ss20u7yvj30340340sl.jpg)  
+![danmuku.png](https://i.loli.net/2019/11/21/MZA3mrQsW8OwNYo.png)
   
 创建快捷方式  
 ```bash
@@ -2085,6 +2150,12 @@ UI 主题选择 File -> Settings -> Plugins，MarketPlace 选项卡，搜 Materi
   
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g688ka5lvij31hc0u0jwl.jpg)
   
+#### 安装Pycharm
+这个 `ide` 工具也是 `jetbrains` 全家桶中的，主要用来写 `Python` 代码，破解参照 [IDEA](#安装intellij-idea)
+```
+sudo pacman -S pycharm-professional      #pycharm-professional 是专业版
+```
+  
 #### 安装Android Studio  
 ```bash
 sudo pacman -S android-studio
@@ -2103,7 +2174,7 @@ yay vmware  # 选择11 archlinuxcn/vmware-workstation 15.0.2-3 (400.9 MiB 829.2 
 ```bash
 GV7N2-DQZ00-4897Y-27ZNX-NV0TD
 ```
-如果虚拟机中的镜像系统无法联网，并且打开`虚拟网络编辑器`出现`network configuration is missing. ensure that /etc/vmware/networking exists`的error弹框  
+如果虚拟机中的镜像系统无法联网，并且打开`虚拟网络编辑器`出现`network configuration is missing. ensure that /etc/vmware/networking exists`的 `error `弹框  
 则选择`start`或`enable`以下三个服务  
 ```bash
 sudo systemctl start vmware-networks.service     #网络服务
@@ -2117,6 +2188,12 @@ sudo systemctl enable vmware-hostd.service
 启动完服务记得重新加载VMware模块  
 ```bash
 sudo modprobe -a vmw_vmci vmmon  
+```
+最后安装虚拟机的一些依赖包，使虚拟机和本机可以复制粘贴，并且窗口自适应
+```bash
+sudo pacman -S open-vm-tools #vm 粘贴工具
+sudo systemctl enable vmtoolsd.service  #启动 vmtoolsd 服务
+sudo pacman -S xf86-video-vmware xf86-input-vmmouse libdnet uriparser libsigc++ libmspack #窗口自适应依赖包
 ```
   
 #### 安装虚拟机 Virtualbox  
@@ -2418,7 +2495,8 @@ sudo pacman -S chrome-gnome-shell
 > [Blyr](https://extensions.gnome.org/extension/1251/blyr/)高斯模糊GNOME Shell UI元素  
 > [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)   
 > [Notes](https://extensions.gnome.org/extension/1357/notes)GNOME Shell桌面的粘滞便笺(番茄工作法利器)  
-> [Window Corner Preview](https://extensions.gnome.org/extension/1937/window-corner-preview-332/)在工作时观看您喜欢的视频或电影（视频学习神器）
+> [Window Corner Preview](https://extensions.gnome.org/extension/1937/window-corner-preview-332/)在工作时观看您喜欢的视频或电影（视频学习神器）  
+> [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/) 按 `Super` 键时不显示窗口，而显示应用程序，窗口配合 [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/) 插件使用快捷键进行切换
   
 #### GRUB主题  
 GRUB 是什么？GRUB 是引导程序，负责引导操作系统，开机时那个选择系统的画面  

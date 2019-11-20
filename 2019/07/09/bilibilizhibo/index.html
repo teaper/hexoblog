@@ -167,7 +167,18 @@
 <li>勾选 Enable Advanced Encoder Settings 复选框  </li>
 <li>点击左边列表的 Video 选项卡,设置Output(Scaled)Resolution输出像素为1920×1080  </li>
 </ul>
-<p><span style="color:#ff0000;">注意：如果OBS无法录制电脑桌面，请在终端使用sudo obs命令启动一次</span>  </p>
+<details>
+<summary style="color:#ff0000;">常见问题：OBS 录制屏幕黑屏，但是可以看见鼠标</summary>
+
+<p>首先使用终端，输入 <code>obs</code> 命令进行启动，如果第一行日志显示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.</span><br></pre></td></tr></table></figure>
+
+<p>那么输入以下命令，检查你目前使用的是 <code>x11</code> 还是 <code>wayland</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$XDG_SESSION_TYPE</span></span><br></pre></td></tr></table></figure>
+
+<p>如果是 <code>wayland</code> 的话，那么我们的问题是一致的，编辑 <code>/etc/gdm/custom.conf</code> 文件，取消 <code>WaylandEnable=false</code> 的注释，将强制启动使用 <code>xorg</code> 作为窗口显示</p>
+</details>  
+
 <p>接下来就是安装哔哩哔哩官方的<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">弹幕库</a>  </p>
 <h4 id="安装弹幕库"><a href="#安装弹幕库" class="headerlink" title="安装弹幕库"></a>安装弹幕库</h4><p><img src="https://s5.danmaku.live/web/sample.png" alt>  </p>
 <p>点击<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">链接</a>进入下载，我这里的版本是<code>v2.1.1</code>，下载之后解压到本地文件夹，目录结构如下  </p>
@@ -180,7 +191,7 @@
 <p>修改完之后，将文件夹移动到<code>/opt</code>目录  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv bilibilidanmuku-linux-x64 /opt</span><br><span class="line"><span class="built_in">cd</span> /opt/bilibilidanmuku-linux-x64</span><br></pre></td></tr></table></figure>
 
-<p>由于没有快捷方式，我们手动创建一个  </p>
+<p>由于没有快捷方式，我们手动创建一个，图标<a href="https://i.loli.net/2019/11/21/MZA3mrQsW8OwNYo.png" rel="external nofollow noopener noreferrer" target="_blank">danmuku.png</a>点击链接下载到文件夹中  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit danmuku.desktop  <span class="comment">#创建快捷方式，内容如下</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=Bilibili Danmuku</span><br><span class="line">Comment=BiliBili live assistant</span><br><span class="line">Exec=/opt/bilibilidanmuku-linux-x64/danmuku</span><br><span class="line">Icon=/opt/bilibilidanmuku-linux-x64/danmuku.png</span><br><span class="line">Categories=Application;</span><br><span class="line">Version=2.1.1</span><br><span class="line">Type=Application</span><br><span class="line">Terminal=0</span><br></pre></td></tr></table></figure>

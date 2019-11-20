@@ -291,10 +291,20 @@
 <p>当然以上别名不是固定的,你完全可以根据自己的习惯去定制,除此之外还可以设置组合,比如:  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.psm <span class="string">'push origin master'</span></span><br><span class="line">git config --global alias.plm <span class="string">'pull origin master'</span></span><br></pre></td></tr></table></figure>
 
-<p>之后经常用到的git push origin master和git pull origin master直接就用git psm和git plm代替了,是不是很方便?<br>告诉大家一个比较屌的日志输出命令  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg <span class="string">"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span></span><br></pre></td></tr></table></figure>
+<p>之后经常用到的git push origin master和git pull origin master直接就用git psm和git plm代替了,是不是很方便?  </p>
+<h4 id="冷门操作"><a href="#冷门操作" class="headerlink" title="冷门操作"></a>冷门操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg <span class="string">"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span>        <span class="comment">#查看日志，以后直接输入 git lg 即可</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --author=<span class="string">"teaper"</span> --pretty=tformat: --numstat | awk <span class="string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc &#125;'</span>       <span class="comment">#统计 teaper 代码量</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --pretty=<span class="string">'%aN'</span> | sort -u | wc -l    <span class="comment">#贡献值统计</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --pretty=<span class="string">'%aN'</span> | sort | uniq -c | sort -k1 -n -r | head -n 5    <span class="comment">#查看排名前 5 的贡献者</span></span><br></pre></td></tr></table></figure>
 
-<p>这样以后直接输入git lg就行了  </p>
+
+<h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p>主要是 <code>clone</code> 项目失败，需要终端进行翻墙，如果是普通 <code>http / https</code> 协议作代理则运行以下命令，端口号要匹配</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
+<p>如果是使用 <code>ss</code> 或 <code>ssr</code> 的 <code>socks5</code> 协议进行翻墙，则运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br></pre></td></tr></table></figure>
+
+<p>取消代理则运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
+
+
 <h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><p>当然还有一些其他有用的配置,默认情况下 git 用的编辑器是vi,如果不喜欢可以改成其他编辑器,比如我习惯vim  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config  --global    core.editor <span class="string">"vim"</span>       <span class="comment">#设置Editor使用vim</span></span><br></pre></td></tr></table></figure>
 

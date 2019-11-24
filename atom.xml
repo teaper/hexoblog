@@ -279,7 +279,7 @@
     <link href="https://www.teaper.dev/2019/06/02/v2ray/"/>
     <id>https://www.teaper.dev/2019/06/02/v2ray/</id>
     <published>2019-06-02T11:15:39.000Z</published>
-    <updated>2019-08-20T19:05:32.047Z</updated>
+    <updated>2019-11-24T11:48:51.906Z</updated>
     
     <summary type="html">
     
@@ -538,8 +538,6 @@
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
-      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
-    
       <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
     
       <category term="Tomcat" scheme="https://www.teaper.dev/tags/Tomcat/"/>
@@ -547,6 +545,8 @@
       <category term="Spring" scheme="https://www.teaper.dev/tags/Spring/"/>
     
       <category term="SpringMVC" scheme="https://www.teaper.dev/tags/SpringMVC/"/>
+    
+      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
     
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
     
@@ -557,7 +557,7 @@
     <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
     <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
     <published>2019-05-19T13:50:34.000Z</published>
-    <updated>2019-11-20T19:47:55.779Z</updated>
+    <updated>2019-11-24T11:47:03.813Z</updated>
     
     <summary type="html">
     

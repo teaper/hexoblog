@@ -108,48 +108,68 @@ service v2ray status        #查看运行状态
 ```bash
 sudo pacman -S v2ray    #ArchLinux/Manjaro安装v2ray
 ```
-使用gedit编辑`/etc/v2ray/config.json`文件，替换为我这个模板，修改一下参数即可，注意修改我注释的地方，其他地方不变  
+使用gedit编辑`/etc/v2ray/config.json`文件，替换为我这个模板，修改一下参数即可，注意修改我注释的地方，其他地方不变，实再不会可以用[配置生成器](https://intmainreturn0.com/v2ray-config-gen/)  
 <details>
 <summary>ArchLinux下的v2ray/config.json</summary>
 
 ```bash
 {
-  "log": {
-    "loglevel": "warning"
-  },
-  "inbound": {
-    "port": 1088, #本地端口，没办法，我1080被占用了
-    "listen": "127.0.0.1",
-    "protocol": "socks", # 入站协议
-    "settings": {
-      "auth": "noauth",
-      "udp": true    #开启udp
-    }
-  },
-  "outbound": {
-    "protocol": "vmess", #将出战协议修改为vmess，与服务端保持相同
-    "settings": {
-      "vnext": [
+    "log":{
+        "loglevel":"warning"
+    },
+    "inbound":{
+        "port":1088,    #本地端口，1080 被我 ssr 用了
+        "listen":"127.0.0.1",
+        "protocol":"socks",     #网络传输协议
+        "settings":{
+            "auth":"noauth",
+            "udp":true
+        }
+    },
+    "outbounds":[
         {
-          "address": "139.180.166.23",# 服务器地址，请修改为你自己的服务器 ip 或域名
-          "port": 33857,  # 服务器端口，与服务端保持相同
-          "users": [
-            {
-              "id": "5182c7a0-0279-4221-9294-b16d9d047c6e",  # uuid，与服务端保持相同
-              "alterId": 64 # 此处的值也应当与服务器相同
-            }]
-        }]
-      },
-    "tag": "direct"
-  },
-  "policy": {
-    "levels": {
-      "0": {"uplinkOnly": 0}
+            "tag":"proxy",
+            "protocol":"vmess",
+            "settings":{
+                "vnext":[
+                    #一号服务器
+                    {
+                        "address":"139.182.212.71", #IP地址
+                        "port":32456,   #端口
+                        "users":[
+                            {
+                                "id":"8b9658de-a0s5-408j-a3b3-27a297e4f40b",   #UUID
+                                "alterId":64
+                            }
+                        ]
+                    },
+                    #二号服务器（可选）
+                    {
+                        "address":"45.77.180.110",
+                        "port":22071,
+                        "users":[
+                            {
+                                "id":"13e61d3a-9ce7-428d-a7b6-67e9f8e0bf12",
+                                "alterId":64
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "policy":{
+        "levels":{
+            "0":{
+                "uplinkOnly":0
+            }
+        }
     }
-  }
-}
 }
 ```
+V2ray 支持配置多个服务器，那么多个服务器配置的时候，它其实是轮询访问的，也就是说第一个数据包走第一个服务器，第二个数据包走第二个服务器，而不是我们一般认为的第一个服务器被墙了就自动切换到第二个服务器，然后继续传输
+
+路由规则参照 [domain-list-community](https://github.com/v2ray/domain-list-community) 域名列表，如果该项目中有一整套 `google` 顶级域名及其子域名，则用 `geosite` 写成 `geosite:google` ，如果是普通网站，则使用 `domain` 写成 `domain:google.com`
 </details>
   
 使用`v2ray`自带了一个检查工具`v2ray -test`检查`json`文件  
@@ -199,7 +219,14 @@ Successfully installed genpac-2.1.0
 ```bash
 genpac --format=pac -o auto.pac --pac-proxy="SOCKS5 127.0.0.1:1088"
 ```
-然后在系统中配置代理，以我本机的`gnome`桌面为例，图1、3是PAC代理，引导pac文件的绝对路径`file:///etc/v2ray/auto.pac`；图2是全局代理    
+然后在系统中配置代理，以我本机的`gnome`桌面为例，图1、3是PAC代理，引导pac文件的绝对路径`file:///etc/v2ray/auto.pac`；图2是全局代理，也可以通过以下命令来设置  
+```bash
+gsettings set org.gnome.system.proxy autoconfig-url file:///etc/v2ray/auto.pac
+gsettings set org.gnome.system.proxy mode 'auto'
+
+gsettings set org.gnome.system.proxy.socks host '127.0.0.1'
+gsettings set org.gnome.system.proxy.socks port 1088
+```
   
 ![](https://i.loli.net/2019/06/02/5cf3ad11830e456416.png)  
   
@@ -207,3 +234,13 @@ genpac --format=pac -o auto.pac --pac-proxy="SOCKS5 127.0.0.1:1088"
   
 ![](https://i.loli.net/2019/06/02/5cf3ad1f944f214959.png)
   
+
+  
+
+
+ 
+
+
+
+  
+

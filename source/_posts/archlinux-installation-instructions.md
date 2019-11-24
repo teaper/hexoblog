@@ -776,7 +776,7 @@ ShadowsocksR 一键管理脚本 [v2.0.38]
  14. 其他功能
  15. 升级脚本
  
- 当前状态: 已安装 并 已启动
+ 当前状态: 未安装
 ```
 输入数字1继续安装  
 要求输入端口号:不填默认2333  
@@ -913,6 +913,33 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
 </details>
+<details>
+<summary style="color:#ff0000">使用 /etc/hosts 屏蔽一些国外网站</summary>
+
+使用 vim 编辑服务器的 `/etc/hosts` 文件，将[不想打开的网站](https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E8%A2%AB%E5%B0%81%E9%94%81%E7%BD%91%E7%AB%99%E5%88%97%E8%A1%A8)域名全部解析到 `0.0.0.0` 或者 `127.0.0.1`，中间使用空格隔开
+```bash
+# 色情网站
+0.0.0.0 pornhub.com
+0.0.0.0 youporn.com
+0.0.0.0 redtube.com
+0.0.0.0 brazzers.com
+0.0.0.0 pornmd.com
+0.0.0.0 men.com
+0.0.0.0 mofos.com
+0.0.0.0 babes.com
+0.0.0.0 twistys.com
+0.0.0.0 sextube.com
+0.0.0.0 xtube.com
+0.0.0.0 livejasmin.com
+0.0.0.0 pornotube.com
+0.0.0.0 playboytv.com
+0.0.0.0 digitalplayground.com
+0.0.0.0 fetcherx.com
+# 其他网站
+# 0.0.0.0 
+```
+保存退出之后重启服务器
+</details>
   
 #### 网易云音乐  
 ```bash
@@ -939,6 +966,8 @@ IgnorePkg = netease-cloud-music
 之前我们只安装了网络工具，没有配蓝牙驱动，现在安装一下  
 ```bash
 sudo pacman -S bluez bluez-utils bluez-firmware pulseaudio-bluetooth pavucontrol pulseaudio-alsa #全装
+
+yay -S pulseaudio-bluetooth-a2dp-gdm-fix    #从PulseAudio的gdm实例中卸载蓝牙模块。修复了蓝牙耳机的可用性a2dp配置文件(可选)
 ```
 > bluez软件包提供蓝牙协议栈  
 > bluez-utils软件包提供bluetoothctl工具  
@@ -1396,20 +1425,20 @@ sudo gedit ~/.m2/settings.xml     #配置maven仓库
 ```
   
 #### Tomcat安装及配置  
-下载[apache-tomcat-9.0.14.tar.gz](https://tomcat.apache.org/download-90.cgi)  
-找到压缩包右击提取到此处  
+下载[apache-tomcat-9.0.29.tar.gz](https://tomcat.apache.org/download-90.cgi)  
 ```bash
-sudo chmod a+x apache-tomcat-9.0.16          #添加权限
-sudo mv apache-tomcat-9.0.16 /opt
-cd /opt/apache-tomcat-9.0.16/bin/
-sudo chmod 777 *.sh  #给所有.sh文件加777权限(解决Idea中Tomcat权限错误)
+tar -zxvf apache-tomcat-9.0.29.tar.gz       #解压缩
+sudo chmod a+x apache-tomcat-9.0.29          #添加权限
+sudo mkdir /usr/local/tomcat            #新建 tomcat 文件夹，可以存放多个tomcat版本
+sudo mv apache-tomcat-9.0.29 /usr/local/tomcat  #移动
+cd /usr/local/tomcat/apache-tomcat-9.0.29/bin/
 sudo gedit /etc/profile     #配置环境变量
 
-export TOMCAT_HOME=/opt/apache-tomcat-9.0.16
+export TOMCAT_HOME=/usr/local/tomcat/apache-tomcat-9.0.29
 export PATH=$TOMCAT_HOME/bin:$PATH
 
 source /etc/profile   #使环境变量生效
-sudo /opt/apache-tomcat-9.0.16/bin/startup.sh   #启动tomcat测试一下
+sudo /usr/local/tomcat/apache-tomcat-9.0.29/bin/startup.sh   #启动tomcat测试一下
 ```
 测试端口：[ http://localhost:8080/ ]( http://localhost:8080/ )  
   

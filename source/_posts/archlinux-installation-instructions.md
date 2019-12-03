@@ -415,6 +415,42 @@ gedit text #创建简单文本
 gedit markdown.md   #Markdown文件
 ```
 除了简单文本文档，最好在其他新建的脚本内加上一行头代码，例如:在 markdown.md 中加入 `# markdown`，js 文件中加入 `var a = 0`，Python 文件中加入 `import os`
+
+#### 触摸板
+Arch Linux 默认触摸板是不能触摸双击的，非常鸡肋，首先检查是否安装了 `xf86-input-synaptics` 这个包（一般是安装好了）  
+```bash
+synclient -l    #查看当前触摸板设置
+```
+会发现 TapButton1、TapButton2、TapButton3 这三个都是 0 ；具体各个参数代表什么请参考 [【Touchpad Synaptics (简体中文)】](https://wiki.archlinux.org/index.php/Touchpad_Synaptics_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))，编辑 `/usr/share/X11/xorg.conf.d/70-synaptics.conf` 文件，配置以下内容 
+```bash
+Section "InputClass"
+        Identifier "touchpad catchall"
+        Driver "synaptics"
+        MatchIsTouchpad "on"
+	        Option "TapButton1" "1"     #一指触摸 单击
+            Option "TapButton2" "3"     #双指触摸 右击
+            Option "TapButton3" "2"     #三指触摸 粘贴/关闭Tab
+            Option "VertEdgeScroll" "on"    #双指滑动 垂直滚动
+            Option "VertTwoFingerScroll" "on"   #双指垂直滚动
+            Option "HorizEdgeScroll" "on"   #双指滑动 水平滚动
+            Option "HorizTwoFingerScroll" "on"  #启用双指水平滚动
+            Option "CircularScrolling" "on"
+            Option "CircScrollTrigger" "2"
+            Option "EmulateTwoFingerMinZ" "40"  #双指滚动精度调节
+            Option "EmulateTwoFingerMinW" "8"
+            Option "FingerLow" "30"     #手指压力低于此数值时视为手指移开
+            Option "FingerHigh" "50"    #手指压力高于此数值时视为手指按压
+            Option "MaxTapTime" "125"
+# This option is recommend on all Linux systems using evdev, but cannot be
+# enabled by default. See the following link for details:
+# http://who-t.blogspot.com/2010/11/how-to-ignore-configuration-errors.html
+#       MatchDevicePath "/dev/input/event*"
+EndSection
+```
+建议微调，也可以不调用我这个，最后修改文件后保存  
+```bash
+source /usr/share/X11/xorg.conf.d/70-synaptics.conf #使配置生效
+```
   
 #### 更新源  
 pacman是ArchLinux默认的包管理器，类似于debian系列的apt，pacman会自动安装所需要的依赖包，且下载的软件包存放在`/var/cache/pacman/pkg`目录下，如果在使用`pacman -Syu`滚动更新后，某个软件新版本不好用(例如：google Chrome)，可以在此目录找到旧的安装包，使用`pacman -U`命令安装本地包`示例：sudo pacman -U google-chrome-72.0.3626.121-1-x86_64.pkg.tar.xz`  
@@ -1111,12 +1147,12 @@ sudo pacman -S axel
 ```
   
 #### BaiduPCS  
-百度网盘shell版，开玩笑的，下载请戳[BaiduPCS-Go-v3.5.6-linux-amd64.zip
+百度网盘shell版，开玩笑的，下载请戳[BaiduPCS-Go-v3.6.1-linux-amd64.zip
 ](https://github.com/iikira/BaiduPCS-Go/releases)  
 提取到本地  
 ```bash
-mv BaiduPCS-Go-v3.5.6-linux-amd64 /opt/
-cd /opt/BaiduPCS-Go-v3.5.6-linux-amd64
+sudo mv BaiduPCS-Go-v3.6.1-linux-amd64 /opt/
+cd /opt/BaiduPCS-Go-v3.6.1-linux-amd64
 ./BaiduPCS-Go   #终端运行该文件
 
 login -bduss=BDUSS值   #使用BDUSS登录
@@ -1129,7 +1165,7 @@ config set -savedir /目录     #自定义下载目录
 d   [文件或目录1]  [文件或目录2]  #下载
 exit        #退出BaiduPCS-Go
 
-sudo ln -s /opt/BaiduPCS-Go-v3.5.6-linux-amd64/BaiduPCS-Go /usr/bin/BaiduPCS    #添加到终端命令,输入BaiduPCS即可打开
+sudo ln -s /opt/BaiduPCS-Go-v3.6.1-linux-amd64/BaiduPCS-Go /usr/bin/baidu    #添加到终端命令,输入BaiduPCS即可打开
 ```
 <span style="color:#ff0000;">注意：如果下载提示服务器超时，下载失败，请充值百度网盘超级会员，最近的一个bug，同样下面的百度网盘客户端也不行，下载才几十 KB 每秒
   
@@ -1138,6 +1174,11 @@ sudo ln -s /opt/BaiduPCS-Go-v3.5.6-linux-amd64/BaiduPCS-Go /usr/bin/BaiduPCS    
 ```bash
 yay -S baidunetdisk #客户端版
 ```
+<details>
+<summary style="color:#ff0000;">网盘登录不上，一直处于加载状态</summary>
+
+这种情况首先将 `~/.local/share/baidu` 下的文件删除，然后重新使用上面的命令安装一遍
+</details>
 
 #### MEGAsync
 [MEGAsync](https://mega.nz) 也是一个网盘，我使用百度网盘的时候，无非就是三个需求：存储、分享、同步，百度网盘下载限速成狗，分享链接三分钟失效，还会被监管扫描存储的文件，数据安全性不敢恭维啊！其他的 [Google Drive](https://drive.google.com/drive/my-drive) 能用是能用，但是你分享东西出来需要放共享文件夹  

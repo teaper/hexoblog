@@ -1287,6 +1287,47 @@ yay -S jdk11     #安装jdk11
 archlinux-java status   #列出所有jdk
 sudo archlinux-java set java-11-jdk #切换默认jdk,记得切回来
 ```
+所有 jdk 安装目录在 `/usr/lib/jvm` ，可以前去检查一下是否存在
+<details>
+<summary style="color:#ff0000">下载失败 ERROR: Failure while downloading manual://jdk-11.0.5_linux-x64_bin.tar.gz
+    Aborting...</summary>
+
+因为 Oracle 官网下载 jdk 需要登录 Oracle 账号，所以现在用 yay 安装的时候可能会出现以下问题
+```bash
+==> Retrieving sources...
+  -> Downloading jdk-11.0.5_linux-x64_bin.tar.gz...
+The source file for this package needs to be downloaded manually
+since it requires a login and is not redistributable.   #该软件包的源文件需要手动下载，因为它需要登录并且不能重新分发
+Please visit
+  https://www.oracle.com/technetwork/java/javase/downloads/
+  Java SE ... JDK, Download v
+and download
+ jdk-11.0.5_linux-x64_bin.tar.gz    #包名
+to your ~/Downloads folder or in with the PKGBUILD.
+
+Please do not post alternate sources. They are not legal. Advertising
+will get them taken down by Oracle or too much traffic. Keep it a
+secret.
+==> ERROR: Failure while downloading manual://jdk-11.0.5_linux-x64_bin.tar.gz
+    Aborting...
+Error downloading sources: jdk11
+```
+这种情况下我们就需要手动去官网下载 `tar.gz` 格式的包 `jdk-11.0.5_linux-x64_bin.tar.gz`  
+```bash
+git clone https://aur.archlinux.org/jdk11.git   #克隆 AUR 源中的 jdk11 仓库
+```
+将刚下载的 `jdk-11.0.5_linux-x64_bin.tar.gz` 移动到克隆的文件夹中，编辑文件夹中的 `PKGBUILD` 文件
+```bash
+#                     将
+https://download.oracle.com/otn-pub/java/jdk/${pkgver}+${_build}/${_hash}/${_srcfil}
+#                   替换为
+jdk-11.0.5_linux-x64_bin.tar.gz
+```
+保存修改之后在该目录中进行构建和安装
+```bash
+makepkg -sric
+```
+</details>
   
 #### 安装xmind  
 ```bash
@@ -1709,64 +1750,40 @@ yay -S dbeaver dbeaver-plugin-office dbeaver-plugin-svg-format
   
 #### 数据库管理神器Navicat Premium  
 **安装**  
-Linux下的Navica运行是需要wine的，因为之前安装过deepin-tim，wine已经默认作为依赖包安装好了，除此之外，Navicat安装包中也默认封装了一套wine组件  
+Linux 下的 Navicat 运行是需要 `wine` 的，因为之前安装过 `deepin-tim`，wine 已经默认作为依赖包安装好了，除此之外，Navicat 安装包中也默认封装了一套 wine 组件  
 
-找到Linux的Navicat Premium，随便找个下载线路，点击[下载](https://www.navicat.com/en/products)，在Chrome中的下载列表复制下载文件的下载路径`(例如：http://download3.navicat.com/download/navicat121_premium_en_x64.tar.gz)`  
+找到 Linux 的 `Navicat Premium`，随便找个下载线路，点击[下载](https://www.navicat.com/en/products)，在 Chrome 中的下载列表复制下载文件的下载路径`(例如：http://download.navicat.com.cn/download/navicat121_premium_cs_x64.tar.gz)`  
 ```bash
-axel -n 10 http://download3.navicat.com/download/navicat121_premium_en_x64.tar.gz  #使用axel多线程(10线程)下载Navicat安装包
+git clone https://aur.archlinux.org/navicat121_premium_cs_x64.git   #克隆 Navicat 的 AUR 仓库
+cd navicat121_premium_cs_x64 && gedit PKGBUILD
 ```
-右击`navicat121_premium_en_x64.tar.gz`提取到本地  
+将`PKGBUILD`中的下载链接 `http://dn.navicat.com/download/navicat121_premium_cs_x64.tar.gz` 替换为 `http://download.navicat.com.cn/download/navicat121_premium_cs_x64.tar.gz`，保存修改，在文件夹目录运行一下命令安装  
 ```bash
-sudo mv navicat121_premium_en_x64 /opt
-cd /opt/navicat121_premium_en_x64/
-gedit start_navicat  #编辑start_navicat文件，解决中文乱码
+makepkg -sric   #安装
+```
+安装成功可以在开始菜单启动，如果出现中文乱码
+```bash
+sudo gedit /opt/navicat/start_navicat  #编辑start_navicat文件，解决中文乱码
 ```
 把`export LANG="en_US.UTF-8"` 改为 `export LANG="zh_CN.UTF-8"`可以解决中文系统下乱码问题
-```bash
-./start_navicat #开始安装，会提示安装wine Mono，点安装
-```
-打开之后，点左边Trial试用，右边是注册；这时候发现字体好小，进工具 > 选项改字体；找张[图片](https://i.loli.net/2019/03/20/5c9162665551c.png)做LOGO；修改图片名称为icon_navicat.png  
-```bash
-sudo mv icon_navicat.png /opt/navicat121_premium_en_x64/
-gedit navicat.desktop   #创建快捷方式
-```
-`navicat.desktop`中填入一下内容(注意版本信息相应替换)
-```
-[Desktop Entry]
-Encoding=UTF-8
-Name=navicat Premium
-Comment=The Smarter Way to manage dadabase
-Exec=/bin/sh "/opt/navicat121_premium_en_x64/start_navicat"
-Icon=/opt/navicat121_premium_en_x64/icon_navicat.png
-Categories=Application;Database;MySQL;navicat
-Version=1.0
-Type=Application
-Terminal=0
-```
-附加运行权限  
-```bash
-sudo chmod a+x navicat.desktop  #添加运行权限
-sudo mv navicat.desktop /usr/share/applications/  #复制到快捷方式文件夹
-```
   
 **破解**  
-破解方法参考——[【Ubuntu的安装的Navicat正版永久使用方法】](https://yq.aliyun.com/ziliao/5468)  
-  
-事先约定下环境，在你的文件夹下确认是否拥有这些文件  
-> navicat配置文件夹路径：~/.navicat64  
-> 原始文件user.reg：~/.navicat64/user.reg #navicat读取配置使用
-> 备份文件user_backup.reg: ~/.navicat64/user_backup.reg     #稍后我们自己创建
-  
-使用创建好的快捷图标打开navicat，设置数据库连接信息,后面要记录信息并存放到创建的备份文件中，到时候修改数据库连接信息就会比较麻烦  
+事先检查一下，在你的文件夹下确认是否拥有这些文件  
+```bash
+~/.navicat64    # navicat 配置文件夹路径
+~/.navicat64/user.reg   # navicat 配置文件
+~/.navicat64/user_backup.reg    # 配置备份文件 user_backup.reg，稍后我们自己创建
+```
+首先打开 navicat，设置数据库连接信息,后面要记录信息并存放到创建的备份文件中，到时候修改数据库连接信息就会比较麻烦  
 ```bash
 cd ~/.navicat64/ && ls -a  #进入文件夹
-gedit user.reg  #复制里面的内容
-gedit user_backup.reg #新建user_backup.reg文件，把user.reg中的内容粘贴进去
+cp user.reg user_backup.reg #复制配置文件 user.reg 为 user_backup.reg
+gedit user_backup.reg #编辑 user_backup.reg
 ```
-把每个`[]`后的`数字`和重复性的摸块`(以空行为分隔，重复性的小段代码块)`这样的重复代码块全部删除,保存  
+把每个`[]`后的数字和重复性的摸块`(以空行为分隔，重复性的小段代码块)`这样的重复代码块全部删除,保存  
 最终效果类似于如下示例：  
 <details>
-<summary>user_backup.reg文件</summary>
+<summary>示例：user_backup.reg 文件</summary>
   
 ```bash
 WINE REGISTRY Version 2
@@ -2013,12 +2030,12 @@ cp /home/teaper/.navicat64/user_backup.reg /home/teaper/.navicat64/user.reg
 给文件添加权限  
 ```bash
 sudo chmod a+x reset_navicat.sh
-/home/teaper/.navicat64/reset_navicat.sh    #24小时后运行一下试试有没有推迟试用时间
+bash ~/.navicat64/reset_navicat.sh   #24小时后运行一下试试有没有推迟试用时间
 ```
-以后增加数据库链接，只需在user.reg中把新增加的数据库链接添加到user_backup.reg文件中即可  
+以后增加数据库链接，只需在 user.reg 中把新增加的数据库链接添加到 user_backup.reg 文件中即可  
   
-**添加开机自启服务**  
-如果24小时候运行`reset_navicat.sh`没问题，就可以把`reset_navicat.sh`添加到开机自启的service中  
+**脚本开机自启服务**  
+如果 24 小时候运行 `reset_navicat.sh` 没问题，就可以把 `reset_navicat.sh` 添加到开机自启的服务中  
 ```bash
 cd /etc/systemd/system  #进入文件夹
 sudo gedit autonavicat.service #创建autonavicat.service文件
@@ -2041,6 +2058,7 @@ sudo chmod 644 autonavicat.service
 sudo systemctl start autonavicat.service  #启动一下试试
 sudo systemctl enable autonavicat.service #添加到开机自启服务
 ```
+这样你每次开机都会重新计算试用天数，就可以`永远试用`下去啦！
   
 #### 使用Docker安装oracle 11g数据库  
 安装oracle数据库之前，需要先[安装Docker容器](#安装docker容器)和[数据库管理神器Dbeaver](#数据库管理神器dbeaver)客户端  
@@ -2316,7 +2334,7 @@ yay vscode
 > [filesize](#)　　　#底部显示文件大小  
 > 
 > [terminal](#)　　　#终端(右键菜单启动)  
-> [view-in-browser](#)     #打开浏览器插件  
+> [open-in-browser](#) [【#问题：打开浏览器失败！请检查您是否正确安装了浏览器！】](https://github.com/SudoKillMe/vscode-extensions-open-in-browser/issues/28#issuecomment-425792433)     #打开浏览器插件  
 >  
 > [Atuo Rename Tag](#)　　　#同时修改html标签首  
 > 

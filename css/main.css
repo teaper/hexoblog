@@ -1121,7 +1121,7 @@ pre {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  color: #0366d6;
+  color: #24292e;
   font-size: 12px;
 }
 .tag-list-item:hover {
@@ -1144,7 +1144,7 @@ pre {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  color: #0366d6;
+  color: #24292e;
   font-size: 12px;
 }
 .link-list-item:hover {
@@ -1247,4 +1247,19 @@ pre {
 }
 .link-list-item div a center:hover {
   background: rgba(255,255,255,0);
+}
+summary {
+  outline: none;
+}
+::selection {
+  background: #8dd603;
+  color: #fff;
+}
+::-moz-selection {
+  background: #8dd603;
+  color: #fff;
+}
+::-webkit-selection {
+  background: #8dd603;
+  color: #fff;
 }

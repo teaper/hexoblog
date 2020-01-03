@@ -50,12 +50,20 @@
       <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
 
       <div class="navbar-search float-left desktop-only">
-        <div class="navbar-search-form">
+        <!-- <div class="navbar-search-form">
           <label for="gsc-i-id1">This website</label>
           <div id="google-search">
             <gcse:search></gcse:search>
           </div>
+        </div> -->
+
+		<div class="navbar-search-form">
+		  <label for="gsc-i-id1">THIS WEBSITE</label>
+          <div id="site_search">
+        	<input type="text" id="local-search-input" style results="0">
+          </div>
         </div>
+		
       </div>
 
       <ul class="navbar-nav float-left">
@@ -70,6 +78,9 @@
         
         
         <li><a href="/links">Links</a></li>
+        
+		
+        <li><a href="http://139.180.202.71/" target="_blank" rel="external nofollow noopener noreferrer">Files</a></li>
         
         
         <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
@@ -87,6 +98,10 @@
           <a><img src="https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg"> <i class="fa fa-caret-down"></i></a>
         </li>
       </ul>
+	  <!-- 站内搜索结果 -->
+	  <br>
+      <div id="local-search-result"></div>
+
     </div>
   </div>
 </nav>
@@ -423,6 +438,8 @@ window.onload = bgChange;
 <script src="/js/anime.min.js"></script>
 <script src="/js/fireworks.js"></script>
 
+<!-- 站内搜索 -->
+<script src="/js/search.js"></script>
 
 
 

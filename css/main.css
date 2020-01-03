@@ -1263,3 +1263,21 @@ summary {
   background: #8dd603;
   color: #fff;
 }
+ul.search-result-list {
+  padding-left: 0px;
+  list-style-type: none;
+  list-style: none;
+}
+a.search-result-title {
+  font-weight: bold;
+}
+em.search-keyword {
+  background-color: #8dd603;
+  font-weight: bold;
+  color: #fff;
+}
+.navbar-search-form {
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+}

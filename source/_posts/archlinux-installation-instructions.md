@@ -676,7 +676,7 @@ sudo pacman -S opera   #安装欧朋浏览器
 sudo pacman -S fcitx fcitx-configtool fcitx-gtk2  fcitx-gtk3  fcitx-lilydjwg-git  fcitx-qt4  fcitx-qt5  #安装 fcitx 依赖包
 sudo pacman -S fcitx-sogoupinyin #安装 fcitx 搜狗输入法
 ```
-<span style="color:#ff0000;">注意：上面的 `fcitx-qt4` 包已经删库找不到了，官方用了 `fcitx-lilydjwg-git` 代替 `fcitx-qt4` 的部分支持，需要的可以点[这里](https://mega.nz/#F!xmYySApb!igsLZNuuOJ651m7qCQhwPg)下载</span>  
+<span style="color:#ff0000;">注意：上面的 `fcitx-qt4` 包已经删库找不到了，官方用了 `fcitx-lilydjwg-git` 代替 `fcitx-qt4` 的部分支持，需要的可以点[这里](http://139.180.202.71/fcitx_and_sogoupinyin/)下载</span>  
   
 用文本编辑器创建或编辑 `~/.xprofile` 文件;在其末尾添加以下几行:  
 ```bash
@@ -857,11 +857,11 @@ TCP加速 一键安装管理脚本 [v1.3.2]
 那么输入**加速管理**模块中的数字<span style="color:#ff0000;">（4~8）</span>，那么我是对应内核模块，选的使用BBRplus版加速  
 回车之后就会生效，再查看状态就是：`当前状态: 已安装 BBRplus 加速内核 , BBRplus启动成功`
   
-下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](https://mega.nz/#F!N6ZSxSxJ!CS7L8cbd-rBhJF8wBBrthw)下载
-* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://teaper.slack.com/files/UHQGQV2RG/FNM47TURH/electron-ssr-0.2.6.pacman)  
-* Debian系Linux客户端[electron-ssr-0.2.5.deb](https://teaper.slack.com/files/UHQGQV2RG/FNYJ5SYHE/electron-ssr-0.2.5.deb)  
-* 安卓客户端[shadowsocksr.apk](https://teaper.slack.com/files/UHQGQV2RG/FNS5A1CF3/shadowsocksr.apk)  
-* IOS 客户端[shadowrocket.ipa](https://teaper.slack.com/files/UHQGQV2RG/FP0EB0YCF/shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
+下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](http://139.180.202.71/ssr/)下载
+* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](http://139.180.202.71/ssr/electron-ssr-0.2.6.pacman)  
+* Debian系Linux客户端[electron-ssr-0.2.5.deb](http://139.180.202.71/ssr/electron-ssr-0.2.5.deb)  
+* 安卓客户端[shadowsocksr.apk](http://139.180.202.71/ssr/shadowsocksr.apk)  
+* IOS 客户端[shadowrocket.ipa](http://139.180.202.71/ssr/Shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
 * MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
 * Windows客户端[ShadowsocksR-win-4.9.2.zip](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)  
   
@@ -930,7 +930,7 @@ sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 ```bash
 sudo cp electron-ssr.desktop ~/.config/autostart    #将快捷方式复制到自启程序目录
 ```
-最后，分享一个免费获取小飞机节点的网站[SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号](https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr)<span style="color:#ff0000;">(打开网站需要全局代理)</span>  
+最后，分享一个免费获取小飞机节点的网站[SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号](https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr)<span style="color:#ff0000;">(打开网站需要全局代理)</span>，还有两个不错的机场 [Blinkload](https://dashboard.blinkload.org/)、[STC-Server](https://stc-server.com/)  
   
 <details>
 <summary style="color:#ff0000">添加一些国外 DNS 提升速度</summary>
@@ -948,33 +948,6 @@ nameserver 199.85.127.10
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
-</details>
-<details>
-<summary style="color:#ff0000">使用 /etc/hosts 屏蔽一些国外网站</summary>
-
-使用 vim 编辑服务器的 `/etc/hosts` 文件，将[不想打开的网站](https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E8%A2%AB%E5%B0%81%E9%94%81%E7%BD%91%E7%AB%99%E5%88%97%E8%A1%A8)域名全部解析到 `0.0.0.0` 或者 `127.0.0.1`，中间使用空格隔开
-```bash
-# 色情网站
-0.0.0.0 pornhub.com
-0.0.0.0 youporn.com
-0.0.0.0 redtube.com
-0.0.0.0 brazzers.com
-0.0.0.0 pornmd.com
-0.0.0.0 men.com
-0.0.0.0 mofos.com
-0.0.0.0 babes.com
-0.0.0.0 twistys.com
-0.0.0.0 sextube.com
-0.0.0.0 xtube.com
-0.0.0.0 livejasmin.com
-0.0.0.0 pornotube.com
-0.0.0.0 playboytv.com
-0.0.0.0 digitalplayground.com
-0.0.0.0 fetcherx.com
-# 其他网站
-# 0.0.0.0 
-```
-保存退出之后重启服务器
 </details>
   
 #### 网易云音乐  
@@ -1622,6 +1595,16 @@ docker rmi <IMAGE ID>...     #根据镜像id删除image文件
 ```
 <span style="color:#ff0000;">注意：删除镜像之前，必须把该镜像的所有容器删除（包括正在运行的容器和停止使用的容器）才能删除镜像，否则会报错</span>  
   
+**安装docker-compose**  
+[Compose](https://github.com/docker/compose/releases) 是用于定义和运行多容器Docker应用程序的工具。通过Compose，您可以使用YAML文件来配置应用程序的服务。然后，使用一个命令，就可以从配置中创建并启动所有服务。要了解有关Compose的所有功能的更多信息，请参阅[功能列表](https://github.com/docker/docker.github.io/blob/master/compose/index.md#features)。  
+```bash
+sudo -i #使用 root 账号
+curl -L https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose  #直接下载docker-compose文件到/usr/local/bin
+chmod +x /usr/local/bin/docker-compose  #授权
+exit #退出root
+docker-compose --version    #查看docker-compose版本
+```
+
 #### 安装MySQL/MariaDB  
 Archlinux的MySQL被称为MariaDB  
 ```bash
@@ -2059,9 +2042,20 @@ sudo systemctl start autonavicat.service  #启动一下试试
 sudo systemctl enable autonavicat.service #添加到开机自启服务
 ```
 这样你每次开机都会重新计算试用天数，就可以`永远试用`下去啦！
+
+<details>
+<summary style="color:#ff0000">问题：创建 Oracle 数据库链接时间提示 oarcle libray is not loaded</summary>
+
+首先下载对应 Oracle 数据库版本 `11.2.0.2.0 - 64bit` 的 [instantclient-basic-windows.x64-11.2.0.2.0dbru.zip](https://www.oracle.com/database/technologies/instant-client/downloads.html) 文件并解压，将解压得到的 `instantclient_11_2` 文件夹移动到 `/opt/navicat/Navicat` 目录中  
+```bash
+sudo mv instantclient_19_3 /opt/navicat/Navicat
+```
+然后 Navicat 工具菜单的选项中，设置环境为 `instantclient_11_2` 文件夹下的 `oci.ddl`  
+温馨提示： Navicat 连 Oracle 还是太鸡肋了，建议换上面的 DBeaver 或 DataGrip 吧！
+</details>
   
 #### 使用Docker安装oracle 11g数据库  
-安装oracle数据库之前，需要先[安装Docker容器](#安装docker容器)和[数据库管理神器Dbeaver](#数据库管理神器dbeaver)客户端  
+安装 Oracle 数据库之前，需要先[安装Docker容器](#安装docker容器)和[数据库管理神器Dbeaver](#数据库管理神器dbeaver)客户端  
 ```bash
 docker search oracle    #搜索oracle相关的镜像，找到alexeiled/docker-oracle-xe-11g 
 docker pull alexeiled/docker-oracle-xe-11g      #拉取镜像

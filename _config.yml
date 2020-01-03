@@ -97,6 +97,7 @@ qqgroup: 787979167
 wechat: fvh2014
 email: www@teaper.dev
 
+files: http://139.180.202.71/
 avatar: https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg
 social:
   github: https://github.com/teaper
@@ -150,3 +151,8 @@ gitalk:
   client_secret: b784392d66d81a991565a56598f2d369e71e21ad    
   repo: hexoblog	     
   owner: teaper    
+
+# This website search
+search:
+  path: search.xml
+  field: post

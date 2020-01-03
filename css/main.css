@@ -1264,6 +1264,8 @@ summary {
   color: #fff;
 }
 ul.search-result-list {
+  border: 1px solid #d1d5da;
+  margin-top: 30px;
   padding-left: 0px;
   list-style-type: none;
   list-style: none;

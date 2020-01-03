@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.teaper.dev/2019/06/01/picgoimgs/</loc>
+    <lastmod>2020-01-03</lastmod>
+  </url>  <url>
     <loc>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</loc>
     <lastmod>2020-01-03</lastmod>
   </url>  <url>
@@ -35,9 +38,6 @@
     <lastmod>2019-07-15</lastmod>
   </url>  <url>
     <loc>https://www.teaper.dev/2019/06/30/mybatis/</loc>
-    <lastmod>2019-06-30</lastmod>
-  </url>  <url>
-    <loc>https://www.teaper.dev/2019/06/01/picgoimgs/</loc>
     <lastmod>2019-06-30</lastmod>
   </url>  <url>
     <loc>https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/</loc>

@@ -84,7 +84,7 @@
         <li><a href="/links">Links</a></li>
         
 		
-        <li><a href="http://139.180.202.71/" target="_blank" rel="external nofollow noopener noreferrer">Files</a></li>
+        <li><a href="http://139.180.202.71/" rel="external nofollow noopener noreferrer" target="_blank">Files</a></li>
         
         
         <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
@@ -169,7 +169,7 @@
 <p>macOS用户请下载最新版本的dmg文件<br>windows用户请下载最新版本的exe文件<br>linux用户请下载AppImage文件  </p>
 </blockquote>
 <p>Arch Linux用户使用 <code>aurman -S picgo-appimage</code> 安装，或者使用 <a href>yay</a> 安装  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S picgo-appimage       <span class="comment">#一般不是最新版本</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yay -S picgo-appimage       <span class="comment">#一般不是最新版本</span></span><br><span class="line">sudo pacman -S xclip        <span class="comment">#剪贴板上传图片需要的依赖</span></span><br></pre></td></tr></table></figure>
 
 <p>安装成功，你就可以使用其中的 <a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a> 图床，其他图床需要自行配置<span style="color:#ff0000;">(本教程搭建Github图床)</span>  </p>
 <h4 id="Github-token"><a href="#Github-token" class="headerlink" title="Github token"></a>Github token</h4><p>登录你的 <a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">Github</a> 账号，新建一个公有仓库 <code>picgoimgs</code> ，或者使用已有仓库<br>进入 <a href="https://github.com/settings/tokens" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/settings/tokens</a>，点击 <code>Generate new token</code> 创建一个新的 <code>token</code><br>勾选 <code>repo</code> 复选框，Note说明随便写，我这里是 <code>For PicGo</code> ，表示用于 PicGo图床  </p>

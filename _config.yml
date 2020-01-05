@@ -22,6 +22,7 @@ source_dir: source
 public_dir: public
 tag_dir: tags
 link_dir: links
+file_dir: files
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
@@ -97,7 +98,7 @@ qqgroup: 787979167
 wechat: fvh2014
 email: www@teaper.dev
 
-files: http://139.180.202.71/
+filesLink: http://139.180.202.71/
 avatar: https://i.loli.net/2019/06/04/5cf683cea837456459.jpeg
 social:
   github: https://github.com/teaper

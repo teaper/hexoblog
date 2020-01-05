@@ -18,6 +18,7 @@ tags: [PicGo,Github]
 Arch Linux用户使用 `aurman -S picgo-appimage` 安装，或者使用 [yay]() 安装  
 ```bash
 yay -S picgo-appimage       #一般不是最新版本
+sudo pacman -S xclip        #剪贴板上传图片需要的依赖
 ```
 安装成功，你就可以使用其中的 [SM.MS](https://link.juejin.im/?target=http%3A%2F%2FSM.MS) 图床，其他图床需要自行配置<span style="color:#ff0000;">(本教程搭建Github图床)</span>  
   

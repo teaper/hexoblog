@@ -240,8 +240,13 @@
 
 <p>首次打开会提示需要创建一个文件夹，这里就选择 <code>~/OneDrive/开发经验</code> ，因为我们希望自己的笔记可以同步到云服务器上，让它自己保存嘛！</p>
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/Screenshot%20from%202020-01-04%2010-43-35.png" alt></p>
-<p>最上面是菜单栏，其次是工具栏，这没啥好说的  </p>
-<p>首先介绍下布局，左边是导航栏，分为两块，上半部分显示 <code>开发经验</code> 文件夹下的所有子文件夹<span style="color:#ff0000;">（注意：文件不显示）</span>；下半部分显示文件夹中的文件，你要单击 <code>~/OneDrive/开发经验</code>下的子文件夹才会有出现，导航栏在编写文档过程中可以隐藏<span style="color:#ff0000;">（快捷键：Ctrl+E，E）</span>  </p>
+<p>首先介绍下布局，最上面是菜单栏，这没啥好说的；其次是工具栏，除了常用 Markdown 样式按钮之外，有三个非常好用的东西  </p>
+<ul>
+<li>灵犀页（Ctrl+Alt+L）：可以用来打草稿，比如想写又不知道写什么的时候</li>
+<li>快速访问（Ctrl+Alt+I）：可以右击文档设置，快速访问只能设置一个文档文件</li>
+<li>通用入口（Ctrl+G）：比高级搜索还方便的工具，输入 <code>qArchlinux</code>可以在全部笔记中搜索名字带 <code>Archlinux</code>的文件夹或笔记；输入 <code>agit</code>可以在全部笔记中搜索带 <code>git</code>内容的笔记；第一个字母是搜索选项，后接搜索内容，基本上可以做到搜到即打开，打开及定位<span style="color:#ff0000;">（吹爆）</span></li>
+</ul>
+<p>左边是导航栏，分为两块，上半部分显示 <code>开发经验</code> 文件夹下的所有子文件夹<span style="color:#ff0000;">（注意：文件不显示）</span>；下半部分显示文件夹中的文件，你要单击 <code>~/OneDrive/开发经验</code>下的子文件夹才会有出现，导航栏在编写文档过程中可以隐藏<span style="color:#ff0000;">（快捷键：Ctrl+E，E）</span>  </p>
 <p>中间是编辑区，右击文件夹新建笔记的时候打开，打开之后可以使用 Markdown 自由书写，同样可以使用一个快捷键 <code>Ctrl+E，I</code> 打开一个预览面板  </p>
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/20200105065004.png" alt></p>
 <p>左边是工具栏和高级搜索栏，工具栏可以看文章大纲、添加和使用片段、小推车。文章大纲就会看文件标题结构的，片段是一些常用的内容，配合幻词可以插入你想要的东西，可以点击 <code>+</code> 添加三个片段 <code>details</code>、<code>details-red</code>、<code>span-red</code>，类型选择纯文本，例如：  </p>
@@ -262,11 +267,13 @@
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: %no%</span><br><span class="line">categories: [categories]</span><br><span class="line">tags: [tag1,tag2]</span><br><span class="line">date: %yyyy%-%MM%-%dd% %time%</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <p>在新建笔记的时候可以选择套用哪个模板，他会自动将文件名替换到 <code>%no%</code> 的位置，还有一些时间的替换，更多参数可以看<a href="https://tamlok.github.io/vnote/zh_cn/#!docs/%E7%94%A8%E6%88%B7/%E5%B9%BB%E8%AF%8D.md" rel="external nofollow noopener noreferrer" target="_blank">官方文档的幻词</a>  </p>
+<p>最后，如果你和我一样拥有一个 <code>Hexo</code> 博客的话，可以直接将文件夹地址设置为 <code>~/OneDrive/hexoblog/source/_posts/开发经验</code> ，三位一体武魂融合技<span style="color:#ff0000;">（手动狗头）</span>  </p>
 <details>
 <summary style="color:#ff0000;">常见问题：无法读取目录文件夹或者目录结构不正确</summary>
 
 <p>VNote 在每个文件夹下都使用了一个 <code>_vnote.json</code> 用来存储目录结构，如果该文件不存在，就会提示重新修复，如果存在，但是里面的 <code>json</code> 配置出错，就会读取不出文件目录，除了 <code>_vnote.json</code>之外，也在每个文件夹下创建了一个 <code>_v_recycle_bin</code> 文件夹，用来存放在 VNote 中被删除的文件，在编辑区右击文件标题选择回收站可以看到所有被删除的文件</p>
 </details>
+
 
 
 

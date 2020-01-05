@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2019-12-28T15:38:04.857Z</updated>
+  <updated>2020-01-04T23:31:36.576Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>更适合开发者的知识管理方案</title>
+    <link href="https://www.teaper.dev/2020/01/05/%E6%9B%B4%E9%80%82%E5%90%88%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/"/>
+    <id>https://www.teaper.dev/2020/01/05/更适合开发者的知识管理方案/</id>
+    <published>2020-01-04T19:22:26.000Z</published>
+    <updated>2020-01-04T23:31:36.576Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Markdown" scheme="https://www.teaper.dev/categories/Markdown/"/>
+    
+    
+      <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
+    
+      <category term="Markdown" scheme="https://www.teaper.dev/tags/Markdown/"/>
+    
+      <category term="PicGo" scheme="https://www.teaper.dev/tags/PicGo/"/>
+    
+      <category term="VNote" scheme="https://www.teaper.dev/tags/VNote/"/>
+    
+      <category term="OneIndex" scheme="https://www.teaper.dev/tags/OneIndex/"/>
+    
+      <category term="OneDrive" scheme="https://www.teaper.dev/tags/OneDrive/"/>
+    
+  </entry>
   
   <entry>
     <title>过年抢票 12306 走起</title>
@@ -384,8 +420,6 @@
       <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
     
     
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
-    
       <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
       <category term="github pages" scheme="https://www.teaper.dev/tags/github-pages/"/>
@@ -393,6 +427,8 @@
       <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
+    
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
     
@@ -572,8 +608,6 @@
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
-      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
-    
       <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
     
       <category term="Tomcat" scheme="https://www.teaper.dev/tags/Tomcat/"/>
@@ -582,35 +616,9 @@
     
       <category term="SpringMVC" scheme="https://www.teaper.dev/tags/SpringMVC/"/>
     
+      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
+    
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ArchLinux搭建Java开发环境</title>
-    <link href="https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/"/>
-    <id>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</id>
-    <published>2019-05-19T13:50:34.000Z</published>
-    <updated>2020-01-03T17:37:00.242Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://www.teaper.dev/categories/Linux/"/>
-    
-    
-      <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
-    
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
   </entry>
   

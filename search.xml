@@ -389,6 +389,8 @@
       
         <tags>
             
+            <tag> git </tag>
+            
             <tag> hexo </tag>
             
             <tag> github pages </tag>
@@ -396,8 +398,6 @@
             <tag> node.js </tag>
             
             <tag> npm </tag>
-            
-            <tag> git </tag>
             
             <tag> rss </tag>
             

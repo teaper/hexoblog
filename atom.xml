@@ -420,6 +420,8 @@
       <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
     
     
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
+    
       <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
       <category term="github pages" scheme="https://www.teaper.dev/tags/github-pages/"/>
@@ -427,8 +429,6 @@
       <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
-    
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
     

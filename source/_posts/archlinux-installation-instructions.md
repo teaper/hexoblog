@@ -676,7 +676,7 @@ sudo pacman -S opera   #安装欧朋浏览器
 sudo pacman -S fcitx fcitx-configtool fcitx-gtk2  fcitx-gtk3  fcitx-lilydjwg-git  fcitx-qt4  fcitx-qt5  #安装 fcitx 依赖包
 sudo pacman -S fcitx-sogoupinyin #安装 fcitx 搜狗输入法
 ```
-<span style="color:#ff0000;">注意：上面的 `fcitx-qt4` 包已经删库找不到了，官方用了 `fcitx-lilydjwg-git` 代替 `fcitx-qt4` 的部分支持，需要的可以点[这里](http://139.180.202.71/fcitx_and_sogoupinyin/)下载</span>  
+<span style="color:#ff0000;">注意：上面的 `fcitx-qt4` 包已经删库找不到了，官方用了 `fcitx-lilydjwg-git` 代替 `fcitx-qt4` 的部分支持，需要的可以点[这里](https://ftp.teaper.dev/fcitx_and_sogoupinyin/)下载</span>  
   
 用文本编辑器创建或编辑 `~/.xprofile` 文件;在其末尾添加以下几行:  
 ```bash
@@ -788,7 +788,7 @@ ssh root@167.179.77.127   #会弹出输入密码,在把管理界面的密码输�
 ```
 顺利进入系统之后,就可以进行ssr安装了  
 ```bash
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh    #安装ssh,会显示红色未安装
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh    #安装ssh,会显示红色未安装
 #------------------------------------------------输出日志-------------------------------------------
 ShadowsocksR 一键管理脚本 [v2.0.38]
   ---- Toyo | doub.io/ss-jc42 ----
@@ -857,11 +857,11 @@ TCP加速 一键安装管理脚本 [v1.3.2]
 那么输入**加速管理**模块中的数字<span style="color:#ff0000;">（4~8）</span>，那么我是对应内核模块，选的使用BBRplus版加速  
 回车之后就会生效，再查看状态就是：`当前状态: 已安装 BBRplus 加速内核 , BBRplus启动成功`
   
-下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](http://139.180.202.71/ssr/)下载
-* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](http://139.180.202.71/ssr/electron-ssr-0.2.6.pacman)  
-* Debian系Linux客户端[electron-ssr-0.2.5.deb](http://139.180.202.71/ssr/electron-ssr-0.2.5.deb)  
-* 安卓客户端[shadowsocksr.apk](http://139.180.202.71/ssr/shadowsocksr.apk)  
-* IOS 客户端[shadowrocket.ipa](http://139.180.202.71/ssr/Shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
+下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](https://ftp.teaper.dev/ssr/)下载
+* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://ftp.teaper.dev/ssr/electron-ssr-0.2.6.pacman)  
+* Debian系Linux客户端[electron-ssr-0.2.5.deb](https://ftp.teaper.dev/ssr/electron-ssr-0.2.5.deb)  
+* 安卓客户端[shadowsocksr.apk](https://ftp.teaper.dev/ssr/shadowsocksr.apk)  
+* IOS 客户端[shadowrocket.ipa](https://ftp.teaper.dev/ssr/Shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
 * MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
 * Windows客户端[ShadowsocksR-win-4.9.2.zip](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)  
   
@@ -1442,40 +1442,40 @@ sudo gedit ~/.m2/settings.xml     #配置maven仓库
 配置信息如下：  
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <!-- localRepository
-   | The path to the local repository maven will use to store artifacts.
-   |
-   | Default: ${user.home}/.m2/repository
-  <localRepository>/path/to/local/repo</localRepository>
-  -->
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository
+  <localRepository>/path/to/local/repo</localRepository>
+  -->
 <!-- 本地仓库地址 -->
 <localRepository>${user.home}/.m2/repository</localRepository>
- 
+ 
 <!-- 阿里云镜像地址 -->
 <mirrors>
-    <mirror>
-      <id>aliyunmaven</id>
-      <mirrorOf>*</mirrorOf>
-      <name>aliyun maven</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-    </mirror>
+    <mirror>
+      <id>aliyunmaven</id>
+      <mirrorOf>*</mirrorOf>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </mirror>
 </mirrors>
- 
+ 
 <!-- 配置maven的jdk版本 -->
 <profile>
-    <id>jdk-1.8</id>
-    <activation>
-        <activeByDefault>true</activeByDefault>
-        <jdk>1.8</jdk>
-    </activation>
- 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-    </properties>
+    <id>jdk-1.8</id>
+    <activation>
+        <activeByDefault>true</activeByDefault>
+        <jdk>1.8</jdk>
+    </activation>
+ 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
 </profile>
 ```
   

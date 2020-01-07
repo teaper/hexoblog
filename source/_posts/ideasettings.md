@@ -44,11 +44,11 @@ yaourt -S intellij-idea-ultimate-edition    #安装
 > 注意：激活前清除hosts中屏蔽域名, 激活后请将“0.0.0.0 account.jetbrains.com”及“0.0.0.0 www.jetbrains.com”添加到hosts文件中
   
 #### 配置编辑器  
-安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢白色的 UI 主题，看着精神一点   
+安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢[material-theme-jetbrains](https://github.com/ChrisRM/material-theme-jetbrains)的 UI 主题，安装方式也很简单   
   
-进入 [Color Themes](http://color-themes.com/) 下载你喜欢的编辑器代码高亮主题的 `.jar` 文件，将其存放到一个单独的文件夹里  
-在菜单 File -> Import Settings 中导入 `.jar` 文件选择黑色主题（**Tangid**）或白色主题（**Notepad++ Like**）  
-  
+在菜单 File -> Settings -> Plugin 中输入 `theme ui`，找到 `Material Theme UI Plugin` 进行安装即可  
+
+* Appearance&Behavior -> Material Theme：选择 `Atom one Dark` 或者其他主题
 * Appearance&Behavior -> Appearance：字体（**Open sans**），字号**15**，勾选 **show memory indicator** 显示内存使用情况
 * Editor -> Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
 * Editor -> Color Scheme -> Color Scheme Font：字体（**MonoSpaced**），字号**15**，行高**1.1**
@@ -190,11 +190,5 @@ URI：http://mybatis.org/dtd/mybatis-3-mapper.dtd
 
 
   
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g689op8piej31hc0u0dln.jpg)  
-  
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g689opes0hj31hc0u0n3u.jpg)  
-  
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g689oq6cczj31hc0u00yv.jpg)  
-  
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g689opv0twj31hc0u0wk3.jpg)  
-  
+![](https://raw.githubusercontent.com/teaper/picgoimgs/master/Screenshot%20from%202020-01-07%2010-15-47.png)
+

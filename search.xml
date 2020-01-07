@@ -571,6 +571,8 @@
             
             <tag> java </tag>
             
+            <tag> MyBatis </tag>
+            
             <tag> Maven </tag>
             
             <tag> Tomcat </tag>
@@ -578,8 +580,6 @@
             <tag> Spring </tag>
             
             <tag> SpringMVC </tag>
-            
-            <tag> MyBatis </tag>
             
             <tag> MySQL </tag>
             

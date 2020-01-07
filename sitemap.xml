@@ -142,14 +142,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
-    
-    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.teaper.dev/2019/05/19/factory-mode/</loc>
+    <loc>https://www.teaper.dev/tags/index.html</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     
@@ -163,6 +156,13 @@
   </url>
   
   <url>
+    <loc>https://www.teaper.dev/2019/05/19/ubuntu1604-server-gitea/</loc>
+    
+    <lastmod>2019-05-29T18:27:53.557Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
@@ -170,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/tags/index.html</loc>
+    <loc>https://www.teaper.dev/2019/05/19/factory-mode/</loc>
     
     <lastmod>2019-05-29T18:27:53.557Z</lastmod>
     

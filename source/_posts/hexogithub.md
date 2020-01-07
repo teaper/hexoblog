@@ -230,7 +230,7 @@ hexo g && hexo s    #重新生成文件以及启动服务
 ```bash
 .
 ├── categories      #文件夹
-│   └── index.md        #文件
+│   └── index.md        #文件
 └── tags
     └── index.md
 ```
@@ -429,15 +429,15 @@ git clone git@github.com:Jrohy/QPlayer.git
 ```bash
 .
 ├── css
-│   └── player.css  #播放器样式
+│   └── player.css  #播放器样式
 ├── img
-│   ├── 2.png       #上/下一曲按钮
-│   └── audio_sprite.png        #其他按钮
+│   ├── 2.png       #上/下一曲按钮
+│   └── audio_sprite.png        #其他按钮
 ├── index.html  #演示页面（需要使用Firefox打开）
 ├── js
-│   ├── jquery.marquee.min.js   #不明
-│   ├── jquery.min.js   #普通jquery
-│   └── player.js   #播放器功能实现
+│   ├── jquery.marquee.min.js   #不明
+│   ├── jquery.min.js   #普通jquery
+│   └── player.js   #播放器功能实现
 └── README.md   #没啥用的
 ```
 经过一段时间的兼容性比对，确定没问题之后，我决定使用以下方案：  
@@ -668,6 +668,139 @@ gitalk:
   
 配置好，使用`hexo g && hexo s`重新运行服务后应该可以看到效果了，不过还需要使用`hexo d`命令进一步将其提交到服务器，才能知道回调地址是否有效  
   
+#### 站内搜索  
+目前站内搜索方案基本逻辑都一样，通过一个 `XML` 文件收录站点信息，查询的时候直接检索 `XML` 文件即可，我这博客用的是 `hexo-generator-search`  
+```bash
+npm install --save hexo-generator-search    #安装
+```
+安装成功之后在 `hexoblog/package.json` 中就会有一条 `"hexo-generator-search": "^2.4.0"`记录，然后将以下搜索框标签插入到你想要显示的 `ejs` 文件中的位置  
+```html
+<div id="site_search">
+    <input type="text" id="local-search-input" style="" results="0"/>
+    <div id="local-search-result"></div>
+</div>
+```
+其中 `<input type="text" id="local-search-input" style="" results="0"/>` 是输入框，它的 `id` 值不要修改的；`<div id="local-search-result"></div>` 是查询之后，用来显示结果的 `div` 块，可以不需要放在 `input` 标签下，可以移动到页面任何位置  
+
+然后就是设置查询结果的 `div` 元素他们需要的样式  
+```css
+ul.search-result-list {
+  border: 1px solid #404449;
+  margin-top:21px;
+  padding: 10px;
+  list-style-type:none;
+  list-style:none;
+}
+
+a.search-result-title {
+  font-weight: bold;
+}
+
+p.search-result {
+  color=#555;
+}
+
+em.search-keyword {
+  background-color: #8dd603;
+  font-weight: bold;
+  color:#ffffff;
+}
+```
+编写一个 `search.js` 来完成这个功能，你可以直接复制我的
+```js
+var searchFunc = function(path, search_id, content_id) {
+    'use strict'; //使用严格模式
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // 从xml中获取相应的标题等数据
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            //ID选择器
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+                // 本地搜索主要部分
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // 只匹配非空文章
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // 返回搜索结果
+                    if (isMatch) {
+                    //结果标签
+                        str += "<li><a href='"+ data_url +"' class='search-result-title' target='_blank'>"+ "> " + data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // 拿出含有搜索字的部分
+                            var start = first_occur - 6;
+                            var end = first_occur + 6;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 10;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end); 
+                            // 列出搜索关键字，定义class加高亮
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            })
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                    }
+                })
+                $resultContent.innerHTML = str;
+            })
+        }
+    })
+};
+var path = window.location.protocol+"//"+window.location.host+"/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+```
+最后别忘记在 `footer.ejs` 中引入该文件
+```html
+<!-- 站内搜索 -->
+<script src="/js/search.js"></script>
+```
+
 #### 日常维护  
 使用 `hexo d`命令只是将 `public` 文件夹中的静态资源文件提交到 `github page`，并没有把原始的整个博客存起来，所以我们要把 `hexoblog` 中的内容提交到 `master` 分支，相信大家都会  
   

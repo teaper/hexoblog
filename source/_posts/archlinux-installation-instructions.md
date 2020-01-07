@@ -676,7 +676,6 @@ sudo pacman -S opera   #安装欧朋浏览器
 sudo pacman -S fcitx fcitx-configtool fcitx-gtk2  fcitx-gtk3  fcitx-lilydjwg-git  fcitx-qt4  fcitx-qt5  #安装 fcitx 依赖包
 sudo pacman -S fcitx-sogoupinyin #安装 fcitx 搜狗输入法
 ```
-<span style="color:#ff0000;">注意：上面的 `fcitx-qt4` 包已经删库找不到了，官方用了 `fcitx-lilydjwg-git` 代替 `fcitx-qt4` 的部分支持，需要的可以点[这里](https://ftp.teaper.dev/fcitx_and_sogoupinyin/)下载</span>  
   
 用文本编辑器创建或编辑 `~/.xprofile` 文件;在其末尾添加以下几行:  
 ```bash
@@ -857,11 +856,11 @@ TCP加速 一键安装管理脚本 [v1.3.2]
 那么输入**加速管理**模块中的数字<span style="color:#ff0000;">（4~8）</span>，那么我是对应内核模块，选的使用BBRplus版加速  
 回车之后就会生效，再查看状态就是：`当前状态: 已安装 BBRplus 加速内核 , BBRplus启动成功`
   
-下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](https://ftp.teaper.dev/ssr/)下载
-* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://ftp.teaper.dev/ssr/electron-ssr-0.2.6.pacman)  
-* Debian系Linux客户端[electron-ssr-0.2.5.deb](https://ftp.teaper.dev/ssr/electron-ssr-0.2.5.deb)  
-* 安卓客户端[shadowsocksr.apk](https://ftp.teaper.dev/ssr/shadowsocksr.apk)  
-* IOS 客户端[shadowrocket.ipa](https://ftp.teaper.dev/ssr/Shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
+下载对应的客户端软件<span style="color:#ff0000;">(已被作者删库，邮件`erguotou525@gmail.com`联系作者获取对应平台最新的安装包)</span>，当然，我这里也有一些删库前的最新版客户端可以用，需要的点[这里](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/)下载
+* ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/electron-ssr-0.2.6.pacman)  
+* Debian系Linux客户端[electron-ssr-0.2.5.deb](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/electron-ssr-0.2.5.deb)  
+* 安卓客户端[shadowsocksr.apk](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/shadowsocksr.apk)  
+* IOS 客户端[shadowrocket.ipa](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/Shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
 * MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
 * Windows客户端[ShadowsocksR-win-4.9.2.zip](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)  
   
@@ -970,6 +969,13 @@ sudo pacman -U netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz
 IgnorePkg = netease-cloud-music
 ```
 </details>
+  
+#### CocoMusic  
+开源的音乐播放器，通过各大音乐平台的接口获取音频，目前支持 `QQ` 登录，需要手动下载[cocomusic-*.*.*.pacman
+](https://github.com/xtuJSer/CoCoMusic/releases)  
+```bash
+sudo pacman -U cocomusic-2.0.6.pacman    #本地安装
+```
   
 #### 蓝牙配置  
 之前我们只安装了网络工具，没有配蓝牙驱动，现在安装一下  

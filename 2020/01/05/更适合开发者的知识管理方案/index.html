@@ -12,7 +12,7 @@
   <meta name="description" content="与人为善是修养，独来独往是性格！">
   
   <meta name="keywords" content="
-  Arch Linux,PicGo,Markdown,VNote,OneIndex,OneDrive
+  Arch Linux,Markdown,PicGo,VNote,OneIndex,OneDrive
   ">
   
   <meta name="author" content="teaper">
@@ -217,23 +217,7 @@
 <p>如果后期你想停止容器和删除容器可以用以下两个命令  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop oneindex    <span class="comment">#停止</span></span><br><span class="line">docker rm -v oneindex    <span class="comment">#删除</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h5><p>刚好我在 <a href="https://account.godaddy.com/products/" rel="external nofollow noopener noreferrer" target="_blank">Godaddy</a> 有个域名，所以我就直接使用它去解析一条 <code>A</code> 记录到 <code>139.180.202.71</code> 服务器  </p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>名称</th>
-<th>值</th>
-<th>TTL</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A</td>
-<td>ftp</td>
-<td>139.180.202.71</td>
-<td>1小时</td>
-</tr>
-</tbody></table>
+<h5 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h5><p>刚好我在 <a href="https://account.godaddy.com/products/" rel="external nofollow noopener noreferrer" target="_blank">Godaddy</a> 有个域名，所以我就直接使用它去解析一条 <code>A</code> 记录到 <code>139.180.202.71</code> 服务器<br>| 类型 | 名称 |     值 | TTL |<br>| —— | —— | —- | —– |<br>| A | ftp | 139.180.202.71 | 1小时 |</p>
 <p>然后可以 <code>ping ftp.teaper.dev</code> 看看解析生效没有  </p>
 <details>
 <summary style="color:#ff0000;">注意：如果你的主机是 Vultr 的主机的话，是无法解析到服务器去的</summary>
@@ -246,19 +230,19 @@
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/20200106032212.png" alt></p>
 </details>
 
-<h5 id="安装-Caddy"><a href="#安装-Caddy" class="headerlink" title="安装 Caddy"></a>安装 Caddy</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl https://getcaddy.com | bash -s personal <span class="comment"># 安装Caddy</span></span><br><span class="line"><span class="built_in">which</span> caddy <span class="comment"># 检查caddy是否安装成功，若成功则输出/usr/local/bin/caddy</span></span><br></pre></td></tr></table></figure>
+<h5 id="安装-Caddy"><a href="#安装-Caddy" class="headerlink" title="安装 Caddy"></a>安装 Caddy</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal <span class="comment"># 安装Caddy</span></span><br><span class="line"><span class="built_in">which</span> caddy <span class="comment"># 检查caddy是否安装成功，若成功则输出/usr/local/bin/caddy</span></span><br></pre></td></tr></table></figure>
 
 <p>Caddy 的使用需要配置 Caddyfile，且需要一个文件夹放置 SSL 证书。以下代码功能是创建 Caddy 运行所需的文件夹  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /etc/caddy                      <span class="comment"># 在指定目录创建 caddy 文件夹</span></span><br><span class="line">sudo touch /etc/caddy/Caddyfile            <span class="comment"># 创建 Caddyfile 文件，用于稍后的配置</span></span><br><span class="line">sudo chown -R root:www-data /etc/caddy     <span class="comment"># 文件夹权限设置</span></span><br><span class="line">sudo mkdir /etc/ssl/caddy                  <span class="comment"># 创建文件夹，存放 ssl 证书</span></span><br><span class="line">sudo chown -R www-data:root /etc/ssl/caddy <span class="comment"># 文件夹权限设置</span></span><br><span class="line">sudo chmod 0770 /etc/ssl/caddy             <span class="comment"># 文件夹权限设置</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/caddy                      <span class="comment"># 在指定目录创建 caddy 文件夹</span></span><br><span class="line">touch /etc/caddy/Caddyfile            <span class="comment"># 创建 Caddyfile 文件，用于稍后的配置</span></span><br><span class="line">chown -R root:www-data /etc/caddy     <span class="comment"># 文件夹权限设置</span></span><br><span class="line">mkdir /etc/ssl/caddy                  <span class="comment"># 创建文件夹，存放 ssl 证书</span></span><br><span class="line">chown -R www-data:root /etc/ssl/caddy <span class="comment"># 文件夹权限设置</span></span><br><span class="line">chmod 0770 /etc/ssl/caddy             <span class="comment"># 文件夹权限设置</span></span><br></pre></td></tr></table></figure>
 
 <p>设置 Caddy 令其开启自启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service   <span class="comment"># 从 Github 下载 systemd 配置文件</span></span><br><span class="line">sudo systemctl daemon-reload         <span class="comment"># 重新加载 systemd 配置</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> caddy.service  <span class="comment"># 设置 Caddy 服务自启动</span></span><br><span class="line">sudo systemctl status caddy.service  <span class="comment"># 查看 Caddy 状态，现在应该是 not run 状态</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service   <span class="comment"># 从 Github 下载 systemd 配置文件</span></span><br><span class="line">systemctl daemon-reload         <span class="comment"># 重新加载 systemd 配置</span></span><br><span class="line">systemctl <span class="built_in">enable</span> caddy.service  <span class="comment"># 设置 Caddy 服务自启动</span></span><br><span class="line">systemctl status caddy.service  <span class="comment"># 查看 Caddy 状态，现在应该是 not run 状态</span></span><br></pre></td></tr></table></figure>
 
 <p>配置 Caddyfile 文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"ftp.teaper.dev &#123;</span></span><br><span class="line"><span class="string"> gzip</span></span><br><span class="line"><span class="string"> tls www@teaper.dev</span></span><br><span class="line"><span class="string"> proxy / http://127.0.0.1:8080</span></span><br><span class="line"><span class="string">&#125;"</span> &gt; /etc/caddy/Caddyfile       <span class="comment"># 请修改代码后全选复制，这个不要一行一行地复制粘贴</span></span><br></pre></td></tr></table></figure>
 
 <p>这里你们主要替换掉 <code>ftp.teaper.dev</code> 和 <code>www@teaper.dev</code> 即可，端口 <code>8080</code> 是和 <code>docker ps</code> 中保持一致的  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart caddy.service <span class="comment"># 重启 Caddy 服务</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart caddy.service <span class="comment"># 重启 Caddy 服务</span></span><br></pre></td></tr></table></figure>
 
 <p>查看一下运行状态，如果显示和我这个一样，应该就已经实现 HTTPS 访问了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">root@pixiv:~<span class="comment"># systemctl status caddy.service    #查看运行状态</span></span><br><span class="line">● caddy.service - Caddy HTTP/2 web server</span><br><span class="line">   Loaded: loaded (/etc/systemd/system/caddy.service; enabled; vendor preset: en</span><br><span class="line">   Active: active (running) since Mon 2020-01-06 03:09:26 CST; 9s ago</span><br><span class="line">     Docs: https://caddyserver.com/docs</span><br><span class="line"> Main PID: 3059 (caddy)</span><br><span class="line">    Tasks: 6 (<span class="built_in">limit</span>: 1149)</span><br><span class="line">   Memory: 4.6M</span><br><span class="line">   CGroup: /system.slice/caddy.service</span><br><span class="line">           └─3059 /usr/<span class="built_in">local</span>/bin/caddy -<span class="built_in">log</span> stdout -<span class="built_in">log</span>-timestamps=<span class="literal">false</span> -agree=</span><br><span class="line"></span><br><span class="line">Jan 06 03:09:26 pixiv systemd[1]: Started Caddy HTTP/2 web server.</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: [INFO] Caddy version: v1.0.4</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: Activating privacy features... [INFO][cache:0</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: <span class="keyword">done</span>.</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: Serving HTTP on port 80</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: http://ftp.teaper.dev</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: [INFO] Serving http://ftp.teaper.dev</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: Serving HTTPS on port 443</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: https://ftp.teaper.dev</span><br><span class="line">Jan 06 03:09:26 pixiv caddy[3059]: [INFO] Serving https://ftp.teaper.dev</span><br></pre></td></tr></table></figure>
@@ -269,7 +253,7 @@
 <p>这里点击蓝色的<strong>「获取应用ID和机密」</strong>，会跳转到 Onedrive 的官网，获取 <code>client_id</code> 和<code>client_secret</code>  </p>
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/20200105060636.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/20200105060656.png" alt></p>
-<p>将 OneDrive 那边获取到的 <code>client_id</code> 和<code>client_secret</code> 配置到 <code>OneIndex</code> 中（图二），确定无误后点“下一步”绑定账号，然后会提示授权啥的，最后提示安装成功  </p>
+<p>将 OneDrive 那边获取到的 <code>client_id</code> 和<code>client_secret</code> 配置到 <code>OneIndex</code> 中（图二），确定无误后点“下一步”绑定账号，然后会提示授权啥的，最后提示安装成功，授权成功之后会在微软隐私中创建一个<a href="https://account.live.com/consent/Manage?fn=email" rel="external nofollow noopener noreferrer" target="_blank">应用</a><br><span style="color:#ff0000;">注意：如果没有提示安装成功，而是转到了一个 <code>http://127.0.0.1:8080?code=****</code> 之类的地址，将地址中的 <code>http://127.0.0.1:8080</code> 替换为 <code>https://ftp.teaper.dev</code> 这个域名地址即可</span></p>
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/20200105061112.png" alt></p>
 <p>接下来就是配置 <code>OneIndex</code> 后台，打开 <a href="https://ftp.teaper.dev/admin" rel="external nofollow noopener noreferrer" target="_blank">https://ftp.teaper.dev/admin</a>  ，输入初始密码 <code>oneindex</code> </p>
 <ul>
@@ -281,6 +265,15 @@
 <p>到这里基本也就结束了，如果我们要分享一个文件给别人，只需要把文件放在 <code>～/OneDrive/share</code> 文件夹中，他会自动上传到 OneDrive 中，并且你打开 <a href="https://ftp.teaper.dev" rel="external nofollow noopener noreferrer" target="_blank">https://ftp.teaper.dev</a> 可以看到文件，右击获取文件的<a href="https://ftp.teaper.dev/ssr/electron-ssr-0.2.6.pacman" rel="external nofollow noopener noreferrer" target="_blank">下载地址</a> ，将其插入到你的 Markdown 中即可  </p>
 </li>
 </ul>
+<details>
+<summary style="color:#ff0000;">常见问题：浏览器报错 404 或 500 错误，或者微软应用授权被删除</summary>
+
+<p>如果是报 <code>404 Site 139.180.202.71 is not served on this interface</code> 表示你的域名已经解析好了，后面所有要填写 <code>http://139.180.202.71</code> 的都改成 <code>https://A记录.顶级域名</code> 的方式  </p>
+<p>如果报 <code>500</code> 的服务器内部错误，首先 <code>systemctl status caddy.service</code>查看运行状态，<strong>必须必须</strong>是我上面提供那样的日志那样的，有 <code>[INFO] Serving http://ftp.teaper.dev</code> 和 <code>[INFO] Serving https://ftp.teaper.dev</code> 而不是什么 <code>[INFO] Serving https://ftp.teaper.dev:1080</code> 或 <code>[INFO] Serving https://ftp.teaper.dev:80</code> 这样的，确定这个没有问题后，使用 <code>docker stop</code> 停止对应容器，删除<code>～/cache</code> 文件夹，然后重启容器，他会重新创建 <code>cache</code> 文件夹，最后登录域名地址 <code>https://ftp.teaper.dev</code>重新部署授权即可</p>
+<p>如果是 <code>systemctl start caddy.service</code> <strong>首次</strong>启动都启动不起来的，建议换个最新的主机，因为可能是系统太老导致用了老的内核</p>
+</details>
+
+
 <h4 id="安装-VNote"><a href="#安装-VNote" class="headerlink" title="安装 VNote"></a>安装 VNote</h4><p>最后就是我们的主角 <a href="https://tamlok.github.io/vnote/zh_cn/#!downloads.md" rel="external nofollow noopener noreferrer" target="_blank">VNote</a> 上场了，windows 用户直接去 <a href="https://github.com/tamlok/vnote/releases" rel="external nofollow noopener noreferrer" target="_blank">GitHub releases</a> 下载安装包即可  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S vnote-git    <span class="comment">#ArchLinux 安装</span></span><br></pre></td></tr></table></figure>
 
@@ -319,7 +312,6 @@
 
 <p>VNote 在每个文件夹下都使用了一个 <code>_vnote.json</code> 用来存储目录结构，如果该文件不存在，就会提示重新修复，如果存在，但是里面的 <code>json</code> 配置出错，就会读取不出文件目录，除了 <code>_vnote.json</code>之外，也在每个文件夹下创建了一个 <code>_v_recycle_bin</code> 文件夹，用来存放在 VNote 中被删除的文件，在编辑区右击文件标题选择回收站可以看到所有被删除的文件</p>
 </details>
-
 
 
 

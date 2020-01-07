@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2020-01-05T19:45:15.916Z</updated>
+  <updated>2020-01-07T03:59:42.879Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.teaper.dev/2020/01/05/%E6%9B%B4%E9%80%82%E5%90%88%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/"/>
     <id>https://www.teaper.dev/2020/01/05/更适合开发者的知识管理方案/</id>
     <published>2020-01-04T19:22:26.000Z</published>
-    <updated>2020-01-05T19:45:15.916Z</updated>
+    <updated>2020-01-07T03:59:42.879Z</updated>
     
     <summary type="html">
     
@@ -40,9 +40,9 @@
     
       <category term="Arch Linux" scheme="https://www.teaper.dev/tags/Arch-Linux/"/>
     
-      <category term="PicGo" scheme="https://www.teaper.dev/tags/PicGo/"/>
-    
       <category term="Markdown" scheme="https://www.teaper.dev/tags/Markdown/"/>
+    
+      <category term="PicGo" scheme="https://www.teaper.dev/tags/PicGo/"/>
     
       <category term="VNote" scheme="https://www.teaper.dev/tags/VNote/"/>
     

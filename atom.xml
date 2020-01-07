@@ -147,7 +147,7 @@
     <link href="https://www.teaper.dev/2019/08/18/ideasettings/"/>
     <id>https://www.teaper.dev/2019/08/18/ideasettings/</id>
     <published>2019-08-18T02:24:50.000Z</published>
-    <updated>2019-09-13T01:33:51.983Z</updated>
+    <updated>2020-01-07T02:17:36.952Z</updated>
     
     <summary type="html">
     
@@ -420,8 +420,6 @@
       <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
     
     
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
-    
       <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
       <category term="github pages" scheme="https://www.teaper.dev/tags/github-pages/"/>
@@ -429,6 +427,8 @@
       <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
+    
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
     

@@ -1,7 +1,7 @@
 ---
 title: 一月份的 IntelliJ IDEA 可还安好
-categories: [categories]
-tags: [tag1,tag2]
+categories: [JetBrains]
+tags: [IntelliJ IDEA,edu]
 date: 2020-01-10 23:18:49
 ---
 最近听说好多人的 `IntelliJ IDEA` 激活码失效了，像我这种有 `edu` 校园邮箱的孩子，当然是宠辱不惊喽！  

@@ -198,6 +198,14 @@
 <p>像这样，之后它下载一些配置，并且在 <code>～/</code> 目录创建一个 <code>OneDrive</code> 文件夹，并且同步一写数据和配置信息，将它们下载到本地  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl --user <span class="built_in">enable</span> onedrive    <span class="comment">#开机自启 Onedrive 同步</span></span><br><span class="line">systemctl --user start onedrive</span><br><span class="line">systemctl --user status onedrive    <span class="comment">#查看运行状态</span></span><br></pre></td></tr></table></figure>
 
+<details>
+<summary style="color:#ff0000;">注意：千万，千万要记住正确的 Onedrive 正确使用方式</summary>
+
+<p>如果本地 <code>～/OneDrive</code> 中没有文件，被我们手动删除，一定不要运行 <code>onedrive</code> 命令，<code>onedrive</code> 命令不带参数运行的时候，首先是进行上传，发现没有文件，匹配之后就会将云端所有文件删除，在进行下载同步！正确操作应该是运行 <code>onedrive -d</code> 仅下载！  </p>
+<p>如果登录状态失效，运行 <code>onedrive -d</code> 命令的时候提示使用 <code>--logout</code> 重新登录，那么首先使用 <code>onedrive --logout</code> 再运行 <code>onedrive</code> 命令，他会和首次运行一样，先从云端下载，再进行同步，这时候如果你还有修改过，没有同步到云端的文件，他会提示你是否修改，一定记得点<strong>No</strong>，否则修改过的文件会被云端的历史文件覆盖，所有修改操作宣布作废</p>
+</details>
+
+
 <h4 id="搭建-OneIndex"><a href="#搭建-OneIndex" class="headerlink" title="搭建 OneIndex"></a>搭建 OneIndex</h4><p><a href="https://github.com/donwa/oneindex" rel="external nofollow noopener noreferrer" target="_blank">OneIndex</a> 主要是给 Onedrive 提供一个网页的下载页面，这样我们至于要将文章中用到的安装包放在 <code>~/OneDrive</code> 文件夹下，就可以自动上传到你的网盘中，然后给指定的文件夹提供一个网页版的访问页面，可以直接点击文件即可下载  </p>
 <p><a href="https://ftp.teaper.dev/" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/20200105053005.png" alt></a></p>
 <p>类似于 163 源的那种 FTP 文件服务器效果；安装方法也很简单，去 <a href="https://my.vultr.com/" rel="external nofollow noopener noreferrer" target="_blank">Vultr</a> 准备一台 Debian 系服务器<span style="color:#ff0000;">（Ubuntu、Debian 都可以，我是 Debian 10）</span>，配置好 <code>SSH</code> 公钥后使用命令登录  </p>
@@ -217,7 +225,23 @@
 <p>如果后期你想停止容器和删除容器可以用以下两个命令  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop oneindex    <span class="comment">#停止</span></span><br><span class="line">docker rm -v oneindex    <span class="comment">#删除</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h5><p>刚好我在 <a href="https://account.godaddy.com/products/" rel="external nofollow noopener noreferrer" target="_blank">Godaddy</a> 有个域名，所以我就直接使用它去解析一条 <code>A</code> 记录到 <code>139.180.202.71</code> 服务器<br>| 类型 | 名称 |     值 | TTL |<br>| —— | —— | —- | —– |<br>| A | ftp | 139.180.202.71 | 1小时 |</p>
+<h5 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h5><p>刚好我在 <a href="https://account.godaddy.com/products/" rel="external nofollow noopener noreferrer" target="_blank">Godaddy</a> 有个域名，所以我就直接使用它去解析一条 <code>A</code> 记录到 <code>139.180.202.71</code> 服务器  </p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>值</th>
+<th>TTL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>ftp</td>
+<td>139.180.202.71</td>
+<td>1小时</td>
+</tr>
+</tbody></table>
 <p>然后可以 <code>ping ftp.teaper.dev</code> 看看解析生效没有  </p>
 <details>
 <summary style="color:#ff0000;">注意：如果你的主机是 Vultr 的主机的话，是无法解析到服务器去的</summary>

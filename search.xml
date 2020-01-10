@@ -13,16 +13,16 @@
       
       <categories>
           
-          <category> categories </category>
+          <category> JetBrains </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> tag1 </tag>
+            <tag> IntelliJ IDEA </tag>
             
-            <tag> tag2 </tag>
+            <tag> edu </tag>
             
         </tags>
       
@@ -416,6 +416,8 @@
       
         <tags>
             
+            <tag> git </tag>
+            
             <tag> hexo </tag>
             
             <tag> github pages </tag>
@@ -423,8 +425,6 @@
             <tag> node.js </tag>
             
             <tag> npm </tag>
-            
-            <tag> git </tag>
             
             <tag> rss </tag>
             

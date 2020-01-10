@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -160,286 +160,284 @@
 
   <article class="post-content">
     <h1 style="text-align:center">版本控制工具Git</h1>
-    <h4 id="什么是git"><a href="#什么是git" class="headerlink" title="什么是git"></a>什么是git</h4><p><a href="https://git-scm.com/" rel="external nofollow noopener noreferrer" target="_blank">Git</a> 是一个免费的开源 分布式版本控制系统，旨在处理速度和效率从小到大的项目<br>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件<br>Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持  </p>
-<p>入门推荐：<a href="https://git-scm.com/book/en/v2" rel="external nofollow noopener noreferrer" target="_blank">《Pro.Git中文版》</a>、《版本控制之道——使用Git》、<a href="http://www.worldhello.net/gotgit/" rel="external nofollow noopener noreferrer" target="_blank">《Git权威指南》</a>  </p>
-<h4 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h4><p><a href="https://sourceforge.net/projects/git-osx-installer/" rel="external nofollow noopener noreferrer" target="_blank">Mac平台</a><br><a href="https://git-for-windows.github.io/" rel="external nofollow noopener noreferrer" target="_blank">Windows平台</a><br>Linux平台:<code>apt-get install git</code>  </p>
-<h4 id="如何学习git"><a href="#如何学习git" class="headerlink" title="如何学习git"></a>如何学习git</h4><p>安装好 Git 之后,怎么学习是个问题,其实关于 Git 有很多图形化的软件可以操作,但是我强 烈建议大家从命令行开始学习理解,我知道没接触过命令行的人可能会很抵触,但是我的亲 身实践证明,只有一开始学习命令行,之后你对 Git 的每一步操作才能理解其意义,而等你熟 练之后你想用任何的图形化的软件去操作完全没问题  </p>
-<p>我一开始教我们团队成员全是基于命令行的,事后证明他们现在已经深深爱上命令行无法自 拔,他们很理解 Git 每一步操作的具体含义,以致于在实际项目很少犯错,所以我这里也是基 于命令行去教你们学习理解  </p>
-<h4 id="git命令列表"><a href="#git命令列表" class="headerlink" title="git命令列表"></a>git命令列表</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">~$ git</span><br><span class="line">usage: git [--version] [--<span class="built_in">help</span>] [-C &lt;path&gt;] [-c name=value]</span><br><span class="line">           [--<span class="built_in">exec</span>-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]</span><br><span class="line">           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]</span><br><span class="line">           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]</span><br><span class="line">           &lt;<span class="built_in">command</span>&gt; [&lt;args&gt;]</span><br><span class="line"> </span><br><span class="line">These are common Git commands used <span class="keyword">in</span> various situations:</span><br><span class="line"> </span><br><span class="line">start a working area (see also: git <span class="built_in">help</span> tutorial)</span><br><span class="line">   <span class="built_in">clone</span>      Clone a repository into a new directory</span><br><span class="line">   init       Create an empty Git repository or reinitialize an existing one</span><br><span class="line"> </span><br><span class="line">work on the current change (see also: git <span class="built_in">help</span> everyday)</span><br><span class="line">   add        Add file contents to the index</span><br><span class="line">   mv         Move or rename a file, a directory, or a symlink</span><br><span class="line">   reset      Reset current HEAD to the specified state</span><br><span class="line">   rm         Remove files from the working tree and from the index</span><br><span class="line"> </span><br><span class="line">examine the <span class="built_in">history</span> and state (see also: git <span class="built_in">help</span> revisions)</span><br><span class="line">   bisect     Use binary search to find the commit that introduced a bug</span><br><span class="line">   grep       Print lines matching a pattern</span><br><span class="line">   <span class="built_in">log</span>        Show commit logs</span><br><span class="line">   show       Show various types of objects</span><br><span class="line">   status     Show the working tree status</span><br><span class="line"> </span><br><span class="line">grow, mark and tweak your common <span class="built_in">history</span></span><br><span class="line">   branch     List, create, or delete branches</span><br><span class="line">   checkout   Switch branches or restore working tree files</span><br><span class="line">   commit     Record changes to the repository</span><br><span class="line">   diff       Show changes between commits, commit and working tree, etc</span><br><span class="line">   merge      Join two or more development histories together</span><br><span class="line">   rebase     Forward-port <span class="built_in">local</span> commits to the updated upstream head</span><br><span class="line">   tag        Create, list, delete or verify a tag object signed with GPG</span><br><span class="line"> </span><br><span class="line">collaborate (see also: git <span class="built_in">help</span> workflows)</span><br><span class="line">   fetch      Download objects and refs from another repository</span><br><span class="line">   pull       Fetch from and integrate with another repository or a <span class="built_in">local</span> branch</span><br><span class="line">   push       Update remote refs along with associated objects</span><br><span class="line"> </span><br><span class="line"><span class="string">'git help -a'</span> and <span class="string">'git help -g'</span> list available subcommands and some</span><br><span class="line">concept guides. See <span class="string">'git help &lt;command&gt;'</span> or <span class="string">'git help &lt;concept&gt;'</span></span><br><span class="line">to <span class="built_in">read</span> about a specific subcommand or concept.</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="git的几个概念"><a href="#git的几个概念" class="headerlink" title="git的几个概念"></a>git的几个概念</h4><p><strong>index</strong> 暂存，又名暂存区<br><strong>staging area</strong> 暂存区：可以设置哪些变更要提交到版本库，哪些先不提交  </p>
+    <h4 id="什么是git"><a class="header-anchor" href="#什么是git"></a>什么是git</h4>
+<p><a href="https://git-scm.com/" rel="external nofollow noopener noreferrer" target="_blank">Git</a> 是一个免费的开源 分布式版本控制系统，旨在处理速度和效率从小到大的项目<br>
+Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件<br>
+Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持</p>
+<p>入门推荐：<a href="https://git-scm.com/book/en/v2" rel="external nofollow noopener noreferrer" target="_blank">《Pro.Git中文版》</a>、《版本控制之道——使用Git》、<a href="http://www.worldhello.net/gotgit/" rel="external nofollow noopener noreferrer" target="_blank">《Git权威指南》</a></p>
+<h4 id="git的安装"><a class="header-anchor" href="#git的安装"></a>git的安装</h4>
+<p><a href="https://sourceforge.net/projects/git-osx-installer/" rel="external nofollow noopener noreferrer" target="_blank">Mac平台</a><br>
+<a href="https://git-for-windows.github.io/" rel="external nofollow noopener noreferrer" target="_blank">Windows平台</a><br>
+Linux平台:<code>apt-get install git</code></p>
+<h4 id="如何学习git"><a class="header-anchor" href="#如何学习git"></a>如何学习git</h4>
+<p>安装好 Git 之后,怎么学习是个问题,其实关于 Git 有很多图形化的软件可以操作,但是我强 烈建议大家从命令行开始学习理解,我知道没接触过命令行的人可能会很抵触,但是我的亲 身实践证明,只有一开始学习命令行,之后你对 Git 的每一步操作才能理解其意义,而等你熟 练之后你想用任何的图形化的软件去操作完全没问题</p>
+<p>我一开始教我们团队成员全是基于命令行的,事后证明他们现在已经深深爱上命令行无法自 拔,他们很理解 Git 每一步操作的具体含义,以致于在实际项目很少犯错,所以我这里也是基 于命令行去教你们学习理解</p>
+<h4 id="git命令列表"><a class="header-anchor" href="#git命令列表"></a>git命令列表</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">~$ git</span><br><span class="line">usage: git [--version] [--<span class="built_in">help</span>] [-C &lt;path&gt;] [-c name=value]</span><br><span class="line">           [--<span class="built_in">exec</span>-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]</span><br><span class="line">           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]</span><br><span class="line">           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]</span><br><span class="line">           &lt;<span class="built_in">command</span>&gt; [&lt;args&gt;]</span><br><span class="line"> </span><br><span class="line">These are common Git commands used <span class="keyword">in</span> various situations:</span><br><span class="line"> </span><br><span class="line">start a working area (see also: git <span class="built_in">help</span> tutorial)</span><br><span class="line">   <span class="built_in">clone</span>      Clone a repository into a new directory</span><br><span class="line">   init       Create an empty Git repository or reinitialize an existing one</span><br><span class="line"> </span><br><span class="line">work on the current change (see also: git <span class="built_in">help</span> everyday)</span><br><span class="line">   add        Add file contents to the index</span><br><span class="line">   mv         Move or rename a file, a directory, or a symlink</span><br><span class="line">   reset      Reset current HEAD to the specified state</span><br><span class="line">   rm         Remove files from the working tree and from the index</span><br><span class="line"> </span><br><span class="line">examine the <span class="built_in">history</span> and state (see also: git <span class="built_in">help</span> revisions)</span><br><span class="line">   bisect     Use binary search to find the commit that introduced a bug</span><br><span class="line">   grep       Print lines matching a pattern</span><br><span class="line">   <span class="built_in">log</span>        Show commit logs</span><br><span class="line">   show       Show various types of objects</span><br><span class="line">   status     Show the working tree status</span><br><span class="line"> </span><br><span class="line">grow, mark and tweak your common <span class="built_in">history</span></span><br><span class="line">   branch     List, create, or delete branches</span><br><span class="line">   checkout   Switch branches or restore working tree files</span><br><span class="line">   commit     Record changes to the repository</span><br><span class="line">   diff       Show changes between commits, commit and working tree, etc</span><br><span class="line">   merge      Join two or more development histories together</span><br><span class="line">   rebase     Forward-port <span class="built_in">local</span> commits to the updated upstream head</span><br><span class="line">   tag        Create, list, delete or verify a tag object signed with GPG</span><br><span class="line"> </span><br><span class="line">collaborate (see also: git <span class="built_in">help</span> workflows)</span><br><span class="line">   fetch      Download objects and refs from another repository</span><br><span class="line">   pull       Fetch from and integrate with another repository or a <span class="built_in">local</span> branch</span><br><span class="line">   push       Update remote refs along with associated objects</span><br><span class="line"> </span><br><span class="line"><span class="string">'git help -a'</span> and <span class="string">'git help -g'</span> list available subcommands and some</span><br><span class="line">concept guides. See <span class="string">'git help &lt;command&gt;'</span> or <span class="string">'git help &lt;concept&gt;'</span></span><br><span class="line">to <span class="built_in">read</span> about a specific subcommand or concept.</span><br></pre></td></tr></table></figure>
+<h4 id="git的几个概念"><a class="header-anchor" href="#git的几个概念"></a>git的几个概念</h4>
+<p><strong>index</strong> 暂存，又名暂存区<br>
+<strong>staging area</strong> 暂存区：可以设置哪些变更要提交到版本库，哪些先不提交</p>
 <blockquote>
-<p>指/.git/index文件  </p>
+<p>指/.git/index文件</p>
 </blockquote>
-<p><strong>work area</strong> 工作区：就是我们进行工作的地方  </p>
+<p><strong>work area</strong> 工作区：就是我们进行工作的地方</p>
 <blockquote>
-<p>除.git文件夹外的其他内容区域  </p>
+<p>除.git文件夹外的其他内容区域</p>
 </blockquote>
-<p><strong>local repository</strong> 本地仓库：就是我们自己工作的电脑上保存版本数据的地方  </p>
+<p><strong>local repository</strong> 本地仓库：就是我们自己工作的电脑上保存版本数据的地方</p>
 <blockquote>
-<p>.git文件夹，内容在/.git/objects中  </p>
+<p>.git文件夹，内容在/.git/objects中</p>
 </blockquote>
-<p><strong>remote repository</strong> 远程仓库：远程的服务器上的仓库，如<a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">gitHub</a>、<a href="https://about.gitlab.com/" rel="external nofollow noopener noreferrer" target="_blank">gitLab</a><br><img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u5wza2lj30sz0h3n3i.jpg" alt="工作区"><br><img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u6aacpej30tk0h7agc.jpg" alt="暂存区"></p>
-<h4 id="git具体命令"><a href="#git具体命令" class="headerlink" title="git具体命令"></a>git具体命令</h4><p>第一步,我们先新建一个文件夹,在文件夹里新建一个文件<span style="color:#ff0000">(我是用Linux命令去新建的,Windows用户可以自己手动新建)</span>  </p>
+<p><strong>remote repository</strong> 远程仓库：远程的服务器上的仓库，如<a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">gitHub</a>、<a href="https://about.gitlab.com/" rel="external nofollow noopener noreferrer" target="_blank">gitLab</a><br>
+<img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u5wza2lj30sz0h3n3i.jpg" alt="工作区"><br>
+<img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u6aacpej30tk0h7agc.jpg" alt="暂存区"></p>
+<h4 id="git具体命令"><a class="header-anchor" href="#git具体命令"></a>git具体命令</h4>
+<p>第一步,我们先新建一个文件夹,在文件夹里新建一个文件<span style="color:#ff0000">(我是用Linux命令去新建的,Windows用户可以自己手动新建)</span></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="built_in">test</span>             <span class="comment">#创建文件夹test</span></span><br><span class="line"><span class="built_in">cd</span> <span class="built_in">test</span>                <span class="comment">#切换到test目录</span></span><br><span class="line">sudo gedit a.md        <span class="comment">#新建a.md文件</span></span><br></pre></td></tr></table></figure>
-
-<p>这里提醒下:在进行任何 Git 操作之前,都要先切换到 Git 仓库目录,也就是先要先切换到项目的文件夹目录下  </p>
+<p>这里提醒下:在进行任何 Git 操作之前,都要先切换到 Git 仓库目录,也就是先要先切换到项目的文件夹目录下</p>
 <p>这个时候我们先随便操作一个命令,比如 git status ,可以看到如下提示<span style="color:#ff0000">(别纠结颜色之类的,配置与主题不一样而已)</span>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git status   <span class="comment">#查看git状态</span></span><br><span class="line">fatal: Not a git repository (or any of the parent directories): .git</span><br></pre></td></tr></table></figure>
-
-<p>意思就是当前目录还不是一个Git仓库  </p>
-<p><strong>git init</strong><br>这个时候用到了第一个命令,代表初始化git仓库,输入<code>git init</code>之后会提示:  </p>
+<p>意思就是当前目录还不是一个Git仓库</p>
+<p><strong>git init</strong><br>
+这个时候用到了第一个命令,代表初始化git仓库,输入<code>git init</code>之后会提示:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git init   <span class="comment">#初始化git仓库</span></span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /home/teaper/Downloads/<span class="built_in">test</span>/.git/</span><br></pre></td></tr></table></figure>
-
-<p>可以看到初始化成了,至此 test目录已经是一个 git 仓库了  </p>
-<p><strong>git status</strong><br>紧接着我们输入 <code>git status</code> 命令,会有如下提示:  </p>
+<p>可以看到初始化成了,至此 test目录已经是一个 git 仓库了</p>
+<p><strong>git status</strong><br>
+紧接着我们输入 <code>git status</code> 命令,会有如下提示:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git status</span><br><span class="line">On branch master</span><br><span class="line"> </span><br><span class="line">Initial commit</span><br><span class="line"> </span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line"> </span><br><span class="line">    a.md</span><br><span class="line"> </span><br><span class="line">nothing added to commit but untracked files present (use <span class="string">"git add"</span> to track)</span><br></pre></td></tr></table></figure>
-
-<p>默认就直接在 master 分支,关于分支的概念后面会提,这时最主要的是提示a.md文件<br>Untracked files,就是说a.md 这个文件还没有被跟踪,还没有提交在git仓库里呢,而且提示你可以使用 git add 去操作你想要提交的文件  </p>
-<p><code>git status</code>这个命令顾名思义就是查看状态,这个命令可以算是使用最频繁的一个命令了,建议大家没事就输入下这个命令,来查看你当前git仓库的一些状态  </p>
-<p><strong>git add</strong><br>上面提示 a.md文件还没有提交到git仓库里,这个时候我们可以随便编辑a.md文件,然后输入<code>git add a.md</code>,然后再输入<code>git status</code>  </p>
+<p>默认就直接在 master 分支,关于分支的概念后面会提,这时最主要的是提示a.md文件<br>
+Untracked files,<a href="http://xn--a-ll2b480abn3b.md" rel="external nofollow noopener noreferrer" target="_blank">就是说a.md</a> 这个文件还没有被跟踪,还没有提交在git仓库里呢,而且提示你可以使用 git add 去操作你想要提交的文件</p>
+<p><code>git status</code>这个命令顾名思义就是查看状态,这个命令可以算是使用最频繁的一个命令了,建议大家没事就输入下这个命令,来查看你当前git仓库的一些状态</p>
+<p><strong>git add</strong><br>
+上面提示 a.md文件还没有提交到git仓库里,这个时候我们可以随便编辑a.md文件,然后输入<code>git add a.md</code>,然后再输入<code>git status</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git add a.md    <span class="comment">#让git跟踪a.md文件,此时a.md文件会进入暂存区</span></span><br><span class="line">~/<span class="built_in">test</span>$ git status</span><br><span class="line">On branch master</span><br><span class="line"> </span><br><span class="line">Initial commit</span><br><span class="line"> </span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"> </span><br><span class="line">    new file:   a.md</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>git commit</strong><br>接着我们输入<code>git commit -m &#39;first commit&#39;</code> ,这个命令什么意思呢? commit是提交的意思,-m代表是提交信息,执行了以上命令代表我们已经正式进行了第一次提交<br>这个时候再输入 <code>git status</code> ,<span style="color:#ff0000;">会提示nothing to commit</span>  </p>
+<p><strong>git commit</strong><br>
+接着我们输入<code>git commit -m 'first commit'</code> ,这个命令什么意思呢? commit是提交的意思,-m代表是提交信息,执行了以上命令代表我们已经正式进行了第一次提交<br>
+这个时候再输入 <code>git status</code> ,<span style="color:#ff0000;">会提示nothing to commit</span></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git commit -m <span class="string">'first commit'</span>  <span class="comment">#提交到版本库</span></span><br><span class="line">[master (root-commit) 60990d1] first commit</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 a.md</span><br><span class="line">~/<span class="built_in">test</span>$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
-
-<p>当我们对已经提交到版本库的文件进行修改后,是不能马上commit提交的,需要重新<code>add</code>一次,有没有一步到位的呢?有的  </p>
+<p>当我们对已经提交到版本库的文件进行修改后,是不能马上commit提交的,需要重新<code>add</code>一次,有没有一步到位的呢?有的</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -am <span class="string">"first commit"</span>     <span class="comment">#不通过暂存区直接将文件提交到版本库</span></span><br></pre></td></tr></table></figure>
-
-<p>如果我们不小心把上一次提交的注解说明(first commit)写错了,怎么修改呢?  </p>
+<p>如果我们不小心把上一次提交的注解说明(first commit)写错了,怎么修改呢?</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m <span class="string">"新的注释说明"</span>     <span class="comment">#仅修改上一次提交的注解说明</span></span><br></pre></td></tr></table></figure>
-
-<p>如果我们需要撤销或修改更多操作,比如上次提交少提交了a.txt文件,那么我们可以  </p>
+<p>如果我们需要撤销或修改更多操作,比如上次提交少提交了a.txt文件,那么我们可以</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add a.txt</span><br><span class="line">git commit --amend -m <span class="string">"first commit"</span>     <span class="comment">#重新提交上一次提交的内容</span></span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#ff0000;">注意:–amend只能使用它来修正你的上一次提交,更早的提交是不能使用“amend”来进行操作,你不要对一个已经在远程仓库上被发布，或者说已经被共享的提交进行“amend”操作,很容易导致整个团队陷入麻烦</span>  </p>
-<p><strong>git log</strong><br>这个时候我们输入<code>git log</code>命令,会看到如下:  </p>
+<p><span style="color:#ff0000;">注意:–amend只能使用它来修正你的上一次提交,更早的提交是不能使用“amend”来进行操作,你不要对一个已经在远程仓库上被发布，或者说已经被共享的提交进行“amend”操作,很容易导致整个团队陷入麻烦</span></p>
+<p><strong>git log</strong><br>
+这个时候我们输入<code>git log</code>命令,会看到如下:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git <span class="built_in">log</span>  <span class="comment">#查看提交日志</span></span><br><span class="line">commit 60990d11c3634daa16d0a3fe735a0d6a768c2fbf</span><br><span class="line">Author: teaper &lt;teaper@aliyun.com&gt;</span><br><span class="line">Date:   Tue Jul 17 10:21:07 2018 +0800</span><br><span class="line"> </span><br><span class="line">    first commit</span><br></pre></td></tr></table></figure>
-
-<p>git log 命令可以查看所有产生的commit记录,所以可以看到已经产生了一条commit记录,而提交时候的附带信息叫 ‘first commit’  </p>
-<p><strong>git branch</strong><br>branch 即分支的意思,分支的概念很重要,尤其是团队协作的时候,假设两个人都在做同一个项目,这个时候分支就是保证两人能协同合作的最大利器了。举个例子,A, B俩人都在做同一个项目,但是不同的模块,这个时候A新建了一个分支叫a,B新建了一个分支叫b,这样A、B做的所有代码改动都各自在各自的分支,互不影响,等到俩人都把各自的模块都做完了,最后再统一把分支合并起来  </p>
-<p>执行git init初始化git仓库之后会默认生成一个主分支master,也是你所在的默认分支,也基本是实际开发正式环境下的分支,一般情况下master分支不会轻易直接在上面操作的,你们可以输入<code>git branch</code>查看下当前分支情况:  </p>
+<p>git log 命令可以查看所有产生的commit记录,所以可以看到已经产生了一条commit记录,而提交时候的附带信息叫 ‘first commit’</p>
+<p><strong>git branch</strong><br>
+branch 即分支的意思,分支的概念很重要,尤其是团队协作的时候,假设两个人都在做同一个项目,这个时候分支就是保证两人能协同合作的最大利器了。举个例子,A, B俩人都在做同一个项目,但是不同的模块,这个时候A新建了一个分支叫a,B新建了一个分支叫b,这样A、B做的所有代码改动都各自在各自的分支,互不影响,等到俩人都把各自的模块都做完了,最后再统一把分支合并起来</p>
+<p>执行git init初始化git仓库之后会默认生成一个主分支master,也是你所在的默认分支,也基本是实际开发正式环境下的分支,一般情况下master分支不会轻易直接在上面操作的,你们可以输入<code>git branch</code>查看下当前分支情况:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git branch  <span class="comment">#查看所有分支</span></span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
-
-<p>如果我们想在此基础上新建一个分支呢,很简单,执行<code>git branch develop</code>就新建了一个名字叫develop的分支,这时候分支develop跟分支 master是一模一样的内容,我们再输入<code>git branch</code>查看的当前分支情况:  </p>
+<p>如果我们想在此基础上新建一个分支呢,很简单,执行<code>git branch develop</code>就新建了一个名字叫develop的分支,这时候分支develop跟分支 master是一模一样的内容,我们再输入<code>git branch</code>查看的当前分支情况:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git branch develop  <span class="comment">#新建develop分支</span></span><br><span class="line">~/<span class="built_in">test</span>$ git branch</span><br><span class="line">  develop</span><br><span class="line">* master    <span class="comment">#*在哪里就表示那个是当前所在的分支</span></span><br></pre></td></tr></table></figure>
-
-<p>即虽然新建了一个develop的分支,但是当前所在的分支还是在master上,如果我们想在develop分支上进行开发,首先要先切换到develop分支上才行,所以下一步要切换分支  </p>
+<p>即虽然新建了一个develop的分支,但是当前所在的分支还是在master上,如果我们想在develop分支上进行开发,首先要先切换到develop分支上才行,所以下一步要切换分支</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git  checkout develop   <span class="comment">#切换到develop分支</span></span><br><span class="line">Switched to branch <span class="string">'develop'</span></span><br><span class="line">~/<span class="built_in">test</span>$ git branch</span><br><span class="line">* develop</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
-
 <p><span style="color:#ff0000;">那有人就说了,我要先新建再切换,未免有点麻烦,有没有一步到位的,聪明:</span></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop   <span class="comment">#一步到位,创建并且切换到develop分支</span></span><br></pre></td></tr></table></figure>
-
-<p>有新建分支,那肯定有删除分支,假如这个分支新建错了,或者develop分支的代码已经顺利合并到master分支来了,那么develop分支没用了,需要删除  </p>
+<p>有新建分支,那肯定有删除分支,假如这个分支新建错了,或者develop分支的代码已经顺利合并到master分支来了,那么develop分支没用了,需要删除</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch  -d develop   <span class="comment">#develop分支已经合并到其他(比如:master)分支,需要删除用这个</span></span><br><span class="line">git branch  -D develop   <span class="comment">#develop分支没有合并到其他分支,需要强制删除用这个</span></span><br></pre></td></tr></table></figure>
-
-
-<p><strong>git merge</strong><br>A同学在develop分支代码写的不亦乐乎,终于他的功能完工了,并且测试也都ok了,准备要上线了,这个时候就需要把他的代码合并到主分支master上来,然后发布支用到的命令,针对这个情况,需要先做两步,第一步是切换到master分支,如果你已经在了就不用切换了,第二步执行git merge develop,意思就是把a分支的代码合并过来,不出意外,这个时候develop分支的代码就顺利合并到master分支来了  </p>
-<p>为什么说不出意外呢?因为这个时候可能会有冲突而合并失败,留个包袱,这个到后面进阶的时候再讲  </p>
+<p><strong>git merge</strong><br>
+A同学在develop分支代码写的不亦乐乎,终于他的功能完工了,并且测试也都ok了,准备要上线了,这个时候就需要把他的代码合并到主分支master上来,然后发布支用到的命令,针对这个情况,需要先做两步,第一步是切换到master分支,如果你已经在了就不用切换了,第二步执行git merge develop,意思就是把a分支的代码合并过来,不出意外,这个时候develop分支的代码就顺利合并到master分支来了</p>
+<p>为什么说不出意外呢?因为这个时候可能会有冲突而合并失败,留个包袱,这个到后面进阶的时候再讲</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git checkout master  <span class="comment">#切换到master分支</span></span><br><span class="line">Switched to branch <span class="string">'master'</span></span><br><span class="line">~/<span class="built_in">test</span>$ git merge develop   <span class="comment">#合并develop分支</span></span><br><span class="line">Already up-to-date.</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>git tag</strong><br>我们在客户端开发的时候经常有版本的概念,比如v1.0、v1.1之类的,不同的版本肯定对应不同的代码,所以我一般要给我们的代码加上标签,这样假设v1.1版本出了一个新bug,但是又不晓得v1.0是不是有这个bug,有了标签就可以顺利切换到v1.0的代码,重新打个包测试了  </p>
-<p>所以如果想要新建一个标签很简单,比如<code>git tag v1.0</code>就代表我在当前代码状态下新建了一个v1.0的标签,输入<code>git tag</code>可以查看历史tag记录  </p>
+<p><strong>git tag</strong><br>
+我们在客户端开发的时候经常有版本的概念,比如v1.0、v1.1之类的,不同的版本肯定对应不同的代码,所以我一般要给我们的代码加上标签,这样假设v1.1版本出了一个新bug,但是又不晓得v1.0是不是有这个bug,有了标签就可以顺利切换到v1.0的代码,重新打个包测试了</p>
+<p>所以如果想要新建一个标签很简单,比如<code>git tag v1.0</code>就代表我在当前代码状态下新建了一个v1.0的标签,输入<code>git tag</code>可以查看历史tag记录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git tag v1.0    <span class="comment">#新建v1.0版本标签</span></span><br><span class="line">~/<span class="built_in">test</span>$ git tag         <span class="comment">#查看历史版本</span></span><br><span class="line">v1.0</span><br><span class="line">v1.1</span><br></pre></td></tr></table></figure>
-
-<p>可以看到我新建了两个标签v1.0、v1.1<br>想要切换到某个tag怎么办?也很简单,执行<code>git checkoutv 1.0</code>,这样就顺利的切换到v1.0tag的代码状态了  </p>
+<p>可以看到我新建了两个标签v1.0、v1.1<br>
+想要切换到某个tag怎么办?也很简单,执行<code>git checkoutv 1.0</code>,这样就顺利的切换到v1.0tag的代码状态了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout v1.0   <span class="comment">#切换到v1.0版本</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4><p>你拥有了一个 GitHub 账号之后,就可以自由的 clone 或者下载其他项目,也可以创建自己的项目,但是你没法提交代码。仔细想想也知道,肯定不可能随意就能提交代码的,如果随意可以提交代码,那么 GitHub 上的项目岂不乱了套了,所以提交代码之前一定是需要某种授权的,而 GitHub上一般都是基于SSH授权的  </p>
-<p>那么什么是SSH呢?简单点说,SSH是一种网络协议,用于计算机之间的加密登录。目前是每一台Linux电脑的标准配置。而大多数Git服务器都会选择使用SSH公钥来进行授权,所以想要在 GitHub 提交代码的第一步就是要先添加SSH key配置  </p>
-<h4 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h4><p>Linux与Mac都是默认安装了SSH,而Windows系统安装了Git Bash应该也是带了SSH的。大家可以在终端<span style="color:#ff0000;">(win下在 Git Bash里)</span>输入ssh如果出现以下提示证明你本机已经安装SSH,否则请搜索自行安装下  </p>
+<h4 id="SSH"><a class="header-anchor" href="#SSH"></a>SSH</h4>
+<p>你拥有了一个 GitHub 账号之后,就可以自由的 clone 或者下载其他项目,也可以创建自己的项目,但是你没法提交代码。仔细想想也知道,肯定不可能随意就能提交代码的,如果随意可以提交代码,那么 GitHub 上的项目岂不乱了套了,所以提交代码之前一定是需要某种授权的,而 GitHub上一般都是基于SSH授权的</p>
+<p>那么什么是SSH呢?简单点说,SSH是一种网络协议,用于计算机之间的加密登录。目前是每一台Linux电脑的标准配置。而大多数Git服务器都会选择使用SSH公钥来进行授权,所以想要在 GitHub 提交代码的第一步就是要先添加SSH key配置</p>
+<h4 id="生成SSH-key"><a class="header-anchor" href="#生成SSH-key"></a>生成SSH key</h4>
+<p>Linux与Mac都是默认安装了SSH,而Windows系统安装了Git Bash应该也是带了SSH的。大家可以在终端<span style="color:#ff0000;">(win下在 Git Bash里)</span>输入ssh如果出现以下提示证明你本机已经安装SSH,否则请搜索自行安装下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ ssh     <span class="comment">#查看是否安装SSH</span></span><br><span class="line">usage: ssh [-1246AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]</span><br><span class="line">           [-D [bind_address:]port] [-E log_file] [-e escape_char]</span><br><span class="line">           [-F configfile] [-I pkcs11] [-i identity_file] [-L address]</span><br><span class="line">           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]</span><br><span class="line">           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]</span><br><span class="line">           [-w local_tun[:remote_tun]] [user@]hostname [<span class="built_in">command</span>]</span><br><span class="line"> </span><br><span class="line">~/<span class="built_in">test</span>$ ssh-keygen -t rsa -C <span class="string">"teaper@aliyun.com"</span>  <span class="comment">#生成SSH key,邮箱填你gitHub上的绑定邮箱</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/home/teaper/.ssh/id_rsa):</span><br><span class="line">/home/teaper/.ssh/id_rsa already exists.</span><br><span class="line">Overwrite (y/n)? y</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /home/teaper/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /home/teaper/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:wcNn6oSZO/1qafMyuYTCF13njjFO4RJAKUzA0GUZ98A teaper@aliyun.com</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|.+.====.         |</span></span><br><span class="line"><span class="string">|  o.+.E*         |</span></span><br><span class="line"><span class="string">|     .  B = .    |</span></span><br><span class="line"><span class="string">|       = X +     |</span></span><br><span class="line"><span class="string">|      = S = .    |</span></span><br><span class="line"><span class="string">|   .   B + =     |</span></span><br><span class="line"><span class="string">|    o = +oo .    |</span></span><br><span class="line"><span class="string">|     o oO.       |</span></span><br><span class="line"><span class="string">|       ooBo      |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure>
-
-<p>紧接着输入<code>ssh-keygen -t rsa</code>,什么意思呢?就是指定rsa算法生成密钥,接着连续三个回车键(不需要输入密码),然后就会生成两个文件id_rsa和 id_rsa.pub,而id_rsa是密钥,id_rsa.pub就是公钥。这两文件默认分别在如下目录里生成:<br>Linux/Mac系统在~/.ssh下,win系统在/c/Documents and Settings/username/.ssh下,都是隐藏文件,相信你们有办法查看的  </p>
-<p>接下来要做的是把id_rsa.pub的内容添加到GitHub上,这样你本地的id_rsa密钥跟 GitHub上的id_rsa.pub公钥进行配对,授权成功才可以提交代码  </p>
-<h4 id="GitHub上添加SSH-key"><a href="#GitHub上添加SSH-key" class="headerlink" title="GitHub上添加SSH key"></a>GitHub上添加SSH key</h4><p>进入你自己的<a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">github</a><br>点击头像旁边的下拉，Settings -&gt; SSH and GPG keys -&gt; New SSH key<br>新建一个key，title不用填，把复制的SSH key内容粘贴上去<br><img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u7550u2j30rq0g0acc.jpg" alt="ssh">  </p>
+<p>紧接着输入<code>ssh-keygen -t rsa</code>,什么意思呢?就是指定rsa算法生成密钥,接着连续三个回车键(不需要输入密码),然后就会生成两个文件id_rsa和 id_rsa.pub,而id_rsa是密钥,id_rsa.pub就是公钥。这两文件默认分别在如下目录里生成:<br>
+Linux/Mac系统在~/.ssh下,win系统在/c/Documents and Settings/username/.ssh下,都是隐藏文件,相信你们有办法查看的</p>
+<p>接下来要做的是把id_rsa.pub的内容添加到GitHub上,这样你本地的id_rsa密钥跟 GitHub上的id_rsa.pub公钥进行配对,授权成功才可以提交代码</p>
+<h4 id="GitHub上添加SSH-key"><a class="header-anchor" href="#GitHub上添加SSH-key"></a>GitHub上添加SSH key</h4>
+<p>进入你自己的<a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">github</a><br>
+点击头像旁边的下拉，Settings -&gt; SSH and GPG keys -&gt; New SSH key<br>
+新建一个key，title不用填，把复制的SSH key内容粘贴上去<br>
+<img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u7550u2j30rq0g0acc.jpg" alt="ssh"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ ssh git@github.com       <span class="comment">#测试连接服务器是否成功</span></span><br><span class="line">PTY allocation request failed on channel 0</span><br><span class="line">Hi TEAPER! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br><span class="line"><span class="string">Connection to github.com closed.</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="Push和Pull"><a href="#Push和Pull" class="headerlink" title="Push和Pull"></a>Push和Pull</h4><p>Push:直译过来就是「推」的意思,什么意思呢?如果你本地代码有更新了,那么就需要把本地代码推到远程仓库,这样本地仓库跟远程仓库就可以保持同步了  </p>
+<h4 id="Push和Pull"><a class="header-anchor" href="#Push和Pull"></a>Push和Pull</h4>
+<p>Push:直译过来就是「推」的意思,什么意思呢?如果你本地代码有更新了,那么就需要把本地代码推到远程仓库,这样本地仓库跟远程仓库就可以保持同步了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master   <span class="comment">#把本地代码推到远程master分支</span></span><br></pre></td></tr></table></figure>
-
-<p>Pull:直译过来就是「拉」的意思,如果别人提交代码到远程仓库,这个时候你需要把远程仓库的最新代码拉下来,然后保证两端代码的同步  </p>
+<p>Pull:直译过来就是「拉」的意思,如果别人提交代码到远程仓库,这个时候你需要把远程仓库的最新代码拉下来,然后保证两端代码的同步</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master   <span class="comment">#把远程最新的代码更新到本地</span></span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#ff0000;">注意:一般我们在push之前都会先pull,这样不容易冲突</span>  </p>
-<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><p>在提交代码之前需要先要设置下自己的用户名与邮箱,这些信息会出现在所有的commit记录里,执行以下代码就可以设置:  </p>
+<p><span style="color:#ff0000;">注意:一般我们在push之前都会先pull,这样不容易冲突</span></p>
+<h4 id="提交代码"><a class="header-anchor" href="#提交代码"></a>提交代码</h4>
+<p>在提交代码之前需要先要设置下自己的用户名与邮箱,这些信息会出现在所有的commit记录里,执行以下代码就可以设置:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config  —global user.name   <span class="string">"teaper"</span></span><br><span class="line">git config  —global user.email  <span class="string">"www@teaper.cn"</span></span><br></pre></td></tr></table></figure>
-
-<p>以上进行了全局配置,当然有些时候我们的某一个项目想要用特定的邮箱,这个时候只需切换到你的项目,以上代码把–global参数去除,再重新执行一遍就ok了  </p>
-<p>添加 SSH key 成功之后,我们就有权限向GitHub上我们自己的项目提交代码了,而提交代码有两种方法:<br>Clone自己的项目我们以我在GitHub上创建的test项目为例,执行如下命令:  </p>
+<p>以上进行了全局配置,当然有些时候我们的某一个项目想要用特定的邮箱,这个时候只需切换到你的项目,以上代码把–global参数去除,再重新执行一遍就ok了</p>
+<p>添加 SSH key 成功之后,我们就有权限向GitHub上我们自己的项目提交代码了,而提交代码有两种方法:<br>
+Clone自己的项目我们以我在GitHub上创建的test项目为例,执行如下命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:TEAPER/test.git     <span class="comment">#克隆远程仓库到本地</span></span><br></pre></td></tr></table></figure>
-
-<p>这样就把test项目clone到了本地,你可以把clone命令理解为高级点的复制,这个时候该项目本身就已经是一个git仓库了,不需要执行git init进行初始化,而且甚至都已经关联好了远程仓库,我们只需要在这个test目录下任意修改或者添加文件,然后进行commit,之后就可以执行:  </p>
+<p>这样就把test项目clone到了本地,你可以把clone命令理解为高级点的复制,这个时候该项目本身就已经是一个git仓库了,不需要执行git init进行初始化,而且甚至都已经关联好了远程仓库,我们只需要在这个test目录下任意修改或者添加文件,然后进行commit,之后就可以执行:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master  或  git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<p>至于怎么获取项目的仓库地址呢?如下图:<br><img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u7kpjgqj30rp09c3zn.jpg" alt="ssh地址"><br>如果我们本地已经有一个完整的git仓库,并且已经进行了很多次commit,这个时候第一种方法就不适合了  </p>
-<p>假设我们本地有个test2的项目,我们需要的是在 GitHub上建一个test的项目,然后把本地test2上的所有代码commit记录提交到GitHub上的test项目<br>第一步就是在GitHub上建一个test项目,这个想必大家都会了,就不用多讲了<br>第二步把本地test2项目与GitHub上的test项目进行关联,切换到test2目录,执行如下命令:  </p>
+<p>至于怎么获取项目的仓库地址呢?如下图:<br>
+<img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u7kpjgqj30rp09c3zn.jpg" alt="ssh地址"><br>
+如果我们本地已经有一个完整的git仓库,并且已经进行了很多次commit,这个时候第一种方法就不适合了</p>
+<p>假设我们本地有个test2的项目,我们需要的是在 GitHub上建一个test的项目,然后把本地test2上的所有代码commit记录提交到GitHub上的test项目<br>
+第一步就是在GitHub上建一个test项目,这个想必大家都会了,就不用多讲了<br>
+第二步把本地test2项目与GitHub上的test项目进行关联,切换到test2目录,执行如下命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:TEAPER/test.git  <span class="comment">#添加一个远程仓库orgin,地址是:git@github.com:TEAPER/test.git</span></span><br></pre></td></tr></table></figure>
-
-<p>origin是给这个项目的远程仓库起的名字,名字你可以随便取,只不过大家公认的只有一个远程仓库时名字就是origin  </p>
+<p>origin是给这个项目的远程仓库起的名字,名字你可以随便取,只不过大家公认的只有一个远程仓库时名字就是origin</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote  -v   <span class="comment">#查看当前项目有哪些远程仓库</span></span><br></pre></td></tr></table></figure>
-
 <p>接下来,我们本地的仓库就可以向远程仓库进行代码提交了:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="创建忽略文件"><a href="#创建忽略文件" class="headerlink" title="创建忽略文件"></a>创建忽略文件</h4><p>通常情况下，您将拥有一类您不希望Git自动添加甚至将您展示为未跟踪的文件  </p>
+<h4 id="创建忽略文件"><a class="header-anchor" href="#创建忽略文件"></a>创建忽略文件</h4>
+<p>通常情况下，您将拥有一类您不希望Git自动添加甚至将您展示为未跟踪的文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit .gitignore <span class="comment">#创建一个隐藏文件.gitignore</span></span><br><span class="line">---------------------------------.内容如下-------------------------------------</span><br><span class="line">*.a            ＃忽略所有.a文件</span><br><span class="line">!lib.a         ＃但是跟踪lib.a，即使你忽略了上面的.a文件</span><br><span class="line">/TODO          ＃仅忽略当前目录中的TODO文件，而不是subdir / TODO</span><br><span class="line">build/         ＃忽略build /目录中的所有文件</span><br><span class="line">doc/*.txt      <span class="comment">#＃忽略doc / notes.txt，而不是doc / server / arch.txt</span></span><br><span class="line">doc/**/*.pdf   <span class="comment">#＃忽略doc /目录及其任何子目录中的所有.pdf文件</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#ff0000;">注：上述文件编辑规则等同与Java正则表达式</span>  </p>
-<h4 id="alas"><a href="#alas" class="headerlink" title="alas"></a>alas</h4><p>我们知道我们执行的一些Git命令其实操作很频繁的类似有:  </p>
+<p><span style="color:#ff0000;">注：上述文件编辑规则等同与Java正则表达式</span></p>
+<h4 id="alas"><a class="header-anchor" href="#alas"></a>alas</h4>
+<p>我们知道我们执行的一些Git命令其实操作很频繁的类似有:</p>
 <blockquote>
-<p>git commit<br>git checkout<br>git branch<br>git status<br>……  </p>
+<p>git commit<br>
+git checkout<br>
+git branch<br>
+git status<br>
+…</p>
 </blockquote>
-<p>这些操作非常频繁,每次都要输入完全是不是有点麻烦,有没有一种简单的缩写输入呢?比如我对应的直接输入以下:  </p>
+<p>这些操作非常频繁,每次都要输入完全是不是有点麻烦,有没有一种简单的缩写输入呢?比如我对应的直接输入以下:</p>
 <blockquote>
-<p>git c<br>git co<br>git br<br>git s<br>……  </p>
+<p>git c<br>
+git co<br>
+git br<br>
+git s<br>
+…</p>
 </blockquote>
-<p>是不是很简单快捷啊?这个时候就用到了alias配置了,翻译过来就是别名的意思,输入以下命令就可以直接满足了以上的需求  </p>
+<p>是不是很简单快捷啊?这个时候就用到了alias配置了,翻译过来就是别名的意思,输入以下命令就可以直接满足了以上的需求</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.co checkout        <span class="comment">#别名</span></span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.br branch</span><br></pre></td></tr></table></figure>
-
-<p>当然以上别名不是固定的,你完全可以根据自己的习惯去定制,除此之外还可以设置组合,比如:  </p>
+<p>当然以上别名不是固定的,你完全可以根据自己的习惯去定制,除此之外还可以设置组合,比如:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.psm <span class="string">'push origin master'</span></span><br><span class="line">git config --global alias.plm <span class="string">'pull origin master'</span></span><br></pre></td></tr></table></figure>
-
-<p>之后经常用到的git push origin master和git pull origin master直接就用git psm和git plm代替了,是不是很方便?  </p>
-<h4 id="冷门操作"><a href="#冷门操作" class="headerlink" title="冷门操作"></a>冷门操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg <span class="string">"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span>        <span class="comment">#查看日志，以后直接输入 git lg 即可</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --author=<span class="string">"teaper"</span> --pretty=tformat: --numstat | awk <span class="string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc &#125;'</span>       <span class="comment">#统计 teaper 代码量</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --pretty=<span class="string">'%aN'</span> | sort -u | wc -l    <span class="comment">#贡献值统计</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --pretty=<span class="string">'%aN'</span> | sort | uniq -c | sort -k1 -n -r | head -n 5    <span class="comment">#查看排名前 5 的贡献者</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p>主要是 <code>clone</code> 项目失败，需要终端进行翻墙，如果是普通 <code>http / https</code> 协议作代理则运行以下命令，端口号要匹配</p>
+<p>之后经常用到的git push origin master和git pull origin master直接就用git psm和git plm代替了,是不是很方便?</p>
+<h4 id="冷门操作"><a class="header-anchor" href="#冷门操作"></a>冷门操作</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg <span class="string">"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span>        <span class="comment">#查看日志，以后直接输入 git lg 即可</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --author=<span class="string">"teaper"</span> --pretty=tformat: --numstat | awk <span class="string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc &#125;'</span>       <span class="comment">#统计 teaper 代码量</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --pretty=<span class="string">'%aN'</span> | sort -u | wc -l    <span class="comment">#贡献值统计</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --pretty=<span class="string">'%aN'</span> | sort | uniq -c | sort -k1 -n -r | head -n 5    <span class="comment">#查看排名前 5 的贡献者</span></span><br></pre></td></tr></table></figure>
+<h4 id="终端代理"><a class="header-anchor" href="#终端代理"></a>终端代理</h4>
+<p>主要是 <code>clone</code> 项目失败，需要终端进行翻墙，如果是普通 <code>http / https</code> 协议作代理则运行以下命令，端口号要匹配</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-
 <p>如果是使用 <code>ss</code> 或 <code>ssr</code> 的 <code>socks5</code> 协议进行翻墙，则运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br></pre></td></tr></table></figure>
-
 <p>取消代理则运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><p>当然还有一些其他有用的配置,默认情况下 git 用的编辑器是vi,如果不喜欢可以改成其他编辑器,比如我习惯vim  </p>
+<h4 id="其他配置"><a class="header-anchor" href="#其他配置"></a>其他配置</h4>
+<p>当然还有一些其他有用的配置,默认情况下 git 用的编辑器是vi,如果不喜欢可以改成其他编辑器,比如我习惯vim</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config  --global    core.editor <span class="string">"vim"</span>       <span class="comment">#设置Editor使用vim</span></span><br></pre></td></tr></table></figure>
-
-<p>你们如果喜欢其他编辑器可自行搜索配置,前提是本机有安装<br>有些人纳闷我的终端怎么有各种颜色,自己却不是这样的,那是因为你们没有开启给Git着色,输入如下命令即可:  </p>
+<p>你们如果喜欢其他编辑器可自行搜索配置,前提是本机有安装<br>
+有些人纳闷我的终端怎么有各种颜色,自己却不是这样的,那是因为你们没有开启给Git着色,输入如下命令即可:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>还有些其他的配置如:  </p>
+<p>还有些其他的配置如:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span>   <span class="comment">#设置显示中文文件名</span></span><br></pre></td></tr></table></figure>
-
-<p>以上基本所有的配置就差不多了,默认这些配置都在 ~/.gitconfig文件下的,你可以找到这个文件查看自己的配置,也可以输入 <code>git config -l</code> 命令查看  </p>
-<h4 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h4><p>diff命令算是很常用的,使用场景是我们经常在做代码改动,但是有的时候2天前的代码了,做了哪些改动都忘记了,在提交之前需要确认下,这个时候就可以用diff来查看你到底做了哪些改动,举个例子,比如我有一个a.md的文件,我现在做了一些改动,然后输入git diff就会看到如下:<br><img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u86o0a1j30bd03kgll.jpg" alt="diff"><br>红色的部分前面有个-代表我删除的,绿色的部分前面有个+代表我增加的,所以从这里你们很一目了然的知道我到底对这个文件做了哪些改动<br>值得一提的是直接输入git diff只能比较当前文件和暂存区文件差异,什么是暂存区?就是你还没有执行git add的文件<br>当然跟暂存区做比较之外,他还可以有其他用法,如比较两次commit之间的差异,比较两个分支之间的差异,比较暂存区和版本库之间的差异等,具体用法如下:  </p>
+<p>以上基本所有的配置就差不多了,默认这些配置都在 ~/.gitconfig文件下的,你可以找到这个文件查看自己的配置,也可以输入 <code>git config -l</code> 命令查看</p>
+<h4 id="diff"><a class="header-anchor" href="#diff"></a>diff</h4>
+<p>diff命令算是很常用的,使用场景是我们经常在做代码改动,但是有的时候2天前的代码了,做了哪些改动都忘记了,在提交之前需要确认下,这个时候就可以用diff来查看你到底做了哪些改动,举个例子,比如我有一个a.md的文件,我现在做了一些改动,然后输入git diff就会看到如下:<br>
+<img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u86o0a1j30bd03kgll.jpg" alt="diff"><br>
+红色的部分前面有个-代表我删除的,绿色的部分前面有个+代表我增加的,所以从这里你们很一目了然的知道我到底对这个文件做了哪些改动<br>
+值得一提的是直接输入git diff只能比较当前文件和暂存区文件差异,什么是暂存区?就是你还没有执行git add的文件<br>
+当然跟暂存区做比较之外,他还可以有其他用法,如比较两次commit之间的差异,比较两个分支之间的差异,比较暂存区和版本库之间的差异等,具体用法如下:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;<span class="variable">$id1</span>&gt;  &lt;<span class="variable">$id2</span>&gt;          <span class="comment">#   比较两次提交之间的差异</span></span><br><span class="line">git diff &lt;branch1&gt;..&lt;branch2&gt;    <span class="comment">#   在两个分支之间比较</span></span><br><span class="line">git diff --staged            <span class="comment">#   比较暂存区和版本库差异</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h4><p>我们知道checkout一般用作切换分支使用,比如切换到develop 分支,可以执行:  </p>
+<h4 id="checkout"><a class="header-anchor" href="#checkout"></a>checkout</h4>
+<p>我们知道checkout一般用作切换分支使用,比如切换到develop 分支,可以执行:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br></pre></td></tr></table></figure>
-
-<p>但是checkout不只用作切换分支,他可以用来切换tag,切换到某次commit,如:  </p>
+<p>但是checkout不只用作切换分支,他可以用来切换tag,切换到某次commit,如:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout v1.0</span><br><span class="line">git checkout ffd9f2dd68f1eb21d36cee50dbdd504e95d9c8f7    <span class="comment">#后面的一长串是commit_id,可以根据git log看到</span></span><br></pre></td></tr></table></figure>
-
-<p>除了有“切换”的意思,checkout还有一个撤销的作用,举个例子,假设我们在一个分支开发一个小功能,刚写完一半,这时候需求变了,而且是大变化,之前写的代码完全用不了了,好在你刚写,甚至都没有 git add进暂存区,这个时候很简单的一个操作就直接把原文件还原:  </p>
+<p>除了有“切换”的意思,checkout还有一个撤销的作用,举个例子,假设我们在一个分支开发一个小功能,刚写完一半,这时候需求变了,而且是大变化,之前写的代码完全用不了了,好在你刚写,甚至都没有 git add进暂存区,这个时候很简单的一个操作就直接把原文件还原:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout a.md</span><br></pre></td></tr></table></figure>
-
-<p>这里稍微提下,checkout命令只能撤销还没有add进暂存区的文件  </p>
-<h4 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h4><p>假设我们正在一个新的分支做新的功能,这个时候突然有一个紧急的bug需要修复,而且修复完之后需要立即发布。当然你说我先把刚写的一点代码进行提交不就行了么?这样理论上当然是ok的,但是这会产品垃圾commit,原则上我们每次的commit都要有实际的意义,你的代码只是刚写了一半,还没有什么实际的意义是不建议就这样commit的,那么有没有一种比较好的办法,可以让我暂时切到别的分支,修复完bug再切回来,而且代码也能保留的呢?  </p>
-<p>这个时候stash命令就大有用处了,前提是我们的代码没有进行commit,哪怕你执行了add 也没关系,我们先执行  </p>
+<p>这里稍微提下,checkout命令只能撤销还没有add进暂存区的文件</p>
+<h4 id="stash"><a class="header-anchor" href="#stash"></a>stash</h4>
+<p>假设我们正在一个新的分支做新的功能,这个时候突然有一个紧急的bug需要修复,而且修复完之后需要立即发布。当然你说我先把刚写的一点代码进行提交不就行了么?这样理论上当然是ok的,但是这会产品垃圾commit,原则上我们每次的commit都要有实际的意义,你的代码只是刚写了一半,还没有什么实际的意义是不建议就这样commit的,那么有没有一种比较好的办法,可以让我暂时切到别的分支,修复完bug再切回来,而且代码也能保留的呢?</p>
+<p>这个时候stash命令就大有用处了,前提是我们的代码没有进行commit,哪怕你执行了add 也没关系,我们先执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash  <span class="comment">#暂时保存工作区</span></span><br></pre></td></tr></table></figure>
-
-<p>命令,什么意思呢?意思就是把当前分支所有没有 commit 的代码先暂存起来,这个时候你再执行git status你会发现当前分支很干净,几乎看不到任何改动,你的代码改动也看不见了,但其实是暂存起来了。执行  </p>
+<p>命令,什么意思呢?意思就是把当前分支所有没有 commit 的代码先暂存起来,这个时候你再执行git status你会发现当前分支很干净,几乎看不到任何改动,你的代码改动也看不见了,但其实是暂存起来了。执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list    <span class="comment">#查看暂存记录</span></span><br></pre></td></tr></table></figure>
-
-<p>你会发现此时暂存区已经有了一条记录。<br>这个时候你可以切换会其他分支,赶紧把bug修复好,然后发布。之后一切都解决了,你再切换回来继续做你之前没做完的功能,但是之前的代码怎么还原呢?  </p>
+<p>你会发现此时暂存区已经有了一条记录。<br>
+这个时候你可以切换会其他分支,赶紧把bug修复好,然后发布。之后一切都解决了,你再切换回来继续做你之前没做完的功能,但是之前的代码怎么还原呢?</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply   #还原工作区</span><br></pre></td></tr></table></figure>
-
-<p>你会发现你之前的代码全部又回来了,就好像一切都没发生过一样,紧接着你最好需要把暂存区的这次stash记录删除,执行:  </p>
+<p>你会发现你之前的代码全部又回来了,就好像一切都没发生过一样,紧接着你最好需要把暂存区的这次stash记录删除,执行:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash drop      <span class="comment">#删除暂存记录</span></span><br></pre></td></tr></table></figure>
-
-<p>就把最近一条的stash记录删除了,是不是很方便?其实还有更方便的,你可以使用:  </p>
+<p>就把最近一条的stash记录删除了,是不是很方便?其实还有更方便的,你可以使用:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop    <span class="comment">#还原工作区并删除暂存记录</span></span><br></pre></td></tr></table></figure>
-
-<p>来代替apply命令,pop跟apply的唯一区别就是pop不但会帮你把代码还原,还自动帮你把这条stash记录删除,省的自己再drop list命令来确认是不是已经没有记录了<br>最后还有一个命令介绍下:  </p>
+<p>来代替apply命令,pop跟apply的唯一区别就是pop不但会帮你把代码还原,还自动帮你把这条stash记录删除,省的自己再drop list命令来确认是不是已经没有记录了<br>
+最后还有一个命令介绍下:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash clear   <span class="comment">#清空所有暂存记录</span></span><br></pre></td></tr></table></figure>
-
-<p>就是清空所有暂存区的记录,drop是只删除一条,当然后面可以跟stash_id参数来删除指定的某条记录,不跟参数就是删除最近的,而clear是清空  </p>
-<h4 id="merge-和-rebase"><a href="#merge-和-rebase" class="headerlink" title="merge 和 rebase"></a>merge 和 rebase</h4><p>我们知道merge分支是合并的意思,我们在一个featureA分支开发完了一个功能,这个时候需要合并到主分支master上去,我们只需要进行如下操作:  </p>
+<p>就是清空所有暂存区的记录,drop是只删除一条,当然后面可以跟stash_id参数来删除指定的某条记录,不跟参数就是删除最近的,而clear是清空</p>
+<h4 id="merge-和-rebase"><a class="header-anchor" href="#merge-和-rebase"></a>merge 和 rebase</h4>
+<p>我们知道merge分支是合并的意思,我们在一个featureA分支开发完了一个功能,这个时候需要合并到主分支master上去,我们只需要进行如下操作:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge featureA</span><br></pre></td></tr></table></figure>
-
-<p>其实rebase命令也是合并的意思,上面的需求我们一样可以如下操作:  </p>
+<p>其实rebase命令也是合并的意思,上面的需求我们一样可以如下操作:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git rebase featureA</span><br></pre></td></tr></table></figure>
-
-<p>rebase跟merge的区别你们可以理解成有两个书架,你需要把两个书架的书整理到一起去,第一种做法是merge,比较粗鲁暴力,就直接腾出一块地方把另一个书架的书全部放进去,虽然暴力,但是这种做法你可以知道哪些书是来自另一个书架的;第二种做法就是rebase,他会把两个书架的书先进行比较,按照购书的时间来给他重新排序,然后重新放置好,这样做的好处就是合并之后的书架看起来很有逻辑,但是你很难清晰的知道哪些书来自哪个书架的  </p>
-<p>只能说各有好处的,不同的团队根据不同的需要以及不同的习惯来选择就好  </p>
-<h4 id="解决合并冲突"><a href="#解决合并冲突" class="headerlink" title="解决合并冲突"></a>解决合并冲突</h4><p>假设这样一个场景,A和B两位同学各自开了两个分支来开发不同的功能,大部分情况下都会尽量互不干扰的,但是有一个需求A需要改动一个基础库中的一个类的方法,不巧B这个时候由于业务需要也改动了基础库的这个方法,因为这种情况比较特殊,A和B都认为不会对地方造成影响,等两人各自把功能做完了,需要合并的到主分支master的时候,我们假设先合并A的分支,这个时候没问题的,之后再继续合并B的分支,这个时候想想也知道就有冲突了,因为A和B两个人同时更改了同一个地方,Git 本身他没法判断你们两个谁更改的对,但是这个时候他会智能的提示有conflicts,需要手动解决这个冲突之后再重新进行一次commit提交。我随便在项目搞了一个冲突做下示例:  </p>
+<p>rebase跟merge的区别你们可以理解成有两个书架,你需要把两个书架的书整理到一起去,第一种做法是merge,比较粗鲁暴力,就直接腾出一块地方把另一个书架的书全部放进去,虽然暴力,但是这种做法你可以知道哪些书是来自另一个书架的;第二种做法就是rebase,他会把两个书架的书先进行比较,按照购书的时间来给他重新排序,然后重新放置好,这样做的好处就是合并之后的书架看起来很有逻辑,但是你很难清晰的知道哪些书来自哪个书架的</p>
+<p>只能说各有好处的,不同的团队根据不同的需要以及不同的习惯来选择就好</p>
+<h4 id="解决合并冲突"><a class="header-anchor" href="#解决合并冲突"></a>解决合并冲突</h4>
+<p>假设这样一个场景,A和B两位同学各自开了两个分支来开发不同的功能,大部分情况下都会尽量互不干扰的,但是有一个需求A需要改动一个基础库中的一个类的方法,不巧B这个时候由于业务需要也改动了基础库的这个方法,因为这种情况比较特殊,A和B都认为不会对地方造成影响,等两人各自把功能做完了,需要合并的到主分支master的时候,我们假设先合并A的分支,这个时候没问题的,之后再继续合并B的分支,这个时候想想也知道就有冲突了,因为A和B两个人同时更改了同一个地方,Git 本身他没法判断你们两个谁更改的对,但是这个时候他会智能的提示有conflicts,需要手动解决这个冲突之后再重新进行一次commit提交。我随便在项目搞了一个冲突做下示例:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/<span class="built_in">test</span>$ git merge feature  <span class="comment">#合并feature分支发生冲突,在a.md文件上</span></span><br><span class="line">Auto-merging a.md</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> a.md</span><br><span class="line">Automatic merge failed; fix conflicts and <span class="keyword">then</span> commit the result.</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="什么是分支"><a href="#什么是分支" class="headerlink" title="什么是分支"></a>什么是分支</h4><p>我们知道孙悟空有七十二变,可以幻化万千猴子,每只猴子都和本体一模一样,本体也就是默认分支master,而从master上创建的分支develop的内容和master是一样的,也可以简单理解成复制,当猴子们打败了天兵之后,就会重新回到真身,我们把这个过程称之为合并  </p>
-<h4 id="分支的常用操作"><a href="#分支的常用操作" class="headerlink" title="分支的常用操作"></a>分支的常用操作</h4><p>我们默认都会有一个主分支叫 master,下面我们先来看下关于分支的一些基本操作:  </p>
+<h4 id="什么是分支"><a class="header-anchor" href="#什么是分支"></a>什么是分支</h4>
+<p>我们知道孙悟空有七十二变,可以幻化万千猴子,每只猴子都和本体一模一样,本体也就是默认分支master,而从master上创建的分支develop的内容和master是一样的,也可以简单理解成复制,当猴子们打败了天兵之后,就会重新回到真身,我们把这个过程称之为合并</p>
+<h4 id="分支的常用操作"><a class="header-anchor" href="#分支的常用操作"></a>分支的常用操作</h4>
+<p>我们默认都会有一个主分支叫 master,下面我们先来看下关于分支的一些基本操作:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch  develop     <span class="comment">#新建一个叫develop的分支</span></span><br></pre></td></tr></table></figure>
-
-<p>这里稍微提醒下大家,新建分支的命令是基于当前所在分支的基础上进行的,即以上是基于mater分支新建了一个叫做develop的分支,此时develop分支跟 master分支的内容完全一样。如果你有A、B、C三个分支,三个分支是三位同学的,各分支内容不一样,如果你当前是在B分支,如果执行新建分支命令,则新建的分支内容跟B分支是一样的,同理如果当前所在是C分支,那就是基于C分支基础上新建的分支  </p>
+<p>这里稍微提醒下大家,新建分支的命令是基于当前所在分支的基础上进行的,即以上是基于mater分支新建了一个叫做develop的分支,此时develop分支跟 master分支的内容完全一样。如果你有A、B、C三个分支,三个分支是三位同学的,各分支内容不一样,如果你当前是在B分支,如果执行新建分支命令,则新建的分支内容跟B分支是一样的,同理如果当前所在是C分支,那就是基于C分支基础上新建的分支</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop    <span class="comment">#切换到develop分支</span></span><br></pre></td></tr></table></figure>
-
-<p>如果把以上两步合并,即新建并且自动切换到develop分支:  </p>
+<p>如果把以上两步合并,即新建并且自动切换到develop分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop    <span class="comment">#创建并切换到新分支</span></span><br></pre></td></tr></table></figure>
-
-<p>把develop分支推送到远程仓库  </p>
+<p>把develop分支推送到远程仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin develop</span><br></pre></td></tr></table></figure>
-
-<p>如果你远程的分支想取名叫develop2,那执行以下代码:  </p>
+<p>如果你远程的分支想取名叫develop2,那执行以下代码:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin develop:develop2</span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#ff0000;">但是强烈不建议这样,这会导致很混乱,很难管理,所以建议本地分支跟远程分支名要保持一致</span>  </p>
+<p><span style="color:#ff0000;">但是强烈不建议这样,这会导致很混乱,很难管理,所以建议本地分支跟远程分支名要保持一致</span></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch          <span class="comment">#查看本地分支列表</span></span><br><span class="line">git branch -r       <span class="comment">#查看远程分支列表</span></span><br><span class="line">git branch -d develop     <span class="comment">#删除本地分支</span></span><br><span class="line">git branch -D develop     <span class="comment">#强制删除本地分支</span></span><br><span class="line">git push origin :develop    <span class="comment">#删除远程分支</span></span><br></pre></td></tr></table></figure>
-
-<p>如果远程分支有个develop,而本地没有,你想把远程的develop分支迁到本地:  </p>
+<p>如果远程分支有个develop,而本地没有,你想把远程的develop分支迁到本地:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop origin/develop</span><br></pre></td></tr></table></figure>
-
-<p>同样的把远程分支迁到本地顺便切换到该分支:  </p>
+<p>同样的把远程分支迁到本地顺便切换到该分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop origin/develop</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="团队协作流程"><a href="#团队协作流程" class="headerlink" title="团队协作流程"></a>团队协作流程</h4><p>一般来说,如果你是一个人开发,可能只需要master、develop两个分支就ok了,平时开发在develop分支进行,开发完成之后,发布之前合并到master分支,这个流程没啥大问题<br>如果你是3、5个人,那就不一样了,有人说也没多大问题啊,直接可以新建A、B、C三个人的分支啊,每人各自开发各自的分支,然后开发完成之后再逐步合并到master分支<br>然而现实却是,你正在某个分支开发某个功能呢,这时候突然发现线上有一个很严重的bug ,不得不停下手头的工作优先处理bug,而且很多时候多人协作下如果没有一个规范,很容易产生问题,所以多人协作下的分支管理规范很重要,就跟代码规范一样重要,以下就跟大家推荐一种我们内部在使用的一种分支管理流程Git Flow  </p>
-<h4 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h4><p>Git Flow是一种比较成熟的分支管理流程,我们先看一张图能清晰的描述他整个的工作流程:<br><img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u8v1z5ej30gz0mn47e.jpg" alt="git flow"><br>第一次看上面那个图是不是一脸懵逼?跟我当时一样,不急,我来用简单的话给你们解释下  </p>
-<p>一般开发来说,大部分情况下都会拥有两个分支master和develop,他们的职责分别是:  </p>
+<h4 id="团队协作流程"><a class="header-anchor" href="#团队协作流程"></a>团队协作流程</h4>
+<p>一般来说,如果你是一个人开发,可能只需要master、develop两个分支就ok了,平时开发在develop分支进行,开发完成之后,发布之前合并到master分支,这个流程没啥大问题<br>
+如果你是3、5个人,那就不一样了,有人说也没多大问题啊,直接可以新建A、B、C三个人的分支啊,每人各自开发各自的分支,然后开发完成之后再逐步合并到master分支<br>
+然而现实却是,你正在某个分支开发某个功能呢,这时候突然发现线上有一个很严重的bug ,不得不停下手头的工作优先处理bug,而且很多时候多人协作下如果没有一个规范,很容易产生问题,所以多人协作下的分支管理规范很重要,就跟代码规范一样重要,以下就跟大家推荐一种我们内部在使用的一种分支管理流程Git Flow</p>
+<h4 id="Git-Flow"><a class="header-anchor" href="#Git-Flow"></a>Git Flow</h4>
+<p>Git Flow是一种比较成熟的分支管理流程,我们先看一张图能清晰的描述他整个的工作流程:<br>
+<img src="http://ww1.sinaimg.cn/large/006kWbIogy1g18u8v1z5ej30gz0mn47e.jpg" alt="git flow"><br>
+第一次看上面那个图是不是一脸懵逼?跟我当时一样,不急,我来用简单的话给你们解释下</p>
+<p>一般开发来说,大部分情况下都会拥有两个分支master和develop,他们的职责分别是:</p>
 <blockquote>
-<p><strong>master</strong>:永远处在即将发布(production-ready)状态<br><strong>develop</strong>:最新的开发状态   </p>
+<p><strong>master</strong>:永远处在即将发布(production-ready)状态<br>
+<strong>develop</strong>:最新的开发状态</p>
 </blockquote>
-<p>确切的说master、develop分支大部分情况下都会保持一致,只有在上线前的测试阶段develop比master的代码要多,一旦测试没问题,准备发布了,这时候会将develop合并到master上  </p>
-<p>但是我们发布之后又会进行下一版本的功能开发,开发中间可能又会遇到需要紧急修复bug,一个功能开发完成之后突然需求变动了等情况,所以Git Flow除了以上master和develop两个主要分支以外,还提出了以下三个辅助分支:  </p>
+<p>确切的说master、develop分支大部分情况下都会保持一致,只有在上线前的测试阶段develop比master的代码要多,一旦测试没问题,准备发布了,这时候会将develop合并到master上</p>
+<p>但是我们发布之后又会进行下一版本的功能开发,开发中间可能又会遇到需要紧急修复bug,一个功能开发完成之后突然需求变动了等情况,所以Git Flow除了以上master和develop两个主要分支以外,还提出了以下三个辅助分支:</p>
 <blockquote>
-<p><strong>feature</strong>:开发新功能的分支,基于develop,完成后merge回develop<br><strong>release</strong>:准备要发布版本的分支,用来修复bug,基于develop,完成后merge回develop和master<br><strong>hotfix</strong>:修复master上的问题,等不及release版本就必须马上上线.基于master,完成后merge回master和develop  </p>
+<p><strong>feature</strong>:开发新功能的分支,基于develop,完成后merge回develop<br>
+<strong>release</strong>:准备要发布版本的分支,用来修复bug,基于develop,完成后merge回develop和master<br>
+<strong>hotfix</strong>:修复master上的问题,等不及release版本就必须马上上线.基于master,完成后merge回master和develop</p>
 </blockquote>
-<p>什么意思呢?<br>举个例子,假设我们已经有master和develop两个分支了,这个时候我们准备做一个功能A,第一步我们要做的,就是基于develop分支新建个分支:  </p>
+<p>什么意思呢?<br>
+举个例子,假设我们已经有master和develop两个分支了,这个时候我们准备做一个功能A,第一步我们要做的,就是基于develop分支新建个分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch  feature/A    <span class="comment">#创建功能A分支</span></span><br></pre></td></tr></table></figure>
-
-<p>看到了吧,其实就是一个规范,规定了所有开发的功能分支都以feature为前缀<br>但是这个时候做着做着发现线上有一个紧急的bug需要修复,那赶紧停下手头的工作,立刻切换到master分支,然后再此基础上新建一个分支:  </p>
+<p>看到了吧,其实就是一个规范,规定了所有开发的功能分支都以feature为前缀<br>
+但是这个时候做着做着发现线上有一个紧急的bug需要修复,那赶紧停下手头的工作,立刻切换到master分支,然后再此基础上新建一个分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch  hotfix/B    <span class="comment">#创建修复B分支</span></span><br></pre></td></tr></table></figure>
-
-<p>代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布  </p>
-<p>然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:  </p>
+<p>代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布</p>
+<p>然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch  release/1.0</span><br></pre></td></tr></table></figure>
-
-<p>这个时候所有的 api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布  </p>
-<p>以上就是Git Flow的概念与大概流程,看起来很复杂,但是对于人数比较多的团队协作现实开发中确实会遇到这么复杂的情况,是目前很流行的一套分支管理流程,但是有人会问每次都要各种操作,合并来合并去,有点麻烦,哈哈,这点Git Flow早就想到了,为此还专门推出了一个Git Flow的工具,并且是开源的:  </p>
-<p>GitHub开源地址:<a href="https://github.com/nvie/gitflow" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/nvie/gitflow</a><br>各系统具体<a href="https://github.com/nvie/gitflow/wiki/Installation" rel="external nofollow noopener noreferrer" target="_blank">安装方法</a>  </p>
-<p>简单点来说,就是这个工具帮我们省下了很多步骤,比如我们当前做了一个项目,需要用git进行管理,首先就要init初始化一个项目,然后要在默认的master分支上创建develop分支及其他辅助分支,分支之间又要合并,十分麻烦,容易混乱,有了Git Flow直接如下操作完成了:  </p>
+<p>这个时候所有的 api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布</p>
+<p>以上就是Git Flow的概念与大概流程,看起来很复杂,但是对于人数比较多的团队协作现实开发中确实会遇到这么复杂的情况,是目前很流行的一套分支管理流程,但是有人会问每次都要各种操作,合并来合并去,有点麻烦,哈哈,这点Git Flow早就想到了,为此还专门推出了一个Git Flow的工具,并且是开源的:</p>
+<p>GitHub开源地址:<a href="https://github.com/nvie/gitflow" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/nvie/gitflow</a><br>
+各系统具体<a href="https://github.com/nvie/gitflow/wiki/Installation" rel="external nofollow noopener noreferrer" target="_blank">安装方法</a></p>
+<p>简单点来说,就是这个工具帮我们省下了很多步骤,比如我们当前做了一个项目,需要用git进行管理,首先就要init初始化一个项目,然后要在默认的master分支上创建develop分支及其他辅助分支,分支之间又要合并,十分麻烦,容易混乱,有了Git Flow直接如下操作完成了:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">语法:git flow init [-d]    <span class="comment">#-d标志将接受所有默认值</span></span><br><span class="line"> </span><br><span class="line">-----------------------------------------运行------------------------------------------</span><br><span class="line">~/<span class="built_in">test</span>$ git flow init      <span class="comment">#使用flow初始化git仓库</span></span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /home/teaper/Desktop/Untitled Folder/.git/</span><br><span class="line">No branches exist yet. Base branches must be created now.</span><br><span class="line">Branch name <span class="keyword">for</span> production releases: [master]      <span class="comment">#询问你是否创建master分支,一路回车即可</span></span><br><span class="line">Branch name <span class="keyword">for</span> <span class="string">"next release"</span> development: [develop]</span><br><span class="line"> </span><br><span class="line">How to name your supporting branch prefixes?</span><br><span class="line">Feature branches? [feature/]</span><br><span class="line">Bugfix branches? [bugfix/]</span><br><span class="line">Release branches? [release/]</span><br><span class="line">Hotfix branches? [hotfix/]</span><br><span class="line">Support branches? [support/]</span><br><span class="line">Version tag prefix? []</span><br><span class="line">Hooks and filters directory? [/home/teaper/Desktop/Untitled Folder/.git/hooks]</span><br><span class="line">~/<span class="built_in">test</span>$ git br   <span class="comment">#查看分支,会发现已经创建并切换到了develop分支</span></span><br><span class="line">* develop</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
-
-<p>假如我们当前处于develop或master分支,如果想要开发一个新的功能,第一步切换到develop分支,第二步新建一个以feature开头的分支名,有了Git Flow直接如下操作完成了:  </p>
+<p>假如我们当前处于develop或master分支,如果想要开发一个新的功能,第一步切换到develop分支,第二步新建一个以feature开头的分支名,有了Git Flow直接如下操作完成了:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow feature start A     <span class="comment">#创建功能A分支</span></span><br></pre></td></tr></table></figure>
-
-<p>这个分支完成之后,需要合并到develop分支,然而直接进行如下操作就行:  </p>
+<p>这个分支完成之后,需要合并到develop分支,然而直接进行如下操作就行:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow feature finish A      <span class="comment">#将功能A分支合并到develop,并且删除功能A分支</span></span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#ff0000;">注意:创建功能A分支后,还是要把A分支内项目commit到版本库,才能执行git flow feature finish A ;如果是hotfix或者release分支,只需要把上面命令中的feature替换即可,最后会自动帮你合并到develop、master两个分支</span>  </p>
-<p>如果需要将功能分支推/拉到远程存储库，请使用：  </p>
+<p><span style="color:#ff0000;">注意:创建功能A分支后,还是要把A分支内项目commit到版本库,才能执行git flow feature finish A ;如果是hotfix或者release分支,只需要把上面命令中的feature替换即可,最后会自动帮你合并到develop、master两个分支</span></p>
+<p>如果需要将功能分支推/拉到远程存储库，请使用：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git flow feature publish &lt;name&gt;</span><br><span class="line">git flow feature pull &lt;remote&gt; &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#ff0000;">这个我们一般不会去用它,都是等功能合并到master后一并推送</span>  </p>
+<p><span style="color:#ff0000;">这个我们一般不会去用它,都是等功能合并到master后一并推送</span></p>
 
   </article>
 </div>

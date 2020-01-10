@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -160,52 +160,52 @@
 
   <article class="post-content">
     <h1 style="text-align:center">VPS主机搭建Telegram机器人</h1>
-    <p>之前我搭建过 SSR / V2ray ，在 <a href="https://my.vultr.com/" rel="external nofollow noopener noreferrer" target="_blank">vultr</a> 还有一个VPS主机闲置着，刚好最近想搞个 <a href="https://telegram.org/" rel="external nofollow noopener noreferrer" target="_blank">Telegram</a> 机器人，思来想去，还是决创建个 <a href="https://zh.wikipedia.org/zh/RSS" rel="external nofollow noopener noreferrer" target="_blank">RSS</a> 订阅的机器人，帮助订阅网络专栏，顺便同步到电报群里!  </p>
+    <p>之前我搭建过 SSR / V2ray ，在 <a href="https://my.vultr.com/" rel="external nofollow noopener noreferrer" target="_blank">vultr</a> 还有一个VPS主机闲置着，刚好最近想搞个 <a href="https://telegram.org/" rel="external nofollow noopener noreferrer" target="_blank">Telegram</a> 机器人，思来想去，还是决创建个 <a href="https://zh.wikipedia.org/zh/RSS" rel="external nofollow noopener noreferrer" target="_blank">RSS</a> 订阅的机器人，帮助订阅网络专栏，顺便同步到电报群里!</p>
 <blockquote>
-<p>如果还不了解RSS，推荐——<a href="http://www.ruanyifeng.com/blog/2006/01/rss.html" rel="external nofollow noopener noreferrer" target="_blank">【如何使用RSS - 阮一峰的网络日志】</a>  </p>
+<p>如果还不了解RSS，推荐——<a href="http://www.ruanyifeng.com/blog/2006/01/rss.html" rel="external nofollow noopener noreferrer" target="_blank">【如何使用RSS - 阮一峰的网络日志】</a></p>
 </blockquote>
-<h4 id="BotFather"><a href="#BotFather" class="headerlink" title="BotFather"></a>BotFather</h4><p>Telegram 中管理所有机器人的用户叫 <code>BotFather</code> ，它本质也是一个机器人，我们通过它创建子机器人，以及配置机器人信息和 API 接口等，所以首先需要找到它  </p>
-<p>在 Telegram 搜索框搜 <code>@BotFather</code> 会查询出相关的用户，选择第一个带官方星号的  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517i12g03j30ai0azmy3.jpg" alt>  </p>
-<p>在聊天窗口，输入 <code>/newbot</code> 按回车发送消息，会提示输入机器人名称<span style="color:#ff0000">（名称可以中文）</span>，我这里是 <code>rssBot</code> ，之后会提示输入机器人用户名<span style="color:#ff0000">（用户名只能英文，并且没有被人使用，必须以 Bot结尾）</span>，我这里是 <code>teaperRssBot</code> ，本来想用 <code>rssBot</code> ，被人使用了，之后会出现一段机器人相关信息，点击蓝色的 <a href="http://t.me/teaperRssBot" rel="external nofollow noopener noreferrer" target="_blank">t.me/teaperRssBot</a> 可以打开机器人聊天界面  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517tim9mtj30y70h9jvi.jpg" alt>  </p>
-<p>其中的 <code>809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs</code> 是 <code>token</code> 信息，记得保存好，不要透露给别人<span style="color:#ff0000">（像博主这样不打码是要打屁股的）</span>，之后会用到  </p>
-<h4 id="配置机器人"><a href="#配置机器人" class="headerlink" title="配置机器人"></a>配置机器人</h4><p>输入 <code>/mybots</code> 会列出你所有的机器人，我只有一个，所以直接跳过，进入 <code>teaperRssBot</code> 设置  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517zgdittj30y708p75h.jpg" alt>  </p>
-<p>出现六个按钮，我简单说明一下  </p>
+<h4 id="BotFather"><a class="header-anchor" href="#BotFather"></a>BotFather</h4>
+<p>Telegram 中管理所有机器人的用户叫 <code>BotFather</code> ，它本质也是一个机器人，我们通过它创建子机器人，以及配置机器人信息和 API 接口等，所以首先需要找到它</p>
+<p>在 Telegram 搜索框搜 <code>@BotFather</code> 会查询出相关的用户，选择第一个带官方星号的</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517i12g03j30ai0azmy3.jpg" alt></p>
+<p>在聊天窗口，输入 <code>/newbot</code> 按回车发送消息，会提示输入机器人名称<span style="color:#ff0000">（名称可以中文）</span>，我这里是 <code>rssBot</code> ，之后会提示输入机器人用户名<span style="color:#ff0000">（用户名只能英文，并且没有被人使用，必须以 Bot结尾）</span>，我这里是 <code>teaperRssBot</code> ，本来想用 <code>rssBot</code> ，被人使用了，之后会出现一段机器人相关信息，点击蓝色的 <a href="http://t.me/teaperRssBot" rel="external nofollow noopener noreferrer" target="_blank">t.me/teaperRssBot</a> 可以打开机器人聊天界面</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517tim9mtj30y70h9jvi.jpg" alt></p>
+<p>其中的 <code>809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs</code> 是 <code>token</code> 信息，记得保存好，不要透露给别人<span style="color:#ff0000">（像博主这样不打码是要打屁股的）</span>，之后会用到</p>
+<h4 id="配置机器人"><a class="header-anchor" href="#配置机器人"></a>配置机器人</h4>
+<p>输入 <code>/mybots</code> 会列出你所有的机器人，我只有一个，所以直接跳过，进入 <code>teaperRssBot</code> 设置</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g517zgdittj30y708p75h.jpg" alt></p>
+<p>出现六个按钮，我简单说明一下</p>
 <blockquote>
-<p>Edit Name：设置机器人名称，例如修改为 <code>白素贞</code> ，直接点击按钮，输入名称回车即可<br>Edit Description：设置机器人说明<br>Edit About：设置关于机器人，会显示在机器账号简介中<br>Edit Botpic：设置机器人头像，图片最好是正方形的，需要通过截图/复制图片的方式复制到剪贴板，然后粘贴到输入框中发送才可以<br>Edit Commands：设置机器人命令，可以显示在输入框里，如下图所示  </p>
+<p>Edit Name：设置机器人名称，例如修改为 <code>白素贞</code> ，直接点击按钮，输入名称回车即可<br>
+Edit Description：设置机器人说明<br>
+Edit About：设置关于机器人，会显示在机器账号简介中<br>
+Edit Botpic：设置机器人头像，图片最好是正方形的，需要通过截图/复制图片的方式复制到剪贴板，然后粘贴到输入框中发送才可以<br>
+Edit Commands：设置机器人命令，可以显示在输入框里，如下图所示</p>
 </blockquote>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g518casj8yj30xm069gm7.jpg" alt>  </p>
-<p>除了最后一个 <code>Edit Commands</code> 之外，前面四个都可以现在设置  </p>
-<h4 id="搭建RssBot"><a href="#搭建RssBot" class="headerlink" title="搭建RssBot"></a>搭建RssBot</h4><p>使用 <code>ssh</code> 登录 VPS 服务器  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g518casj8yj30xm069gm7.jpg" alt></p>
+<p>除了最后一个 <code>Edit Commands</code> 之外，前面四个都可以现在设置</p>
+<h4 id="搭建RssBot"><a class="header-anchor" href="#搭建RssBot"></a>搭建RssBot</h4>
+<p>使用 <code>ssh</code> 登录 VPS 服务器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@139.180.166.23     <span class="comment">#登录服务器</span></span><br></pre></td></tr></table></figure>
-
-<p>登录成功创建一个 RSS 文件夹，用于存放相关脚本  </p>
+<p>登录成功创建一个 RSS 文件夹，用于存放相关脚本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir rss &amp;&amp; <span class="built_in">cd</span> rss     <span class="comment">#创建并进入rss文件夹</span></span><br></pre></td></tr></table></figure>
-
-<p>浏览器进入 <a href="https://github.com/iovxw/rssbot/releases" rel="external nofollow noopener noreferrer" target="_blank">RssBot 发布页</a>查看最新版本的 ZIP 压缩包，使用 <code>wget</code> 下载  </p>
+<p>浏览器进入 <a href="https://github.com/iovxw/rssbot/releases" rel="external nofollow noopener noreferrer" target="_blank">RssBot 发布页</a>查看最新版本的 ZIP 压缩包，使用 <code>wget</code> 下载</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/iovxw/rssbot/releases/download/v1.4.4/rssbot-v1.4.4-linux.zip   <span class="comment">#下载压缩包</span></span><br><span class="line">unzip rssbot-v1.4.4-linux.zip   <span class="comment">#解压缩到当前文件夹</span></span><br><span class="line">./rssbot DATAFILE TELEGRAM-BOT-TOKEN  <span class="comment">#测试运行</span></span><br></pre></td></tr></table></figure>
-
-<p>最后一条测试运行命令的 <code>TELEGRAM-BOT-TOKEN</code> 替换成电报机器人的 <strong>token</strong> ，也就是上面的 <code>809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs</code> ，完整命令如下：  </p>
+<p>最后一条测试运行命令的 <code>TELEGRAM-BOT-TOKEN</code> 替换成电报机器人的 <strong>token</strong> ，也就是上面的 <code>809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs</code> ，完整命令如下：</p>
 <blockquote>
-<p> ./rssbot DATAFILE 809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs  </p>
+<p>./rssbot DATAFILE 809357392:AAFdLHw96jES6BEgljDgc0t-lbkHona5qZs</p>
 </blockquote>
-<p>测试运行看不到日志输出的，不用担心，回到电报用户 <code>@BotFather</code> 聊天框，设置 <code>@teapeRssBot</code> 的命令，点击 <code>Edit Commands</code> 按钮，将下方命令粘贴到输入框回车即可  </p>
+<p>测试运行看不到日志输出的，不用担心，回到电报用户 <code>@BotFather</code> 聊天框，设置 <code>@teapeRssBot</code> 的命令，点击 <code>Edit Commands</code> 按钮，将下方命令粘贴到输入框回车即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rss       - 显示当前订阅的 RSS 列表，加 raw 参数显示链接</span><br><span class="line">sub       - 订阅一个 RSS: /sub http://example.com/feed.xml</span><br><span class="line">unsub     - 退订一个 RSS: /unsub http://example.com/feed.xml</span><br><span class="line">unsubthis - 使用此命令回复想要退订的 RSS 消息即可退订, 不支持 Channel</span><br><span class="line"><span class="built_in">export</span>    - 导出为 OPML</span><br></pre></td></tr></table></figure>
-
-<p>这时候，你再进入 <a href="http://t.me/teaperRssBot" rel="external nofollow noopener noreferrer" target="_blank">t.me/teaperRssBot</a> 的聊天框，就可以看到输入框有快捷命令了，我们可以发送命令进行订阅  </p>
+<p>这时候，你再进入 <a href="http://t.me/teaperRssBot" rel="external nofollow noopener noreferrer" target="_blank">t.me/teaperRssBot</a> 的聊天框，就可以看到输入框有快捷命令了，我们可以发送命令进行订阅</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sub https://rsshub.app/bilibili/live/room/15053080     #链接地址是RSS地址，不是普通网址</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g518zc0x0sj30xs08hgn5.jpg" alt>  </p>
-<p>确定没有问题之后，我们在服务器中将脚本挂到后台去运行  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g518zc0x0sj30xs08hgn5.jpg" alt></p>
+<p>确定没有问题之后，我们在服务器中将脚本挂到后台去运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./rssbot DATAFILE TELEGRAM-BOT-TOKEN &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="添加到群组"><a href="#添加到群组" class="headerlink" title="添加到群组"></a>添加到群组</h4><p>这个很简单，直接在电报机器人主页中，点击 <code>添加到群组</code> 按钮，选择一个群组即可  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g5196h6f4lj31hc0sen8q.jpg" alt>  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g51987bblvj31hc0sfgxw.jpg" alt>  </p>
+<h4 id="添加到群组"><a class="header-anchor" href="#添加到群组"></a>添加到群组</h4>
+<p>这个很简单，直接在电报机器人主页中，点击 <code>添加到群组</code> 按钮，选择一个群组即可</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g5196h6f4lj31hc0sen8q.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g51987bblvj31hc0sfgxw.jpg" alt></p>
 
   </article>
 </div>

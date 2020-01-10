@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -161,29 +161,36 @@
   <article class="post-content">
     <h1 style="text-align:center">图床工具PicGo+Github</h1>
     <blockquote>
-<p>所谓图床工具，就是自动把本地图片上传到服务器，并获取其http/https链接的一款工具，让其可以在互联网上得到访问<br>网络上有很多图床工具，就目前使用种类而言，<a href="https://molunerfinn.com/PicGo/" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a> 算得上一款比较优秀的图床工具  </p>
+<p>所谓图床工具，就是自动把本地图片上传到服务器，并获取其http/https链接的一款工具，让其可以在互联网上得到访问<br>
+网络上有很多图床工具，就目前使用种类而言，<a href="https://molunerfinn.com/PicGo/" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a> 算得上一款比较优秀的图床工具</p>
 </blockquote>
-<p><a href="https://github.com/Molunerfinn/PicGo" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a>基于 <a href="https://github.com/SimulatedGREG/electron-vue" rel="external nofollow noopener noreferrer" target="_blank">Electron-vue</a> 开发的软件，可以支持<a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf" rel="external nofollow noopener noreferrer" target="_blank">微博</a>、七牛云、腾讯云COS、又拍云、GitHub、阿里云OSS、<a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a>、imgur 等8种常用图床，功能强大，简单易用!  </p>
-<h4 id="下载和安装PicGo"><a href="#下载和安装PicGo" class="headerlink" title="下载和安装PicGo"></a>下载和安装PicGo</h4><p>下载地址参见<a href="https://github.com/Molunerfinn/PicGo/releases" rel="external nofollow noopener noreferrer" target="_blank">github发布页</a>  </p>
+<p><a href="https://github.com/Molunerfinn/PicGo" rel="external nofollow noopener noreferrer" target="_blank">PicGo</a>基于 <a href="https://github.com/SimulatedGREG/electron-vue" rel="external nofollow noopener noreferrer" target="_blank">Electron-vue</a> 开发的软件，可以支持<a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf" rel="external nofollow noopener noreferrer" target="_blank">微博</a>、七牛云、腾讯云COS、又拍云、GitHub、阿里云OSS、<a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a>、imgur 等8种常用图床，功能强大，简单易用!</p>
+<h4 id="下载和安装PicGo"><a class="header-anchor" href="#下载和安装PicGo"></a>下载和安装PicGo</h4>
+<p>下载地址参见<a href="https://github.com/Molunerfinn/PicGo/releases" rel="external nofollow noopener noreferrer" target="_blank">github发布页</a></p>
 <blockquote>
-<p>macOS用户请下载最新版本的dmg文件<br>windows用户请下载最新版本的exe文件<br>linux用户请下载AppImage文件  </p>
+<p>macOS用户请下载最新版本的dmg文件<br>
+windows用户请下载最新版本的exe文件<br>
+linux用户请下载AppImage文件</p>
 </blockquote>
-<p>Arch Linux用户使用 <code>aurman -S picgo-appimage</code> 安装，或者使用 <a href>yay</a> 安装  </p>
+<p>Arch Linux用户使用 <code>aurman -S picgo-appimage</code> 安装，或者使用 <a href>yay</a> 安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yay -S picgo-appimage       <span class="comment">#一般不是最新版本</span></span><br><span class="line">sudo pacman -S xclip        <span class="comment">#剪贴板上传图片需要的依赖</span></span><br></pre></td></tr></table></figure>
-
-<p>安装成功，你就可以使用其中的 <a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a> 图床，其他图床需要自行配置<span style="color:#ff0000;">(本教程搭建Github图床)</span>  </p>
-<h4 id="Github-token"><a href="#Github-token" class="headerlink" title="Github token"></a>Github token</h4><p>登录你的 <a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">Github</a> 账号，新建一个公有仓库 <code>picgoimgs</code> ，或者使用已有仓库<br>进入 <a href="https://github.com/settings/tokens" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/settings/tokens</a>，点击 <code>Generate new token</code> 创建一个新的 <code>token</code><br>勾选 <code>repo</code> 复选框，Note说明随便写，我这里是 <code>For PicGo</code> ，表示用于 PicGo图床  </p>
-<p><img src="https://i.loli.net/2019/05/24/5ce7a447a047350146.png" alt>  </p>
-<p>点击最下方绿色 <code>Generate token</code> 的按钮生成<code>token</code>  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3kyp69v3wj30rq0cgmz6.jpg" alt>  </p>
-<p>复制绿色背景的那条编码，将其存储起来，因为它只显示一次  </p>
+<p>安装成功，你就可以使用其中的 <a href="https://link.juejin.im/?target=http%3A%2F%2FSM.MS" rel="external nofollow noopener noreferrer" target="_blank">SM.MS</a> 图床，其他图床需要自行配置<span style="color:#ff0000;">(本教程搭建Github图床)</span></p>
+<h4 id="Github-token"><a class="header-anchor" href="#Github-token"></a>Github token</h4>
+<p>登录你的 <a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">Github</a> 账号，新建一个公有仓库 <code>picgoimgs</code> ，或者使用已有仓库<br>
+进入 <a href="https://github.com/settings/tokens" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/settings/tokens</a>，点击 <code>Generate new token</code> 创建一个新的 <code>token</code><br>
+勾选 <code>repo</code> 复选框，Note说明随便写，我这里是 <code>For PicGo</code> ，表示用于 PicGo图床</p>
+<p><img src="https://i.loli.net/2019/05/24/5ce7a447a047350146.png" alt></p>
+<p>点击最下方绿色 <code>Generate token</code> 的按钮生成<code>token</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3kyp69v3wj30rq0cgmz6.jpg" alt></p>
+<p>复制绿色背景的那条编码，将其存储起来，因为它只显示一次</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8c473a9580043gd33a8b45f3610c7f59646b662     <span class="comment">#示范</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h4><p>设定仓库名：teaper/picgoimgs<br>设定分支名字：master<br>设定Token：8c473a9580043gd33a8b45f3610c7f59646b662  </p>
+<h4 id="配置PicGo"><a class="header-anchor" href="#配置PicGo"></a>配置PicGo</h4>
+<p>设定仓库名：teaper/picgoimgs<br>
+设定分支名字：master<br>
+设定Token：8c473a9580043gd33a8b45f3610c7f59646b662</p>
 <p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3kyo9373rj30j40a6q3k.jpg" alt></p>
-<p>存储路径和自定义域名可以不写，设定自定义域名需要在域名DNS下解析你的github服务器  </p>
-<p>点击“设为默认图床”，当图片上传成功之后，可以看到仓库中多了一个文件  </p>
+<p>存储路径和自定义域名可以不写，设定自定义域名需要在域名DNS下解析你的github服务器</p>
+<p>点击“设为默认图床”，当图片上传成功之后，可以看到仓库中多了一个文件</p>
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/Screenshot%20from%202019-05-24%2016-19-25.png" alt></p>
 
   </article>

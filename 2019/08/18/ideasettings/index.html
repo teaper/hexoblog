@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -160,12 +160,20 @@
 
   <article class="post-content">
     <h1 style="text-align:center">IntelliJ IDEA 完美配置</h1>
-    <p>IntelliJ IDEA 官网提供了两个版本，完整版（Ultimate）和社区版（Community）；其中完整版需要付费，社区版免费，但是功能被阉割，我这里就以<span style="color:#B900ff;"> ArchLinux 完整版 </span>为例，对其进行<a href="https://www.jetbrains.com/help/idea/installation-guide.html" rel="external nofollow noopener noreferrer" target="_blank">配置</a>  </p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>Windows/Mac 用户直接进入<a href="https://www.jetbrains.com/idea/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>下载安装包进行安装<br>ArchLinux/Manjaro 用户使用<a href="https://aur.archlinux.org/packages/intellij-idea-ultimate-edition/" rel="external nofollow noopener noreferrer" target="_blank">AUR</a>源安装  </p>
+    <p>IntelliJ IDEA 官网提供了两个版本，完整版（Ultimate）和社区版（Community）；其中完整版需要付费，社区版免费，但是功能被阉割，我这里就以<span style="color:#B900ff;"> ArchLinux 完整版 </span>为例，对其进行<a href="https://www.jetbrains.com/help/idea/installation-guide.html" rel="external nofollow noopener noreferrer" target="_blank">配置</a></p>
+<h4 id="下载"><a class="header-anchor" href="#下载"></a>下载</h4>
+<p>Windows/Mac 用户直接进入<a href="https://www.jetbrains.com/idea/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>下载安装包进行安装<br>
+ArchLinux/Manjaro 用户使用<a href="https://aur.archlinux.org/packages/intellij-idea-ultimate-edition/" rel="external nofollow noopener noreferrer" target="_blank">AUR</a>源安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -S intellij-idea-ultimate-edition    <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#ff0000;">注意：安装之前，Java 运行环境是预先配置好的，这个我就不累赘了，重点将放在 IntelliJ IDEA 的配置上</span>  </p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>下载成功之后执行运行程序，会进入安装页面<br>点击 <code>next</code> 下一步，选择 <code>Do not import settings</code> 单选按钮，点击 <code>ok</code><br>阅读条款，将滑块拉到最下面，点击 <code>Accept</code> 接受<br>选择你喜欢的 UI 主题，点击 <code>Next:Desktop Entry</code><br>选择启动方式，点击 <code>Next:Launcher Script</code><br>自定义一个路径，一般默认即可，点击 <code>Next:Default plugins</code><br>然后会进入一个功能选择界面，去勾选你需要的功能模块  </p>
+<p><span style="color:#ff0000;">注意：安装之前，Java 运行环境是预先配置好的，这个我就不累赘了，重点将放在 IntelliJ IDEA 的配置上</span></p>
+<h4 id="安装"><a class="header-anchor" href="#安装"></a>安装</h4>
+<p>下载成功之后执行运行程序，会进入安装页面<br>
+点击 <code>next</code> 下一步，选择 <code>Do not import settings</code> 单选按钮，点击 <code>ok</code><br>
+阅读条款，将滑块拉到最下面，点击 <code>Accept</code> 接受<br>
+选择你喜欢的 UI 主题，点击 <code>Next:Desktop Entry</code><br>
+选择启动方式，点击 <code>Next:Launcher Script</code><br>
+自定义一个路径，一般默认即可，点击 <code>Next:Default plugins</code><br>
+然后会进入一个功能选择界面，去勾选你需要的功能模块</p>
 <ul>
 <li><strong>Java Frameworks</strong>：Hibernate、Spring、Struts、JavaEE、Velocity</li>
 <li><strong>Build Tools</strong>：Maven</li>
@@ -178,14 +186,17 @@
 <li><strong>Android</strong>：Disable</li>
 <li><strong>Other Tools</strong>：UML</li>
 </ul>
-<p>选择完记得重新点开确认一遍，有时候它会自己改回去，确认之后点击 <code>Next:Featured plugins</code><br>等待安装完成就可以点击 <code>Start using IntelliJ IDEA</code> 启动啦！  </p>
-<h4 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h4><p>启动之后，如果是完整版，会提示需要许可协议，我的建议是去淘宝买一个号，一年才 15 元<span style="color:#ff0099;">（+微信：wobupeilianai）</span>，而且软件更新不用担心破解失效，大学生的话可以通过校园邮箱去申请，有点麻烦！  </p>
-<p>不舍得花钱的，就只能通过 <a href="http://idea.lanyus.com/" rel="external nofollow noopener noreferrer" target="_blank">idea.lanyus.com</a> 去获取一个破解码  </p>
+<p>选择完记得重新点开确认一遍，有时候它会自己改回去，确认之后点击 <code>Next:Featured plugins</code><br>
+等待安装完成就可以点击 <code>　Start using IntelliJ IDEA</code> 启动啦！</p>
+<h4 id="破解"><a class="header-anchor" href="#破解"></a>破解</h4>
+<p>启动之后，如果是完整版，会提示需要许可协议，我的建议是去淘宝买一个号，一年才 15 元<span style="color:#ff0099;">（+微信：wobupeilianai）</span>，而且软件更新不用担心破解失效，大学生的话可以通过校园邮箱去申请，有点麻烦！</p>
+<p>不舍得花钱的，就只能通过 <a href="http://idea.lanyus.com/" rel="external nofollow noopener noreferrer" target="_blank">idea.lanyus.com</a> 去获取一个破解码</p>
 <blockquote>
-<p>注意：激活前清除hosts中屏蔽域名, 激活后请将“0.0.0.0 account.jetbrains.com”及“0.0.0.0 <a href="http://www.jetbrains.com”添加到hosts文件中" rel="external nofollow noopener noreferrer" target="_blank">www.jetbrains.com”添加到hosts文件中</a></p>
+<p>注意：激活前清除hosts中屏蔽域名, 激活后请将“0.0.0.0 <a href="http://account.jetbrains.com" rel="external nofollow noopener noreferrer" target="_blank">account.jetbrains.com</a>”及“0.0.0.0 <a href="http://www.jetbrains.com" rel="external nofollow noopener noreferrer" target="_blank">www.jetbrains.com</a>”添加到hosts文件中</p>
 </blockquote>
-<h4 id="配置编辑器"><a href="#配置编辑器" class="headerlink" title="配置编辑器"></a>配置编辑器</h4><p>安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢<a href="https://github.com/ChrisRM/material-theme-jetbrains" rel="external nofollow noopener noreferrer" target="_blank">material-theme-jetbrains</a>的 UI 主题，安装方式也很简单   </p>
-<p>在菜单 File -&gt; Settings -&gt; Plugin 中输入 <code>theme ui</code>，找到 <code>Material Theme UI Plugin</code> 进行安装即可  </p>
+<h4 id="配置编辑器"><a class="header-anchor" href="#配置编辑器"></a>配置编辑器</h4>
+<p>安装成功之后我们可以启动一下，随便创建个项目，打开之后会发现它的字体不太好看，然后我个人喜欢<a href="https://github.com/ChrisRM/material-theme-jetbrains" rel="external nofollow noopener noreferrer" target="_blank">material-theme-jetbrains</a>的 UI 主题，安装方式也很简单</p>
+<p>在菜单 File -&gt; Settings -&gt; Plugin 中输入 <code>theme ui</code>，找到 <code>Material Theme UI Plugin</code> 进行安装即可</p>
 <ul>
 <li>Appearance&amp;Behavior -&gt; Material Theme：选择 <code>Atom one Dark</code> 或者其他主题</li>
 <li>Appearance&amp;Behavior -&gt; Appearance：字体（<strong>Open sans</strong>），字号<strong>15</strong>，勾选 <strong>show memory indicator</strong> 显示内存使用情况</li>
@@ -200,8 +211,10 @@
 <li>File -&gt; Settings -&gt; Build,Execution,Deployment -&gt; Compiler 中勾选 <code>Builder project automatically</code> 复选框，组合键 <code>Shift+Ctrl+Alt+/</code>，选择 <code>Registry</code> ，勾选 <code>compiler.automake.allow.when.app.running</code> 。可以解决静态资源更新需要重启项目的问题</li>
 </ul>
 <p>UI 主题选择 File -&gt; Settings -&gt; Plugins，MarketPlace 选项卡，搜 Material Theme UI 安装即可或者使用<a href="https://blog.jetbrains.com/idea/2019/03/brighten-up-your-day-add-color-to-intellij-idea/" rel="external nofollow noopener noreferrer" target="_blank">自定义 UI 主题 Gray</a> <span style="color:#E98B2A">（也可以在 Plugins 选项卡点击右边设置 -&gt; Install plugin from disk -&gt; 你下载的 jar 包文件）</span></p>
-<p><span style="color:#ff0000;">注意：上面的 MonoSpaced 字体是个人安装的，Windows 用户没有可以想办法去下载，或者换成别的字体也可以，这里就仁者见仁智者见智了</span>  </p>
-<h4 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h4><p>IDEA 自带的注释模板不是太好用，所以需要我们自己配置一下<br>打开 File -&gt; settings -&gt; Editor -&gt; File and Code Templates -&gt; File 选项卡，可以看到所有常用的文件模板，先介绍几个配置参数  </p>
+<p><span style="color:#ff0000;">注意：上面的 MonoSpaced 字体是个人安装的，Windows 用户没有可以想办法去下载，或者换成别的字体也可以，这里就仁者见仁智者见智了</span></p>
+<h4 id="注释模板"><a class="header-anchor" href="#注释模板"></a>注释模板</h4>
+<p>IDEA 自带的注释模板不是太好用，所以需要我们自己配置一下<br>
+打开 File -&gt; settings -&gt; Editor -&gt; File and Code Templates -&gt; File 选项卡，可以看到所有常用的文件模板，先介绍几个配置参数</p>
 <ul>
 <li><span style="color:#2EA9DF;">${NAME}</span>：获取类名</li>
 <li><span style="color:#2EA9DF;">${USER}</span>：获取系统用户名</li>
@@ -210,56 +223,60 @@
 <li><span style="color:#2EA9DF;">${PROJECT_NAME}</span>：获取项目名</li>
 <li><span style="color:#2EA9DF;">TODO</span>：代办事项的标记，一般生成类或方法都需要添加描述</li>
 </ul>
-<p>将 Class 文件和 Interface 文件，替换以下模板  </p>
+<p>将 Class 文件和 Interface 文件，替换以下模板</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#if ($&#123;PACKAGE_NAME&#125; &amp;&amp; $&#123;PACKAGE_NAME&#125; != &quot;&quot;)package $&#123;PACKAGE_NAME&#125;;#end</span><br><span class="line">#parse(&quot;File Header.java&quot;)</span><br><span class="line">/**</span><br><span class="line">  * Copyright(C) $&#123;DATE&#125; $&#123;TIME&#125; 广州××网络科技有限公司 Inc.ALL Rights Reserved.</span><br><span class="line">  *</span><br><span class="line">  * @ClassName $&#123;NAME&#125;</span><br><span class="line">  * @Description TODO</span><br><span class="line">  * @Author $&#123;USER&#125;</span><br><span class="line">  * @Date $&#123;DATE&#125; $&#123;TIME&#125;</span><br><span class="line">  * @Version v1.0</span><br><span class="line">  */</span><br><span class="line">public class $&#123;NAME&#125; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="jdk-版本"><a href="#jdk-版本" class="headerlink" title="jdk 版本"></a>jdk 版本</h4><p>点击 File -&gt; Other Settings -&gt; Structure for New Projects 菜单，在弹出的窗口中的 <span style="color:#ff0000;"><no sdk></no></span> 中选择你要用的 jdk 版本  </p>
-<p>如果没有可选项，可以在下面一个 <code>SDKs</code> 选项卡点击 <code>+</code> 手动添加  </p>
-<h4 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h4><p>这个是刚需，也就是说，只有你打开 java Web 项目的时候需要去单独给某个项目配置服务器。点击右上角工具栏的 <code>Edit Configurations...</code> 下拉菜单，在弹出的窗口中点击左上角 <code>+</code> 号，选择 Tomcat Server -&gt; Local 即可，然后配置基本信息，一般用默认的即可  </p>
-<h4 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h4><p>电脑安装好 Maven 后，在 File -&gt; Settings -&gt; Build,Execution,Deployment -&gt; Build Tools -&gt; Maven 下设置 Maven 配置文件位置和本地仓库地址，由于我是使用默认地址，所以 User settings file 是 <code>/home/teaper/.m2/settings.xml</code>；Local repository 地址是 <code>/home/teaper/.m2/repository</code>   </p>
-<p><span style="color:#ff0000;">注意：这里的 <code>teaper</code> 是我的系统用户名，<code>/home/teaper</code> 就是我的主页目录，也就是 Linux中的 <code>~/</code> 目录，<code>.m2</code> 是 Maven 的隐藏目录</span>  </p>
+<h4 id="jdk-版本"><a class="header-anchor" href="#jdk-版本"></a>jdk 版本</h4>
+<p>点击 File -&gt; Other Settings -&gt; Structure for New Projects 菜单，在弹出的窗口中的 <span style="color:#ff0000;"><no sdk></no></span> 中选择你要用的 jdk 版本</p>
+<p>如果没有可选项，可以在下面一个 <code>SDKs</code> 选项卡点击 <code>+</code> 手动添加</p>
+<h4 id="Tomcat"><a class="header-anchor" href="#Tomcat"></a>Tomcat</h4>
+<p>这个是刚需，也就是说，只有你打开 java Web 项目的时候需要去单独给某个项目配置服务器。点击右上角工具栏的 <code>Edit Configurations...</code> 下拉菜单，在弹出的窗口中点击左上角 <code>+</code> 号，选择 Tomcat Server -&gt; Local 即可，然后配置基本信息，一般用默认的即可</p>
+<h4 id="Maven"><a class="header-anchor" href="#Maven"></a>Maven</h4>
+<p>电脑安装好 Maven 后，在 File -&gt; Settings -&gt; Build,Execution,Deployment -&gt; Build Tools -&gt; Maven 下设置 Maven 配置文件位置和本地仓库地址，由于我是使用默认地址，所以 User settings file 是 <code>/home/teaper/.m2/settings.xml</code>；Local repository 地址是 <code>/home/teaper/.m2/repository</code></p>
+<p><span style="color:#ff0000;">注意：这里的 <code>teaper</code> 是我的系统用户名，<code>/home/teaper</code> 就是我的主页目录，也就是 Linux中的 <code>~/</code> 目录，<code>.m2</code> 是 Maven 的隐藏目录</span></p>
 <blockquote>
-<p><span style="color:#0089A7;">常见问题：在使用 Maven 的部署项目的过程中，当我们修改 pom.xml 文件，导致没有自动导入 jar 包，或 jar 包出现错误</span>  </p>
+<p><span style="color:#0089A7;">常见问题：在使用 Maven 的部署项目的过程中，当我们修改 pom.xml 文件，导致没有自动导入 jar 包，或 jar 包出现错误</span></p>
 </blockquote>
 <p>解决方案如下：</p>
 <ul>
-<li>手动删除 File -&gt; Project Structure… -&gt; Project Settings -&gt; Libraries 中的内容  </li>
-<li>在右侧的 Maven Project 的试图里 clean 一下，删除之前编译过的文件  </li>
-<li>项目右键 -&gt; Maven -&gt; Reimport，不出意外，此时发现依赖已经建立  </li>
+<li>手动删除 File -&gt; Project Structure… -&gt; Project Settings -&gt; Libraries 中的内容</li>
+<li>在右侧的 Maven Project 的试图里 clean 一下，删除之前编译过的文件</li>
+<li>项目右键 -&gt; Maven -&gt; Reimport，不出意外，此时发现依赖已经建立</li>
 </ul>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p>对于从 Eclipse 转 IDEA 的用户，第一不适应的就是原来使用的 Eclipse 快捷键都不能正常使用，所以可以在 File -&gt; Settings -&gt; Keymap 选项卡中，在 Keymap 下拉列表中选择 <code>Eclipse</code> ，然后会有一些快捷键冲突，需要在 Keymap 选项卡里的列表中设置一下  </p>
+<h4 id="快捷键"><a class="header-anchor" href="#快捷键"></a>快捷键</h4>
+<p>对于从 Eclipse 转 IDEA 的用户，第一不适应的就是原来使用的 Eclipse 快捷键都不能正常使用，所以可以在 File -&gt; Settings -&gt; Keymap 选项卡中，在 Keymap 下拉列表中选择 <code>Eclipse</code> ，然后会有一些快捷键冲突，需要在 Keymap 选项卡里的列表中设置一下</p>
 <ul>
-<li>Keymap -&gt; Main menu -&gt; Code -&gt; Completion -&gt; Basic 修改为 <strong>Ctrl+Alt+Enter</strong>  </li>
+<li>Keymap -&gt; Main menu -&gt; Code -&gt; Completion -&gt; Basic 修改为 <strong>Ctrl+Alt+Enter</strong></li>
 <li>Keymap -&gt; Main menu -&gt; Edit -&gt; Find 修改 Find… 和 Replace… 分别改为 <strong>Ctrl+F</strong> 和 <strong>Ctrl+R</strong></li>
 <li>Keymap -&gt; Editor Actions -&gt; Complete Current Statement 修改为 <strong>Ctrl+</strong></li>
 </ul>
-<p>保存时把冲突的快捷键 Remove 掉即可。当然，最好还是使用原汁原味的，多使用，多看看，总会熟悉的   </p>
-<h4 id="配置浏览器"><a href="#配置浏览器" class="headerlink" title="配置浏览器"></a>配置浏览器</h4><p><strong>谷歌浏览器</strong>  </p>
+<p>保存时把冲突的快捷键 Remove 掉即可。当然，最好还是使用原汁原味的，多使用，多看看，总会熟悉的</p>
+<h4 id="配置浏览器"><a class="header-anchor" href="#配置浏览器"></a>配置浏览器</h4>
+<p><strong>谷歌浏览器</strong></p>
 <ul>
-<li>在 chrome 地址栏输入 <code>chrome://version/</code> 回车，找到页面中的 <code>Command Line    ：</code> 对应的启动脚本地址 <code>/opt/google/chrome/google-chrome</code> ，将其复制</li>
-<li>点击 IDEA 菜单 File -&gt; Settings -&gt; Tools -&gt; Web Browsers 选项卡中，将上面的地址粘到 path 栏中  </li>
+<li>在 chrome 地址栏输入 <code>chrome://version/</code> 回车，找到页面中的 <code>Command Line	：</code> 对应的启动脚本地址 <code>/opt/google/chrome/google-chrome</code> ，将其复制</li>
+<li>点击 IDEA 菜单 File -&gt; Settings -&gt; Tools -&gt; Web Browsers 选项卡中，将上面的地址粘到 path 栏中</li>
 </ul>
 <p><strong>火狐浏览器</strong></p>
 <ul>
-<li>使用 <code>gedit /usr/share/applications/firefox.desktop</code> 命令编辑火狐浏览器快捷方式，找到里面的 Exec 对应的启动地址 <code>/usr/lib/firefox/firefox</code> ，将其复制</li>
+<li>使用 <code>gedit /usr/share/applications/firefox.desktop</code> 命令编辑火狐浏览器快捷方式，找到里面的 Exec 对应的启动地址 <code> /usr/lib/firefox/firefox</code> ，将其复制</li>
 <li>同上，粘贴到 火狐浏览器的 path 栏中即可</li>
 </ul>
-<p><strong>欧朋浏览器</strong>  </p>
+<p><strong>欧朋浏览器</strong></p>
 <ul>
 <li>欧朋浏览器至于要安装了即可，path 栏默认 <code>opera</code> 即可</li>
 </ul>
-<h4 id="配置-git-amp-github"><a href="#配置-git-amp-github" class="headerlink" title="配置 git &amp; github"></a>配置 git &amp; github</h4><p>在 File -&gt; settings -&gt; Version Control -&gt; git 选项卡中点击 <code>Test</code> 按钮确定git可用，然后在下面一个 github 选项卡中登录你自己的账号  </p>
-<p><span style="color:#F94465;">如何从github导入工程项目到 IDEA中？</span><br>点击 File -&gt; New -&gt; Project from version control -&gt; git 菜单，在弹出的询问框中输入 github 项目的 URL 地址，选择 <code>New Windows</code> 新窗口打开项目  </p>
-<h4 id="配置-DTD-文件"><a href="#配置-DTD-文件" class="headerlink" title="配置 DTD 文件"></a>配置 DTD 文件</h4><p>用过 MyBatis 的用户都知道，创建 xml 太麻烦，所以需要一个好用的模板来帮助我们快速开发，那么 IDEA 中如何配置 MyBatis 的 DTD 呢？  </p>
-<p>在 File -&gt; settings -&gt; Languages &amp; Frameworks -&gt; Schemas and DTDs 选项卡中，点击右上角的 <code>+</code> 添加以下两个 DTD 文件，File 地址可以通过双击 Project Schemas 中的对应 <code>.dtd</code> 文件自动设置  </p>
+<h4 id="配置-git-github"><a class="header-anchor" href="#配置-git-github"></a>配置 git &amp; github</h4>
+<p>在 File -&gt; settings -&gt; Version Control -&gt; git 选项卡中点击 <code>Test</code> 按钮确定git可用，然后在下面一个 github 选项卡中登录你自己的账号</p>
+<p><span style="color:#F94465;">如何从github导入工程项目到 IDEA中？</span><br>
+点击 File -&gt; New -&gt; Project from version control -&gt; git 菜单，在弹出的询问框中输入 github 项目的 URL 地址，选择 <code>New Windows</code> 新窗口打开项目</p>
+<h4 id="配置-DTD-文件"><a class="header-anchor" href="#配置-DTD-文件"></a>配置 DTD 文件</h4>
+<p>用过 MyBatis 的用户都知道，创建 xml 太麻烦，所以需要一个好用的模板来帮助我们快速开发，那么 IDEA 中如何配置 MyBatis 的 DTD 呢？</p>
+<p>在 File -&gt; settings -&gt; Languages &amp; Frameworks -&gt; Schemas and DTDs 选项卡中，点击右上角的 <code>+</code> 添加以下两个 DTD 文件，File 地址可以通过双击 Project Schemas 中的对应 <code>.dtd</code> 文件自动设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config.xml 文件</span></span><br><span class="line">URI：http://mybatis.org/dtd/mybatis-3-config.dtd</span><br><span class="line"></span><br><span class="line"><span class="comment"># mapper.xml 文件</span></span><br><span class="line">URI：http://mybatis.org/dtd/mybatis-3-mapper.dtd</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="Lombok-插件"><a href="#Lombok-插件" class="headerlink" title="Lombok 插件"></a>Lombok 插件</h4><p>这个<a href="https://github.com/mplushnikov/lombok-intellij-plugin" rel="external nofollow noopener noreferrer" target="_blank">插件</a>是用注解来简化我们频繁的 get、set 操作的，在 File -&gt; Settings -&gt; Plugins 窗口中直接搜 <code>lombok</code>，点击 <code>install</code> 安装即可  </p>
-<p>首先引入 jar 包 <code>lombok-plugin-xxxx.jar</code>  </p>
+<h4 id="Lombok-插件"><a class="header-anchor" href="#Lombok-插件"></a>Lombok 插件</h4>
+<p>这个<a href="https://github.com/mplushnikov/lombok-intellij-plugin" rel="external nofollow noopener noreferrer" target="_blank">插件</a>是用注解来简化我们频繁的 get、set 操作的，在 File -&gt; Settings -&gt; Plugins 窗口中直接搜 <code>lombok</code>，点击 <code>install</code> 安装即可</p>
+<p>首先引入 jar 包 <code>lombok-plugin-xxxx.jar</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>然后使用以下注解：</p>
 <ul>
 <li><strong>@Data</strong>：注解在类上，将类提供的所有属性都添加 <code>get</code>、<code>set</code> 方法，并添加 <code>equals</code>、<code>canEquals</code>、<code>hashCode</code>、<code>toString</code> 方法</li>
@@ -281,7 +298,9 @@
 <li><strong>@EqualsAndHashCode</strong>：重写equals和hashcode方法</li>
 <li><strong>@Cleanup</strong>: 清理流对象,不用手动去关闭流</li>
 </ul>
-<h4 id="阿里巴巴代码规范插件"><a href="#阿里巴巴代码规范插件" class="headerlink" title="阿里巴巴代码规范插件"></a>阿里巴巴代码规范插件</h4><p>这个插件是用来规范我们的代码格式的，格式不符合规范会出现中文提示，在 File -&gt; Settings -&gt; Plugins 窗口中直接搜 <code>Alibaba Java Coding Guidelines</code>，点击 install 安装即可<br><span style="color:#ff0000">注意：如果无法搜索到插件，建议在 Plugins 窗口右上角齿轮图标上配置 HTTP Proxy ,至于如何翻墙，请参照我另一篇博客<a href="https://www.teaper.dev/2019/06/02/v2ray/">学习利器V2ray了解一下</a></span>  </p>
+<h4 id="阿里巴巴代码规范插件"><a class="header-anchor" href="#阿里巴巴代码规范插件"></a>阿里巴巴代码规范插件</h4>
+<p>这个插件是用来规范我们的代码格式的，格式不符合规范会出现中文提示，在 File -&gt; Settings -&gt; Plugins 窗口中直接搜 <code>Alibaba Java Coding Guidelines</code>，点击 install 安装即可<br>
+<span style="color:#ff0000">注意：如果无法搜索到插件，建议在 Plugins 窗口右上角齿轮图标上配置 HTTP Proxy ,至于如何翻墙，请参照我另一篇博客<a href="https://www.teaper.dev/2019/06/02/v2ray/">学习利器V2ray了解一下</a></span></p>
 <p><img src="https://raw.githubusercontent.com/teaper/picgoimgs/master/Screenshot%20from%202020-01-07%2010-15-47.png" alt></p>
 
   </article>

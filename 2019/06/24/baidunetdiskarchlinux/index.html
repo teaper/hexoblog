@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -160,21 +160,18 @@
 
   <article class="post-content">
     <h1 style="text-align:center">ArchLinux安装最新百度网盘客户端</h1>
-    <p>之前，由于百度公司之前不做Linux的客户端软件，我们使用百度网盘都是借助第三方的 <a href="https://github.com/iikira/BaiduPCS-Go/releases" rel="external nofollow noopener noreferrer" target="_blank">BaiduPCS-Go</a> 来下载网盘内容，最近，国内知名互联网公司都开始向 Linux 进军了，百度网盘首先中标麒麟 Linux 系统，后续微信也即将出 Linux 版，由于百度网盘也是刚出 Linux，ArchLinux 社区包还没跟进，所以我们自己通过<a href="https://pan.baidu.com/download" rel="external nofollow noopener noreferrer" target="_blank">官网</a>提供的 <code>deb</code> 包进行转换成 ArchLinux 可以安装的 <code>.pkg.tar.xz</code> 包  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4c1xt9banj31hc0lvgs6.jpg" alt>  </p>
-<p>下载官网的 <code>baidunetdisk_linux_2.0.1.deb</code> 安装包到本地<br><code>deb</code> 包转换成 <code>ArchLinux</code> 包需要借助 <code>Debtap</code>,所以需要先安装一下  </p>
+    <p>之前，由于百度公司之前不做Linux的客户端软件，我们使用百度网盘都是借助第三方的 <a href="https://github.com/iikira/BaiduPCS-Go/releases" rel="external nofollow noopener noreferrer" target="_blank">BaiduPCS-Go</a> 来下载网盘内容，最近，国内知名互联网公司都开始向 Linux 进军了，百度网盘首先中标麒麟 Linux 系统，后续微信也即将出 Linux 版，由于百度网盘也是刚出 Linux，ArchLinux 社区包还没跟进，所以我们自己通过<a href="https://pan.baidu.com/download" rel="external nofollow noopener noreferrer" target="_blank">官网</a>提供的 <code>deb</code> 包进行转换成 ArchLinux 可以安装的 <code>.pkg.tar.xz</code> 包</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4c1xt9banj31hc0lvgs6.jpg" alt></p>
+<p>下载官网的 <code>baidunetdisk_linux_2.0.1.deb</code> 安装包到本地<br>
+<code>deb</code> 包转换成 <code>ArchLinux</code> 包需要借助 <code>Debtap</code>,所以需要先安装一下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -S debtap    <span class="comment">#依赖bash、binutils、pkgfile、fakeroot包</span></span><br></pre></td></tr></table></figure>
-
-<p>顺便检查一下电脑是否安装上面几个依赖包，确认无误后，同步一下 <code>pkgfile</code> 和 <code>debtap</code> 数据源  </p>
+<p>顺便检查一下电脑是否安装上面几个依赖包，确认无误后，同步一下 <code>pkgfile</code> 和 <code>debtap</code> 数据源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo debtap -u</span><br></pre></td></tr></table></figure>
-
-<p>接下来就可以转换包了，以 <code>baidunetdisk_linux_2.0.1.deb</code> 为例  </p>
+<p>接下来就可以转换包了，以 <code>baidunetdisk_linux_2.0.1.deb</code> 为例</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">debtap baidunetdisk_linux_2.0.1.deb     <span class="comment">#转换包</span></span><br><span class="line"><span class="comment">#--------------------------输出日志------------------------------------</span></span><br><span class="line">==&gt; Extracting package data...</span><br><span class="line">==&gt; Fixing possible directories structure differencies...</span><br><span class="line">==&gt; Generating .PKGINFO file...</span><br><span class="line"></span><br><span class="line">:: Enter Packager name:</span><br><span class="line">baidunetdisk_linux_2.0.1    <span class="comment">#输入包名字</span></span><br><span class="line"></span><br><span class="line">:: Enter package license (you can enter multiple licenses comma separated):</span><br><span class="line">SEVGHUNHSFA4SKKSN7B8BG  <span class="comment">#输入许可证，随便写（大写字母+数字组合），反正是自己用</span></span><br><span class="line"></span><br><span class="line">*** Creation of .PKGINFO file <span class="keyword">in</span> progress. It may take a few minutes, please <span class="built_in">wait</span>...</span><br><span class="line"></span><br><span class="line">==&gt; Checking and generating .INSTALL file (<span class="keyword">if</span> necessary)...</span><br><span class="line"></span><br><span class="line">:: If you want to edit .PKGINFO and .INSTALL files (<span class="keyword">in</span> this order), press (1) For vi (2) For nano (3) For default editor (4) For a custom editor or any other key to <span class="built_in">continue</span>: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">==&gt; Generating .MTREE file...</span><br><span class="line"></span><br><span class="line">==&gt; Creating final package...</span><br><span class="line">==&gt; Package successfully created!</span><br><span class="line">==&gt; Removing leftover files...</span><br></pre></td></tr></table></figure>
-
-<p>转换成功之后，就可以看到本地多了 <code>baidunetdisk-2.0.1-1-x86_64.pkg.tar.xz</code> 包，使用 <code>pacman</code> 将其安装  </p>
+<p>转换成功之后，就可以看到本地多了 <code>baidunetdisk-2.0.1-1-x86_64.pkg.tar.xz</code> 包，使用 <code>pacman</code> 将其安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -U baidunetdisk-2.0.1-1-x86_64.pkg.tar.xz   <span class="comment">#pacman 安装本地包</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4c2cm7jdwj31hc0u0gof.jpg" alt>  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4c2cm7jdwj31hc0u0gof.jpg" alt></p>
 
   </article>
 </div>

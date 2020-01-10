@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -160,72 +160,68 @@
 
   <article class="post-content">
     <h1 style="text-align:center">ArchLinux系统如何直播哔哩哔哩</h1>
-    <p>Linux下直播，一般都使用开源免费的直播工具<a href="https://obsproject.com/" rel="external nofollow noopener noreferrer" target="_blank">OBS</a>，因为<a href="https://www.bilibili.com/" rel="external nofollow noopener noreferrer" target="_blank">哔哩哔哩</a>官方的直播姬没有Linux版本  </p>
-<p>但是我发现B站居然有Linux版本的<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">弹幕库</a>，目前已经更新到了<code>v2.1.1</code>，之前要使用弹幕，都是借助类似于 <code>YouTube Live Chat</code> 的开源工具 <a href="https://github.com/Tsuk1ko/bilibili-live-chat" rel="external nofollow noopener noreferrer" target="_blank">bilibili-live-chat</a> 来实现的，具体使用方法参照博客——<a href="https://moe.best/projects/bilibili-live-chat.html" rel="external nofollow noopener noreferrer" target="_blank">【OBS用B站直播弹幕展示】</a>  </p>
-<p>为什么这里要提到<code>bilibili-live-chat</code>呢？<br>主要是因为哔哩哔哩弹幕库并不是一个成熟的应用，功能还不全面，并且它的弹幕展示还借助了<code>bilibili-live-chat</code>的思路，使用OBS浏览器插件 <code>BrowserSource</code> 去获取弹幕信息，爬取出来进行展示  </p>
-<p>废话不多说，ArchLinux/Manjaro用户睁大眼睛哦～  </p>
-<h4 id="安装OBS-Studio"><a href="#安装OBS-Studio" class="headerlink" title="安装OBS Studio"></a>安装OBS Studio</h4><p><img src="https://obsproject.com/assets/images/OBSDemoApp2321.png" alt>  </p>
-<p>使用以下命令安装  </p>
+    <p>Linux下直播，一般都使用开源免费的直播工具<a href="https://obsproject.com/" rel="external nofollow noopener noreferrer" target="_blank">OBS</a>，因为<a href="https://www.bilibili.com/" rel="external nofollow noopener noreferrer" target="_blank">哔哩哔哩</a>官方的直播姬没有Linux版本</p>
+<p>但是我发现B站居然有Linux版本的<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">弹幕库</a>，目前已经更新到了<code>v2.1.1</code>，之前要使用弹幕，都是借助类似于 <code>YouTube Live Chat</code> 的开源工具 <a href="https://github.com/Tsuk1ko/bilibili-live-chat" rel="external nofollow noopener noreferrer" target="_blank">bilibili-live-chat</a> 来实现的，具体使用方法参照博客——<a href="https://moe.best/projects/bilibili-live-chat.html" rel="external nofollow noopener noreferrer" target="_blank">【OBS用B站直播弹幕展示】</a></p>
+<p>为什么这里要提到<code>bilibili-live-chat</code>呢？<br>
+主要是因为哔哩哔哩弹幕库并不是一个成熟的应用，功能还不全面，并且它的弹幕展示还借助了<code>bilibili-live-chat</code>的思路，使用OBS浏览器插件 <code>BrowserSource</code> 去获取弹幕信息，爬取出来进行展示</p>
+<p>废话不多说，ArchLinux/Manjaro用户睁大眼睛哦～</p>
+<h4 id="安装OBS-Studio"><a class="header-anchor" href="#安装OBS-Studio"></a>安装OBS Studio</h4>
+<p><img src="https://obsproject.com/assets/images/OBSDemoApp2321.png" alt></p>
+<p>使用以下命令安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S obs-studio    <span class="comment">#OBS</span></span><br></pre></td></tr></table></figure>
-
-<p>启动后，obs 会根据你电脑性能自动配置出一套默认设置，我们直播主要是推流，所以和视频录制有所区别，需要适当修改一下  </p>
+<p>启动后，obs 会根据你电脑性能自动配置出一套默认设置，我们直播主要是推流，所以和视频录制有所区别，需要适当修改一下</p>
 <ul>
-<li>进入 file -&gt; settings 打开设置面板，点击左边列表的 Output 选项卡  </li>
-<li>设置 Video Bitrate 比特率为 5000 <ul>
-<li>录制视频的话，比特率可以高一些，设置为 5000 ，这样视频清晰度会比较高  </li>
+<li>进入 file -&gt; settings 打开设置面板，点击左边列表的 Output 选项卡</li>
+<li>设置 Video Bitrate 比特率为 5000
+<ul>
+<li>录制视频的话，比特率可以高一些，设置为 5000 ，这样视频清晰度会比较高</li>
 <li>直播的话，比特率等于网络上行速度(单位KB/s)乘以 8 ，并且最终结果要小于用户的下行网速，否则观众姥爷那边会比较卡，除此之外，最大也不要超过<a href="https://link.bilibili.com/p/help/index#/device-setting" rel="external nofollow noopener noreferrer" target="_blank">哔哩哔哩平台</a>服务器的带宽，否则一样会造成卡顿</li>
 </ul>
 </li>
 </ul>
-<h4 id="直播比特率-上行KB-s-×-8-lt-用户下行-lt-平台带宽"><a href="#直播比特率-上行KB-s-×-8-lt-用户下行-lt-平台带宽" class="headerlink" title="直播比特率 = (上行KB/s × 8) &lt; 用户下行 &lt; 平台带宽"></a><center>直播比特率 = (上行KB/s × 8) &lt; 用户下行 &lt; 平台带宽</center></h4><ul>
-<li>Encoder选择带 NVENC 的N卡驱动  </li>
-<li>勾选 Enable Advanced Encoder Settings 复选框  </li>
-<li>点击左边列表的 Video 选项卡,设置Output(Scaled)Resolution输出像素为1920×1080  </li>
+<h4 id="center-直播比特率-上行KB-s-×-8-用户下行-平台带宽-center"><a class="header-anchor" href="#center-直播比特率-上行KB-s-×-8-用户下行-平台带宽-center"></a><center>直播比特率 = (上行KB/s × 8) &lt; 用户下行 &lt; 平台带宽</center></h4>
+<ul>
+<li>Encoder选择带 NVENC 的N卡驱动</li>
+<li>勾选 Enable Advanced Encoder Settings 复选框</li>
+<li>点击左边列表的 Video 选项卡,设置Output(Scaled)Resolution输出像素为1920×1080</li>
 </ul>
 <details>
 <summary style="color:#ff0000;">常见问题：OBS 录制屏幕黑屏，但是可以看见鼠标</summary>
-
 <p>首先使用终端，输入 <code>obs</code> 命令进行启动，如果第一行日志显示</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.</span><br></pre></td></tr></table></figure>
-
 <p>那么输入以下命令，检查你目前使用的是 <code>x11</code> 还是 <code>wayland</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$XDG_SESSION_TYPE</span></span><br></pre></td></tr></table></figure>
-
 <p>如果是 <code>wayland</code> 的话，那么我们的问题是一致的，编辑 <code>/etc/gdm/custom.conf</code> 文件，取消 <code>WaylandEnable=false</code> 的注释，将强制启动使用 <code>xorg</code> 作为窗口显示</p>
 </details>  
-
-<p>接下来就是安装哔哩哔哩官方的<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">弹幕库</a>  </p>
-<h4 id="安装弹幕库"><a href="#安装弹幕库" class="headerlink" title="安装弹幕库"></a>安装弹幕库</h4><p><img src="https://s5.danmaku.live/web/sample.png" alt>  </p>
-<p>点击<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">链接</a>进入下载，我这里的版本是<code>v2.1.1</code>，下载之后解压到本地文件夹，目录结构如下  </p>
+<p>接下来就是安装哔哩哔哩官方的<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">弹幕库</a></p>
+<h4 id="安装弹幕库"><a class="header-anchor" href="#安装弹幕库"></a>安装弹幕库</h4>
+<p><img src="https://s5.danmaku.live/web/sample.png" alt></p>
+<p>点击<a href="http://bilibili.danmaku.live/#/" rel="external nofollow noopener noreferrer" target="_blank">链接</a>进入下载，我这里的版本是<code>v2.1.1</code>，下载之后解压到本地文件夹，目录结构如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── blink_image_resources_200_percent.pak</span><br><span class="line">├── content_resources_200_percent.pak</span><br><span class="line">├── content_shell.pak</span><br><span class="line">├── icudtl.dat</span><br><span class="line">├── libffmpeg.so</span><br><span class="line">├── libnode.so</span><br><span class="line">├── LICENSE</span><br><span class="line">├── LICENSES.chromium.html</span><br><span class="line">├── locales</span><br><span class="line">│   ├── am.pak</span><br><span class="line">│   ├── ar.pak</span><br><span class="line">│   ├── bg.pak</span><br><span class="line">│   ├── bn.pak</span><br><span class="line">│   ├── ca.pak</span><br><span class="line">│   ├── cs.pak</span><br><span class="line">│   ├── da.pak</span><br><span class="line">│   ├── de.pak</span><br><span class="line">│   ├── el.pak</span><br><span class="line">│   ├── en-GB.pak</span><br><span class="line">│   ├── en-US.pak</span><br><span class="line">│   ├── es-419.pak</span><br><span class="line">│   ├── es.pak</span><br><span class="line">│   ├── et.pak</span><br><span class="line">│   ├── fake-bidi.pak</span><br><span class="line">│   ├── fa.pak</span><br><span class="line">│   ├── fil.pak</span><br><span class="line">│   ├── fi.pak</span><br><span class="line">│   ├── fr.pak</span><br><span class="line">│   ├── gu.pak</span><br><span class="line">│   ├── he.pak</span><br><span class="line">│   ├── hi.pak</span><br><span class="line">│   ├── hr.pak</span><br><span class="line">│   ├── hu.pak</span><br><span class="line">│   ├── id.pak</span><br><span class="line">│   ├── it.pak</span><br><span class="line">│   ├── ja.pak</span><br><span class="line">│   ├── kn.pak</span><br><span class="line">│   ├── ko.pak</span><br><span class="line">│   ├── lt.pak</span><br><span class="line">│   ├── lv.pak</span><br><span class="line">│   ├── ml.pak</span><br><span class="line">│   ├── mr.pak</span><br><span class="line">│   ├── ms.pak</span><br><span class="line">│   ├── nb.pak</span><br><span class="line">│   ├── nl.pak</span><br><span class="line">│   ├── pl.pak</span><br><span class="line">│   ├── pt-BR.pak</span><br><span class="line">│   ├── pt-PT.pak</span><br><span class="line">│   ├── ro.pak</span><br><span class="line">│   ├── ru.pak</span><br><span class="line">│   ├── sk.pak</span><br><span class="line">│   ├── sl.pak</span><br><span class="line">│   ├── sr.pak</span><br><span class="line">│   ├── sv.pak</span><br><span class="line">│   ├── sw.pak</span><br><span class="line">│   ├── ta.pak</span><br><span class="line">│   ├── te.pak</span><br><span class="line">│   ├── th.pak</span><br><span class="line">│   ├── tr.pak</span><br><span class="line">│   ├── uk.pak</span><br><span class="line">│   ├── vi.pak</span><br><span class="line">│   ├── zh-CN.pak</span><br><span class="line">│   └── zh-TW.pak</span><br><span class="line">├── natives_blob.bin</span><br><span class="line">├── resources</span><br><span class="line">│   ├── app.asar</span><br><span class="line">│   └── electron.asar</span><br><span class="line">├── ui_resources_200_percent.pak</span><br><span class="line">├── v8_context_snapshot.bin</span><br><span class="line">├── version</span><br><span class="line">├── views_resources_200_percent.pak</span><br><span class="line">└── 弹幕库      <span class="comment">#启动脚本</span></span><br></pre></td></tr></table></figure>
-
-<p>右击启动脚本<code>弹幕库</code>就可以启动软件了，但是，我们发现它的文件夹名字和启动脚本的名字是中文，为了不引起路径错误，我们重命名一下  </p>
+<p>右击启动脚本<code>弹幕库</code>就可以启动软件了，但是，我们发现它的文件夹名字和启动脚本的名字是中文，为了不引起路径错误，我们重命名一下</p>
 <blockquote>
-<p>文件夹名：<code>弹幕库-linux-x64</code> 改成 <code>bilibilidanmuku-linux-x64</code><br>启动脚本：<code>弹幕库</code> 改成 <code>danmuku</code>  </p>
+<p>文件夹名：<code>弹幕库-linux-x64</code> 改成 <code>bilibilidanmuku-linux-x64</code><br>
+启动脚本：<code>弹幕库</code> 改成 <code>danmuku</code></p>
 </blockquote>
-<p>修改完之后，将文件夹移动到<code>/opt</code>目录  </p>
+<p>修改完之后，将文件夹移动到<code>/opt</code>目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv bilibilidanmuku-linux-x64 /opt</span><br><span class="line"><span class="built_in">cd</span> /opt/bilibilidanmuku-linux-x64</span><br></pre></td></tr></table></figure>
-
-<p>由于没有快捷方式，我们手动创建一个，图标<a href="https://i.loli.net/2019/11/21/MZA3mrQsW8OwNYo.png" rel="external nofollow noopener noreferrer" target="_blank">danmuku.png</a>点击链接下载到文件夹中  </p>
+<p>由于没有快捷方式，我们手动创建一个，图标<a href="https://i.loli.net/2019/11/21/MZA3mrQsW8OwNYo.png" rel="external nofollow noopener noreferrer" target="_blank">danmuku.png</a>点击链接下载到文件夹中</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit danmuku.desktop  <span class="comment">#创建快捷方式，内容如下</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=Bilibili Danmuku</span><br><span class="line">Comment=BiliBili live assistant</span><br><span class="line">Exec=/opt/bilibilidanmuku-linux-x64/danmuku</span><br><span class="line">Icon=/opt/bilibilidanmuku-linux-x64/danmuku.png</span><br><span class="line">Categories=Application;</span><br><span class="line">Version=2.1.1</span><br><span class="line">Type=Application</span><br><span class="line">Terminal=0</span><br></pre></td></tr></table></figure>
-
-<p>添加运行权限  </p>
+<p>添加运行权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x danmuku.desktop  <span class="comment">#添加运行权限</span></span><br><span class="line">sudo cp danmuku.desktop /usr/share/applications/  <span class="comment">#复制到快捷方式文件夹</span></span><br></pre></td></tr></table></figure>
-
-<p>至此，OBS 和弹幕库都安装好了，可以正常直播，但是无法发送弹幕，以及接受弹幕到屏幕上，根据弹幕库的提示，我们需要在OBS中添加浏览器源(BrowserSource)  </p>
+<p>至此，OBS 和弹幕库都安装好了，可以正常直播，但是无法发送弹幕，以及接受弹幕到屏幕上，根据弹幕库的提示，我们需要在OBS中添加浏览器源(BrowserSource)</p>
 <blockquote>
 <p>使用说明: 在OBS中添加浏览器源(BrowserSource) 复制上方链接填写在URL中 宽度高度可根据需要自行设置（不要在预览视图中拖拽缩放浏览器源的宽高） FPS建议60 (不超过推流FPS) CSS保持默认</p>
 </blockquote>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4t5czdrjkj30qp0gqgp6.jpg" alt>  </p>
-<p>但是，Linux 平台下并没有 <code>BrowserSource</code> 这个 OBS 插件，并且在我们安装的 OBS 来源中也找不到选项，参考 OBS 官网的帮助之后，我瞄上了另一个插件<a href="https://github.com/bazukas/obs-linuxbrowser/releases" rel="external nofollow noopener noreferrer" target="_blank">obs-linuxbrowser</a>  </p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4t5czdrjkj30qp0gqgp6.jpg" alt></p>
+<p>但是，Linux 平台下并没有 <code>BrowserSource</code> 这个 OBS 插件，并且在我们安装的 OBS 来源中也找不到选项，参考 OBS 官网的帮助之后，我瞄上了另一个插件<a href="https://github.com/bazukas/obs-linuxbrowser/releases" rel="external nofollow noopener noreferrer" target="_blank">obs-linuxbrowser</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yay -S obs-linuxbrowser     <span class="comment">#ArchLinux直接安装社区包</span></span><br><span class="line">:: There are 2 providers available <span class="keyword">for</span> obs-linuxbrowser:</span><br><span class="line">:: Repository AUR</span><br><span class="line">    1) obs-linuxbrowser 2) obs-linuxbrowser-bin </span><br><span class="line"></span><br><span class="line">Enter a number (default=1): 2</span><br></pre></td></tr></table></figure>
-
-<p>这里有两个版本，并且在社区最近都有更新，我一开始是选择第一个，下载成功，编译成功，安装却失败了<br>后来我使用第二个<code>obs-linuxbrowser-bin</code>完美安装，安装之后，重启 OBS 就可以添加来源了，将弹幕库中提供的链接配置进去，其他的都可以不需要改  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4t5p52j0hj30tw0jo3zw.jpg" alt>  </p>
-<p>最后就可以开播测试了，我的效果如下  </p>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4t5s99uu1j31hc0u04qp.jpg" alt> </p>
+<p>这里有两个版本，并且在社区最近都有更新，我一开始是选择第一个，下载成功，编译成功，安装却失败了<br>
+后来我使用第二个<code>obs-linuxbrowser-bin</code>完美安装，安装之后，重启 OBS 就可以添加来源了，将弹幕库中提供的链接配置进去，其他的都可以不需要改</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4t5p52j0hj30tw0jo3zw.jpg" alt></p>
+<p>最后就可以开播测试了，我的效果如下</p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g4t5s99uu1j31hc0u04qp.jpg" alt></p>
 
   </article>
 </div>

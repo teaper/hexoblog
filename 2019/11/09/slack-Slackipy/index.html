@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -168,16 +168,17 @@
 <li>Telegram 没有群空间，不能存放文件、素材等</li>
 <li>Telegram 无法让开发人员、运维人员、产品经理等各不同职位的人协作</li>
 </ul>
-<p>但是这些 Slack 都可以做到，有很多大学的社团是建立在 QQ 群、微信群上的，一个活动一个群，几十个群下去看不到头，群成员不知道其他群的存在，每次都需要管理员去拉人，效率之低，令人乍舌！  </p>
+<p>但是这些 Slack 都可以做到，有很多大学的社团是建立在 QQ 群、微信群上的，一个活动一个群，几十个群下去看不到头，群成员不知道其他群的存在，每次都需要管理员去拉人，效率之低，令人乍舌！</p>
 <p>那么有了 Slack，QQ、微信就可以丢了，安全性和 Telegram 一样高、也不用担心聊天记录像 QQ、微信一样被监管，没有群成员上限、而且拥有比 Telegram 更优秀的机器人集成，基本国外大部分工具都可以使用，还能监控 github 的团队项目、甚至持续集成服务器状态！</p>
 <p>Slack 作为国外的软件，我个人觉得有两个问题不太友好</p>
 <ul>
 <li>界面是英文的，英文不好的朋友比较抵触，但是多看几遍就熟悉了</li>
 <li>团队工具，想加入需要通过邮箱联系工作区所有者，然后管理者发送邀请链接，这就限制了只能在交友圈使用</li>
 </ul>
-<h4 id="那么我们要解决的就是第二个问题"><a href="#那么我们要解决的就是第二个问题" class="headerlink" title="那么我们要解决的就是第二个问题"></a>那么我们要解决的就是第二个问题</h4><p><a href="https://github.com/avinassh/slackipy" rel="external nofollow noopener noreferrer" target="_blank">Slackipy</a> 是一个小型 Web 服务器，可帮助您自动执行对 Slack 团队的用户邀请，让其可以像电报群一样自愿加入，不需要每次向管理员提供邮箱，然后管理员去邀请</p>
-<p><strong>第一步：</strong> 注册并且登录 <a href="https://dashboard.heroku.com/apps" rel="external nofollow noopener noreferrer" target="_blank">Heroku</a> 平台，新用户会显示 <code>Create new app</code>，在这里创建 <code>Slackipy</code> App 是免费的  </p>
-<p><strong>第二步：</strong> 打开 <code>github</code> 上的 <a href="https://github.com/avinassh/slackipy" rel="external nofollow noopener noreferrer" target="_blank">Slackipy</a> 项目，在它的 <code>README.md</code> 文件中有搭建方法，我么就使用最简单的 <code>Heroku</code> 方式，点击 <code>README.md</code> 中的这个图标  </p>
+<h4 id="那么我们要解决的就是第二个问题"><a class="header-anchor" href="#那么我们要解决的就是第二个问题"></a>那么我们要解决的就是第二个问题</h4>
+<p><a href="https://github.com/avinassh/slackipy" rel="external nofollow noopener noreferrer" target="_blank">Slackipy</a> 是一个小型 Web 服务器，可帮助您自动执行对 Slack 团队的用户邀请，让其可以像电报群一样自愿加入，不需要每次向管理员提供邮箱，然后管理员去邀请</p>
+<p><strong>第一步：</strong> 注册并且登录 <a href="https://dashboard.heroku.com/apps" rel="external nofollow noopener noreferrer" target="_blank">Heroku</a> 平台，新用户会显示 <code>Create new app</code>，在这里创建 <code>Slackipy</code> App 是免费的</p>
+<p><strong>第二步：</strong> 打开 <code>github</code> 上的 <a href="https://github.com/avinassh/slackipy" rel="external nofollow noopener noreferrer" target="_blank">Slackipy</a> 项目，在它的 <code>README.md</code> 文件中有搭建方法，我么就使用最简单的 <code>Heroku</code> 方式，点击 <code>README.md</code> 中的这个图标</p>
 <p><a href="https://heroku.com/deploy?template=https://github.com/avinassh/slackipy/tree/master" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt></a></p>
 <p>会自动跳转到已经登录的 <code>Heroku</code> 用户页面，并且打开一个创建 <code>app</code> 页面，需要填写以下信息：</p>
 <ul>
@@ -185,13 +186,14 @@
 <li><strong>FLASK_SECRET_KEY：</strong> 任意长度字符串，随便输入几十个26字母配合数字即可</li>
 <li><strong>SLACK_API_TOKEN：</strong> Slack 工作区的令牌，在 <a href="https://api.slack.com/custom-integrations/legacy-tokens" rel="external nofollow noopener noreferrer" target="_blank">https://api.slack.com/custom-integrations/legacy-tokens</a> 中创建一个 <code>Token</code>，复制过来</li>
 </ul>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g7mk6m8jvhj30hw05xt93.jpg" alt="Screenshot from 2019-10-04 22-55-21.png"><br><span style="color:#ff0000">注意：创建 Token 成功之后，会在工作区的 App Manage 中出现一个名字为 <code>Slack API Tester</code> 的 App，注意删除 App 的时候不要把它删除了，否则 Token 也会自动被删除</span></p>
+<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g7mk6m8jvhj30hw05xt93.jpg" alt="Screenshot from 2019-10-04 22-55-21.png"><br>
+<span style="color:#ff0000">注意：创建 Token 成功之后，会在工作区的 App Manage 中出现一个名字为 <code>Slack API Tester</code> 的 App，注意删除 App 的时候不要把它删除了，否则 Token 也会自动被删除</span></p>
 <ul>
 <li><strong>SLACK_TEAM_ID：</strong> 你的 Slack 工作区名称（示例：<code>nut-edu</code>）</li>
 </ul>
-<p>输入完成单击 <code>Deploy app</code> 开始安装，安装完成点击 <code>view</code> 按钮打开页面 <a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">https://nut-edu.herokuapp.com/</a> 观察效果  </p>
+<p>输入完成单击 <code>Deploy app</code> 开始安装，安装完成点击 <code>view</code> 按钮打开页面 <a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">https://nut-edu.herokuapp.com/</a> 观察效果</p>
 <p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g8rx3n4j12j30ok0bf3z0.jpg" alt="Screenshot from 2019-11-09 17-30-36.png"></p>
-<p>出现页面之后就可以把<a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">链接</a>分享给其他人，想进入工作区的，只需要在 <a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">https://nut-edu.herokuapp.com/</a> 填入邮箱，然后填入的邮箱会收到验证信息，点击验证信息中的链接，新建密码、确认密码，就可以一并注册 Slack 账号并加入工作区！  </p>
+<p>出现页面之后就可以把<a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">链接</a>分享给其他人，想进入工作区的，只需要在 <a href="https://nut-edu.herokuapp.com/" rel="external nofollow noopener noreferrer" target="_blank">https://nut-edu.herokuapp.com/</a> 填入邮箱，然后填入的邮箱会收到验证信息，点击验证信息中的链接，新建密码、确认密码，就可以一并注册 Slack 账号并加入工作区！</p>
 <blockquote>
 <p>如果想加入我们打卡学习编程的朋友，欢迎点击下图加入我们的 Slack 工作区</p>
 </blockquote>

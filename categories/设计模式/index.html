@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -262,7 +262,8 @@
         <li class="archive-list-item">
           <h2><a href="/2019/06/21/prototype/">原型模式</a></h2>
           <p>
-              原型模式主要解决什么问题？  用过 git 的可能知道，git 有个命令  git clone  ，将远程仓库的内容复制到本地，在实际开发中，我们会在克隆下来的项目中继续修改或添加；放在 Java 中，当我们需要使用 new 创建与已存在对象类似的对象时，是否可以以某个对象为原型去创建新对象，提...
+              原型模式主要解决什么问题？  
+用过 git 的可能知道，git 有个命令  git clone  ，将远程仓库的内容复制到本地，在实际开发中，我们会在克隆下来的项目中继续修改或添加；放在 Java 中，当我们需要使用 new 创建与已存在对象类似的对象时，是否可以以某个对象为原型去创建新对象，...
           </p>
           <ul class="tag-list clearfix">
             
@@ -283,7 +284,9 @@
         <li class="archive-list-item">
           <h2><a href="/2019/05/24/buildermodel/">建造者模式</a></h2>
           <p>
-              分离了对象子组件的单独构造 (由 Builder 建造者负责) 和装配 (由 Director 装配者负责) 的分离；从而可以构造出复杂的对象 这个模式适用于：某个对象的构造过程复杂的情况下使用 由于实现了构建和装配的解耦，不同的构造器，相同的装配，也可以做出不同的对象，相同的构造器，不同的顺序...
+              分离了对象子组件的单独构造 (由 Builder 建造者负责) 和装配 (由 Director 装配者负责) 的分离；从而可以构造出复杂的对象 
+这个模式适用于：某个对象的构造过程复杂的情况下使用 
+由于实现了构建和装配的解耦，不同的构造器，相同的装配，也可以做出不同的对象，相同的构造器，不同的...
           </p>
           <ul class="tag-list clearfix">
             
@@ -304,8 +307,10 @@
         <li class="archive-list-item">
           <h2><a href="/2019/05/19/factory-mode/">工厂模式</a></h2>
           <p>
-              核心作用：实现了创建者和调用者的分离   核心本质：实例化对象，用工厂方法代替 new 操作，将选择实现类、创建对象统一管理和控制，从而将调用者跟我们的实现类解耦    
-   常见的三种工厂模式  
+              核心作用：实现了创建者和调用者的分离  
+ 核心本质：实例化对象，用工厂方法代替 new 操作，将选择实现类、创建对象统一管理和控制，从而将调用者跟我们的实现类解耦  
+   常见的三种工厂模式 
+ 
  简单工厂模式：用来生产同一等级结构中的任意产品（对于新的产品需要修改已有代码） 
  工厂方法...
           </p>
@@ -328,9 +333,12 @@
         <li class="archive-list-item">
           <h2><a href="/2019/05/19/singleton-model/">单例模式</a></h2>
           <p>
-              核心作用：保证一个类只有一个示例，并且提供一个访问该实例的全局访问点    
-   应用场景  
- Windows的Task Manager（任务管理器）就是典型的单例模式 Windows的Recycle Bin（回收站）也是典型的单例模式，在整个系统中，回收站一直维护着一个实例  项目中，读取...
+              核心作用：保证一个类只有一个示例，并且提供一个访问该实例的全局访问点  
+   应用场景 
+ 
+ Windows的Task Manager（任务管理器）就是典型的单例模式 
+Windows的Recycle Bin（回收站）也是典型的单例模式，在整个系统中，回收站一直维护着一个实例 
+ 项目中，读...
           </p>
           <ul class="tag-list clearfix">
             

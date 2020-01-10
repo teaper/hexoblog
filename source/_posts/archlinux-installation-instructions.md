@@ -2584,7 +2584,11 @@ sudo pacman -S chrome-gnome-shell
 > [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)   
 > [Notes](https://extensions.gnome.org/extension/1357/notes)GNOME Shell桌面的粘滞便笺(番茄工作法利器)  
 > [Window Corner Preview](https://extensions.gnome.org/extension/1937/window-corner-preview-332/)在工作时观看您喜欢的视频或电影（视频学习神器）  
-> [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/) 按 `Super` 键时不显示窗口，而显示应用程序，窗口配合 [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/) 插件使用快捷键进行切换
+> [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/) 按 `Super` 键时不显示窗口，而显示应用程序，窗口配合 [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/) 插件使用快捷键进行切换  
+> [文字翻译器](https://extensions.gnome.org/extension/593/text-translator/) 复制想要翻译的文本，按 `super+Alt+T` 会自动翻译剪贴板中的内容（汉译英乱码）  
+> [简短备忘录](https://extensions.gnome.org/extension/974/short-memo/) 可以写点正能量的标语  
+> [屏幕单词翻译](https://extensions.gnome.org/extension/1849/screen-word-translate/) 选中单词，点击图标立刻翻译（无法获取到终端中的单词）
+> [Easy Docker Containers](https://extensions.gnome.org/extension/2224/easy-docker-containers/) Docker 容器列表，用于启动、停止、关闭本地容器  
   
 #### GRUB主题  
 GRUB 是什么？GRUB 是引导程序，负责引导操作系统，开机时那个选择系统的画面  

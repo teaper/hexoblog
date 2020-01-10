@@ -114,6 +114,8 @@ permalink_defaults:     #永久链接中各部分的默认值
 source_dir: source      #资源文件夹，这个文件夹用来存放内容
 public_dir: public      #公共文件夹，这个文件夹用于存放生成的站点文件
 tag_dir: tags           #标签文件夹
+link_dir: links        #友链
+file_dir: files        #文件分享
 archive_dir: archives       #归档文件夹
 category_dir: categories        #分类文件夹
 code_dir: downloads/code        #Include code 文件夹
@@ -168,15 +170,45 @@ deploy:     #部署部分的设置
 # Google Analytics
 ga: UA-140493383-1 # GA code UA-XXXXXXXX-X
 
-#marked setting for markdown
-marked:
-  gfm: true
-  pedantic: false
-  sanitize: false
-  tables: true
-  breaks: true
-  smartLists: true
-  smartypants: true
+# Markdown-it config
+# Docs: https://github.com/hexojs/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-deflist
+    - markdown-it-imsize
+    - markdown-it-mark
+    - markdown-it-regexp
+    - markdown-it-checkbox
+    - name: markdown-it-container
+      options: success
+    - name: markdown-it-container
+      options: info
+    - name: markdown-it-container
+      options: warning
+    - name: markdown-it-container
+      options: danger
+    - markdown-it-deflist
+    - name: markdown-it-emoji
+      options:
+        shortcuts: {}
+  anchors:
+    level: 1
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: header-anchor
+    permalinkSymbol: ''
 
 gcs: 014633199185561276043:bpv9wnr4qhc # GOOGLE CUSTOM SEARCH
 baidutongji:  # BAIDU TONGJI CODE
@@ -832,11 +864,67 @@ hexo g && hexo s        #生成静态资源并且启动服务
   
 ##### hexo博客样式问题多怎么办？
 有时候启动服务就乱了，我的办法是重复执行`hexo cl`和`hexo g && hexo s`，直到正常为止  
-还有第二种可能性就是，主题自带的插件包太老了，例如：`hexo-renderer-marked`，渲染`markdown`乱七八糟，解决方法如下：  
+还有第二种可能性就是，主题自带的插件包太老了，例如：`hexo-renderer-marked`，渲染`markdown`乱七八糟，建议修改成 `hexo-renderer-markdown-it`  
 ```bash
 npm un hexo-renderer-marked --save      #卸载它
-npm install hexo-renderer-marked --save     #重新安装新版
+npm install git+https://github.com/hexojs/hexo-renderer-markdown-it.git --save    #安装hexo-renderer-markdown-it
+npm install markdown-it-abbr markdown-it-checkbox markdown-it-container markdown-it-deflist markdown-it-emoji markdown-it-footnote markdown-it-imsize markdown-it-ins markdown-it-mark markdown-it-regexp markdown-it-sub markdown-it-sup --save    #hexo-renderer-markdown-it配套的一些插件
 ```
+然后需要在 `hexoblog` 根目录下的 ` _.config.yml`  中配置 `markdown-it`，添加如下配置，将原来的 `hexo-renderer-marked` 配置替换掉  
+```yml
+#marked setting for markdown 原来的 hexo-renderer-marked 配置
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+```
+```yml
+# Markdown-it config 新的配置
+# Docs: https://github.com/hexojs/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-deflist
+    - markdown-it-imsize
+    - markdown-it-mark
+    - markdown-it-regexp
+    - markdown-it-checkbox
+    - name: markdown-it-container
+      options: success
+    - name: markdown-it-container
+      options: info
+    - name: markdown-it-container
+      options: warning
+    - name: markdown-it-container
+      options: danger
+    - markdown-it-deflist
+    - name: markdown-it-emoji
+      options:
+        shortcuts: {}
+  anchors:
+    level: 1
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: header-anchor
+    permalinkSymbol: ''
+```
+替换之后你就可以试试 `hexo g` 渲染试试效果
+
 
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.teaper.dev/"/>
-  <updated>2020-01-10T02:20:55.784Z</updated>
+  <updated>2020-01-10T16:43:11.739Z</updated>
   <id>https://www.teaper.dev/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一月份的 IntelliJ IDEA 可还安好</title>
+    <link href="https://www.teaper.dev/2020/01/10/%E4%B8%80%E6%9C%88%E4%BB%BD%E7%9A%84%20IntelliJ%20IDEA%20%E5%8F%AF%E8%BF%98%E5%AE%89%E5%A5%BD/"/>
+    <id>https://www.teaper.dev/2020/01/10/一月份的 IntelliJ IDEA 可还安好/</id>
+    <published>2020-01-10T15:18:49.000Z</published>
+    <updated>2020-01-10T16:43:11.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="categories" scheme="https://www.teaper.dev/categories/categories/"/>
+    
+    
+      <category term="tag1" scheme="https://www.teaper.dev/tags/tag1/"/>
+    
+      <category term="tag2" scheme="https://www.teaper.dev/tags/tag2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>更适合开发者的知识管理方案</title>
     <link href="https://www.teaper.dev/2020/01/05/%E6%9B%B4%E9%80%82%E5%90%88%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/"/>
     <id>https://www.teaper.dev/2020/01/05/更适合开发者的知识管理方案/</id>
     <published>2020-01-04T19:22:26.000Z</published>
-    <updated>2020-01-10T02:20:55.784Z</updated>
+    <updated>2020-01-10T02:22:11.517Z</updated>
     
     <summary type="html">
     
@@ -420,8 +448,6 @@
       <category term="Hexo" scheme="https://www.teaper.dev/categories/Hexo/"/>
     
     
-      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
-    
       <category term="hexo" scheme="https://www.teaper.dev/tags/hexo/"/>
     
       <category term="github pages" scheme="https://www.teaper.dev/tags/github-pages/"/>
@@ -429,6 +455,8 @@
       <category term="node.js" scheme="https://www.teaper.dev/tags/node-js/"/>
     
       <category term="npm" scheme="https://www.teaper.dev/tags/npm/"/>
+    
+      <category term="git" scheme="https://www.teaper.dev/tags/git/"/>
     
       <category term="rss" scheme="https://www.teaper.dev/tags/rss/"/>
     
@@ -581,44 +609,6 @@
       <category term="Nginx" scheme="https://www.teaper.dev/tags/Nginx/"/>
     
       <category term="SSL" scheme="https://www.teaper.dev/tags/SSL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Maven+Spring+SpringMVC+MyBatis整合</title>
-    <link href="https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/"/>
-    <id>https://www.teaper.dev/2019/05/19/maven-spring-springmvc-mybatis/</id>
-    <published>2019-05-19T14:27:19.000Z</published>
-    <updated>2019-06-30T04:36:50.770Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="框架整合" scheme="https://www.teaper.dev/categories/%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/"/>
-    
-    
-      <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
-    
-      <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
-    
-      <category term="Tomcat" scheme="https://www.teaper.dev/tags/Tomcat/"/>
-    
-      <category term="Spring" scheme="https://www.teaper.dev/tags/Spring/"/>
-    
-      <category term="SpringMVC" scheme="https://www.teaper.dev/tags/SpringMVC/"/>
-    
-      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
-    
-      <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
     
   </entry>
   

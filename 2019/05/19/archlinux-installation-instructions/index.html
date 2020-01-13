@@ -9,7 +9,7 @@
   <title>
     ArchLinux搭建Java开发环境 | TEAPER
   </title>
-  <meta name="description" content="与人为善是修养，独来独往是性格！">
+  <meta name="description" content="保持知识之美，思想永远年轻！">
   
   <meta name="keywords" content="
   Arch Linux,java
@@ -726,20 +726,9 @@ Encoder选择带 <code>NVENC</code> 的N卡驱动<br>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv XMindCrack.jar /usr/share/xmind/XMind/</span><br></pre></td></tr></table></figure>
 <p>打开XMind, 点击帮助——序列号，然后输入以下序列号，邮箱随便填，可以填自己的</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XAka34A2rVRYJ4XBIU35UZMUEEF64CMMIYZCK2FZZUQNODEKUHGJLFMSLIQMQUCUBX</span><br><span class="line">RENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2</span><br><span class="line">AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO</span><br><span class="line">3CSQFNB7VVIY123456789012345</span><br></pre></td></tr></table></figure>
-<h4 id="安装Visual-Paradigm社区版"><a class="header-anchor" href="#安装Visual-Paradigm社区版"></a>安装Visual Paradigm社区版</h4>
+<h4 id="安装-drawio-客户端"><a class="header-anchor" href="#安装-drawio-客户端"></a>安装 drawio 客户端</h4>
 <p>代替Windows下的Visio，我一般拿来画<a href="http://www.umlchina.com/Tools/Newindex1.htm" rel="external nofollow noopener noreferrer" target="_blank">UML</a>图，开发人员常用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S visual-paradigm-community</span><br></pre></td></tr></table></figure>
-<p>如果无法安装，可以进<a href="https://aur.archlinux.org/packages/visual-paradigm-community/" rel="external nofollow noopener noreferrer" target="_blank">ArchLinux Wiki</a>查看它的相关问题，发现它已经修改了新地址<a href="https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz" rel="external nofollow noopener noreferrer" target="_blank">https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz</a>，点击链接下载<code>tar.gz</code>压缩包<br>
-下载成功解压到本地，出现一个<code>Visual_Paradigm_CE_16.0</code>文件夹，将它移动到<code>/opt</code>目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mv Visual_Paradigm_CE_16.0 /opt        <span class="comment">#移动到/opt</span></span><br><span class="line"><span class="built_in">cd</span> /opt/Visual_Paradigm_CE_16.0     <span class="comment">#进入文件夹</span></span><br><span class="line">./Visual_Paradigm   <span class="comment">#运行启动脚本</span></span><br></pre></td></tr></table></figure>
-<p>不出意外是启动了(出意外是Java问题)，会提示激活，激活码会发送到你邮箱，没收到请看垃圾箱</p>
-<p>打开界面之后发现它的语言是英语，修改语言在Window -&gt; Application Options -&gt; Appearance -&gt; User language -&gt; Simplified Chinese，然后Apply，OK即可，重启软件后可以看到效果<br>
-由于我们是手动移动文件方式安装的，所以没有快捷方式，需要手动创建一个</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit visual_paradigm.desktop  <span class="comment">#创建快捷方式，内容如下</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=Visual Paradigm Community</span><br><span class="line">GenericName=UML design application</span><br><span class="line">Comment=Launch Visual Paradigm Community</span><br><span class="line">Icon=/opt/Visual_Paradigm_CE_16.0/Application/resources/vpuml.ico   <span class="comment">#图标</span></span><br><span class="line">Exec=/opt/Visual_Paradigm_CE_16.0/Visual_Paradigm   <span class="comment">#启动脚本</span></span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Categories=Office;</span><br></pre></td></tr></table></figure>
-<p>附加权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x visual_paradigm.desktop  <span class="comment">#添加运行权限</span></span><br><span class="line">sudo cp visual_paradigm.desktop /usr/share/applications/  <span class="comment">#复制到快捷方式文件夹</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://ww1.sinaimg.cn/large/006kWbIoly1g3dnjcohuhj31hc0u0qaa.jpg" alt></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S drawio-desktop-bin</span><br></pre></td></tr></table></figure>
 <h4 id="安装eclipse"><a class="header-anchor" href="#安装eclipse"></a>安装eclipse</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S  eclipse-jee     <span class="comment">#安装社区版</span></span><br></pre></td></tr></table></figure>
 <p><strong>配置代码提示</strong></p>

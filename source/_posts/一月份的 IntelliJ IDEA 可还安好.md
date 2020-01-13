@@ -8,7 +8,7 @@ date: 2020-01-10 23:18:49
 我之前也使用过验证码激活，但是，由于我是 `Arch Linux` 系统，经常滚动升级，每次新版本的  `IntelliJ IDEA` 出来，激活码就要失效  
 比如我现在用的是最新版本的  `IntelliJ IDEA` ，支持 `java 13` 的那个  
 
-![](https://raw.githubusercontent.com/teaper/picgoimgs/master/20200110232546.png)
+![20200110232546.png](http://ww1.sinaimg.cn/large/006kWbIogy1gauzy61ywsj30hq0b5adc.jpg)
 
 怎么样？还可以吧！使用[山东理工大学](https://www.sdut.edu.cn/)校园邮箱申请的，想要吗？联系我就行  
 > QQ：2066786347  
@@ -18,13 +18,13 @@ date: 2020-01-10 23:18:49
 
 不想加好友也可以，直接对照下面的菜单，**微信转账**给我即可，记得在转账中**备注好你的邮箱和买的商品名字**即可，我会通过邮箱发货给你  
 
-|                  商品名称                  |   邮箱类型   | 库存  | 单价 |       转账备注       |
-| ----------------------------------------- | ----------- | --- | --- | ------------------- |
-| 电子科技大学**无限别名**邮箱                 | Coremail邮箱 | 19   | 40元 | 电大无限别名+收货邮箱 |
-| [山东理工大学](http://stumail.sdut.edu.cn/) | Coremail邮箱 | 43   | 15元 | 山东理工+收货邮箱     |
-| 商丘学院                                   | 网易企业邮箱  | 62   | 20元 | 商丘学院+收货邮箱     |
-| 北京工商                                   | 网易企业邮箱 | 46   | 25   | 北京工商+收货邮箱     |
-| 北京矿业大学                               | Coremail邮箱 | 102  | 25   | 北京矿业+收货地址     |
+|                        商品名称                        |                              邮箱类型                              | 库存  | 单价 |       转账备注       |
+| ------------------------------------------------------ | ----------------------------------------------------------------- | --- | --- | ------------------- |
+| [电子科技大学](https://www.uestc.edu.cn/)**无限别名**邮箱 | [Coremail邮箱](http://mail.std.uestc.edu.cn/coremail/xphone/)       | 19   | 40元 | 电大无限别名+收货邮箱 |
+| [山东理工大学](https://www.sdut.edu.cn/)                 | [Coremail邮箱](http://stumail.sdut.edu.cn/)                        | 43   | 15元 | 山东理工+收货邮箱     |
+| [商丘学院](http://mail.stu.sqxy.edu.cn/)                | [网易企业邮箱](http://mail.stu.sqxy.edu.cn/)                         | 62   | 20元 | 商丘学院+收货邮箱     |
+| [北京工商大学](http://www.btbu.edu.cn/)                  | [网易企业邮箱](https://qiye.163.com/login/)                         | 46   | 25元 | 北京工商+收货邮箱     |
+| [北京矿业大学](https://www.cumtb.edu.cn/)                | [Coremail邮箱](https://student.cumtb.edu.cn/webmail/login/login.do) | 102  | 25元 | 北京矿业+收货地址     |
 
 <details>
 <summary style="color:#ff0000;">扫描二维码【微信支付】</summary>
@@ -58,6 +58,7 @@ date: 2020-01-10 23:18:49
 ![Screenshot from 2020-01-10 21-45-24.png](http://ww1.sinaimg.cn/large/007nSr9Agy1garxh7my6hj31gt0l2wha.jpg)  
 
 最后打开  `IntelliJ IDEA` ，点击 `Help` 菜单的 `Register...`，输入你的账号密码即可
+
 
 
 

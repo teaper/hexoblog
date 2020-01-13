@@ -1330,42 +1330,11 @@ AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO
 3CSQFNB7VVIY123456789012345
 ```
   
-#### 安装Visual Paradigm社区版  
-代替Windows下的Visio，我一般拿来画[UML](http://www.umlchina.com/Tools/Newindex1.htm)图，开发人员常用  
+#### 安装 drawio 客户端
+代替Windows下的Visio，我一般拿来画[UML](http://www.umlchina.com/Tools/Newindex1.htm)图，开发人员常用
 ```bash
-yay -S visual-paradigm-community
+sudo pacman -S drawio-desktop-bin
 ```
-如果无法安装，可以进[ArchLinux Wiki](https://aur.archlinux.org/packages/visual-paradigm-community/)查看它的相关问题，发现它已经修改了新地址[https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz](https://www.visual-paradigm.com/downloads/vpce/Visual_Paradigm_CE_Linux64_InstallFree.tar.gz)，点击链接下载`tar.gz`压缩包  
-下载成功解压到本地，出现一个`Visual_Paradigm_CE_16.0`文件夹，将它移动到`/opt`目录
-```bash
-sudo mv Visual_Paradigm_CE_16.0 /opt        #移动到/opt
-cd /opt/Visual_Paradigm_CE_16.0     #进入文件夹
-./Visual_Paradigm   #运行启动脚本
-```
-不出意外是启动了(出意外是Java问题)，会提示激活，激活码会发送到你邮箱，没收到请看垃圾箱  
-
-打开界面之后发现它的语言是英语，修改语言在Window -> Application Options -> Appearance -> User language -> Simplified Chinese，然后Apply，OK即可，重启软件后可以看到效果  
-由于我们是手动移动文件方式安装的，所以没有快捷方式，需要手动创建一个  
-```bash
-sudo gedit visual_paradigm.desktop  #创建快捷方式，内容如下
-```
-```bash
-[Desktop Entry]
-Type=Application
-Name=Visual Paradigm Community
-GenericName=UML design application
-Comment=Launch Visual Paradigm Community
-Icon=/opt/Visual_Paradigm_CE_16.0/Application/resources/vpuml.ico   #图标
-Exec=/opt/Visual_Paradigm_CE_16.0/Visual_Paradigm   #启动脚本
-Terminal=false
-Categories=Office;
-```
-附加权限  
-```bash
-sudo chmod a+x visual_paradigm.desktop  #添加运行权限
-sudo cp visual_paradigm.desktop /usr/share/applications/  #复制到快捷方式文件夹
-```
-![](http://ww1.sinaimg.cn/large/006kWbIoly1g3dnjcohuhj31hc0u0qaa.jpg)
   
 #### 安装eclipse  
 ```bash

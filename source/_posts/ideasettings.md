@@ -188,7 +188,5 @@ URI：http://mybatis.org/dtd/mybatis-3-mapper.dtd
 这个插件是用来规范我们的代码格式的，格式不符合规范会出现中文提示，在 File -> Settings -> Plugins 窗口中直接搜 `Alibaba Java Coding Guidelines`，点击 install 安装即可  
 <span style="color:#ff0000">注意：如果无法搜索到插件，建议在 Plugins 窗口右上角齿轮图标上配置 HTTP Proxy ,至于如何翻墙，请参照我另一篇博客[学习利器V2ray了解一下](https://www.teaper.dev/2019/06/02/v2ray/)</span>  
 
-
-  
-![](https://raw.githubusercontent.com/teaper/picgoimgs/master/Screenshot%20from%202020-01-07%2010-15-47.png)
+![Screenshot from 2020-01-07 10-15-47.png](http://ww1.sinaimg.cn/large/006kWbIogy1gav05j21u6j31hc0u0jxe.jpg)
 

@@ -1103,6 +1103,8 @@ sudo pacman -S deepin.com.qq.im  #QQ
 ```bash
 yay -S deepin-wine-wechat  #一路回车
 ```
+如果 `yay` 下载安装失败，可以手动[下载](https://github.com/countstarlight/deepin-wine-wechat-arch/releases)安装包，使用 `pacman -U` 命令安装
+
 #### 安装微信小程序开发工具
 ```bash
 sudo pacman -S wechat-devtools      #需要wine
@@ -1123,6 +1125,12 @@ yay -S telegram-desktop-bin
 ```bash
 sudo pacman -S wget
 sudo pacman -S axel  
+```
+
+#### 安装 Motrix  
+这个主要是拿来代替迅雷下载，对大部分网盘来说都贼快，也可以挂代理下载国外的资源  
+```bash
+sudo pacman -S motrix-git
 ```
   
 #### BaiduPCS  

@@ -59,7 +59,7 @@ V2Ray v4.18.2 is installed.     #V2Ray版本
 记录下日志中提示的 **PORT**  和  **UUID** 的值，安装成功之后会在`/etc/v2ray`
 下生成一个服务器端模板文件`config.json`文件，使用vim打开它，具体关注我注释的几个参数  
 <details>
-<summary>服务器端config.json文件</summary>
+<summary>服务器端的 config.json 文件</summary>
 
 ```bash
 {
@@ -227,6 +227,246 @@ gsettings set org.gnome.system.proxy mode 'auto'
 gsettings set org.gnome.system.proxy.socks host '127.0.0.1'
 gsettings set org.gnome.system.proxy.socks port 1088
 ```
+
+<details>
+<summary style="color:#ff0000">其他搭建方式：一键脚本方式搭建</summary>
+
+服务器使用 `bash <(curl -L -s https://install.direct/go.sh)` 的搭建方式是官方最简洁，最基础的搭建方法，如果 `vmess` 协议被识别的话，很快就会被墙掉，而且会出现非常严重的**断流**现象！目前最安全的方式是使用 `Vmess` 协议加 `WebSocket` 和 `TLS` ，通过 `Nginx` 转发，最后伪装成一个网站 `Website`，最后配上证书去支持 `https` 的安全访问！
+
+首先准备一个域名（例如：teaper.dev）,解析一个二级域名到主机上  
+
+| 类型 | 名称 | 主机 | TTL(秒) |
+| ---- | ---- | ---- | ------- |
+| A | v2 | 139.180.166.23 | 3600 |
+
+然后使用 `ssh root@139.180.166.23` 登录到主机上，然后运行 `wulabing` 大佬的[一键安装脚本](https://github.com/wulabing/V2Ray_ws-tls_bash_onekey)
+```bash
+wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh" && chmod +x install.sh && bash install.sh
+```
+他会下载一个 `install.sh` 到本地，并且提示输入数字选择功能  
+```bash
+当前已安装版本:None
+
+—————————————— 安装向导 ——————————————
+0.  升级 脚本
+1.  安装 V2Ray (Nginx+ws+tls)
+2.  安装 V2Ray (http/2)
+3.  升级 V2Ray core
+—————————————— 配置变更 ——————————————
+4.  变更 UUID
+5.  变更 alterid
+6.  变更 port
+7.  变更 TLS 版本(仅ws+tls有效)
+—————————————— 查看信息 ——————————————
+8.  查看 实时访问日志
+9.  查看 实时错误日志
+10. 查看 V2Ray 配置信息
+—————————————— 其他选项 ——————————————
+11. 安装 4合1 bbr 锐速安装脚本
+12. 证书 有效期更新
+13. 卸载 V2Ray
+14. 退出 
+
+请输入数字：
+```
+我们首先输入 `11` 安装一个 `bbr` 加速  
+```bash
+TCP加速 一键安装管理脚本 [v1.3.2]
+  -- 就是爱生活 | 94ish.me --
+  
+ 0. 升级脚本
+————————————内核管理————————————
+ 1. 安装 BBR/BBR魔改版内核
+ 2. 安装 BBRplus版内核 
+ 3. 安装 Lotserver(锐速)内核
+————————————加速管理————————————
+ 4. 使用BBR加速
+ 5. 使用BBR魔改版加速
+ 6. 使用暴力BBR魔改版加速(不支持部分系统)
+ 7. 使用BBRplus版加速
+ 8. 使用Lotserver(锐速)加速
+————————————杂项管理————————————
+ 9. 卸载全部加速
+ 10. 系统配置优化
+ 11. 退出脚本
+————————————————————————————————
+
+ 当前状态: 未安装 加速内核 , 未启动
+
+ 请输入数字 [0-11]:
+```
+这里我们输入 `2` 安装 `BBRplus` 版内核，然后他会下载内核并且安装，安装过程中会弹出一个是否删除原有内核的面板，记得一定按方向键选择**No**  
+安装成功之后会提示重启，选择 `yes`  
+重启之后重新使用 `ssh` 登录面板，运行 `./install.sh` 命令，输入 `11` 进入上面的选项，你会发现提示内核已经安装，但是没有启动，这时候再输入 `7` 使用 `BBRplus` 版加速，运行成功会退出脚本，就此内核安装和加速已经完成  
+
+之后再次运行 `./install.sh` 选择 `1` 安装 V2Ray (Nginx+ws+tls)  
+首先会提示同步时间，因为时间对于 v2ray 特别重要  
+* 请输入连接端口（default:443）:**443**
+* 请输入alterID（default:2 仅允许填数字）:**32**
+* 请输入你的域名信息(eg:www.wulabing.com):**[v2.teaper.dev](https://v2.teaper.dev/)**
+* 请选择支持的 TLS 版本（default:1）:**1**
+
+安装成功时候会生成一个二维码和 `v2ray` 的配置信息  
+```bash
+地址（address）: v2.teaper.dev 
+端口（port）： 443 
+用户id（UUID）： c3abf69a-a1e5-4f4b-8e53-6916b3ebc27b
+额外id（alterId）： 32
+加密方式（security）： 自适应 
+传输协议（network）： ws 
+伪装类型（type）： none 
+路径（不要落下/）： /3095b9df/ 
+底层传输安全： tls 
+URL导入链接:vmess://ewogICJ2IjogIjIiLAogICJwcyI6ICJ3dWxhYmluZ192Mi50ZWFwZXIuZGV2IiwKICAiYWRkIjogInYyLnRlYXBlci5kZXYiLAogICJwb3J0IjogIjQ0MyIsCiAgImlkIjogImMzYWJmNjlhLWExZTUtNGYzYi04ZTUzLTy6MTZiM2ViYzI3YiIsCiAgImFpZCI6ICIzMiIsCiAgIm5ldCI6ICJ3cyIsCiAgInR5cGUiOiAibm9uZSIsCiAgImhvc3QiOiAidjIudGVhcGVyLmRldiIsCiAgInBhdGgiOiAiLzMwOTViOWRmLyIsCiAgInRscyI6ICJ0bHMiCn0K
+```
+由于我们服务器那边使用了 `TLS` 及 `WebSocket` ，所以客户端 `config.json` 的配置就不能使用原版 `V2ray` 的方式去配置  
+这里我们可以参照[vTemplate](https://github.com/KiriKira/vTemplate)中的对应技术的一键脚本配置方式[config_client.json](https://github.com/KiriKira/vTemplate/blob/master/websocket%2BNginx%2BTLS/config_client.json)文件，根据服务器生成的信息将本地电脑的 `config.json` 修改一下
+```bash
+{
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {},
+    "tag": "direct"
+  },
+  "inboundDetour": [
+    {
+      "port": 1088,     #本地电脑端口（建议1080，我是因为1080给了 SSR）
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "timeout": 300,
+        "udp": true
+      }
+    }
+  ],
+  "outboundDetour": [
+    {
+      "mux": {
+        "concurrency": 6,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "users": [
+              {
+                "id": "c3abf69a-a1e5-4f4b-8e53-6916b3ebc27b",   #UUID（修改）
+                "level": 0,
+                "alterId": 32,  #alterID（修改）
+                "security": "aes-128-cfb"
+              }
+            ],
+            "address": "v2.teaper.dev",     #域名地址（修改）
+            "port": 443     #端口
+          }
+        ]
+      },
+      "streamSettings": {
+        "tlsSettings": {
+          "allowInsecure": false
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "v2.teaper.dev"     #域名地址（修改）
+          },
+          "path": "/3095b9df/"      #静态资源路径（修改）
+        },
+        "network": "ws",
+        "security": "tls"
+      },
+      "tag": "proxy"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "block"
+    }
+  ],
+  "dns": {
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4"
+    ]
+  },
+  "inbound": {
+    "port": 1087,
+    "listen": "127.0.0.1",
+    "protocol": "http",
+    "settings": {
+      "timeout": 300
+    }
+  },
+  "policy": {
+    "levels": {
+      "0": {
+        "uplinkOnly": 0,
+        "downlinkOnly": 0,
+        "connIdle": 150,
+        "handshake": 4
+      }
+    }
+  },
+  "routing": {
+    "settings": {
+      "rules": [
+        {
+          "type": "field",
+          "domain": [
+            "geosite:cn"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "google",
+            "facebook",
+            "youtube",
+            "twitter",
+            "instagram",
+            "gmail",
+            "domain:twimg.com",
+            "domain:t.co"
+          ],
+          "outboundTag": "proxy"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "8.8.8.8/32",
+            "8.8.4.4/32",
+            "91.108.56.0/22",
+            "91.108.4.0/22",
+            "109.239.140.0/24",
+            "149.154.164.0/22",
+            "91.108.56.0/23",
+            "67.198.55.0/24",
+            "149.154.168.0/22",
+            "149.154.172.0/22"
+          ],
+          "outboundTag": "proxy"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "192.168.0.0/16",
+            "10.0.0.0/8",
+            "172.16.0.0/12",
+            "127.0.0.0/8",
+            "geoip:cn"
+          ],
+          "outboundTag": "direct"
+        }
+      ],
+      "domainStrategy": "IPIfNonMatch"
+    },
+    "strategy": "rules"
+  }
+}
+```
+</details>
   
 ![](https://i.loli.net/2019/06/02/5cf3ad11830e456416.png)  
   

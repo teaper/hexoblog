@@ -236,7 +236,7 @@ gsettings set org.gnome.system.proxy.socks port 1088
 首先准备一个域名（例如：teaper.dev）,解析一个二级域名到主机上  
 
 | 类型 | 名称 | 主机 | TTL(秒) |
-| ---- | ---- | ---- | ------- |
+| --- | ---- | ---- | ----- |
 | A | v2 | 139.180.166.23 | 3600 |
 
 然后使用 `ssh root@139.180.166.23` 登录到主机上，然后运行 `wulabing` 大佬的[一键安装脚本](https://github.com/wulabing/V2Ray_ws-tls_bash_onekey)

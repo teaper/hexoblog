@@ -375,8 +375,8 @@ xf86-video-304xx #——Geforce6/7
 ```bash
 pacman -S xorg #安装xorg
 pacman -S xf86-input-synaptics #安装触摸板驱动
-pacman -S ttf-dejavu wqy-microhei   #安装文泉驿米黑字体
 pacman -S ttf-dejavu wqy-zenhei wqy-microhei    #安装常用字体
+pacman -S ttf-jetbrains-mono    #安装 JetBrain 开源编程字体
 ```
   
 ####  安装Gnome桌面  
@@ -530,7 +530,9 @@ gedit id_rsa.pub       #打开公钥并复制id_rsa.pub文件中的内容
 ```
 进入你自己的[github](https://github.com) 
 进入`Settings` -> `SSH and GPG keys` -> `New SSH key`  
-新建一个key，名字随便，把复制的内容粘贴上去  
+新建一个 key，名字随便，把复制的内容粘贴上去  
+
+将 `/etc/ssh/sshd_config` 文件中的 `#UseDNS no` 修改为 `UseDNS no` 可以加速 SSH 登录服务器的时间，免去 UseDNS 对客户端的主机名的反向查询
   
 配置一些git命令别名  
 ```bash
@@ -659,6 +661,7 @@ sudo pacman -S google-chrome #直接安装chrome
 ```bash
 sudo pacman -S flashplugin   #flash插件
 ```
+
   
 #### 火狐浏览器  
 ```bash
@@ -929,7 +932,7 @@ sudo pacman -U electron-ssr-0.2.4.pacman #安装本地包
 ```bash
 sudo cp electron-ssr.desktop ~/.config/autostart    #将快捷方式复制到自启程序目录
 ```
-最后，分享一个免费获取小飞机节点的网站[SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号](https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr)<span style="color:#ff0000;">(打开网站需要全局代理)</span>，还有两个不错的机场 [Blinkload](https://dashboard.blinkload.org/)、[STC-Server](https://stc-server.com/)  
+最后，分享一个免费获取小飞机节点的网站[SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号](https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr)<span style="color:#ff0000;">(打开网站需要全局代理)</span>，还有几个不错的机场 [Blinkload](https://dashboard.blinkload.org/)、[STC-Server](https://stc-server.com/)、[摘星](https://user.zxcloud.club/)、[几鸡](https://ji-br.pw/)  
   
 <details>
 <summary style="color:#ff0000">添加一些国外 DNS 提升速度</summary>
@@ -1260,12 +1263,18 @@ sudo systemctl enable --now teamviewerd
   
 #### 安装WPS  
 ```bash
-yay -S wps-office
+yay -S wps-office   #wps 国际版（无广告 推荐）
+yay -S wps-office-cn   #wps 国内版
 ```
 安装wps缺失字体  
 ```bash
 sudo pacman -S ttf-wps-fonts
 ```
+打开后点击右上角的 `A` 图标选择界面语言，如果没有中文语言包可以使用以下命令安装中文语言包  
+```bash
+sudo pacman -S wps-office-mui-zh-cn
+```
+语言包会自动安装在 `/usr/lib/office6/mui` 文件夹中
   
 #### 安装jdk  
 ```bash
@@ -1315,6 +1324,11 @@ jdk-11.0.5_linux-x64_bin.tar.gz
 makepkg -sric
 ```
 </details>
+<details>
+<summary style="color:#ff0000">安装好的 jdk11 & jdk12 无法使用 java & javac 命令 </summary>
+
+由于 `jdk` 这几个版本都没有 `jre` 了，所以安装之后可能会出现一些目录文件不一致，比如缺少 `javac` 运行文件等等，这时候建议将下载的 `jdk-11.0.5_linux-x64_bin.tar.gz` 解压到本地，将解压出的文件夹内容和安装目录 `/usr/lib/jvm/java-11-jdk` 文件夹进行比对，将缺省的文件从解压包复制进去，`html` 之类的无用文件可以不需要，其他版本 `jdk` 操作同理
+</details>
   
 #### 安装xmind  
 ```bash
@@ -1326,7 +1340,7 @@ sudo gedit /usr/share/xmind/XMind/XMind.ini
 #最后一行--add-modules=java.se.ee修改为
 -javaagent:/usr/share/xmind/XMind/XMindCrack.jar
 ```
-保存修改，下载破解jar包[XMindCrack.jar](https://stormxing.oss-cn-beijing.aliyuncs.com/files/XMindCrack.jar)；将其移动到XMind.ini同级目录  
+保存修改，下载破解jar包[XMindCrack.jar](https://ftp.teaper.dev/%E6%9E%B6%E5%8C%85/XMindCrack.jar)；将其移动到XMind.ini同级目录  
 ```bash
 sudo mv XMindCrack.jar /usr/share/xmind/XMind/
 ```
@@ -1337,6 +1351,15 @@ RENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2
 AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO
 3CSQFNB7VVIY123456789012345
 ```
+<details>
+<summary style="color:#ff0000">问题：发生了错误。请参阅日志文件 /home/teaper/.xmind/configuration/1581846620405.log</summary>
+
+这种情况可能是权限问题，你可以使用 `sudo XMind` 在终端启动，如果启动成功，建议编辑 `/usr/share/applications/xmind.desktop` 快捷方式  
+```bash
+Exec=vmware-gksu XMind %F #这里使用 gksu 或 vmware-gksu 启动
+```
+如果你没有安装 `gksu` 或 `vmware-gksu` 中的有一个，建议使用 `pacman` 安装一下，就是每次打开都要输入一次密码，不嫌麻烦的话暂时可以采用这种方法
+</details>
   
 #### 安装 drawio 客户端
 代替Windows下的Visio，我一般拿来画[UML](http://www.umlchina.com/Tools/Newindex1.htm)图，开发人员常用
@@ -1626,7 +1649,7 @@ docker run -h "mysqlhost" --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123 -
 > -p 3306:3306：端口映射  
 > -e MYSQL_ROOT_PASSWORD=123：设置root密码为123  
 > -d mysql:8.0：指定镜像  
-> --restart=always：docker服务启动时，自动启动容器，并且当容器停止时，尝试重启容器<span style="color:#ff0000;">(可选)</span>  
+> --restart=always：docker服务启动时，自动启动容器，并且当[容器停止](https://docs.docker.com/engine/reference/commandline/update/)时，尝试重启容器<span style="color:#ff0000;">(可选)</span>  
 > -v /usr:/var/lib/mysql：初始化数据到`/var/lib/mysql`目录<span style="color:#ff0000;">(可选)</span>  
 > --character-set-server=utf8mb4：设置mysql默认编码为utf8mb4 <span style="color:#ff0000;">(mysql8.0默认编码就是utf8mb4，所以无需设置)</span>  
 > --collation-server=utf8mb4_unicode_ci：设置mysql排序编码为utf8mb4_unicode_ci<span style="color:#ff0000;">(可选)</span>  

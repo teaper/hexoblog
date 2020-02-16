@@ -12,7 +12,7 @@
   <meta name="description" content="保持知识之美，思想永远年轻！">
   
   <meta name="keywords" content="
-  Arch Linux,java
+  java,Arch Linux
   ">
   
   <meta name="author" content="teaper">
@@ -543,7 +543,7 @@ Nerd 字体在<a href="https://www.nerdfonts.com/font-downloads" rel="external n
 </details>
 <p>将<code>electron-ssr</code>添加到<strong>开机自启</strong>，这样就不用每次开机都要手动启动它</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp electron-ssr.desktop ~/.config/autostart    <span class="comment">#将快捷方式复制到自启程序目录</span></span><br></pre></td></tr></table></figure>
-<p>最后，分享一个免费获取小飞机节点的网站<a href="https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr" rel="external nofollow noopener noreferrer" target="_blank">SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号</a><span style="color:#ff0000;">(打开网站需要全局代理)</span>，还有两个不错的机场 <a href="https://dashboard.blinkload.org/" rel="external nofollow noopener noreferrer" target="_blank">Blinkload</a>、<a href="https://stc-server.com/" rel="external nofollow noopener noreferrer" target="_blank">STC-Server</a></p>
+<p>最后，分享一个免费获取小飞机节点的网站<a href="https://m.ssrtool.com/tool/recV3?uri=/m/free_ssr" rel="external nofollow noopener noreferrer" target="_blank">SSCAP/SSTAP 小工具/SSR/SS/V2Ray/Vmess/Socks5免费账号</a><span style="color:#ff0000;">(打开网站需要全局代理)</span>，还有几个不错的机场 <a href="https://dashboard.blinkload.org/" rel="external nofollow noopener noreferrer" target="_blank">Blinkload</a>、<a href="https://stc-server.com/" rel="external nofollow noopener noreferrer" target="_blank">STC-Server</a>、<a href="https://user.zxcloud.club/" rel="external nofollow noopener noreferrer" target="_blank">摘星</a>、<a href="https://ji-br.pw/" rel="external nofollow noopener noreferrer" target="_blank">几鸡</a></p>
 <details>
 <summary style="color:#ff0000">添加一些国外 DNS 提升速度</summary>
 <p>编辑 <code>/etc/resolv.conf</code> 文件，<strong>追加</strong>以下 <code>DNS</code> 即可，效果立竿见影</p>
@@ -726,14 +726,24 @@ Encoder选择带 <code>NVENC</code> 的N卡驱动<br>
 <p>保存修改之后在该目录中进行构建和安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">makepkg -sric</span><br></pre></td></tr></table></figure>
 </details>
+<details>
+<summary style="color:#ff0000">安装好的 jdk11 & jdk12 无法使用 java & javac 命令 </summary>
+<p>由于 <code>jdk</code> 这几个版本都没有 <code>jre</code> 了，所以安装之后可能会出现一些目录文件不一致，比如缺少 <code>javac</code> 运行文件等等，这时候建议将下载的 <code>jdk-11.0.5_linux-x64_bin.tar.gz</code> 解压到本地，将解压出的文件夹内容和安装目录 <code>/usr/lib/jvm/java-11-jdk</code> 文件夹进行比对，将缺省的文件从解压包复制进去，<code>html</code> 之类的无用文件可以不需要，其他版本 <code>jdk</code> 操作同理</p>
+</details>
 <h4 id="安装xmind"><a class="header-anchor" href="#安装xmind"></a>安装xmind</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S xmind        <span class="comment">#一路回车</span></span><br></pre></td></tr></table></figure>
 <p>如果出现打不开，并且弹出一个错误弹窗，则编辑<code>XMind.ini</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /usr/share/xmind/XMind/XMind.ini</span><br><span class="line"><span class="comment">#最后一行--add-modules=java.se.ee修改为</span></span><br><span class="line">-javaagent:/usr/share/xmind/XMind/XMindCrack.jar</span><br></pre></td></tr></table></figure>
-<p>保存修改，下载破解jar包<a href="https://stormxing.oss-cn-beijing.aliyuncs.com/files/XMindCrack.jar" rel="external nofollow noopener noreferrer" target="_blank">XMindCrack.jar</a>；将其移动到XMind.ini同级目录</p>
+<p>保存修改，下载破解jar包<a href="https://ftp.teaper.dev/%E6%9E%B6%E5%8C%85/XMindCrack.jar" rel="external nofollow noopener noreferrer" target="_blank">XMindCrack.jar</a>；将其移动到XMind.ini同级目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv XMindCrack.jar /usr/share/xmind/XMind/</span><br></pre></td></tr></table></figure>
 <p>打开XMind, 点击帮助——序列号，然后输入以下序列号，邮箱随便填，可以填自己的</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XAka34A2rVRYJ4XBIU35UZMUEEF64CMMIYZCK2FZZUQNODEKUHGJLFMSLIQMQUCUBX</span><br><span class="line">RENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2</span><br><span class="line">AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO</span><br><span class="line">3CSQFNB7VVIY123456789012345</span><br></pre></td></tr></table></figure>
+<details>
+<summary style="color:#ff0000">问题：发生了错误。请参阅日志文件 /home/teaper/.xmind/configuration/1581846620405.log</summary>
+<p>这种情况可能是权限问题，你可以使用 <code>sudo XMind</code> 在终端启动，如果启动成功，建议编辑 <code>/usr/share/applications/xmind.desktop</code> 快捷方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=vmware-gksu XMind %F <span class="comment">#这里使用 gksu 或 vmware-gksu 启动</span></span><br></pre></td></tr></table></figure>
+<p>如果你没有安装 <code>gksu</code> 或 <code>vmware-gksu</code> 中的有一个，建议使用 <code>pacman</code> 安装一下，就是每次打开都要输入一次密码，不嫌麻烦的话暂时可以采用这种方法</p>
+</details>
 <h4 id="安装-drawio-客户端"><a class="header-anchor" href="#安装-drawio-客户端"></a>安装 drawio 客户端</h4>
 <p>代替Windows下的Visio，我一般拿来画<a href="http://www.umlchina.com/Tools/Newindex1.htm" rel="external nofollow noopener noreferrer" target="_blank">UML</a>图，开发人员常用</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S drawio-desktop-bin</span><br></pre></td></tr></table></figure>

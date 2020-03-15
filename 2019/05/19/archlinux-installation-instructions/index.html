@@ -12,7 +12,7 @@
   <meta name="description" content="保持知识之美，思想永远年轻！">
   
   <meta name="keywords" content="
-  java,Arch Linux
+  Arch Linux,java
   ">
   
   <meta name="author" content="teaper">
@@ -169,7 +169,16 @@ Windows：参考<a href="https://jingyan.baidu.com/article/1876c852b7f88f890a137
 <p>首先去163的镜像源下载镜像文件<a href="http://mirrors.163.com/archlinux/iso" rel="external nofollow noopener noreferrer" target="_blank">archlinux-2019.01.01-x86_64.iso       </a><br>
 <strong>Windows制作方式:</strong> 推荐使用<a href="https://sourceforge.net/projects/usbwriter/" rel="external nofollow noopener noreferrer" target="_blank">usbwriter</a>这款轻量级的工具<br>
 <strong>Linux制作方式:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l   <span class="comment">#查看U盘设备(例如：/dev/sdb)</span></span><br><span class="line">sudo dd <span class="keyword">if</span>=archlinux-2019.01.01-x86_64.iso of=/dev/sdb bs=1440k oflag=sync    <span class="comment">#使用dd命令制作启动盘</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l   <span class="comment">#查看U盘设备(例如：/dev/sdb)</span></span><br><span class="line">sudo dd <span class="keyword">if</span>=archlinux-2019.01.01-x86_64.iso of=/dev/sdb bs=1440k oflag=sync    <span class="comment">#使用dd命令制作启动盘</span></span><br></pre></td></tr></table></figure>
+<details>
+<summary style="color:#ff0000">已经是 ArchLinux 启动盘重新格式化</summary>
+<p>使用 <code>lsblk</code> 命令查看分区情况，其中的 <code>sdb</code> 和 <code>sdb1</code> 是 U 盘启动和它的分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda           8:0    0 465.8G  0 disk </span><br><span class="line">└─sda1        8:1    0 465.8G  0 part /home</span><br><span class="line">sdb           8:16   1  14.6G  0 disk </span><br><span class="line">├─sdb1        8:17   1   651M  0 part /run/media/teaper/ARCH_202003</span><br><span class="line">└─sdb2        8:18   1    64M  0 part </span><br><span class="line">nvme0n1     259:0    0 119.2G  0 disk </span><br><span class="line">├─nvme0n1p1 259:1    0   100G  0 part /</span><br><span class="line">├─nvme0n1p2 259:2    0   9.2G  0 part /boot/EFI</span><br><span class="line">└─nvme0n1p3 259:3    0    10G  0 part [SWAP]</span><br></pre></td></tr></table></figure>
+<p>取消分区挂载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /dev/sdb1</span><br></pre></td></tr></table></figure>
+<p>格式化 U 盘</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.vfat /dev/sdb</span><br></pre></td></tr></table></figure>
+</details>
 <h4 id="修改BIOS引导"><a class="header-anchor" href="#修改BIOS引导"></a>修改BIOS引导</h4>
 <p>参考百度经验——<a href="https://zhinan.sogou.com/guide/detail/?id=316512718960" rel="external nofollow noopener noreferrer" target="_blank">联想小新笔记本设置U盘启动教程</a><br>
 在BIOS Setup中的Security选项卡中把Secure Boot设置为Disable<br>
@@ -499,7 +508,7 @@ Nerd 字体在<a href="https://www.nerdfonts.com/font-downloads" rel="external n
 服务器大小选个便宜的$5/mo $0.007/h1 CPU 1024MB内存1000GB带宽<br>
 <span style="color:#ff0000;">注意:1000GB带宽表示流量,用完我们可以把原来主机销毁,重新换个主机,再搭建一遍,不用加钱</span><br>
 成功之后.会显示系统正在安装,安装成功,点击进入管理界面,里面有基本IP地址,用户名,密码之类的</p>
-<p>我们先<a href="http://ping.chinaz.com/" rel="external nofollow noopener noreferrer" target="_blank">ping</a>一下ip(例如：167.179.77.127)能不能通，再检测端口<a href="http://coolaf.com/tool/port" rel="external nofollow noopener noreferrer" target="_blank">国内</a>开放没有，<a href="https://www.yougetsignal.com/tools/open-ports/" rel="external nofollow noopener noreferrer" target="_blank">国外</a>开放没有</p>
+<p>我们先<a href="http://ping.chinaz.com/" rel="external nofollow noopener noreferrer" target="_blank">ping</a>一下ip(例如：167.179.77.127)能不能通，再检测端口<a href="https://www.vps234.com/ipchecker/" rel="external nofollow noopener noreferrer" target="_blank">国内/国外</a>开放没有</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ping 167.179.77.127 <span class="comment">#有连续的输出信息就说明可以通</span></span><br><span class="line">  </span><br><span class="line">PING 167.179.77.127 (167.179.77.127) 56(84) bytes of data.</span><br><span class="line">64 bytes from 167.179.77.127: icmp_seq=1 ttl=36 time=160 ms</span><br><span class="line">64 bytes from 167.179.77.127: icmp_seq=2 ttl=36 time=250 ms</span><br><span class="line">64 bytes from 167.179.77.127: icmp_seq=3 ttl=36 time=247 ms</span><br><span class="line">64 bytes from 167.179.77.127: icmp_seq=4 ttl=36 time=130 ms</span><br><span class="line">64 bytes from 167.179.77.127: icmp_seq=5 ttl=36 time=241 ms</span><br><span class="line">64 bytes from 167.179.77.127: icmp_seq=6 ttl=36 time=159 ms</span><br></pre></td></tr></table></figure>
 <p>如果不通就重新创建一个服务器<br>
 现在我们使用本机终端窗口远程ssh连接服务器</p>
@@ -528,7 +537,7 @@ Nerd 字体在<a href="https://www.nerdfonts.com/font-downloads" rel="external n
 <li>ArchLinux系Linux客户端<a href="https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/electron-ssr-0.2.6.pacman" rel="external nofollow noopener noreferrer" target="_blank">electron-ssr-0.2.4.pacman </a></li>
 <li>Debian系Linux客户端<a href="https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/electron-ssr-0.2.5.deb" rel="external nofollow noopener noreferrer" target="_blank">electron-ssr-0.2.5.deb</a></li>
 <li>安卓客户端<a href="https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/shadowsocksr.apk" rel="external nofollow noopener noreferrer" target="_blank">shadowsocksr.apk</a></li>
-<li>IOS 客户端<a href="https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/Shadowrocket-2.1.10.ipa" rel="external nofollow noopener noreferrer" target="_blank">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用<a href="https://shadowsocks-help.github.io/" rel="external nofollow noopener noreferrer" target="_blank">美区 App Store 账号</a>更新成最新版)</span></li>
+<li>IOS 客户端<a href="https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/Shadowrocket-2.1.10.ipa" rel="external nofollow noopener noreferrer" target="_blank">shadowrocket.ipa</a><span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用<a href="https://wohaobang.cn/" rel="external nofollow noopener noreferrer" target="_blank">美区 App Store 账号</a>更新成最新版)</span></li>
 <li>MAC 客户端<a href="https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksX-NG-R8.dmg</a></li>
 <li>Windows客户端<a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" rel="external nofollow noopener noreferrer" target="_blank">ShadowsocksR-win-4.9.2.zip</a></li>
 </ul>
@@ -554,10 +563,16 @@ Nerd 字体在<a href="https://www.nerdfonts.com/font-downloads" rel="external n
 <p>安装之后，会发现它无法输入中文</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qcef</span><br></pre></td></tr></table></figure>
 <details>
-<summary><span style="color:#ff0000">注意：2019-05-24 08:22 最新版 netease-cloud-music 1.2.1-1 无法输入中文，建议回退旧版本 netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span></summary>
+<summary style="color:#ff0000">注意：2019-05-24 08:22 最新版 netease-cloud-music 1.2.1-1 无法输入中文，建议回退旧版本 netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</summary>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axel -n 10 https://mirrors.nju.edu.cn/archlinuxcn/x86_64/netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span><br><span class="line">sudo pacman -U netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span><br></pre></td></tr></table></figure>
 <p>然后在 <code>/etc/pacman.conf</code> 中忽略它的更新</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IgnorePkg = netease-cloud-music</span><br></pre></td></tr></table></figure>
+</details>
+<details>
+<summary style="color:#ff0000">v2ray 代理导致有些歌曲无法播放</summary>
+<p>直接配置 <code>/etc/hosts</code> 文件即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">59.111.181.35 music.163.com </span><br><span class="line">115.236.118.33 interface.music.163.com</span><br></pre></td></tr></table></figure>
+<p>配置中的 IP 地址<code>59.111.181.35</code> 和 <code>115.236.118.33</code> 分别使用 <code>ping music.163.com</code> 和 <code>ping interface.music.163.com</code> 命令获取</p>
 </details>
 <h4 id="CocoMusic"><a class="header-anchor" href="#CocoMusic"></a>CocoMusic</h4>
 <p>开源的音乐播放器，通过各大音乐平台的接口获取音频，目前支持 <code>QQ</code> 登录，需要手动下载<a href="https://github.com/xtuJSer/CoCoMusic/releases" rel="external nofollow noopener noreferrer" target="_blank">cocomusic-<em>.</em>.*.pacman<br>
@@ -637,7 +652,11 @@ pulseaudio-alsa(可选)则使pulseaudio和alsa协同使用，之后就可以用a
 <p>BDUSS值获取方式戳<a href="https://github.com/iikira/BaiduPCS-Go/wiki/%E5%85%B3%E4%BA%8E-%E8%8E%B7%E5%8F%96%E7%99%BE%E5%BA%A6-BDUSS" rel="external nofollow noopener noreferrer" target="_blank">这里</a><br>
 登录成功之后就可以进行下载等操作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd  文件夹名        #切换目录</span><br><span class="line">config set -savedir /目录     #自定义下载目录</span><br><span class="line">d   [文件或目录1]  [文件或目录2]  #下载</span><br><span class="line">exit        #退出BaiduPCS-Go</span><br><span class="line"></span><br><span class="line">sudo ln -s /opt/BaiduPCS-Go-v3.6.1-linux-amd64/BaiduPCS-Go /usr/bin/baidu    #添加到终端命令,输入BaiduPCS即可打开</span><br></pre></td></tr></table></figure>
-<p><span style="color:#ff0000;">注意：如果下载提示服务器超时，下载失败，请充值百度网盘超级会员，最近的一个bug，同样下面的百度网盘客户端也不行，下载才几十 KB 每秒</span></p>
+<details>
+<summary style="color:#ff0000;">注意：如果下载提示服务器超时，下载失败，请充值百度网盘超级会员</summary>
+<p>然后使用参数 <code>-locate</code> 和 <code>--nocheck</code> 进行下载，参数示例如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d -locate --nocheck  fileName   <span class="comment">#fileName 文件或文件夹名字</span></span><br></pre></td></tr></table></figure>
+</details>
 <h4 id="百度网盘客户端"><a class="header-anchor" href="#百度网盘客户端"></a>百度网盘客户端</h4>
 <p>建议还是使用上面的<a href="#baidupcs">BaiduPCS</a>，感觉更快，毕竟多线程</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S baidunetdisk <span class="comment">#客户端版</span></span><br></pre></td></tr></table></figure>
@@ -1188,6 +1207,10 @@ Linux 下的 Navicat 运行是需要 <code>wine</code> 的，因为之前安装�
 直接下载<code>openzone-cursors-1.2.8.tar.xz</code>包，右击提取到当前目录会有一个<code>openzone-cursors-1.2.8</code>文件夹，解压<code>openzone-cursors-1.2.8/openzone-cursors</code>下的<code>OpenZone_*.tar.xz</code>文件，才是需要复制到icons目录的文件夹<br>
 例如：右击<code>OpenZone_Black.tar.xz</code>提取到此处会得到<code>OpenZone_Black</code>文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -r OpenZone_Black /usr/share/icons</span><br></pre></td></tr></table></figure>
+<h4 id="编辑器主题"><a class="header-anchor" href="#编辑器主题"></a>编辑器主题</h4>
+<p>系统默认是 <code>gedit</code> 编辑器打开文本文件，由于它自带的主题和 <code>VimixDark-Gtk-Theme</code> <a href="#%E7%AA%97%E5%8F%A3%E4%B8%BB%E9%A2%98">窗口主题</a> 有颜色上的冲突，所以这里选择手动添加<a href="https://github.com/mig/gedit-themes/tree/master" rel="external nofollow noopener noreferrer" target="_blank">主题</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/mig/gedit-themes.git   <span class="comment">#克隆主题文件</span></span><br><span class="line">sudo cp gedit-themes/* /usr/share/gtksourceview-4/styles <span class="comment">#放入指定文件夹</span></span><br></pre></td></tr></table></figure>
+<p>最后就可以在 gedit 的 Preferences 中选择想要的主题样式</p>
 <h4 id="安装gnome-shell-extensions"><a class="header-anchor" href="#安装gnome-shell-extensions"></a>安装gnome-shell-extensions</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S gnome-shell-extensions</span><br><span class="line">sudo pacman -S chrome-gnome-shell</span><br></pre></td></tr></table></figure>
 <p>然后在谷歌商店直接搜<code>Gnome Shell Integration</code>进行安装，需要更多美化插件，可以通过<a href="https://extensions.gnome.org" rel="external nofollow noopener noreferrer" target="_blank">Gnome Shell Integration</a>下载和安装<br>
@@ -1201,6 +1224,7 @@ Linux 下的 Navicat 运行是需要 <code>wine</code> 的，因为之前安装�
 <a href="https://extensions.gnome.org/extension/1251/blyr/" rel="external nofollow noopener noreferrer" target="_blank">Blyr</a>高斯模糊GNOME Shell UI元素<br>
 <a href="https://extensions.gnome.org/extension/1031/topicons/" rel="external nofollow noopener noreferrer" target="_blank">TopIcons Plus</a>类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)<br>
 <a href="https://extensions.gnome.org/extension/1357/notes" rel="external nofollow noopener noreferrer" target="_blank">Notes</a>GNOME Shell桌面的粘滞便笺(番茄工作法利器)<br>
+<a href="https://extensions.gnome.org/extension/1104/section-todo-list/" rel="external nofollow noopener noreferrer" target="_blank">Todo List</a>任务清单，安排一天的任务<br>
 <a href="https://extensions.gnome.org/extension/1937/window-corner-preview-332/" rel="external nofollow noopener noreferrer" target="_blank">Window Corner Preview</a>在工作时观看您喜欢的视频或电影（视频学习神器）<br>
 <a href="https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/" rel="external nofollow noopener noreferrer" target="_blank">Start Overlay in Application View</a> 按 <code>Super</code> 键时不显示窗口，而显示应用程序，窗口配合 <a href="https://extensions.gnome.org/extension/97/coverflow-alt-tab/" rel="external nofollow noopener noreferrer" target="_blank">Coverflow Alt-Tab</a> 插件使用快捷键进行切换<br>
 <a href="https://extensions.gnome.org/extension/593/text-translator/" rel="external nofollow noopener noreferrer" target="_blank">文字翻译器</a> 复制想要翻译的文本，按 <code>super+Alt+T</code> 会自动翻译剪贴板中的内容（汉译英乱码）<br>

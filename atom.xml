@@ -403,7 +403,7 @@
     <link href="https://www.teaper.dev/2019/05/31/hexogithub/"/>
     <id>https://www.teaper.dev/2019/05/31/hexogithub/</id>
     <published>2019-05-31T09:00:40.000Z</published>
-    <updated>2020-01-10T02:20:29.101Z</updated>
+    <updated>2020-02-17T13:18:31.892Z</updated>
     
     <summary type="html">
     
@@ -608,6 +608,8 @@
     
       <category term="java" scheme="https://www.teaper.dev/tags/java/"/>
     
+      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
+    
       <category term="Maven" scheme="https://www.teaper.dev/tags/Maven/"/>
     
       <category term="Tomcat" scheme="https://www.teaper.dev/tags/Tomcat/"/>
@@ -615,8 +617,6 @@
       <category term="Spring" scheme="https://www.teaper.dev/tags/Spring/"/>
     
       <category term="SpringMVC" scheme="https://www.teaper.dev/tags/SpringMVC/"/>
-    
-      <category term="MyBatis" scheme="https://www.teaper.dev/tags/MyBatis/"/>
     
       <category term="MySQL" scheme="https://www.teaper.dev/tags/MySQL/"/>
     

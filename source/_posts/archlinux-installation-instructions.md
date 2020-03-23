@@ -15,9 +15,35 @@ Windows：参考[如何删除磁盘分区](https://jingyan.baidu.com/article/187
 **Windows制作方式:** 推荐使用[usbwriter](https://sourceforge.net/projects/usbwriter/)这款轻量级的工具  
 **Linux制作方式:**  
 ```bash
-fdisk -l   #查看U盘设备(例如：/dev/sdb)
+sudo fdisk -l   #查看U盘设备(例如：/dev/sdb)
 sudo dd if=archlinux-2019.01.01-x86_64.iso of=/dev/sdb bs=1440k oflag=sync    #使用dd命令制作启动盘
 ```
+<details>
+<summary style="color:#ff0000">已经是 ArchLinux 启动盘重新格式化</summary>
+
+使用 `lsblk` 命令查看分区情况，其中的 `sdb` 和 `sdb1` 是 U 盘启动和它的分区
+```bash
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    0 465.8G  0 disk 
+└─sda1        8:1    0 465.8G  0 part /home
+sdb           8:16   1  14.6G  0 disk 
+├─sdb1        8:17   1   651M  0 part /run/media/teaper/ARCH_202003
+└─sdb2        8:18   1    64M  0 part 
+nvme0n1     259:0    0 119.2G  0 disk 
+├─nvme0n1p1 259:1    0   100G  0 part /
+├─nvme0n1p2 259:2    0   9.2G  0 part /boot/EFI
+└─nvme0n1p3 259:3    0    10G  0 part [SWAP]
+```
+取消分区挂载  
+```bash
+umount /dev/sdb1
+```
+格式化 U 盘
+```bash
+sudo mkfs.vfat /dev/sdb
+```
+</details>
+
 #### 修改BIOS引导  
 参考百度经验——[联想小新笔记本设置U盘启动教程](https://zhinan.sogou.com/guide/detail/?id=316512718960)  
 在BIOS Setup中的Security选项卡中把Secure Boot设置为Disable  
@@ -170,6 +196,7 @@ nvme0n1     259:0    0 119.2G  0 disk
 ```bash
 pacstrap /mnt base    ​#安装base组件包到/mnt
 pacstrap /mnt base-devel    ​#安装base-devel 开发组件包到/mnt
+pacstrap /mnt linux linux-firmware #系统包，以前在 base 包中，如果未安装开机会进入 grub 命令行
 ```
 
 #### 分区挂载情况写入到fstab中  
@@ -223,7 +250,8 @@ vim /etc/hosts  #编辑hosts文件
   
 **无线网络组件：**
 ```bash
-pacman -S iw wpa_supplicant dialog  #无线网络
+pacman -S iw wpa_supplicant dialog netctl dhcpcd  #无线网络
+systemctl disable dhcpcd.service    #禁用 dhcpcd
 ```
 后面重启系统后可以使用`wifi-menu`命令连网  
   
@@ -392,21 +420,14 @@ reboot #重启
   
 ### 【桌面美化篇】
 至此，Arch已经有图形界面了，不过有些丑，还需要配置一下  
-在设置->设备->键盘处配置快捷键   
-```
-名称                      命令                         快捷键
-终端            gnome-terminal          Super+R
-系统监视器  gnome-system-monitor    Ctrl+Alt+Backspace
-文件管理    nautilus                        Super+E
-Synapse     synapse                 Ctrl+空格
-```
-由于我们每次打开软件都要去开始菜单，所以我这里推荐一个好用的软件`synapse`，他可以直接搜索应用名称，启动`synapse`的快捷键为`Ctrl+空格`，使用下方命令安装<span style="color:#ff0000;">(需要配好[pacman的源](#更新源)才能安装)</span>  
-```bash
-sudo pacman -S synapse  
-```
-  
-打开系统监视器，右击进程`gnome-shell`选择 > `Change Priority` > `Very High`，将`gnome-shell`进程优先级设为最高<span style="color:#ff0000;">(可以解决桌面闪退到gdm的问题)</span>  
-  
+在设置 -> 设备 -> 键盘处配置快捷键   
+
+| 名称 | 命令 | 快捷键 |
+| ---- | ---- | ------ |
+| 终端 | gnome-terminal | Super+R |
+| 系统监视器 | gnome-system-monitor | Ctrl+Alt+Backspace |
+| 文件管理 | nautilus | Super+E |
+
 由于gnome3右键没有创建文件的快捷菜单，所以需要手动在`~/Templates`目录下创建模板文件，下次我们右击创建文件的时候，类似于从该文件夹下复制文件，所以你可以把一些编程模板也加进去  
 ```bash
 cd ~/Templates  #进入模板文件夹
@@ -415,6 +436,17 @@ gedit text #创建简单文本
 gedit markdown.md   #Markdown文件
 ```
 除了简单文本文档，最好在其他新建的脚本内加上一行头代码，例如:在 markdown.md 中加入 `# markdown`，js 文件中加入 `var a = 0`，Python 文件中加入 `import os`
+
+#### 屏幕截图
+使用[flameshot](https://github.com/lupoDharkael/flameshot#arch)进行截图，功能一点不比 QQ 截图差  
+```bash
+sudo pacman -S flameshot #安装
+```
+在设置 -> 设备 -> 键盘处配置快捷键
+
+| 名称 | 命令 | 快捷键 |
+| ---- | ---- | ------ |
+| flameshot | flameshot gui | Ctrl+Alt+A |
 
 #### 触摸板
 Arch Linux 默认触摸板是不能触摸双击的，非常鸡肋，首先检查是否安装了 `xf86-input-synaptics` 这个包（一般是安装好了）  
@@ -567,11 +599,7 @@ sudo pacman -S svn  #安装SVN
   
 #### 安装yay  
 ```bash
-cd /opt
-git clone https://aur.archlinux.org/yay.git
-cd yay
-sudo chmod a＋w /opt/yay
-makepkg -si
+sudo pacman -S yay
 ```
   
 #### 下载numix图标  
@@ -771,7 +799,7 @@ export XMODIFIERS="@im=fcitx"
 <span style="color:#ff0000;">注意:1000GB带宽表示流量,用完我们可以把原来主机销毁,重新换个主机,再搭建一遍,不用加钱</span>  
 成功之后.会显示系统正在安装,安装成功,点击进入管理界面,里面有基本IP地址,用户名,密码之类的  
   
-我们先[ping](http://ping.chinaz.com/)一下ip(例如：167.179.77.127)能不能通，再检测端口[国内](http://coolaf.com/tool/port)开放没有，[国外](https://www.yougetsignal.com/tools/open-ports/)开放没有  
+我们先[ping](http://ping.chinaz.com/)一下ip(例如：167.179.77.127)能不能通，再检测端口[国内/国外](https://www.vps234.com/ipchecker/)开放没有  
 ```bash
 ping 167.179.77.127 #有连续的输出信息就说明可以通
   
@@ -863,7 +891,7 @@ TCP加速 一键安装管理脚本 [v1.3.2]
 * ArchLinux系Linux客户端[electron-ssr-0.2.4.pacman ](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/electron-ssr-0.2.6.pacman)  
 * Debian系Linux客户端[electron-ssr-0.2.5.deb](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/electron-ssr-0.2.5.deb)  
 * 安卓客户端[shadowsocksr.apk](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/shadowsocksr.apk)  
-* IOS 客户端[shadowrocket.ipa](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/Shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://shadowsocks-help.github.io/)更新成最新版)</span>  
+* IOS 客户端[shadowrocket.ipa](https://ftp.teaper.dev/%E8%BD%AF%E4%BB%B6/ShadowsocksR/Shadowrocket-2.1.10.ipa)<span style="color:#ff0000;"> (借助PC版pp助手安装本地包方式安装到 iPhone 手机，使用[美区 App Store 账号](https://wohaobang.cn/)更新成最新版)</span>  
 * MAC 客户端[ShadowsocksX-NG-R8.dmg](https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases)  
 * Windows客户端[ShadowsocksR-win-4.9.2.zip](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)  
   
@@ -961,7 +989,7 @@ sudo pacman -S netease-cloud-music      #安装
 sudo pacman -S qcef
 ```
 <details>
-<summary><span style="color:#ff0000">注意：2019-05-24 08:22 最新版 netease-cloud-music 1.2.1-1 无法输入中文，建议回退旧版本 netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</span></summary>
+<summary style="color:#ff0000">注意：2019-05-24 08:22 最新版 netease-cloud-music 1.2.1-1 无法输入中文，建议回退旧版本 netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz</summary>
 
 ```bash
 axel -n 10 https://mirrors.nju.edu.cn/archlinuxcn/x86_64/netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz
@@ -971,6 +999,16 @@ sudo pacman -U netease-cloud-music-1.1.3.2-3-x86_64.pkg.tar.xz
 ```bash
 IgnorePkg = netease-cloud-music
 ```
+</details>
+<details>
+<summary style="color:#ff0000">v2ray 代理导致有些歌曲无法播放</summary>
+
+直接配置 `/etc/hosts` 文件即可
+```bash
+59.111.181.35 music.163.com 
+115.236.118.33 interface.music.163.com
+```
+配置中的 IP 地址`59.111.181.35` 和 `115.236.118.33` 分别使用 `ping music.163.com` 和 `ping interface.music.163.com` 命令获取
 </details>
   
 #### CocoMusic  
@@ -983,7 +1021,8 @@ sudo pacman -U cocomusic-2.0.6.pacman    #本地安装
 #### 蓝牙配置  
 之前我们只安装了网络工具，没有配蓝牙驱动，现在安装一下  
 ```bash
-sudo pacman -S bluez bluez-utils bluez-firmware pulseaudio-bluetooth pavucontrol pulseaudio-alsa #全装
+sudo pacman -S bluez bluez-utils pulseaudio-bluetooth pavucontrol pulseaudio-alsa #全装
+yay -S bluez-firmware
 
 yay -S pulseaudio-bluetooth-a2dp-gdm-fix    #从PulseAudio的gdm实例中卸载蓝牙模块。修复了蓝牙耳机的可用性a2dp配置文件(可选)
 ```
@@ -1005,7 +1044,7 @@ pulseaudio --start              # 启动pulseaudio服务
 ```
 将用户加入lp用户组  
 ```bash
-usermod -a -G lp $USER    
+sudo usermod -a -G lp $USER    
 ```
 默认情况下，蓝牙仅为 lp 用户组中的用户启用 bnep0 设备。如果想要加入蓝牙系统，需确认已将用户加入该组。可以修改/etc/dbus-1/system.d/bluetooth.conf文件中相应的组配置来实现  
 现在就可以使用系统中自带的蓝牙进行连接，连接之后  
@@ -1121,7 +1160,7 @@ yay -S dingtalk-electron
 #### 安装电报Telegram  
 [Telegram](https://telegram.org/)是一个高度安全无监控的软件，消息支持自毁  
 ```bash
-yay -S telegram-desktop-bin
+sudo pacman -S telegram-desktop
 ```
   
 #### 安装多线程下载工具
@@ -1157,7 +1196,15 @@ exit        #退出BaiduPCS-Go
 
 sudo ln -s /opt/BaiduPCS-Go-v3.6.1-linux-amd64/BaiduPCS-Go /usr/bin/baidu    #添加到终端命令,输入BaiduPCS即可打开
 ```
-<span style="color:#ff0000;">注意：如果下载提示服务器超时，下载失败，请充值百度网盘超级会员，最近的一个bug，同样下面的百度网盘客户端也不行，下载才几十 KB 每秒
+<details>
+<summary style="color:#ff0000;">注意：如果下载提示服务器超时，下载失败，请充值百度网盘超级会员</summary>
+
+然后使用参数 `-locate` 和 `--nocheck` 进行下载，参数示例如下
+```bash
+d -locate --nocheck  fileName   #fileName 文件或文件夹名字
+```
+</details>
+
   
 #### 百度网盘客户端  
 建议还是使用上面的[BaiduPCS](#baidupcs)，感觉更快，毕竟多线程  
@@ -1222,7 +1269,7 @@ Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland
 ```bash
 echo $XDG_SESSION_TYPE
 ```
-如果是 `wayland` 的话，那么我们的问题是一致的，编辑 `/etc/gdm/custom.conf` 文件，取消 `WaylandEnable=false` 的注释，将强制启动使用 `xorg` 作为窗口显示
+如果是 `wayland` 的话，那么我们的问题是一致的，编辑 `/etc/gdm/custom.conf` 文件，取消 `WaylandEnable=false` 的注释，将强制启动使用 `xorg` 作为窗口显示  
 </details>
   
 #### 哔哩哔哩弹幕库  
@@ -1351,15 +1398,6 @@ RENLK6NZL37JXP4PZXQFILMQ2RG5R7G4QNDO3PSOEUBOCDRYSSXZGRARV6MGA33TN2
 AMUBHEL4FXMWYTTJDEINJXUAV4BAYKBDCZQWVF3LWYXSDCXY546U3NBGOI3ZPAP2SO
 3CSQFNB7VVIY123456789012345
 ```
-<details>
-<summary style="color:#ff0000">问题：发生了错误。请参阅日志文件 /home/teaper/.xmind/configuration/1581846620405.log</summary>
-
-这种情况可能是权限问题，你可以使用 `sudo XMind` 在终端启动，如果启动成功，建议编辑 `/usr/share/applications/xmind.desktop` 快捷方式  
-```bash
-Exec=vmware-gksu XMind %F #这里使用 gksu 或 vmware-gksu 启动
-```
-如果你没有安装 `gksu` 或 `vmware-gksu` 中的有一个，建议使用 `pacman` 安装一下，就是每次打开都要输入一次密码，不嫌麻烦的话暂时可以采用这种方法
-</details>
   
 #### 安装 drawio 客户端
 代替Windows下的Visio，我一般拿来画[UML](http://www.umlchina.com/Tools/Newindex1.htm)图，开发人员常用
@@ -1379,7 +1417,7 @@ yay -S  eclipse-jee     #安装社区版
   
 **安装Spring插件**  
 > 需要先查看Eclipse的版本号：Help->About Eclipse  
-> 再去Spring[插件官网](http://spring.io/tools/sts/all)复制与Eclipse版本相对应的Update Sites 网址  
+> 再去Spring[插件官网](https://github.com/spring-projects/sts4/wiki/Previous-Versions)复制与Eclipse版本相对应的Update Sites 网址  
 > 在Eclipse的Help-->Install New Software..中Add的Work  with地址，名字随便，地址填写上面复制的Update Sites网址  
 > 勾选四个带/Spring IDE的复选框,finsh完成,静待安装完成,重启Eclipse  
   
@@ -2465,18 +2503,18 @@ yay -S goldendict   #默认社区版，一路回车即可
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g2bs3ca42rj30if0ds75h.jpg)  
 默认只有维基百科一个搜索，现在给它添加谷歌翻译，需要安装`translate-shell`  
 ```bash
-git clone git@github.com:soimort/translate-shell.git
+git clone https://github.com/soimort/translate-shell.git
 cd translate-shell/
 make
 sudo make install
 ```
 打开`GoldenDict`，在菜单编辑 -> 词典 -> 词典来源 -> 程序中，点击添加，勾上已启用，在类型中选`Plain` Text，在名称填写google，在命令中输入  
 ```bash
-trans -e google -s auto -t zh-CN -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation -phonetics n -show-prompt-message n -show-languages n -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"
+trans -e google -s auto -t zh-CN -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"
 ```
 最终效果如下图所示，命令中每个参数的具体含义可以在[translate-shell](https://github.com/soimort/translate-shell)的`README.md`中找到说明
 ![](http://ww1.sinaimg.cn/large/006kWbIoly1g2bs3s0r00j30qc0fg403.jpg)  
-最后，你可以在`Tweaks`中把它添加到自启程序  
+最后，你可以在`Tweaks`中把它添加到自启程序，顺便把查看菜单（Ctrl+M）中的不需要的控件全部关闭  
   
 #### 有道云笔记  
 使用npm打包的跨平台[有道云笔记](https://github.com/jamasBian/youdao-note-electron)，在Downloads目录打开终端  
@@ -2543,14 +2581,14 @@ yay -S jstock
 **主题一：** [La Capitaine](https://github.com/keeferrourke/la-capitaine-icon-theme)
 ```bash
 cd /usr/share/icons
-git clone https://github.com/keeferrourke/la-capitaine-icon-theme.git
+sudo git clone https://github.com/keeferrourke/la-capitaine-icon-theme.git
 ```
 在gnome-tweak-tool中的外观处选择图标  
   
 **主题二：** MacOS[图标](https://git.opendesktop.org/umayanga/Cupertino-macOS-iCons)
 ```bash
 cd /usr/share/icons
-git clone https://git.opendesktop.org/umayanga/Cupertino-macOS-iCons.git
+sudo git clone https://git.opendesktop.org/umayanga/Cupertino-macOS-iCons.git
 ```
   
 #### 指针主题  
@@ -2567,27 +2605,37 @@ sudo cp -r capitaine-cursors-r3 /usr/share/icons   #复制文件夹到icons目�
 ```bash
 sudo cp -r OpenZone_Black /usr/share/icons 
 ```
+
+#### 编辑器主题  
+系统默认是 `gedit` 编辑器打开文本文件，由于它自带的主题和 `VimixDark-Gtk-Theme` [窗口主题](#窗口主题) 有颜色上的冲突，所以这里选择手动添加[主题](https://github.com/mig/gedit-themes/tree/master)  
+```bash
+git clone https://github.com/mig/gedit-themes.git   #克隆主题文件
+sudo cp gedit-themes/* /usr/share/gtksourceview-4/styles #放入指定文件夹
+```
+最后就可以在 gedit 的 Preferences 中选择想要的主题样式
   
-####  安装gnome-shell-extensions
+#### 安装gnome-shell-extensions
 ```bash
 sudo pacman -S gnome-shell-extensions
 sudo pacman -S chrome-gnome-shell
 ```
 然后在谷歌商店直接搜`Gnome Shell Integration`进行安装，需要更多美化插件，可以通过[Gnome Shell Integration](https://extensions.gnome.org)下载和安装  
 <span style="color:#ff0000;">注意：谷歌商店和Gnome Shell Integration需要翻墙，如果下载慢可以用手机热点</span>  
+> [User Themes](https://extensions.gnome.org/extension/19/user-themes/)一个必须要开启的扩展，否则无法设置 gnome-shell 主题  
 > [Appfolders管理扩展](https://extensions.gnome.org/extension/1217/appfolders-manager/)开始菜单可以创建文件夹管理快捷方式<span style="color:#ff0000;">（gnome3.34已包含此功能）</span>  
 > [状态栏天气插件](https://extensions.gnome.org/extension/750/openweather/)配置[坐标](https://lbs.qq.com/tool/getpoint/index.html)  
 > [状态栏系统监测插件](https://extensions.gnome.org/extension/120/system-monitor/)  
 > [系统检测插件Vitals](https://extensions.gnome.org/extension/1460/vitals/)  
 > [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)轮播式切换窗口  
 > [Blyr](https://extensions.gnome.org/extension/1251/blyr/)高斯模糊GNOME Shell UI元素  
-> [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)   
+> [TopIcons Plus](https://extensions.gnome.org/extension/2311/topicons-plus/)类似于windows的系统托盘(Opacity：255；Icon Size：16；Spacing between icons：12；Tray horizontal alignment：Right)   
 > [Notes](https://extensions.gnome.org/extension/1357/notes)GNOME Shell桌面的粘滞便笺(番茄工作法利器)  
+> [Todo List](https://extensions.gnome.org/extension/1104/section-todo-list/)任务清单，安排一天的任务  
 > [Window Corner Preview](https://extensions.gnome.org/extension/1937/window-corner-preview-332/)在工作时观看您喜欢的视频或电影（视频学习神器）  
 > [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/) 按 `Super` 键时不显示窗口，而显示应用程序，窗口配合 [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/) 插件使用快捷键进行切换  
 > [文字翻译器](https://extensions.gnome.org/extension/593/text-translator/) 复制想要翻译的文本，按 `super+Alt+T` 会自动翻译剪贴板中的内容（汉译英乱码）  
 > [简短备忘录](https://extensions.gnome.org/extension/974/short-memo/) 可以写点正能量的标语  
-> [屏幕单词翻译](https://extensions.gnome.org/extension/1849/screen-word-translate/) 选中单词，点击图标立刻翻译（无法获取到终端中的单词）
+> [屏幕单词翻译](https://extensions.gnome.org/extension/1849/screen-word-translate/) 选中单词，点击图标立刻翻译（无法获取到终端中的单词）  
 > [Easy Docker Containers](https://extensions.gnome.org/extension/2224/easy-docker-containers/) Docker 容器列表，用于启动、停止、关闭本地容器  
   
 #### GRUB主题  

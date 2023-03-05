@@ -1,0 +1,41 @@
+var playlist = [
+{title:"Lovely Day",artist:"朴信惠",mp3:"https://music.163.com/song/media/outer/url?id=5404027.mp3",cover:"http://p2.music.126.net/n-NrkFcDtuPGv90yPC7dEg==/109951166186141024.jpg?param=130y130",},
+{title:"嗯哼嗯哼嗯哼",artist:"小缘",mp3:"https://music.163.com/song/media/outer/url?id=435948394.mp3",cover:"http://p2.music.126.net/WeDe4Wp53mAXGNZpX7yf5Q==/737772312469348.jpg?param=130y130",},
+{title:"起风了",artist:"买辣椒也用券",mp3:"https://music.163.com/song/media/outer/url?id=1330348068.mp3",cover:"http://p2.music.126.net/diGAyEmpymX8G7JcnElncQ==/109951163699673355.jpg?param=130y130",},
+{title:"心如止水",artist:"Ice Paper",mp3:"https://music.163.com/song/media/outer/url?id=1349292048.mp3",cover:"http://p1.music.126.net/uBl7mRulAXxdRkq1deOJmQ==/109951167894793259.jpg?param=130y130",},
+{title:"临安初雨",artist:"小旭音乐",mp3:"https://music.163.com/song/media/outer/url?id=407450416.mp3",cover:"http://p1.music.126.net/0xEoUVnXmKSgZspj_WcnjA==/109951162820072423.jpg?param=130y130",},
+{title:"一百万个可能",artist:"Christine Welch",mp3:"https://music.163.com/song/media/outer/url?id=29722582.mp3",cover:"http://p2.music.126.net/0sII2q20ugVpTHpxYmRLQw==/109951165762755001.jpg?param=130y130",},
+{title:"神谕法则",artist:"AI 洛天依",mp3:"https://music.163.com/song/media/outer/url?id=2019915611.mp3",cover:"http://p2.music.126.net/FUYPU3ISldevkLseoYZLsg==/109951168237768369.jpg?param=130y130",},
+{title:"轮回之境",artist:"CRITTY",mp3:"https://music.163.com/song/media/outer/url?id=32957014.mp3",cover:"http://p1.music.126.net/iwZ6w7D5C8WXgnjcohHb0Q==/7799935488436943.jpg?param=130y130",},
+{title:"404 not found",artist:"REOL",mp3:"https://music.163.com/song/media/outer/url?id=436016480.mp3",cover:"http://p2.music.126.net/cu1sEIDxXOJm5huZ3Wjs0Q==/18833534672880379.jpg?param=130y130",},
+{title:"Because of You",artist:"Kelly Clarkson",mp3:"https://music.163.com/song/media/outer/url?id=16232697.mp3",cover:"http://p2.music.126.net/6ncAgKQrTDgnzizg5z7pFg==/109951165991785146.jpg?param=130y130",},
+{title:"China-X",artist:"徐梦圆",mp3:"https://music.163.com/song/media/outer/url?id=515502834.mp3",cover:"http://p1.music.126.net/8xh0edsqq_1CkbrHcetd8g==/109951163050744977.jpg?param=130y130",},
+{title:"Cry On My Shoulder",artist:"Superstar",mp3:"https://music.163.com/song/media/outer/url?id=17194024.mp3",cover:"http://p2.music.126.net/_1SSamf87l4mo77TZiWCWQ==/576144092962639.jpg?param=130y130",},
+{title:"Love home",artist:"夏小舟",mp3:"https://music.163.com/song/media/outer/url?id=404459321.mp3",cover:"http://p2.music.126.net/5ZMjd1A-EgGgqlGAKvlc5g==/109951163869607992.jpg?param=130y130",},
+{title:"Lydia",artist:"F.I.R.",mp3:"https://music.163.com/song/media/outer/url?id=354588.mp3",cover:"http://p2.music.126.net/JOEEbWGRxTrUu-WbYYz_lQ==/109951167320242838.jpg?param=130y130",},
+{title:"Mermaid girl",artist:"森永真由美",mp3:"https://music.163.com/song/media/outer/url?id=22640571.mp3",cover:"http://p1.music.126.net/D7ItR-BdedAIVRPyIV1iFA==/109951165776834479.jpg?param=130y130",},
+{title:"My Love",artist:"Westlife",mp3:"https://music.163.com/song/media/outer/url?id=2080607.mp3",cover:"http://p2.music.126.net/pangogeN1lK9eBggeCqkVQ==/109951165970660288.jpg?param=130y130",},
+{title:"PLANET",artist:"ラムジ",mp3:"https://music.163.com/song/media/outer/url?id=812400.mp3",cover:"http://p1.music.126.net/cCyPSxi-BE2h-SmpLBztbA==/18635622580993683.jpg?param=130y130",},
+{title:"Sakura",artist:"いきものがかり",mp3:"https://music.163.com/song/media/outer/url?id=719102.mp3",cover:"http://p2.music.126.net/yOACXdo8hiICDR2cMw2mQw==/109951166200081668.jpg?param=130y130",},
+{title:"~君がくれたもの~",artist:"茅野愛衣、戸松遥",mp3:"https://music.163.com/song/media/outer/url?id=22817150.mp3",cover:"http://p2.music.126.net/qMg2-kgxvYwMRvABdQJ91Q==/109951166198069948.jpg?param=130y130",},
+{title:"Take Me Hand",artist:"Cécile Corbel",mp3:"https://music.163.com/song/media/outer/url?id=1500439504.mp3",cover:"http://p2.music.126.net/dh-TCIqnN7L5ic_98Dr3XA==/109951164922631577.jpg?param=130y130",},
+{title:"参商",artist:"不才",mp3:"https://music.163.com/song/media/outer/url?id=28288202.mp3",cover:"http://p2.music.126.net/Tv5d-cYtsRAv7wpuuVJRMA==/109951162835788623.jpg?param=130y130",},
+{title:"抽离",artist:"徐良、刘丹萌",mp3:"https://music.163.com/song/media/outer/url?id=27890395.mp3",cover:"http://p1.music.126.net/lja2DhxHX2MyXaRzNoGnww==/109951165832749213.jpg?param=130y130",},
+{title:"女儿情",artist:"鞠婧祎",mp3:"https://music.163.com/song/media/outer/url?id=32807263.mp3",cover:"http://p1.music.126.net/1FIjZIFVbdtsjQ91114Eog==/109951168299069007.jpg?param=130y130",},
+{title:"诀别诗",artist:"胡彦斌",mp3:"https://music.163.com/song/media/outer/url?id=4874264.mp3",cover:"http://p1.music.126.net/npzhsfVJFsNz6IJo3a7-Fg==/45079976754696.jpg?param=130y130",},
+{title:"七秀坊",artist:"月之门",mp3:"https://music.163.com/song/media/outer/url?id=394020.mp3",cover:"http://p2.music.126.net/lZNr0LeayGJYuo5L8RrULw==/115448720932694.jpg?param=130y130",},
+{title:"City",artist:"羽肿",mp3:"https://music.163.com/song/media/outer/url?id=451319227.mp3",cover:"http://p1.music.126.net/XQlI-cyn4ip07RGt1Fqqcw==/109951162837149540.jpg?param=130y130",},
+{title:"爱丫爱丫",artist:"By2",mp3:"https://music.163.com/song/media/outer/url?id=406737348.mp3",cover:"http://p1.music.126.net/yO4zHhl-nO_-V8odeeljXw==/1397479281885153.jpg?param=130y130",},
+{title:"風の住む街",artist:"磯村由紀子",mp3:"https://music.163.com/song/media/outer/url?id=586299.mp3",cover:"http://p2.music.126.net/ap7KvRE0-V4kfThDVVor9A==/18777459579736085.jpg?param=130y130",},
+{title:"该怎么",artist:"楼一萱",mp3:"https://music.163.com/song/media/outer/url?id=1324880502.mp3",cover:"http://p2.music.126.net/ZD1NjJE3seuNCtS6Lh2x8g==/109951163669181622.jpg?param=130y130",},
+{title:"仙剑问情",artist:"萧人凤",mp3:"https://music.163.com/song/media/outer/url?id=1416747959.mp3",cover:"http://p1.music.126.net/gZlHY7Cc2MaD7UVhgv7rYw==/109951164626902666.jpg?param=130y130",},
+{title:"桃源恋歌",artist:"GARNiDELiA",mp3:"https://music.163.com/song/media/outer/url?id=547969272.mp3",cover:"http://p2.music.126.net/WXUolCRVGrD2Yazxd5Rf4w==/109951165052398400.jpg?param=130y130",},
+{title:"幹物女",artist:"封茗囧菌",mp3:"https://music.163.com/song/media/outer/url?id=35345243.mp3",cover:"http://p2.music.126.net/J-5AzeDm8mOHmUXLWMy0OQ==/109951162822930517.jpg?param=130y130",},
+{title:"放你走",artist:"钟棋煜",mp3:"https://music.163.com/song/media/outer/url?id=1477827635.mp3",cover:"http://p2.music.126.net/m0pfvPO5GT_Udr0UgeoTXw==/109951165305094626.jpg?param=130y130",},
+{title:"空心",artist:"光泽",mp3:"https://music.163.com/song/media/outer/url?id=435288399.mp3",cover:"http://p1.music.126.net/D64eug6ElwN0IjdTY7EDFQ==/3443670431612942.jpg?param=130y130",},
+/*{title:"",artist:"",mp3:".mp3",cover:".jpg?param=106x106",},*/
+/*音乐外链获取：https://music.163.com */
+/*https://music.163.com/song/media/outer/url?id=xxx.mp3 */
+];
+var isRotate = true;
+var autoplay = false;

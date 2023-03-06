@@ -3,20 +3,23 @@ figure.highlight {
   padding: 16px;
   font-size: 16px;
   line-height: 1.45;
-  background-color: $grey-lighter;
+  background-color: #24292e;
   border-radius: 3px;
   word-wrap: normal;
 }
-figure.highlight pre {
+figure.highlight::-webkit-scrollbar {
+  display: none;
+}
+figure.highlight::-webkit-scrollbar pre {
   margin: 0;
   font-size: 85%;
 }
-figure.highlight .line {
+figure.highlight::-webkit-scrollbar .line {
   height: 20px;
   font-szie: 100%;
   word-break: normal;
 }
-figure.highlight .gutter {
+figure.highlight::-webkit-scrollbar .gutter {
   display: none;
 }
 pre {
@@ -41,7 +44,7 @@ pre {
   display: block;
   background: #fff;
   padding: 0.5em;
-  color: #333;
+  color: #dee1e6;
   overflow-x: auto;
 }
 .highlight .comment,
@@ -72,7 +75,7 @@ pre {
   color: #63a35c;
 }
 .highlight .tag {
-  color: #333;
+  color: #fff0ae;
 }
 .highlight .title,
 .highlight .attr,
@@ -92,4 +95,7 @@ pre {
 }
 .highlight .link {
   text-decoration: underline;
+}
+.highlight .gutter {
+  color: #2f4f4f;
 }

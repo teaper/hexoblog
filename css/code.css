@@ -3,7 +3,7 @@ figure.highlight {
   padding: 16px;
   font-size: 16px;
   line-height: 1.45;
-  background-color: #24292e;
+  background-color: $grey-lighter;
   border-radius: 3px;
   word-wrap: normal;
 }
@@ -31,7 +31,7 @@ pre {
   font-variant-numeric: normal;
   font-weight: normal;
   font-stretch: normal;
-  font-size: 12px;
+  font-size: 13px;
   line-height: normal;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
@@ -44,7 +44,7 @@ pre {
   display: block;
   background: #fff;
   padding: 0.5em;
-  color: #dee1e6;
+  color: #333;
   overflow-x: auto;
 }
 .highlight .comment,
@@ -75,7 +75,7 @@ pre {
   color: #63a35c;
 }
 .highlight .tag {
-  color: #fff0ae;
+  color: #333;
 }
 .highlight .title,
 .highlight .attr,
@@ -97,5 +97,5 @@ pre {
   text-decoration: underline;
 }
 .highlight .gutter {
-  color: #2f4f4f;
+  display: none;
 }

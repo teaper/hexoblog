@@ -2,23 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.teaper.dev/vocechat/index.html</loc>
-    
-    <lastmod>2023-03-05T16:32:42.061Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.teaper.dev/2019/05/19/archlinux-installation-instructions/</loc>
     
     <lastmod>2023-03-04T10:29:59.391Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.teaper.dev/2019/06/01/picgoimgs/</loc>
-    
-    <lastmod>2023-03-04T07:50:03.186Z</lastmod>
     
   </url>
   
@@ -30,14 +16,14 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/11/09/slack-Slackipy/</loc>
+    <loc>https://www.teaper.dev/2019/05/19/singleton-model/</loc>
     
     <lastmod>2023-03-04T07:50:03.186Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/19/singleton-model/</loc>
+    <loc>https://www.teaper.dev/2019/11/09/slack-Slackipy/</loc>
     
     <lastmod>2023-03-04T07:50:03.186Z</lastmod>
     
@@ -79,6 +65,13 @@
   </url>
   
   <url>
+    <loc>https://www.teaper.dev/2019/06/01/picgoimgs/</loc>
+    
+    <lastmod>2023-03-04T07:50:03.186Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.teaper.dev/2019/06/30/mybatis/</loc>
     
     <lastmod>2023-03-04T07:50:03.186Z</lastmod>
@@ -107,13 +100,6 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/07/09/bilibilizhibo/</loc>
-    
-    <lastmod>2023-03-04T07:50:03.183Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.teaper.dev/2019/06/24/baidunetdiskarchlinux/</loc>
     
     <lastmod>2023-03-04T07:50:03.183Z</lastmod>
@@ -121,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
+    <loc>https://www.teaper.dev/2019/07/09/bilibilizhibo/</loc>
     
     <lastmod>2023-03-04T07:50:03.183Z</lastmod>
     
@@ -135,7 +121,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/31/hexogithub/</loc>
+    <loc>https://www.teaper.dev/2019/05/24/buildermodel/</loc>
     
     <lastmod>2023-03-04T07:50:03.183Z</lastmod>
     
@@ -149,7 +135,7 @@
   </url>
   
   <url>
-    <loc>https://www.teaper.dev/2019/05/26/markdown-format/</loc>
+    <loc>https://www.teaper.dev/2019/05/31/hexogithub/</loc>
     
     <lastmod>2023-03-04T07:50:03.183Z</lastmod>
     
@@ -157,6 +143,13 @@
   
   <url>
     <loc>https://www.teaper.dev/2019/08/18/ideasettings/</loc>
+    
+    <lastmod>2023-03-04T07:50:03.183Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.teaper.dev/2019/05/26/markdown-format/</loc>
     
     <lastmod>2023-03-04T07:50:03.183Z</lastmod>
     

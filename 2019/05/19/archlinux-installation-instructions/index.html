@@ -1107,8 +1107,8 @@ Linux 下的 Navicat 运行是需要 <code>wine</code> 的，因为之前安装�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GV7N2-DQZ00-4897Y-27ZNX-NV0TD</span><br></pre></td></tr></table></figure>
 <p>如果虚拟机中的镜像系统无法联网，并且打开<code>虚拟网络编辑器</code>出现<code>network configuration is missing. ensure that /etc/vmware/networking exists</code>的 <code>error </code>弹框<br>
 则选择<code>start</code>或<code>enable</code>以下三个服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start vmware-networks.service     <span class="comment">#网络服务</span></span><br><span class="line">sudo systemctl start vmware-usbarbitrator.service       </span><br><span class="line">sudo systemctl start vmware-hostd.service     </span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> vmware-networks.service </span><br><span class="line">sudo systemctl <span class="built_in">enable</span> vmware-usbarbitrator.service  </span><br><span class="line">sudo systemctl <span class="built_in">enable</span> vmware-hostd.service</span><br></pre></td></tr></table></figure>
-<p>启动完服务记得重新加载VMware模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start vmware-networks.service     <span class="comment">#在虚拟机内部进行网络访问</span></span><br><span class="line">sudo systemctl start vmware-usbarbitrator.service    <span class="comment">#连接虚拟机内部 USB 设备</span></span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> vmware-networks.service </span><br><span class="line">sudo systemctl <span class="built_in">enable</span> vmware-usbarbitrator.service</span><br></pre></td></tr></table></figure>
+<p>在使用 VMware 之前，您需要重新启动或加载 vmw_vmci 和 vmmon 内核模块</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -a vmw_vmci vmmon</span><br></pre></td></tr></table></figure>
 <p>最后安装虚拟机的一些依赖包，使虚拟机和本机可以复制粘贴，并且窗口自适应</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S open-vm-tools <span class="comment">#vm 粘贴工具</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> vmtoolsd.service  <span class="comment">#启动 vmtoolsd 服务</span></span><br><span class="line">sudo pacman -S xf86-video-vmware xf86-input-vmmouse libdnet uriparser libsigc++ libmspack <span class="comment">#窗口自适应依赖包</span></span><br></pre></td></tr></table></figure>
@@ -1457,7 +1457,7 @@ function bgChange(){
 	
 	$(".avatar").hover(function(){
 		$(".avatar").attr({
-		"src" : "https://s1.ax1x.com/2023/03/07/ppeJ9IK.jpg"
+		"src" : "https://img.yaaibk.com/file/104fa8fbbf43744402b52.jpg"
 		});
 	},function(){
 		$(".avatar").attr({

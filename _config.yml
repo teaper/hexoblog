@@ -4,7 +4,7 @@
 
 # Site
 title: TEAPER
-description: 保持知识之美，思想永远年轻！
+description: 书痴者文必工 艺痴者技必良
 author: teaper
 language: zh-CN
 timezone: Asia/Shanghai
@@ -124,8 +124,8 @@ disqus: teaperdev
 
 location: 广州
 qq: 2066786347
-qqgroup: 787979167
-wechat: fvh2014
+qqgroup: "@teaper:matrix.org"
+wechat: teaper-dev
 email: www@teaper.dev
 
 filesLink: https://ftp.teaper.dev
@@ -137,7 +137,7 @@ social:
   stackoverflow: https://stackoverflow.com/story/teaper
   instagram: https://www.instagram.com/teapers/
   weibo: https://www.weibo.com/5806191772
-  twitter: https://twitter.com/TEAPERS
+  twitter: https://mastodon.social/@teaper
   facebook: https://www.facebook.com/teapers
   steam: http://steamcommunity.com/id/teaper
   twitch: https://www.twitch.tv/teapers
@@ -146,7 +146,7 @@ social:
   docker: https://hub.docker.com/u/teaper
   npm: https://www.npmjs.com/settings/teaper/packages
   csdn: https://blog.csdn.net/qq_27170897
-  telegram: https://t.me/teapers
+  telegram: https://t.me/hasayyo
   slack: https://nut-edu.herokuapp.com
   coding: https://coding.net/u/TEAPER
 
